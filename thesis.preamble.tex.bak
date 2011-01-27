@@ -1,0 +1,164 @@
+
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{latexsym}
+\usepackage{mathchars}
+\usepackage{setspace}
+
+\input{blocked.sty}
+\input{uhead.sty}
+\input{boxit.sty}
+\input{icthesis.sty}
+
+\newcommand{\ipc}{{\sf ipc}}
+
+\newcommand{\Prob}{\bbbp} % from jb's preamble, Probability, uses mathchars
+\newcommand{\Real}{\bbbr}
+\newcommand{\real}{\Real}
+\newcommand{\Int}{\bbbz}
+\newcommand{\Nat}{\bbbn}
+
+\newcommand{\NN}{{\sf I\kern-0.14emN}}   % Natural numbers
+\newcommand{\ZZ}{{\sf Z\kern-0.45emZ}}   % Integers
+\newcommand{\QQQ}{{\sf C\kern-0.48emQ}}   % Rational numbers
+\newcommand{\RR}{{\sf I\kern-0.14emR}}   % Real numbers
+\newcommand{\KK}{{\cal K}}
+\newcommand{\OO}{{\cal O}}
+\newcommand{\AAA}{{\bf A}}
+\newcommand{\HH}{{\bf H}}
+\newcommand{\II}{{\bf I}}
+\newcommand{\LL}{{\bf L}}
+\newcommand{\PP}{{\bf P}}
+\newcommand{\PPprime}{{\bf P'}}
+\newcommand{\QQ}{{\bf Q}}
+\newcommand{\UU}{{\bf U}}
+\newcommand{\UUprime}{{\bf U'}}
+\newcommand{\zzero}{{\bf 0}}
+\newcommand{\ppi}{\mbox{\boldmath $\pi$}}
+\newcommand{\aalph}{\mbox{\boldmath $\alpha$}}
+\newcommand{\bb}{{\bf b}}
+\newcommand{\ee}{{\bf e}}
+\newcommand{\mmu}{\mbox{\boldmath $\mu$}}
+\newcommand{\vv}{{\bf v}}
+\newcommand{\xx}{{\bf x}}
+\newcommand{\yy}{{\bf y}}
+\newcommand{\zz}{{\bf z}}
+\newcommand{\oomeg}{\mbox{\boldmath $\omega$}}
+\newcommand{\res}{{\bf res}}
+\newcommand{\cchi}{{\mbox{\raisebox{.4ex}{$\chi$}}}}
+%\newcommand{\cchi}{{\cal X}}
+%\newcommand{\cchi}{\mbox{\Large $\chi$}}
+
+% for CSL/eCSL:
+\newcommand{\vb}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\boolif}{\cmd{iff}}
+\newcommand{\pset}{\vb{\rho}}
+\newcommand{\tset}{\vb{\tau}}
+\newcommand{\Pss}{{\cal P}}
+\newcommand{\Sts}{{\cal S}}
+\newcommand{\Trs}{{\cal T}}
+\newcommand{\Sat}{\op{Sat}}
+\newcommand{\st}{\;.\;}
+\newcommand{\cmd}[1]{\mbox{ \sf #1 }}
+\newcommand{\fn}[1]{\mathit{#1}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\cross}{\times}
+\newcommand{\power}{\mathcal{P}}
+\newcommand{\connect}[1]{\stackrel{#1}{\ra}}
+
+
+% Logical operators and symbols
+\newcommand{\imply}{\Rightarrow}
+\newcommand{\bimply}{\Leftrightarrow}
+\newcommand{\union}{\cup}
+\newcommand{\intersect}{\cap}
+\newcommand{\boolor}{\vee}
+\newcommand{\booland}{\wedge}
+\newcommand{\boolimply}{\imply}
+\newcommand{\boolbimply}{\bimply}
+\newcommand{\boolnot}{\neg}
+\newcommand{\boolsat}{\!\models}
+\newcommand{\boolnsat}{\!\not\models}
+
+
+\newcommand{\op}[1]{\mathrm{#1}}
+\newcommand{\s}[1]{\ensuremath{\mathcal #1}}
+
+% Properly styled differentiation and integration operators
+\newcommand{\diff}[1]{\mathrm{\frac{d}{d\mathit{#1}}}}
+\newcommand{\diffII}[1]{\mathrm{\frac{d^2}{d\mathit{#1}^2}}}
+\newcommand{\intg}[4]{\int_{#3}^{#4} #1 \, \mathrm{d}#2}
+\newcommand{\intgd}[4]{\int\!\!\!\!\int_{#4} #1 \, \mathrm{d}#2 \, \mathrm{d}#3}
+
+% Large () brackets on different lines of an eqnarray environment
+\newcommand{\Leftbrace}[1]{\left(\raisebox{0mm}[#1][#1]{}\right.}
+\newcommand{\Rightbrace}[1]{\left.\raisebox{0mm}[#1][#1]{}\right)}
+
+% PEPA operators
+\newcommand{\pepabow}{\mbox{\large $\rhd\!\!\!\lhd$}}
+\newcommand{\cooperate}[1]{\raisebox{-1.0ex}{$\;\stackrel{\pepabow}{\scriptscriptstyle #1}\,$}}
+\newcommand{\eqdef}{\stackrel{\mathrm{def}}{=}}
+
+% Sets of states
+\newcommand{\veci}{\vec{i}}
+\newcommand{\vecj}{\vec{j}}
+\newcommand{\veck}{\vec{k}}
+\newcommand{\vecm}{\vec{m}}
+
+% Funky symobols for footnotes
+\newcommand{\symbolfootnote}{\renewcommand{\thefootnote}{\fnsymbol{footnote}}}
+% now add \symbolfootnote to the beginning of the document...
+
+\newcommand{\normallinespacing}{\renewcommand{\baselinestretch}{1.5} \normalsize}
+\newcommand{\mediumlinespacing}{\renewcommand{\baselinestretch}{1.2} \normalsize}
+\newcommand{\narrowlinespacing}{\renewcommand{\baselinestretch}{1.0} \normalsize}
+\newcommand{\bump}{\noalign{\vspace*{\doublerulesep}}}
+\newcommand{\cell}{\multicolumn{1}{}{}}
+\newcommand{\spann}{\mbox{span}}
+\newcommand{\diagg}{\mbox{diag}}
+\newcommand{\modd}{\mbox{mod}}
+\newcommand{\minn}{\mbox{min}}
+\newcommand{\andd}{\mbox{and}}
+\newcommand{\forr}{\mbox{for}}
+\newcommand{\EE}{\mbox{E}}
+
+\newcommand{\deff}{\stackrel{\mathrm{def}}{=}}
+\newcommand{\syncc}{~\stackrel{\textstyle \rhd\kern-0.57em\lhd}{\scriptstyle L}~}
+
+\def\coop{\mbox{\large $\rhd\!\!\!\lhd$}}
+\newcommand{\sync}[1]{\raisebox{-1.0ex}{$\;\stackrel{\coop}{\scriptscriptstyle
+#1}\,$}}
+
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{theorem}{Theorem}[chapter]
+
+\newcommand{\Figref}[1]{Figure~\ref{#1}}
+\newcommand{\fig}[3]{
+ \begin{figure}[!ht]
+ \begin{center}
+ \scalebox{#3}{\includegraphics{figs/#1.ps}}
+ \vspace{-0.1in}
+ \caption[ ]{\label{#1} #2}
+ \end{center}
+ \end{figure}
+}
+
+\newcommand{\figtwo}[8]{
+ \begin{figure}
+ \parbox[b]{#4 \textwidth}{
+ \begin{center}
+ \scalebox{#3}{\includegraphics{figs/#1.ps}}
+ \vspace{-0.1in}
+ \caption{\label{#1}#2}
+ \end{center}
+ }
+ \hfill
+ \parbox[b]{#8 \textwidth}{
+ \begin{center}
+ \scalebox{#7}{\includegraphics{figs/#5.ps}}
+ \vspace{-0.1in}
+ \caption{\label{#5}#6}
+ \end{center}
+ }
+ \end{figure}
+}

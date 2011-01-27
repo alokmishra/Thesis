@@ -1,0 +1,126 @@
+
+\chapter{Introduction}
+
+\section{Motivation and Objectives}
+
+The power to reason about response times is an essential
+ingredient in providing Quality of Service (QoS) guarantees in
+almost all concurrent and distributed systems, including mobile
+phone networks, Web and database servers, embedded systems, stock
+market trading platforms and health care systems\footnote{~such as
+the requirement of Accident \& Emergency units in the UK to see,
+treat and discharge 90\% of patients in under four hours.}.
+Together with transient and steady-state measures, response time
+analysis provides system designers and engineers with a
+comprehensive arsenal of performance tools.
+
+To date, specification of key QoS performance requirements has
+been on an informal and restricted basis. It has not been
+possible, for example, to specify \emph{complex} constraints such
+as restrictions on percentiles of waiting times, nor to specify
+\emph{compound} queries whereby several QoS requirements must be
+met simultaneously. A promising way forward has presented itself
+with the emergence of temporal stochastic logics. In particular,
+continuous stochastic logics (CSLs) enable the rigorous,
+verifiable, expressive and composable specification of complex
+performance requirements using logical formulae. However, the
+verification of these formulae can be computationally very
+intensive on larger models. We therefore propose to combine the
+expressive power of an extended CSL with a novel approach to
+formula evaluation using the Grid, which will enable the analysis
+of considerably larger models than presently possible.
+
+Temporal logics have different flavours, among them pCTL for
+discrete-time probabilistic verification, CSL \cite{Azi96,Azi00}
+applied to Markovian state spaces \cite{Bai99,Bai00,Kat01,Bai03},
+aCSL \cite{Her00a} applied to process algebras and CSL/eCSL
+\cite{You02,Inf01,Brd03b} for semi-Markov models. eCSL (developed
+by Bradley \emph{et al}) augments CSL with the ability to express
+a richer class of passage time quantities, as well as the ability
+to specify requirements based on transient and steady-state
+distributions. Unlike basic CSL, which operates at the
+state-transition level, eCSL operates at the model level.
+
+Temporal logics are popular in some academic circles
+\cite{Kwi02,Dap04,Her00b}; however, their use in industry is
+limited. We have identified three main reasons for this:
+%\vspace*{-1mm}
+\begin{enumerate}
+    \item Stochastic logics are too ``esoteric'' for most
+    system designers, meaning that it is challenging for
+    non-specialists to understand and formulate logical queries.
+    \item The mapping of stochastic logic formulae onto
+    the interface languages of existing modelling tools has to be performed
+    manually, requiring specialist knowledge. Furthermore, there is no
+    automated method for decomposing formulae and scheduling the execution of
+    resulting sub-computations.
+    \item The limited solution capacity of most existing tools
+    incorporating stochastic logics hinders the evaluation of unrestricted
+    industrial-size models.
+\end{enumerate}
+%\vspace*{-1mm}
+This proposal aims to address these issues in the
+following ways: %\vspace*{-1mm}
+\begin{enumerate}
+    \item Issue (1) is addressed by investigating new ways to
+    specify \emph{graphically}~-- at the \emph{model} level~--
+    complex QoS requirements, which can be mapped
+    \emph{automatically} onto stochastic logic formulae. This will
+    drastically simplify the requirements specification process, while
+    maintaining expressiveness and analysis power. No
+    understanding of the underlying logical framework will be
+    necessary on the end-user's side.
+    \item Issue (2) is addressed by developing novel techniques for the
+    automatic mapping of stochastic logic formulae onto the interface
+    languages of our performance analysis tools developed during the
+    PASTRAMI project (GR/S24961/01), and by the automatic analysis
+    of execution dependencies to produce optimised Grid execution schedules.
+    \item Issue (3) is addressed by making use of the vast amount of
+    computing power that the Grid provides. Small-cluster
+    computation is not sufficient for the evaluation of
+    industrial-size models; therefore the resources of an integrated
+    Grid cluster will serve as the computational backbone for our method.
+    This will require our performance analysis tools to be
+    \emph{Grid-enabled}.
+\end{enumerate}
+To summarise, this thesis introduces a stochastic model-checking
+method that for the first time will realise the seamless formal
+verification of graphically-specified model-level QoS performance
+requirements in industrial-scale models.
+
+The primary goal of the research is the development of new
+theoretical methods in stochastic logics and Grid-enabled software
+tools that implement these techniques. The work is estimated to be
+completed in three years, according to the following phases:
+\begin{itemize}
+    \item Extension of the syntax and semantics of eCSL
+    to further strengthen its expressive power;
+    \item Realisation of the graphical specification of QoS
+    performance properties and the automatic translation to
+    eCSL representation;
+    \item Optimisation and decomposition of eCSL formulae
+    and development of new evaluation techniques with increased
+    performance and reduced computation;
+    \item Grid-enabling our existing performance analysis
+    tools and integrating them with our new evaluation techniques
+    to boost solution capacity;
+    \item Developing optimal Grid execution strategies for
+    model-checking eCSL formulae;
+    \item Application to industrial-scale models.
+\end{itemize}
+
+
+\section{Contributions}
+
+Contributions here.
+
+
+\section{Statement of Originality}
+
+I declare that this thesis was composed by myself, and that the
+work that it presents is my own except where otherwise stated.
+
+
+\section{Publications}
+
+Publications here.

@@ -1,0 +1,16 @@
+This is TeX, Version 3.141592 (MiKTeX 2.4) (preloaded format=latex 2005.5.4)  7 JUN 2005 17:17
+**thesis.preamble.tex
+(thesis.preamble.tex
+LaTeX2e <2003/12/01>
+Babel <v3.8a> and hyphenation patterns for english, french, german, ngerman, hu
+ngarian, ukenglish, dumylang, nohyphenation, loaded.
+
+! LaTeX Error: \usepackage before \documentclass.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2 \usepackage{
+                psfig}
+? 

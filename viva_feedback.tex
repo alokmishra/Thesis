@@ -1,0 +1,63 @@
+\documentclass[a4paper,10pt]{article}
+
+\begin{document}
+
+\section{Core Issues}
+ \subsection{Validation of the techniques}
+The semi-supervised problem can be stated as there is a real distribution having pairwise similarities. We know some of them. There is another noisy microarray dataset. We apply whatever is known (constraints).
+\begin{itemize}
+  \item Prove that spectral clustering works. Stability of clusters with bootstrap.
+  \item The goal of semi supervised clustering is to use external known pairwise relations between variables in order to improve the quality of clustering. We have to show that applying these constraints leads to better clustering.
+  \item Create artificial dataset (k=3). Use 10 fold cross validation and from the 90\% training data generate random constraints (take random pairs from the same cluster). Cluster the whole dataset. 
+  \item Now evaluate the cluster quality only using the test dataset.
+  \item Do it with increasing number of constraints.
+  \item This should prove that applying more constraints helps in the quality of clustering of the whole dataset. 
+\end{itemize}
+
+\begin{itemize}
+\item Generate artificial microarray datasets. Optimize for the sigma and then study how the constraints are helping the cluster quality.
+\item Do bootstrap to generate various microarray datasets and prove that applying constraints helps the clustering.
+ 
+  \item Compute the biological significance of real world data integration
+  \item Justify the k choice (Gap statistic)
+  \item Discuss the GO terms improved 
+  \item Compare with other techniques 
+\end{itemize}
+\begin{description}
+  \item [Validation of maximum entropy principle] Study what exactly the principle does statistically. How information is transferred from Matrix-A/B to the integrated matrix. Generate synthetic covariance/kernel matrices and then combine them
+using MaxEnt to see how it helps in integration between similar datasets as their dissimilarity increases.
+  \item generate artificial covariance matrices. 
+  \item compute the mutual information between them.
+  \item study how mutual information combined matrx differs from the earlier similarity matrices using a small synthetic dataset.
+  \item compute the kl divergence between the datasets? 
+  \item [Comparison of results within and across techniques]
+      \begin{itemize}
+    	    \item Compare at least with a baseline algo like eran segal's 
+	    \item Compare across the techniques. Create same datasets and do the integration and compare. Earlier filtering was not good. So dont filter aggressively. Just do the common genes filtering and then run both the algorithms. Filtering by 2 fold was arbitrary anyways.
+      \end{itemize}
+  \item [Biological interpretation of results of GO (interpret with the plots)]
+  \item [Why GO term avging was chosen] Compare with other techniques that we thought about while coming up with a numerical choice of validation.
+\end{description}
+
+\section{Discussion Issues}
+
+\begin{description}
+  \item discuss the data culling issue and how it impacts the results.
+  \item Expand the pre-processing the data with exact details of what you started with and what remains. A summary statistic of their properties would also be nice.
+  \item Francis Turner. P-value based validation
+  \item Was Silhouette method considered? Why was it rejected? Write a description of why we chose Dunn and Davies Boulding index for cluster quality validation. Write a paragraph on internal and external validation indices and justify our choice.
+\end{description}
+
+\section{Presentation Issues}
+\begin{description}
+    \item Have a thorough read (dont, isnt, its vs it is)
+    \item the tables and figure captions have to be expanded
+    \item The tables in chapter 3 are unwieldy . Consolidate them.
+    \item Drop the section on linera algebra
+    \item move the stuff on Laplacians to chapter 4
+    \item summary chapter should be larger with summary of all the work.	
+    \item Include the 2 machine learning books as references.
+    \item Include references from David Gilbert and Michael Stumpf.
+    
+\end{description}
+\end{document}

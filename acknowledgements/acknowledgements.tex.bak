@@ -1,0 +1,27 @@
+
+\cleardoublepage
+
+\addcontentsline{toc}{chapter}{Acknowledgements}
+
+\begin{acknowledgements}
+
+I would like to express my deepest gratitude and appreciation to:
+
+\begin{itemize}
+ \item Dr William J. Knottenbelt, my supervisor, for his
+ conscientious guidance and supervision, and for making my life
+ as a Ph.D. student as comfortable and enjoyable as possible. And
+ of course for all the free food and drinks that he so kindly
+ provided me with to ensure my physical well-being throughout.
+ \vspace*{3mm}
+ \item Dr Jeremy T. Bradley, for his professional advice, help and motivation.
+ \vspace*{3mm}
+ \item Professor John Darlington, for his expertise and insight, and for
+ providing me access to London eScience Centre resources, that were vital to the
+ completion of this work.
+ \vspace*{3mm}
+ \item My family, for their unceasing support, encouragement and
+ love, and for making it possible to achieve my dreams.
+\end{itemize}
+
+\end{acknowledgements}

@@ -1,0 +1,175 @@
+\begin{sidewaystable}[htp]
+\begin{center}
+
+\subtable[KL Divergence among stress datasets]
+{
+\begin{tabular}{|c|c|c|c|}
+\hline
+& DS-STRESS1 & DS-STRESS2 & DS-STRESS3 \\
+
+\hline
+
+DS-STRESS1 & 0	& 4843.3 & 1329.0 \\ \hline
+DS-STRESS2 & -	& 0 & 4712.3 \\ \hline
+DS-STRESS3 & - & - & 0 \\ \hline
+
+\end{tabular}
+\label{results:unnorm:kldiv:intra_class_kldivergence}
+
+}
+
+\subtable[KL Divergence among individual stress datasets versus progressively mixed datasets]
+{
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ & DS-STRESS & DS-STRESS-CCYCLE & DS-ALL & DS-CCYCLE \\
+\hline
+DS-STRESS1 & 1066.2 & 897.29 & 1131.0 & 1885.25\\ \hline
+DS-STRESS2 & 1226.6 & 1598.2 & 1646.0 & 5116.5\\ \hline
+DS-STRESS3 & 1139.5 & 1039.2 & 1234.1 & 2747.0\\ \hline
+
+\end{tabular}
+\label{results:unnorm:kldiv:stress_vs_mixed_kldivergence}
+}
+
+\subtable[KL Divergence among cell-cycle, stress and mixed datasets]
+{
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ & DS-STRESS & DS-CCYCLE & DS-STRESS-CCYCLE & DS-ALL \\ \hline
+DS-CCYCLE & 2186.5 & 0 & 1190.7 & 1805.8 \\ \hline
+DS-STRESS & 0 & 2186.5 & 125.5& 194.5 \\ \hline
+\end{tabular}
+\label{results:unnorm:kldiv:cell-cycle_vs_mixed_kldivergence}
+}
+\caption{KL Divergence among full (non scale-normalized) datasets}
+\label{results:unnorm:kldiv}
+
+\end{center}
+\end{sidewaystable}
+
+%%%%%%%% next table %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{sidewaystable}[htp]
+\begin{center}
+
+\subtable[KL Divergence among stress datasets]
+{
+\begin{tabular}{|c|c|c|c|}
+\hline
+& DS-STRESS1 & DS-STRESS2 & DS-STRESS3 \\
+
+\hline
+
+DS-STRESS1 & 0	& 475.5 & 242.7 \\ \hline
+DS-STRESS2 & -	& 0 & 367.9 \\ \hline
+DS-STRESS3 & - & - & 0 \\ \hline
+
+\end{tabular}
+\label{results:filtered:kldiv:intra_class_kldivergence}
+
+}
+
+\subtable[KL Divergence among individual stress datasets versus progressively mixed datasets]
+{
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ & DS-STRESS & DS-STRESS-CCYCLE & DS-ALL & DS-CCYCLE \\
+\hline
+DS-STRESS1 & 130.60 &         121.20 &         129.30 & 217.50 \\ \hline
+DS-STRESS2 & 670.75   &       952.40  &        1011.20 & 638.40 \\ \hline
+DS-STRESS3 & 132.10   &       226.65   &       199.20  & 380.70 \\ \hline 
+\end{tabular}
+\label{results:filtered:kldiv:stress_vs_mixed_kldivergence}
+}
+
+\subtable[KL Divergence among cell-cycle, stress and mixed datasets]
+{
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ & DS-STRESS & DS-CCYCLE & DS-STRESS-CCYCLE & DS-ALL \\ \hline
+DS-CCYCLE & 340.5 & 0.0 &  198.3 & 297.5 \\ \hline
+DS-STRESS & 0.0 & 340.5 & 92.0 & 147.7 \\ \hline
+\end{tabular}
+\label{results:filtered:kldiv:cell-cycle_vs_mixed_kldivergence}
+}
+\caption{KL Divergence among filtered (non scale-normalized) datasets}
+\label{results:filtered:kldiv}
+
+\end{center}
+\end{sidewaystable}
+
+%%%%%%%% next table %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{sidewaystable}[htp]
+\begin{center}
+
+\subtable[KL Divergence among stress datasets]
+{
+\begin{tabular}{|c|c|c|c|}
+\hline
+& DS-STRESS1 & DS-STRESS2 & DS-STRESS3 \\
+
+\hline
+
+DS-STRESS1 & 0	& 4960.7 & 2116.05 \\ \hline
+DS-STRESS2 & -	& 0 & 4390.90 \\ \hline
+DS-STRESS3 & - & - & 0 \\ \hline
+
+\end{tabular}
+\label{results:norm:kldiv:intra_class_kldivergence}
+
+}
+
+\subtable[KL Divergence among individual stress datasets versus progressively mixed datasets]
+{
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ & DS-STRESS & DS-STRESS-CCYCLE & DS-ALL & DS-CCYCLE \\
+\hline
+DS-STRESS1 & 2885.85   &        2451.55 &         3819.50 & 3179.65\\ \hline
+DS-STRESS2 & 1179.95   &        1203.85 &         1501.85 & 7768.15 \\ \hline
+DS-STRESS3 & 2244.15   &        1944.65 &         2804.85 & 5644.25\\ \hline
+
+\end{tabular}
+\label{results:norm:kldiv:stress_vs_mixed_kldivergence}
+
+}
+
+\subtable[KL Divergence among cell-cycle, stress and mixed datasets]
+{
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ & DS-STRESS & DS-CCYCLE & DS-STRESS-CCYCLE & DS-ALL \\ \hline
+DS-CCYCLE & 6818.35 &   0.00 & 4947.10 & 7625.75 \\ \hline
+DS-STRESS & 0.00 & 6818.35 & 376.70 & 466.65 \\ \hline
+\end{tabular}
+\label{results:norm:kldiv:cell-cycle_vs_mixed_kldivergence}
+}
+\caption{KL Divergence among full (scale-normalized) datasets}
+\label{results:norm:kldiv}
+
+\end{center}
+\end{sidewaystable}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

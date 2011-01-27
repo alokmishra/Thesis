@@ -1,0 +1,750 @@
+\begin{thebibliography}{}
+
+\bibitem[Alberts et~al., 2002]{alberts02molecular}
+Alberts, B., Johnson, A., Lewis, J., Raff, M., Roberts, K., and Walter, P.
+  (2002).
+\newblock {\em Molecular Biology of the Cell}.
+\newblock Garland.
+
+\bibitem[Angenent et~al., 1999]{angenent99laplace}
+Angenent, S., Haker, S., Tannenbaum, A., and Kikinis, R. (1999).
+\newblock On the laplace-beltrami operator and brain surface flattening.
+\newblock {\em IEEE Trans. Med. Imaging}, 18(8):700--711.
+
+\bibitem[Bar-Joseph et~al., 2003]{barjoseph03computational}
+Bar-Joseph, Z., Gerber, G.~K., Lee, T.~I., Rinaldi, N.~J., Yoo, J.~Y., Robert,
+  F., Gordon, D.~B., Fraenkel, E., Jaakkola, T.~S., Young, R.~A., and Gifford,
+  D.~K. (2003).
+\newblock Computational discovery of gene modules and regulatory networks.
+\newblock {\em Nature Biotechnology}, 21(11):1337--1342.
+
+\bibitem[Basu et~al., 2004]{basu2004probabilistic}
+Basu, S., Bilenko, M., and Mooney, R.~J. (2004).
+\newblock A probabilistic framework for semi-supervised clustering.
+\newblock In {\em KDD04}, pages 59--68, Seattle, WA.
+
+\bibitem[Basu et~al., 2008]{basu2008constrained}
+Basu, S., Davidson, I., and Wagstaff, K. (2008).
+\newblock {\em Constrained Clustering: Advances in Algorithms, Theory, and
+  Applications}.
+\newblock Chapman \& Hall/CRC.
+
+\bibitem[Boyd and Vandenberghe, 2004]{boyd2004convexopt}
+Boyd, S. and Vandenberghe, L. (2004).
+\newblock {\em Convex Optimization}.
+\newblock {Cambridge University Press}.
+
+\bibitem[Bradley et~al., 2000]{bradley00constrained}
+Bradley, P.~S., Bennett, K.~P., and Demiriz, A. (2000).
+\newblock Constrained k-means clustering.
+\newblock Technical report, MSR-TR-2000-65, Microsoft Research.
+
+\bibitem[Brameier and Wiuf, 2007]{bramier2007coclustering}
+Brameier, M. and Wiuf, C. (2007).
+\newblock Co-clustering and visualization of gene expression data and gene
+  ontology terms for saccharomyces cerevisiae using self-organizing maps.
+\newblock {\em J. of Biomedical Informatics}, 40(2):160--173.
+
+\bibitem[Brookes, 2005]{brookes2005matrix}
+Brookes, M. (2005).
+\newblock The matrix reference manual.
+\newblock online, http://www.ee.ic.ac.uk/hp/staff/dmb/matrix/intro.html.
+
+\bibitem[Chen et~al., 2006]{haifang2006manifold}
+Chen, H., Jiang, G., and Yoshihira, K. (2006).
+\newblock Robust nonlinear dimensionality reduction for manifold learning.
+\newblock {\em Pattern Recognition, International Conference on}, 2:447--450.
+
+\bibitem[Cherry et~al., 1998]{cherry98sgd}
+Cherry, J.~M., Adler, C., Ball, C., Chervitz, S.~A., Dwight, S.~S., Hester,
+  E.~T., Jia, Y., Juvik, G., Roe, T., Schroeder, M., Weng, S., and Botstein, D.
+  (1998).
+\newblock Sgd: Saccharomyces genome database.
+\newblock {\em Nucleic Acids Res}, 26(1):73--79.
+
+\bibitem[Chung, 1997]{chung1997spectralgraph}
+Chung, F. R.~K. (1997).
+\newblock {\em Spectral Graph Theory (CBMS Regional Conference Series in
+  Mathematics, No. 92) (Cbms Regional Conference Series in Mathematics)}.
+\newblock {American Mathematical Society}.
+
+\bibitem[Consortium, 2001]{GO}
+Consortium, G.~O. (2001).
+\newblock Creating the gene ontology resource: design and implementation.
+\newblock {\em Genome Res}, 11(8):1425--1433.
+
+\bibitem[de~Jong, 2002]{jong02modeling}
+de~Jong, H. (2002).
+\newblock Modeling and simulation of genetic regulatory systems: a literature
+  review.
+\newblock {\em J Comput Biol}, 9(1):67--103.
+
+\bibitem[de~Leeuw, 2005]{deleeuw2005mds}
+de~Leeuw, J. (2005).
+\newblock Modern multidimensional scaling: Theory and applications (second
+  edition).
+\newblock {\em Journal of Statistical Software, Book Reviews}, 14(4):1--2.
+
+\bibitem[Dhillon et~al., 2005]{dhillon05unified}
+Dhillon, I.~S., Guan, Y., and Kulis, B. (2005).
+\newblock A unified view of kernel k-means, spectral clustering and graph cuts.
+\newblock Technical Report TR-04-25, University of Texas Dept. of Computer
+  Science.
+
+\bibitem[Ding and Zha, 2008]{ding2008spectral}
+Ding, C. and Zha, H. (2008).
+\newblock {\em Spectral Clustering, Ordering and Ranking: Statistical Learning
+  with Matrix Factorizations}.
+\newblock Springer Publishing Company, Incorporated.
+
+\bibitem[Dolinski and Botstein, 2005]{dolinski2005changing}
+Dolinski, K. and Botstein, D. (2005).
+\newblock Changing perspectives in yeast research nearly a decade after the
+  genome sequence.
+\newblock {\em Genome Res}, 15(12):1611--1619.
+
+\bibitem[Donath and Hoffman, 1973]{donath1973lower}
+Donath, W.~E. and Hoffman, A.~J. (1973).
+\newblock Lower bounds for the partitioning of graphs.
+\newblock {\em IBM J. Res. Dev}, 17(5):420--425.
+
+\bibitem[Dunn, 1974]{Dunn1974wellseparated}
+Dunn, J. (1974).
+\newblock Well-separated clusters and optimal fuzzy partitions.
+\newblock {\em Journal of Cybernetics}, 4:95--104.
+
+\bibitem[Eisen et~al., 1998]{eisen1998cluster}
+Eisen, M.~B., Spellman, P.~T., Brown, P.~O., and Botstein, D. (1998).
+\newblock Cluster analysis and display of genome-wide expression patterns.
+\newblock {\em Proc Natl Acad Sci U S A}, 95(25):14863--14868.
+
+\bibitem[Fiedler, 1975]{fiedler1975property}
+Fiedler, M. (1975).
+\newblock A property of eigenvectors of nonnegative symmetric matrices and its
+  application to graph theory.
+\newblock {\em Czechoslovak Mathematical Journal}, 25.
+
+\bibitem[Field et~al., 2008]{field2008distinct}
+Field, Y., Kaplan, N., Fondufe-Mittendorf, Y., Moore, I.~K., Sharon, E.,
+  Lubling, Y., Widom, J., and Segal, E. (2008).
+\newblock Distinct modes of regulation by chromatin encoded through nucleosome
+  positioning signals.
+\newblock {\em PLoS Comput Biol}, 4(11):e1000216.
+
+\bibitem[Friedman et~al., 2000]{friedman00using}
+Friedman, N., Linial, M., Nachman, I., and Pe'er, D. (2000).
+\newblock Using {B}ayesian networks to analyze expression data.
+\newblock {\em Journal of Computational Biology}, 7(3):601--620.
+
+\bibitem[Fujibuchi and Kato, 2007]{fujibuchi2007classification}
+Fujibuchi, W. and Kato, T. (2007).
+\newblock Classification of heterogeneous microarray data by maximum entropy
+  kernel.
+\newblock {\em BMC Bioinformatics}, 8:267+.
+
+\bibitem[Gasch et~al., 2000]{gasch00genomicexpn}
+Gasch, A.~P., Spellman, P.~T., Kao, C.~M., Carmel-Harel, O., Eisen, M.~B.,
+  Storz, G., Botstein, D., and Brown, P.~O. (2000).
+\newblock Genomic expression programs in the response of yeast cells to
+  environmental changes.
+\newblock {\em Mol Biol Cell}, 11(12):4241--4257.
+
+\bibitem[Gat-Viks et~al., 2003]{gatviks03scoring}
+Gat-Viks, I., Sharan, R., and Shamir, R. (2003).
+\newblock Scoring clustering solutions by their biological relevance.
+\newblock {\em Bioinformatics}, 19(18):2381--2389.
+
+\bibitem[Ge et~al., 2001]{ge01correlation}
+Ge, H., Liu, Z., Church, G.~M., and Vidal, M. (2001).
+\newblock Correlation between transcriptome and interactome mapping data from
+  saccharomyces cerevisiae.
+\newblock {\em Nat Genet}, 29(4):482--486.
+
+\bibitem[Gerstein et~al., 2002]{gerstein2002proteomics}
+Gerstein, M., Lan, N., and Jansen, R. (2002).
+\newblock Proteomics: Enhanced: Integrating interactomes.
+\newblock {\em Science}, 295(5553):284--287.
+
+\bibitem[Gianchandani et~al., 2006]{gianchandani2006matrix}
+Gianchandani, E.~P., Papin, J.~A., Price, N.~D., Joyce, A.~R., and Palsson,
+  B.~O. (2006).
+\newblock Matrix formalism to describe functional states of transcriptional
+  regulatory systems.
+\newblock {\em PLoS Comput Biol}, 2(8):e101.
+
+\bibitem[Gibbons and Roth, 2002]{Gibons2002Judging}
+Gibbons, F.~D. and Roth, F.~P. (2002).
+\newblock Judging the quality of gene expression-based clustering methods using
+  gene annotation.
+\newblock {\em Genome Res.}, 12(10):1574--1581.
+
+\bibitem[Golub and Van~Loan, 1996]{golub1996matrix}
+Golub, G.~H. and Van~Loan, C.~F. (1996).
+\newblock {\em Matrix Computations (Johns Hopkins Studies in Mathematical
+  Sciences)}.
+\newblock The Johns Hopkins University Press.
+
+\bibitem[Griffin et~al., 2002]{Griffin02Complementary}
+Griffin, T.~J., Gygi, S.~P., Ideker, T., Rist, B., Eng, J., Hood, L., and
+  Aebersold, R. (2002).
+\newblock Complementary profiling of gene expression at the transcriptome and
+  proteome levels in saccharomyces cerevisiae.
+\newblock {\em Mol Cell Proteomics}, 1(4):323--333.
+
+\bibitem[Grira et~al., 2005]{grira2005unsupsurvey}
+Grira, N., Crucianu, M., and Boujemaa, N. (2005).
+\newblock Unsupervised and semi-supervised clustering:a brief survey.
+
+\bibitem[Gueldener et~al., 2006]{Gueldener2006MPact}
+Gueldener, U., Muensterkoetter, M., Oesterheld, M., Pagel, P., Ruepp, A.,
+  Mewes, H.~W., and Stuempflen, V. (2006).
+\newblock Mpact: the mips protein interaction resource on yeast.
+\newblock {\em Nucleic Acids Res}, 34(Database issue).
+
+\bibitem[Hanisch et~al., 2002]{Hanisch2002Coclustering}
+Hanisch, D., Zien, A., Zimmer, R., and Lengauer, T. (2002).
+\newblock Co-clustering of biological networks and gene expression data.
+\newblock {\em Bioinformatics}, 18 Suppl 1.
+
+\bibitem[Harbison et~al., 2004]{harbison04transcriptional}
+Harbison, C.~T., Gordon, B.~D., Lee, T.~I., Rinaldi, N.~J., Macisaac, K.~D.,
+  Danford, T.~W., Hannett, N.~M., Tagne, J.-B., Reynolds, D.~B., Yoo, J.,
+  Jennings, E.~G., Zeitlinger, J., Pokholok, D.~K., Kellis, M., Rolfe, A.~P.,
+  Takusagawa, K.~T., Lander, E.~S., Gifford, D.~K., Fraenkel, E., and Young,
+  R.~A. (2004).
+\newblock Transcriptional regulatory code of a eukaryotic genome.
+\newblock {\em Nature}, 431(7004):99--104.
+
+\bibitem[Holloway et~al., 2006]{Holloway2006MachineLearning}
+Holloway, D.~T., Kon, M.~A., and DeLisi, C. (2006).
+\newblock Machine learning methods for transcription data integration.
+\newblock {\em IBM J. Res. Dev.}, 50(6):631--643.
+
+\bibitem[Huang and Pan, 2006]{huang2006incorporating}
+Huang, D. and Pan, W. (2006).
+\newblock Incorporating biological knowledge into distance-based clustering
+  analysis of microarray gene expression data.
+\newblock {\em Bioinformatics}, 22(10):1259--1268.
+
+\bibitem[Hubert and Arabie, 1985]{hubert85comparing}
+Hubert, L. and Arabie, P. (1985).
+\newblock Comparing partitions.
+\newblock {\em Journal of Classification}.
+
+\bibitem[Hughes et~al., 2000]{hughes00functional}
+Hughes, T.~R., Marton, M.~J., Jones, A.~R., Roberts, C.~J., Stoughton, R.,
+  Armour, C.~D., Bennett, H.~A., Coffey, E., Dai, H., He, Y.~D., Kidd, M.~J.,
+  King, A.~M., Meyer, M.~R., Slade, D., Lum, P.~Y., Stepaniants, S.~B.,
+  Shoemaker, D.~D., Gachotte, D., Chakraburtty, K., Simon, J., Bard, M., and
+  Friend, S.~H. (2000).
+\newblock Functional discovery via a compendium of expression profiles.
+\newblock {\em Cell}, 102:109--126.
+
+\bibitem[Hunter, 1993]{hunter_molbio93}
+Hunter, L. (1993).
+\newblock Molecular biology for computer scientists.
+
+\bibitem[Husmeier, 2003]{husmeier03sensitivity}
+Husmeier, D. (2003).
+\newblock Sensitivity and specificity of inferring genetic regulatory
+  interactions from microarray experiments with dynamic bayesian networks.
+\newblock {\em Bioinformatics}, 19(17):2271--2282.
+
+\bibitem[Ihmels et~al., 2002]{ihmels02revealing}
+Ihmels, J., Friedlander, G., Bergmann, S., Sarig, O., Ziv, Y., and Barkai, N.
+  (2002).
+\newblock Revealing modular organization in the yeast transcriptional network.
+\newblock {\em Nature Genet}, 31:370--377.
+
+\bibitem[Imoto et~al., 2003]{imoto03combining}
+Imoto, S., Higuchi, T., Goto, T., Tashiro, K., Kuhara, S., and Miyano, S.
+  (2003).
+\newblock Combining microarrays and biological knowledge for estimating gene
+  networks via {B}ayesian networks.
+\newblock In {\em Proc. 2nd Computational Systems Bioinformatics}, pages
+  104--113.
+
+\bibitem[Jain and Dubes, 1988]{jain1988algorithms}
+Jain, A.~K. and Dubes, R.~C. (1988).
+\newblock {\em Algorithms for clustering data}.
+\newblock Prentice-Hall, Inc., Upper Saddle River, NJ, USA.
+
+\bibitem[Jain and Zhang, 2007]{jain06spectral}
+Jain, V. and Zhang, H. (2007).
+\newblock A spectral approach to shape-based retrieval of articulated 3d
+  models.
+\newblock {\em Comput. Aided Des.}, 39(5):398--407.
+
+\bibitem[Jaynes, 1957]{jaynes57maxent}
+Jaynes, E.~T. (1957).
+\newblock Information theory and statistical mechanics.
+\newblock {\em Physical Review}, 106(4):620+.
+
+\bibitem[Jaynes, 1982]{jaynes82onrationale}
+Jaynes, E.~T. (1982).
+\newblock On the rationale for maximum entropy methods.
+\newblock In {\em IEEE Volume V 70, Issue N 9}, pages 939--952.
+
+\bibitem[Jeffreys, 1946]{Jeffreys46}
+Jeffreys, H. (1946).
+\newblock An invariant form for the prior probability in estimation problems.
+\newblock In {\em Proc. Royal Soc. London (A)}, volume 186, pages 453--461.
+
+\bibitem[Johnson and Sinanović, 2001]{Johnson01symmetrizing}
+Johnson, D.~H. and Sinanović, S. (2001).
+\newblock Symmetrizing the kullback-leibler distance.
+\newblock Technical report, IEEE Transactions on Information Theory.
+
+\bibitem[Kamvar et~al., 2003]{kamvar03spectral}
+Kamvar, S., Klein, D., and Manning, C. (2003).
+\newblock Spectral learning.
+
+\bibitem[Kaplan et~al., 2008]{kaplan2008nucleosome}
+Kaplan, N., Moore, I.~K., Fondufe-Mittendorf, Y., Gossett, A.~J., Tillo, D.,
+  Field, Y., Leproust, E.~M., Hughes, T.~R., Lieb, J.~D., Widom, J., and Segal,
+  E. (2008).
+\newblock The dna-encoded nucleosome organization of a eukaryotic genome.
+\newblock {\em Nature}.
+
+\bibitem[Kemmeren, 2002]{kemmeren2002protein}
+Kemmeren, P. (2002).
+\newblock Protein interaction verification and functional annotation by
+  integrated analysis of genome-scale data.
+\newblock {\em Molecular Cell}, 9(5):1133--1143.
+
+\bibitem[Klein et~al., 2002]{klein2002frominstance}
+Klein, D., Kamvar, S.~D., and Manning, C.~D. (2002).
+\newblock From instance-level constraints to space-level constraints: Making
+  the most of prior knowledge in data clustering.
+\newblock In {\em ICML '02: Proceedings of the Nineteenth International
+  Conference on Machine Learning}, pages 307--314, San Francisco, CA, USA.
+  Morgan Kaufmann Publishers Inc.
+
+\bibitem[Kluger et~al., 2003]{kluger2003spectral}
+Kluger, Y., Basri, R., Chang, J.~T., and Gerstein, M. (2003).
+\newblock Spectral biclustering of microarray data: coclustering genes and
+  conditions.
+\newblock {\em Genome Res}, 13(4):703--716.
+
+\bibitem[Kondor and Lafferty, 2002]{Kondor02diffusion}
+Kondor, R.~I. and Lafferty, J.~D. (2002).
+\newblock Diffusion kernels on graphs and other discrete input spaces.
+\newblock In {\em ICML}, pages 315--322.
+
+\bibitem[Kulis et~al., 2005]{brian_semisupgraph2005}
+Kulis, B., Basu, S., Dhillon, I., and Mooney, R. (2005).
+\newblock Semi-supervised graph clustering: a kernel approach.
+\newblock In {\em ICML '05: Proceedings of the 22nd international conference on
+  Machine learning}, pages 457--464, New York, NY, USA. ACM Press.
+
+\bibitem[Kullback, 1997]{kullback1997info}
+Kullback, S. (1997).
+\newblock {\em Information Theory and Statistics (Dover Books on Mathematics)}.
+\newblock Dover Publications, New York, USA.
+
+\bibitem[Lanckriet et~al., 2004a]{lanck04statframework}
+Lanckriet, G.~R., De~Bie, T., Cristianini, N., Jordan, M.~I., and Noble, W.~S.
+  (2004a).
+\newblock A statistical framework for genomic data fusion.
+\newblock {\em Bioinformatics}, 20(16):2626--2635.
+
+\bibitem[Lanckriet et~al., 2004b]{lanck04kerneldatafusion}
+Lanckriet, G.~R., Deng, M., Cristianini, N., Jordan, M.~I., and Noble, W.~S.
+  (2004b).
+\newblock Kernel-based data fusion and its application to protein function
+  prediction in yeast.
+\newblock In {\em Proceedings of the Pacific Symposium on Biocomputing}, pages
+  300--311.
+
+\bibitem[Lee et~al., 2002]{lee02transcriptional}
+Lee, T.~I., Rinaldi, N.~J., Robert, F., Odom, D.~T., Bar-Joseph, Z., Gerber,
+  G.~K., Hannett, N.~M., Harbison, C.~T., Thompson, C.~M., Simon, I.,
+  Zeitlinger, J., Jennings, E.~G., Murray, H.~L., Gordon, D.~B., Ren, B.,
+  Wyrick, J.~J., Tagne, J.~B., Volkert, T.~L., Fraenkel, E., Gifford, D.~K.,
+  and Young, R.~A. (2002).
+\newblock Transcriptional regulatory networks in saccharomyces cerevisiae.
+\newblock {\em Science}, 298(5594):799--804.
+
+\bibitem[Lemmens et~al., 2006]{lemmens06Inferring}
+Lemmens, K., Dhollander, T., De~Bie, T., Monsieurs, P., Engelen, K., Smets, B.,
+  Winderickx, J., De~Moor, B., and Marchal, K. (2006).
+\newblock Inferring transcriptional modules from chip-chip, motif and
+  microarray data.
+\newblock {\em Genome Biol}, 7(5).
+
+\bibitem[Lewis et~al., 2006]{lewis06svm}
+Lewis, D.~P., Jebara, T., and Noble, W.~S. (2006).
+\newblock Support vector machine learning from heterogeneous data: an empirical
+  analysis using protein sequence and structure.
+\newblock {\em Bioinformatics}, 22(22):2753--2760.
+
+\bibitem[Macqueen, 1967]{MacQueen67kmeans}
+Macqueen, J.~B. (1967).
+\newblock Some methods of classification and analysis of multivariate
+  observations.
+\newblock In {\em Proceedings of the Fifth Berkeley Symposium on Mathematical
+  Statistics and Probability}, pages 281--297.
+
+\bibitem[Meila and Shi, 2000]{meila2000learning}
+Meila, M. and Shi, J. (2000).
+\newblock Learning segmentation by random walks.
+\newblock In {\em NIPS}, pages 873--879.
+
+\bibitem[Milligan and Cooper, 1985]{milligan85exam}
+Milligan, G.~W. and Cooper, M.~C. (1985).
+\newblock An examination of procedures for determining the number of clusters
+  in a data set.
+\newblock {\em Psychometrika}.
+
+\bibitem[Mishra and Gillies, 2007]{mishra2007effect}
+Mishra, A. and Gillies, D. (2007).
+\newblock Effect of microarray data heterogeneity on regulatory gene module
+  discovery.
+\newblock {\em BMC Systems Biology}, 1(Suppl 1):S2.
+
+\bibitem[Mishra and Gillies, 2008a]{mishra2007data}
+Mishra, A. and Gillies, D. (2008a).
+\newblock Data integration for regulatory gene module discovery.
+\newblock In Daskalaki, A., editor, {\em Handbook of Research on Systems
+  Biology Applications in Medicine}. IGI Global, Hershey, PA.
+
+\bibitem[Mishra and Gillies, 2008b]{mishra2008Semisup}
+Mishra, A. and Gillies, D. (2008b).
+\newblock Semi supervised spectral clustering for regulatory module discovery.
+\newblock In {\em Data Integration in the Life Sciences}, pages 192--203.
+
+\bibitem[Mishra and Gillies, 2008c]{mishra2007elements}
+Mishra, A. and Gillies, D. (2008c).
+\newblock Validation issues in regulatory module discovery.
+\newblock In Lodhi, H. and Muggleton, S., editors, {\em Elements of
+  Computational Systems Biology}. John Wiley \& Sons, Inc., Hershey, PA.
+
+\bibitem[Moler and Loan, 2003]{Moler2003Nineteen}
+Moler, C. and Loan, C.~V. (2003).
+\newblock Nineteen dubious ways to compute the exponential of a matrix,
+  twenty-five years later.
+\newblock {\em J-SIAM-REVIEW}, 45(1):3--49.
+
+\bibitem[Murphy and Mian, 1999]{murphy99modelling}
+Murphy, K. and Mian, S. (1999).
+\newblock Modelling gene expression data using dynamic bayesian networks.
+
+\bibitem[Myers and Troyanskaya, 2007]{myers2007context}
+Myers, C.~L. and Troyanskaya, O.~G. (2007).
+\newblock Context-sensitive data integration and prediction of biological
+  networks.
+\newblock {\em Bioinformatics}, 23(17):2322--2330.
+
+\bibitem[Nadler and Galun, 2006]{nadler06fundamental}
+Nadler, B. and Galun, M. (2006).
+\newblock Fundamental limitations of spectral clustering.
+\newblock In {\em NIPS}, pages 1017--1024.
+
+\bibitem[Ng et~al., 2001]{ng2001onspectral}
+Ng, A.~Y., Jordan, M.~I., and Weiss, Y. (2001).
+\newblock On spectral clustering: Analysis and an algorithm.
+\newblock In {\em NIPS}, pages 849--856.
+
+\bibitem[Orphanides and Reinberg, 2002]{orph02thehuman}
+Orphanides, G. and Reinberg, D. (2002).
+\newblock A unified theory of gene expression.
+\newblock {\em Cell}, 108(4):439--451.
+
+\bibitem[Pan, 2006]{pan06incorporating}
+Pan, W. (2006).
+\newblock Incorporating gene functions as priors in model-based clustering of
+  microarray gene expression data.
+\newblock {\em Bioinformatics}, 22(7):795--801.
+
+\bibitem[Payne and Garrels, 1998]{payne98ypd}
+Payne, W.~E. and Garrels, J.~I. (1998).
+\newblock Yeast protein database (ypd): a database for the complete proteome of
+  saccharomyces cerevisiae.
+\newblock {\em Nucleic Acids Research}, 26:57--62.
+
+\bibitem[Quackenbush, 2006]{Quackenbush06computational}
+Quackenbush, J. (2006).
+\newblock Computational approaches to analysis of dna microarray data.
+\newblock {\em Methods Inf Med}, 45 Suppl 1:91--103.
+
+\bibitem[Roth et~al., 2002]{roth2002going}
+Roth, V., Laub, J., Buhmann, J.~M., and M{\"u}ller, K.-R. (2002).
+\newblock Going metric: Denoising pairwise data.
+\newblock In {\em NIPS}, pages 817--824.
+
+\bibitem[Saldanha et~al., 2004]{saldanha04nutritional}
+Saldanha, A.~J., Brauer, M.~J., and Botstein, D. (2004).
+\newblock Nutritional homeostasis in batch and steady-state culture of yeast.
+\newblock {\em Mol. Biol. Cell}, 15(9):4089--4104.
+
+\bibitem[Saul et~al., 2006]{saul2006smd}
+Saul, L.~K., Weinberger, K.~Q., Ham, J.~H., Sha, F., and Lee, D.~D. (2006).
+\newblock {Spectral methods for dimensionality reduction}.
+\newblock {\em Semisupervised Learning. MIT Press: Cambridge, MA}.
+
+\bibitem[Schaeffer, 2007]{schaeffer1997graphclustering}
+Schaeffer, S.~E. (2007).
+\newblock Graph clustering.
+\newblock {\em Computer Science Review}, 1(1):27--64.
+
+\bibitem[Sch{\"a}fer and Strimmer, 2005]{schaefer05shrinkage}
+Sch{\"a}fer, J. and Strimmer, K. (2005).
+\newblock A shrinkage approach to large-scale covariance matrix estimation and
+  implications for functional genomics.
+\newblock {\em Statistical Applications in Genetics and Molecular Biology},
+  4(1):art32.
+
+\bibitem[Schulze and Downward, 2001]{Schulze01navigating}
+Schulze, A. and Downward, J. (2001).
+\newblock Navigating gene expression using microarrays--a technology review.
+\newblock {\em Nat Cell Biol}, 3(8).
+
+\bibitem[Schwikowski et~al., 2000]{schwikowski2000protein}
+Schwikowski, B., Uetz, P., and Fields, S. (2000).
+\newblock A network of protein-protein interactions in yeast.
+\newblock {\em Nat. Biotechnol.}, 18:1257--1261.
+
+\bibitem[Schölkopf et~al., 2004]{kernel_methodsvert2004}
+Schölkopf, B., Tsuda, K., and Vert, J.-P., editors (2004).
+\newblock {\em Kernel Methods in Computational Biology}.
+\newblock MIT Press, The MIT Press, Cambridge, Massachussetts.
+
+\bibitem[Segal et~al., 2006]{segal2007genomiccode}
+Segal, E., Fondufe-Mittendorf, Y., Chen, L., Th\r{a}str\"{o}m, A., Field, Y.,
+  Moore, I.~K., Wang, J.-P.~Z., and Widom, J. (2006).
+\newblock A genomic code for nucleosome positioning.
+\newblock {\em Nature}, 442(7104):772--778.
+
+\bibitem[Segal et~al., 2004]{segal04module}
+Segal, E., Friedman, N., Koller, D., and Regev, A. (2004).
+\newblock A module map showing conditional activity of expression modules in
+  cancer.
+\newblock {\em Nat Genet}, 36(10):1090--8.
+
+\bibitem[Segal et~al., 2005]{segal05learning}
+Segal, E., Pe'er, D., Regev, A., Koller, D., and Friedman, N. (2005).
+\newblock Learning module networks.
+\newblock {\em Journal of Machine Learning Research}, 6(4):557--588.
+
+\bibitem[Segal et~al., 2003]{segal03module}
+Segal, E., Shapira, M., Regev, A., Pe'er, D., Botstein, D., Koller, D., and
+  Friedman, N. (2003).
+\newblock Module networks: identifying regulatory modules and their
+  condition-specific regulators from gene expression data.
+\newblock {\em Nature Genetics}, 34(2):166--176.
+
+\bibitem[Shannon, 1948]{sha48mathematical}
+Shannon, C.~E. (1948).
+\newblock A mathematical theory of communication.
+\newblock {\em Bell System Technical Journal}, 27:379--423, 623--656.
+
+\bibitem[Shawe-Taylor and Cristianini, 2004]{johnshaw2004kernelmethods}
+Shawe-Taylor, J. and Cristianini, N. (2004).
+\newblock {\em Kernel Methods for Pattern Analysis}.
+\newblock Cambridge University Press.
+
+\bibitem[Sherlock and Hernandez-Boussard, 2001]{sherlock01smd}
+Sherlock, G. and Hernandez-Boussard, T. (2001).
+\newblock The stanford microarray database.
+
+\bibitem[Shi and Malik, 2000]{shi00normalized}
+Shi, J. and Malik, J. (2000).
+\newblock Normalized cuts and image segmentation.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  22(8):888--905.
+
+\bibitem[Smyth et~al., 2003]{Smythe03Statistical}
+Smyth, G.~K., Yang, Y., and Speed, T.~P. (2003).
+\newblock Statistical issues in cdna microarray data analysis.
+\newblock {\em Methods in Molecular Biology}, pages 111--136.
+
+\bibitem[Speer et~al., 2005]{speer05spectral}
+Speer, N., Fr�lich, H., Spieth, C., and Zell, A. (2005).
+\newblock Functional grouping of genes using spectral clustering and gene
+  ontology.
+\newblock In {\em Proceedings of the IEEE International Joint Conference on
+  Neural Networks}, pages 298--303. IEEE Press.
+
+\bibitem[Spellman et~al., 1998]{spellman98comprehensive}
+Spellman, P., Sherlock, G., Zhang, M., Iyer, V., Anders, K., Eisen, M., Brown,
+  P., Botstein, D., and Futcher, B. (1998).
+\newblock Comprehensive identification of cell cycle-regulated genes of the
+  yeast {S}accharomyces cerevisiae by microarray hybridization.
+\newblock {\em Mol Biol Cell}, 9(12):3273--97.
+
+\bibitem[Strang, 1988]{Strang2006Linear}
+Strang, G. (1988).
+\newblock {\em Linear Algebra and Its Applications}.
+\newblock Brooks Cole.
+
+\bibitem[Sun et~al., 2008]{Liang2008Adaptive}
+Sun, L., Ji, S., and Ye, J. (2008).
+\newblock Adaptive diffusion kernel learning from biological networks for
+  protein function prediction.
+\newblock {\em BMC Bioinformatics}, 9:162+.
+
+\bibitem[Tai and Pan, 2007]{Tai2008Incorporating}
+Tai, F. and Pan, W. (2007).
+\newblock Incorporating prior knowledge of gene functional groups into
+  regularized discriminant analysis of microarray data.
+\newblock {\em Bioinformatics}, 23(23):3170--3177.
+
+\bibitem[Tamada et~al., 2005]{tamada05utilizing}
+Tamada, Y., Bannai, H., Imoto, S., Katayama, T., Kanehisa, M., and Miyano, S.
+  (2005).
+\newblock Utilizing evolutionary information and gene expression data for
+  estimating gene networks with bayesian network models.
+\newblock {\em J Bioinform Comput Biol}, 3(6):1295--313.
+
+\bibitem[Tamada et~al., 2003]{tamada03estimating}
+Tamada, Y., Kim, S., Bannai, H., Imoto, S., Tashiro, K., Kuhara, S., and
+  Miyano, S. (2003).
+\newblock Estimating gene networks from gene expression data by combining
+  bayesian network model with promoter element detection.
+\newblock {\em Bioinformatics}, 19(90002):227ii--236.
+
+\bibitem[Tanay et~al., 2004]{AmosTanay04revealing}
+Tanay, A., Sharan, R., Kupiec, M., and Shamir, R. (2004).
+\newblock Revealing modularity and organization in the yeast molecular network
+  by integrated analysis of highly heterogeneous genomewide data.
+\newblock {\em PNAS}, 101(9):2981--2986.
+
+\bibitem[Tanay et~al., 2005]{amos05integrative}
+Tanay, A., Steinfeld, I., Kupiec, M., and Shamir, R. (2005).
+\newblock Integrative analysis of genome-wide experiments in the context of a
+  large high-throughput data compendium.
+\newblock {\em Molecular Systems Biology},
+  1(1):msb4100005--E1--msb4100005--E10.
+
+\bibitem[Teixeira et~al., 2006]{Teixeira06yeastract}
+Teixeira, M.~C., Monteiro, P., Jain, P., Tenreiro, S., Fernandes, A.~R., Mira,
+  N.~P., Alenquer, M., Freitas, A.~T., Oliveira, A.~L., and Sa-Correia, I.
+  (2006).
+\newblock The yeastract database: a tool for the analysis of transcription
+  regulatory associations in saccharomyces cerevisiae.
+\newblock {\em Nucl. Acids Res.}, 34(1):D446--451.
+
+\bibitem[Thomaz et~al., 2004]{thomaz2004covariance}
+Thomaz, C., Gillies, D., and Feitosa, R. (2004).
+\newblock A new covariance estimate for bayesian classifiers in biometric
+  recognition.
+\newblock {\em Circuits and Systems for Video Technology, IEEE Transactions
+  on}, 14(2):214--223.
+
+\bibitem[Thomaz and Gillies, 2005]{carlos05maximum}
+Thomaz, C.~E. and Gillies, D.~F. (2005).
+\newblock A maximum uncertainty lda-based approach for limited sample size
+  problems : With application to face recognition.
+\newblock In {\em SIBGRAPI}, pages 89--96.
+
+\bibitem[Troyanskaya et~al., 2003]{Troyanskaya2003Bayesian}
+Troyanskaya, O.~G., Dolinski, K., Owen, A.~B., Altman, R.~B., and Botstein, D.
+  (2003).
+\newblock A bayesian framework for combining heterogeneous data sources for
+  gene function prediction (in saccharomyces cerevisiae).
+\newblock {\em PNAS}, 100(14):8348--8353.
+
+\bibitem[Tsuda, 1999]{tsuda99supportasymmetric}
+Tsuda, K. (1999).
+\newblock Support vector classifier with asymmetric kernel functions.
+\newblock In {\em European Symposium on Artificial Neural Networks}, pages
+  183--188.
+
+\bibitem[Tsuda and Noble, 2004]{Tsuda2004Learning}
+Tsuda, K. and Noble, W.~S. (2004).
+\newblock Learning kernels from biological networks by maximizing entropy.
+\newblock {\em Bioinformatics}, 20(1):326--333.
+
+\bibitem[Tung et~al., 2001]{tung2001constraint}
+Tung, A. K.~H., Ng, R.~T., Lakshmanan, L. V.~S., and Han, J. (2001).
+\newblock Constraint-based clustering in large databases.
+\newblock In {\em ICDT}, pages 405--419.
+
+\bibitem[Verma and Meila, 2003]{verma2003comparison}
+Verma, D. and Meila, M. (2003).
+\newblock A comparison of spectral clustering algorithms.
+\newblock Technical report, University of Washington, Tech. Rep.
+  UW-CSE-03-05-01.
+
+\bibitem[Vert et~al., 2006]{jean2006kernels}
+Vert, J.-P., Thurman, R., and Noble, W.~S. (2006).
+\newblock Kernels for gene regulatory regions.
+\newblock In Weiss, Y., Sch\"{o}lkopf, B., and Platt, J., editors, {\em
+  Advances in Neural Information Processing Systems 18}, pages 1401--1408. MIT
+  Press, Cambridge, MA.
+
+\bibitem[von Luxburg, 2006]{luxberg2006tutorial_spectral}
+von Luxburg, U. (2006).
+\newblock A tutorial on spectral clustering.
+\newblock Technical Report 149, Max Planck Institute for Biological
+  Cybernetics.
+
+\bibitem[Weiss, 1999]{weiss1999segmentation}
+Weiss, Y. (1999).
+\newblock Segmentation using eigenvectors: A unifying view.
+\newblock In {\em ICCV '99: Proceedings of the International Conference on
+  Computer Vision-Volume 2}, Washington, DC, USA. IEEE Computer Society.
+
+\bibitem[Werhli et~al., 2006]{werhli06comparative}
+Werhli, A.~V., Grzegorczyk, M., and Husmeier, D. (2006).
+\newblock Comparative evaluation of reverse engineering gene regulatory
+  networks with relevance networks, graphical gaussian models and bayesian
+  networks.
+\newblock {\em Bioinformatics}, 22(20):2523--2531.
+
+\bibitem[Werner-Washburne et~al., 2002]{werner2002comparative}
+Werner-Washburne, M., Wylie, B., Boyack, K., Fuge, E., Galbraith, J., Weber,
+  J., and Davidson, G. (2002).
+\newblock Comparative analysis of multiple genome-scale data sets.
+\newblock {\em Genome Res}, 12(10):1564--1573.
+
+\bibitem[Wingender et~al., 1996]{transfac1996}
+Wingender, E., Dietze, P., Karas, H., and Kn\"{u}ppel, R. (1996).
+\newblock Transfac: a database on transcription factors and their dna binding
+  sites.
+\newblock {\em Nucleic Acids Res}, 24(1):238--241.
+
+\bibitem[Wit and McClure, 2004]{ernstwit2004statis_microarrays}
+Wit, E. and McClure, J. (2004).
+\newblock {\em Statistics for Microarrays: Design, Analysis and Inference}.
+\newblock John Wiley and Sons.
+
+\bibitem[Xing et~al., 2003]{xing2003metric}
+Xing, E.~P., Ng, A.~Y., Jordan, M.~I., and Russell, S. (2003).
+\newblock Distance metric learning, with application to clustering with
+  side-information.
+\newblock In {\em Advances in Neural Information Processing Systems 15},
+  volume~15, pages 505--512.
+
+\bibitem[Yang et~al., 2002]{yang02normalization}
+Yang, Y.~H., Dudoit, S., Luu, P., Lin, D.~M., Peng, V., Ngai, J., and Speed,
+  T.~P. (2002).
+\newblock Normalization for cdna microarray data: a robust composite method
+  addressing single and multiple slide systematic variation.
+\newblock {\em Nucleic Acids Res}, 30(4).
+
+\bibitem[Yeung et~al., 2004]{yeung04fromexpr}
+Yeung, K., Medvedovic, M., and Bumgarner, R. (2004).
+\newblock From co-expression to co-regulation: how many microarray experiments
+  do we need?
+\newblock {\em Genome Biology}, 5(7):R48.
+
+\bibitem[Yu et~al., 2004]{yu2004annotation}
+Yu, H., Luscombe, N.~M., Lu, H.~X., Zhu, X., Xia, Y., Han, J.~D., Bertin, N.,
+  Chung, S., Vidal, M., and Gerstein, M. (2004).
+\newblock Annotation transfer between genomes: protein-protein interologs and
+  protein-dna regulogs.
+\newblock {\em Genome Res}, 14(6):1107--1118.
+
+\bibitem[Zhu and Zhang, 1999]{zhu1999scpd}
+Zhu, J. and Zhang, M.~Q. (1999).
+\newblock Scpd: a promoter database of the yeast saccharomyces cerevisiae.
+\newblock {\em Bioinformatics}, 15(7-8):607--611.
+
+\bibitem[Zou and Conzen, 2005]{zou05dynamic}
+Zou, M. and Conzen, S.~D. (2005).
+\newblock A new dynamic bayesian network (dbn) approach for identifying gene
+  regulatory networks from time course microarray data.
+\newblock {\em Bioinformatics}, 21(1):71--79.
+
+\end{thebibliography}

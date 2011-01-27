@@ -1,0 +1,51 @@
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Eukaryote cell}}{3}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Central dogma of molecular biology: $DNA \DOTSB \relbar \joinrel \rightarrow RNA \DOTSB \relbar \joinrel \rightarrow Protein $}}{3}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Gene regulation}}{4}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces A cross-section of hybridized cDNA microarray}}{6}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Protein-protein interactions in yeast}}{8}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Full (non scale-normalized) data: Variation of cluster similarity with data homogeneity}}{43}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Filtered (non scale-normalized) data: Variation of cluster similarity with data homogeneity}}{44}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Full (scale normalized data): Variation of cluster similarity with data homogeneity}}{45}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Constraints derived from DNA-binding dataset at various p-value cutoffs}}{59}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Constraints at p=0.0001}}}{59}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Constraints at p=0.001}}}{59}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Semi-supervised spectral clustering}}{63}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Stress dataset: Sigma optimization using Dunn's Index}}{65}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Stress dataset: Sigma optimization using Davies Bouldin's Index}}{66}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Stress dataset: Sigma optimization using Constraints Satisfaction Ratio}}{67}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Cell-cycle dataset: Sigma optimization using Dunn's Index}}{68}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Cell-cycle dataset: Sigma optimization using Davies Bouldin's Index}}{68}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Cell-cycle dataset: Sigma optimization using Constraints Satisfaction Ratio}}{69}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Biological significance with constraints}}{71}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Microarray (stress) and PPI datasets: Sigma and Beta optimization}}{100}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Microarray $\sigma $ optimization using Dunn' index}}}{100}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Microarray $\sigma $ optimization using Davies Bouldin's index}}}{100}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {PPI $\beta $ optimization using total within-cluster sum of square distances}}}{100}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Microarray (stress) and ChIP-chip datasets: Sigma and Beta optimization}}{101}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Microarray $\sigma $ optimization using Dunn' index}}}{101}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Microarray $\sigma $ optimization using Davies Bouldin's index}}}{101}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {ChIP-chip $\beta $ optimization using total within-cluster sum of square distances}}}{101}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Microarray (stress) and Yeastract datasets: Sigma and Beta optimization}}{103}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Microarray $\sigma $ optimization using Dunn' index}}}{103}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Microarray $\sigma $ optimization using Davies Bouldin's index}}}{103}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Yeastract $\beta $ optimization using total within-cluster sum of square distances}}}{103}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Microarray (cell-cycle) and PPI datasets: Sigma and Beta optimization}}{104}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Microarray $\sigma $ optimization using Dunn' index}}}{104}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Microarray $\sigma $ optimization using Davies Bouldin's index}}}{104}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {PPI $\beta $ optimization using total within-cluster sum of square distances}}}{104}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Microarray (cell-cycle) and ChIP-chip datasets: Sigma and Beta optimization}}{105}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Microarray $\sigma $ optimization using Dunn' index}}}{105}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Microarray $\sigma $ optimization using Davies Bouldin's index}}}{105}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {ChIP-chip $\beta $ optimization using total within-cluster sum of square distances}}}{105}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Microarray (cell-cycle) and Yeastract datasets: Sigma and Beta optimization}}{106}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Microarray $\sigma $ optimization using Dunn' index}}}{106}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Microarray $\sigma $ optimization using Davies Bouldin's index}}}{106}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Yeastract $\beta $ optimization using total within-cluster sum of square distances}}}{106}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Comparison of biological significance before and after maximum entropy integration of stress microarray and PPI datasets}}{109}
+\addvspace {10\p@ }
+\addvspace {10\p@ }

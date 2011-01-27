@@ -1,0 +1,2344 @@
+@ARTICLE{schaefer05shrinkage,
+  author = {Juliane Sch{\"a}fer and Korbinian Strimmer},
+  title = {A Shrinkage Approach to Large-Scale Covariance Matrix Estimation
+	and Implications for Functional Genomics},
+  journal = {Statistical Applications in Genetics and Molecular Biology},
+  year = {2005},
+  volume = {4},
+  pages = {art32},
+  number = {1},
+  owner = {markowet},
+  url = {http://www.bepress.com/sagmb/vol4/iss1/art32},
+}
+
+@ARTICLE{fuente04discovery,
+  author = {de la Fuente, Alberto and Bing, Nan and Hoeschele, Ina and Mendes,
+	Pedro},
+  title = {Discovery of meaningful associations in genomic data using partial
+	correlation coefficients},
+  journal = {Bioinformatics},
+  year = {2004},
+  volume = {20},
+  pages = {3565-3574},
+  number = {18},
+  abstract = {Motivation: A major challenge of systems biology is to infer biochemical
+	interactions from large-scale observations, such as transcriptomics,
+	proteomics and metabolomics. We propose to use a partial correlation
+	analysis to construct approximate Undirected Dependency Graphs from
+	such large-scale biochemical data. This approach enables a distinction
+	between direct and indirect interactions of biochemical compounds,
+	thereby inferring the underlying network topology. Results: The method
+	is first thoroughly evaluated with a large set of simulated data.
+	Results indicate that the approach has good statistical power and
+	a low False Discovery Rate even in the presence of noise in the data.
+	We then applied the method to an existing data set of yeast gene
+	expression. Several small gene networks were inferred and found to
+	contain genes known to be collectively involved in particular biochemical
+	processes. In some of these networks there are also uncharacterized
+	ORFs present, which lead to hypotheses about their functions. Availability:
+	Programs running in MS-Windows and Linux for applying zeroth, first,
+	second and third order partial correlation analysis can be downloaded
+	at: http://mendes.vbi.vt.edu/tiki-index.php?page=Software Supplementary
+	information: Supplementary information can be found at: URL to be
+	decided },
+  date = {December 12, 2004},
+  owner = {alok},
+  url = {http://bioinformatics.oupjournals.org/cgi/content/abstract/20/18/3565},
+}
+@ARTICLE{schaefer05empirical,
+  author = {Sch{\"a}fer, Juliane and Strimmer, Korbinian},
+  title = {An empirical {B}ayes approach to inferring large-scale gene association
+	networks.},
+  journal = {Bioinformatics},
+  year = {2005},
+  volume = {21},
+  pages = {754-64},
+  number = {6},
+  month = {Mar},
+  abstract = {MOTIVATION: Genetic networks are often described statistically using
+	graphical models (e.g. Bayesian networks). However, inferring the
+	network structure offers a serious challenge in microarray analysis
+	where the sample size is small compared to the number of considered
+	genes. This renders many standard algorithms for graphical models
+	inapplicable, and inferring genetic networks an 'ill-posed' inverse
+	problem. METHODS: We introduce a novel framework for small-sample
+	inference of graphical models from gene expression data. Specifically,
+	we focus on the so-called graphical Gaussian models (GGMs) that are
+	now frequently used to describe gene association networks and to
+	detect conditionally dependent genes. Our new approach is based on
+	(1) improved (regularized) small-sample point estimates of partial
+	correlation, (2) an exact test of edge inclusion with adaptive estimation
+	of the degree of freedom and (3) a heuristic network search based
+	on false discovery rate multiple testing. Steps (2) and (3) correspond
+	to an empirical Bayes estimate of the network topology. RESULTS:
+	Using computer simulations, we investigate the sensitivity (power)
+	and specificity (true negative rate) of the proposed framework to
+	estimate GGMs from microarray data. This shows that it is possible
+	to recover the true network topology with high accuracy even for
+	small-sample datasets. Subsequently, we analyze gene expression data
+	from a breast cancer tumor study and illustrate our approach by inferring
+	a corresponding large-scale gene association network for 3883 genes.
+	AVAILABILITY: The authors have implemented the approach in the R
+	package 'GeneTS' that is freely available from http://www.stat.uni-muenchen.de/~strimmer/genets/,
+	from the R archive (CRAN) and from the Bioconductor website. CONTACT:
+	korbinian.strimmer@lmu.de.},
+  doi = {10.1093/bioinformatics/bti062},
+  owner = {alok},
+  pii = {bti062},
+  url = {http://dx.doi.org/10.1093/bioinformatics/bti062},
+}
+
+@ARTICLE{magwene04estimating,
+  author = {Paul M Magwene and Junhyong Kim},
+  title = {Estimating genomic coexpression networks using first-order conditional
+	independence.},
+  journal = {Genome Biol},
+  year = {2004},
+  volume = {5},
+  pages = {R100},
+  number = {12},
+  abstract = {We describe a computationally efficient statistical framework for
+	estimating networks of coexpressed genes. This framework exploits
+	first-order conditional independence relationships among gene-expression
+	measurements to estimate patterns of association. We use this approach
+	to estimate a coexpression network from microarray gene-expression
+	measurements from Saccharomyces cerevisiae. We demonstrate the biological
+	utility of this approach by showing that a large number of metabolic
+	pathways are coherently represented in the estimated network. We
+	describe a complementary unsupervised graph search algorithm for
+	discovering locally distinct subgraphs of a large weighted graph.
+	We apply this algorithm to our coexpression network model and show
+	that subgraphs found using this approach correspond to particular
+	biological processes or contain representatives of distinct gene
+	families.},
+  doi = {10.1186/gb-2004-5-12-r100},
+  keywords = {15575966},
+  owner = {alok},
+  pii = {gb-2004-5-12-r100},
+  url = {http://dx.doi.org/10.1186/gb-2004-5-12-r100},
+}
+
+@ARTICLE{spellman98comprehensive,
+  author = {PT Spellman and G Sherlock and MQ Zhang and VR Iyer and K Anders
+	and MB Eisen and PO Brown and D Botstein and B Futcher},
+  title = {Comprehensive identification of cell cycle-regulated genes of the
+	yeast {S}accharomyces cerevisiae by microarray hybridization.},
+  journal = {Mol Biol Cell},
+  year = {1998},
+  volume = {9},
+  pages = {3273-97},
+  number = {12},
+  month = {Dec},
+  abstract = {We sought to create a comprehensive catalog of yeast genes whose transcript
+	levels vary periodically within the cell cycle. To this end, we used
+	DNA microarrays and samples from yeast cultures synchronized by three
+	independent methods: alpha factor arrest, elutriation, and arrest
+	of a cdc15 temperature-sensitive mutant. Using periodicity and correlation
+	algorithms, we identified 800 genes that meet an objective minimum
+	criterion for cell cycle regulation. In separate experiments, designed
+	to examine the effects of inducing either the G1 cyclin Cln3p or
+	the B-type cyclin Clb2p, we found that the mRNA levels of more than
+	half of these 800 genes respond to one or both of these cyclins.
+	Furthermore, we analyzed our set of cell cycle-regulated genes for
+	known and new promoter elements and show that several known elements
+	(or variations thereof) contain information predictive of cell cycle
+	regulation. A full description and complete data sets are available
+	at http://cellcycle-www.stanford.edu},
+  keywords = {Base Sequence, Binding Sites, Cell Cycle, Cyclin B, Cyclins, DNA Primers,
+	DNA Repair, DNA Replication, DNA, Fungal, Fungal Proteins, Gene Expression
+	Regulation, Fungal, Genes, Fungal, Multigene Family, Nucleic Acid
+	Hybridization, RNA, Fungal, RNA, Messenger, Research Support, Non-U.S.
+	Gov't, Research Support, U.S. Gov't, Non-P.H.S., Research Support,
+	U.S. Gov't, P.H.S., Saccharomyces cerevisiae, Saccharomyces cerevisiae
+	Proteins, Transcription, Genetic, 9843569},
+  owner = {markowet},
+  url = {http://www.molbiolcell.org/cgi/content/full/9/12/3273},
+}
+
+@ARTICLE{friedman04inferring,
+  author = {Friedman, Nir},
+  title = {Inferring Cellular Networks Using Probabilistic Graphical Models},
+  journal = {Science},
+  year = {2004},
+  volume = {303},
+  pages = {799-805},
+  number = {5659},
+  abstract = {High-throughput genome-wide molecular assays, which probe cellular
+	networks from different, have become central to molecular
+	biology. Probabilistic graphical models are useful for extracting
+	meaningful biological insights from the resulting data sets. These
+	models provide a concise representation of complex cellular networks
+	by composing simpler submodels. Procedures based on well-understood
+	principles for inferring such models from data facilitate a model-based
+	methodology for analysis and discovery. This methodology and its
+	capabilities are illustrated by several recent applications to gene
+	expression data.},
+  eprint = {http://www.sciencemag.org/cgi/reprint/303/5659/799.pdf},
+  url = {http://www.sciencemag.org/cgi/content/abstract/303/5659/799},
+}
+@ARTICLE{segal05learning,
+  author = {Eran Segal and Dana Pe'er and Aviv Regev and Daphne Koller and Nir
+	Friedman},
+  title = {Learning Module Networks},
+  journal = {Journal of Machine Learning Research},
+  year = {2005},
+  volume = {6},
+  pages = {557--588},
+  number = {4},
+  url = {http://jmlr.csail.mit.edu/papers/v6/segal05a.html},
+}
+@ARTICLE{segal05signatures,
+  author = {Eran Segal and Nir Friedman and Naftali Kaminski and Aviv Regev and
+	Daphne Koller},
+  title = {From signatures to models: understanding cancer using microarrays.},
+  journal = {Nat Genet},
+  year = {2005},
+  volume = {37 Suppl},
+  pages = {S38-45},
+  month = {Jun},
+  abstract = {Genomics has the potential to revolutionize the diagnosis and management
+	of cancer by offering an unprecedented comprehensive view of the
+	molecular underpinnings of pathology. Computational analysis is essential
+	to transform the masses of generated data into a mechanistic understanding
+	of disease. Here we review current research aimed at uncovering the
+	modular organization and function of transcriptional networks and
+	responses in cancer. We first describe how methods that analyze biological
+	processes in terms of higher-level modules can identify robust signatures
+	of disease mechanisms. We then discuss methods that aim to identify
+	the regulatory mechanisms underlying these modules and processes.
+	Finally, we show how comparative analysis, combining human data with
+	model organisms, can lead to more robust findings. We conclude by
+	discussing the challenges of generalizing these methods from cells
+	to tissues and the opportunities they offer to improve cancer diagnosis
+	and management.},
+  doi = {10.1038/ng1561},
+  keywords = {Algorithms, Animals, Computational Biology, Gene Expression Profiling,
+	Gene Expression Regulation, Humans, Models, Biological, Neoplasms,
+	Oligonucleotide Array Sequence Analysis, Research Support, N.I.H.,
+	Extramural, Research Support, Non-U.S. Gov't, Research Support, U.S.
+	Gov't, Non-P.H.S., Research Support, U.S. Gov't, P.H.S., Transcription,
+	Genetic, 15920529},
+  owner = {markowet},
+  pii = {ng1561},
+  url = {http://dx.doi.org/10.1038/ng1561},
+}
+
+@ARTICLE{segal03module,
+  author = {Eran Segal and Michael Shapira and Aviv Regev and Dana Pe'er and
+	David Botstein and Daphne Koller and Nir Friedman},
+  title = {Module networks: identifying regulatory modules and their condition-specific
+	regulators from gene expression data.},
+  journal = {Nature Genetics},
+  year = {2003},
+  volume = {34},
+  pages = {166-176},
+  number = {2},
+  url = {http://dx.doi.org/10.1038/ng1165},
+}
+
+@ARTICLE{orph02thehuman,
+  author = {Orphanides, George and Reinberg, Danny},
+  title = {A Unified Theory of Gene Expression},
+  journal = {Cell},
+  year = {2002},
+  volume = {108},
+  pages = {439--451},
+  number = {4},
+  month = feb,
+  abstract = {The human genome has been called &ldquo;the blueprint for life.&rdquo;
+	This master plan is realized through the process of gene expression.
+	Recent progress has revealed that many of the steps in the pathway
+	from gene sequence to active protein are connected, suggesting a
+	unified theory of gene expression.},
+  owner = {am2203},
+  timestamp = {2006.05.18},
+  url = {http://www.sciencedirect.com/science/article/B6WSN-45DB94W-3/2/8536c07561f7515243d90bcc3c329e6c},
+}
+
+@ARTICLE{yeung04fromexpr,
+  author = {Yeung, Ka and Medvedovic, Mario and Bumgarner, Roger},
+  title = {From co-expression to co-regulation: how many microarray experiments
+	do we need?},
+  journal = {Genome Biology},
+  year = {2004},
+  volume = {5},
+  pages = {R48},
+  number = {7},
+  abstract = {BACKGROUND:Cluster analysis is often used to infer regulatory modules
+	or biological function by associating unknown genes with other genes
+	that have similar expression patterns and known regulatory elements
+	or functions. However, clustering results may not have any biological
+	relevance.RESULTS:We applied various clustering algorithms to microarray
+	datasets with different sizes, and we evaluated the clustering results
+	by determining the fraction of gene pairs from the same clusters
+	that share at least one known common transcription factor. We used
+	both yeast transcription factor databases (SCPD, YPD) and chromatin
+	immunoprecipitation (ChIP) data to evaluate our clustering results.
+	We showed that the ability to identify co-regulated genes from clustering
+	results is strongly dependent on the number of microarray experiments
+	used in cluster analysis and the accuracy of these associations plateaus
+	at between 50 and 100 experiments on yeast data. Moreover, the model-based
+	clustering algorithm MCLUST consistently outperforms more traditional
+	methods in accurately assigning co-regulated genes to the same clusters
+	on standardized data.CONCLUSIONS:Our results are consistent with
+	respect to independent evaluation criteria that strengthen our confidence
+	in our results. However, when one compares ChIP data to YPD, the
+	false-negative rate is approximately 80% using the recommended p-value
+	of 0.001. In addition, we showed that even with large numbers of
+	experiments, the false-positive rate may exceed the true-positive
+	rate. In particular, even when all experiments are included, the
+	best results produce clusters with only a 28% true-positive rate
+	using known gene transcription factor interactions.},
+  doi = {http://dx.doi.org/10.1186/gb-2004-5-7-r48},
+  issn = {1465-6906},
+  url = {http://genomebiology.com/2004/5/7/R48},
+}
+@ARTICLE{AmosTanay04revealing,
+  author = {Tanay, Amos and Sharan, Roded and Kupiec, Martin and Shamir, Ron},
+  title = {Revealing modularity and organization in the yeast molecular network
+	by integrated analysis of highly heterogeneous genomewide data},
+  journal = {PNAS},
+  year = {2004},
+  volume = {101},
+  pages = {2981-2986},
+  number = {9},
+  abstract = {The dissection of complex biological systems is a challenging task,
+	made difficult by the size of the underlying molecular network and
+	the heterogeneous nature of the control mechanisms involved. Novel
+	high-throughput techniques are generating massive data sets on various
+	aspects of such systems. Here, we perform analysis of a highly diverse
+	collection of genomewide data sets, including gene expression, protein
+	interactions, growth phenotype data, and transcription factor binding,
+	to reveal the modular organization of the yeast system. By integrating
+	experimental data of heterogeneous sources and types, we are able
+	to perform analysis on a much broader scope than previous studies.
+	At the core of our methodology is the ability to identify modules,
+	namely, groups of genes with statistically significant correlated
+	behavior across diverse data sources. Numerous biological processes
+	are revealed through these modules, which also obey global hierarchical
+	organization. We use the identified modules to study the yeast transcriptional
+	network and predict the function of >800 uncharacterized genes. Our
+	analysis framework, SAMBA (Statistical-Algorithmic Method for Bicluster
+	Analysis), enables the processing of current and future sources of
+	biological information and is readily extendable to experimental
+	techniques and higher organisms.},
+  doi = {10.1073/pnas.0308661100},
+  eprint = {http://www.pnas.org/cgi/reprint/101/9/2981.pdf},
+  url = {http://www.pnas.org/cgi/content/abstract/101/9/2981},
+}
+
+@ARTICLE{barjoseph03computational,
+  author = {Ziv Bar-Joseph and Georg K Gerber and Tong Ihn Lee and Nicola J Rinaldi
+	and Jane Y Yoo and François Robert and D Benjamin Gordon and Ernest
+	Fraenkel and Tommi S Jaakkola and Richard A Young and David K Gifford},
+  title = {Computational discovery of gene modules and regulatory networks},
+  journal = {Nature Biotechnology},
+  year = {2003},
+  volume = {21},
+  pages = {1337-1342},
+  number = {11},
+  doi = {10.1038/nbt890},
+  url = {http://www.nature.com/cgi-taf/DynaPage.taf?file=/nbt/journal/v21/n11/full/nbt890.html\&filetype=pdf},
+}
+
+@ARTICLE{segal04module,
+  author = {Eran Segal and Nir Friedman and Daphne Koller and Aviv Regev},
+  title = {A module map showing conditional activity of expression modules in
+	cancer.},
+  journal = {Nat Genet},
+  year = {2004},
+  volume = {36},
+  pages = {1090-8},
+  number = {10},
+  month = {Oct},
+  abstract = {DNA microarrays are widely used to study changes in gene expression
+	in tumors, but such studies are typically system-specific and do
+	not address the commonalities and variations between different types
+	of tumor. Here we present an integrated analysis of 1,975 published
+	microarrays spanning 22 tumor types. We describe expression profiles
+	in different tumors in terms of the behavior of modules, sets of
+	genes that act in concert to carry out a specific function. Using
+	a simple unified analysis, we extract modules and characterize gene-expression
+	profiles in tumors as a combination of activated and deactivated
+	modules. Activation of some modules is specific to particular types
+	of tumor; for example, a growth-inhibitory module is specifically
+	repressed in acute lymphoblastic leukemias and may underlie the deregulated
+	proliferation in these cancers. Other modules are shared across a
+	diverse set of clinical conditions, suggestive of common tumor progression
+	mechanisms. For example, the bone osteoblastic module spans a variety
+	of tumor types and includes both secreted growth factors and their
+	receptors. Our findings suggest that there is a single mechanism
+	for both primary tumor proliferation and metastasis to bone. Our
+	analysis presents multiple research directions for diagnostic, prognostic
+	and therapeutic studies.},
+  doi = {10.1038/ng1434},
+  keywords = {Databases, Genetic, Female, Gene Expression Profiling, Humans, Male,
+	Multigene Family, Neoplasms, Oligonucleotide Array Sequence Analysis,
+	Oncogenes, Organ Specificity, Research Support, Non-U.S. Gov't, Research
+	Support, U.S. Gov't, Non-P.H.S., 15448693},
+  owner = {markowet},
+  pii = {ng1434},
+  url = {http://dx.doi.org/10.1038/ng1434},
+}
+
+@article{prelic06systematic,
+author = {Prelic, Amela and Bleuler, Stefan and Zimmermann, Philip and Wille, Anja and Buhlmann, Peter and Gruissem, Wilhelm and Hennig, Lars and Thiele, Lothar and Zitzler, Eckart},
+title = {A systematic comparison and evaluation of biclustering methods for gene expression data},
+journal = {Bioinformatics},
+volume = {22},
+number = {9},
+pages = {1122-1129},
+doi = {10.1093/bioinformatics/btl060},
+year = {2006},
+abstract = {Motivation: In recent years, there have been various efforts to overcome the limitations of standard clustering approaches for the analysis of gene expression data by grouping genes and samples simultaneously. The underlying concept, which is often referred to as biclustering, allows to identify sets of genes sharing compatible expression patterns across subsets of samples, and its usefulness has been demonstrated for different organisms and datasets. Several biclustering methods have been proposed in the literature; however, it is not clear how the different techniques compare with each other with respect to the biological relevance of the clusters as well as with other characteristics such as robustness and sensitivity to noise. Accordingly, no guidelines concerning the choice of the biclustering method are currently available.  Results: First, this paper provides a methodology for comparing and validating biclustering methods that includes a simple binary reference model. Although this model captures the essential features of most biclustering approaches, it is still simple enough to exactly determine all optimal groupings; to this end, we propose a fast divide-and-conquer algorithm (Bimax). Second, we evaluate the performance of five salient biclustering algorithms together with the reference model and a hierarchical clustering method on various synthetic and real datasets for Saccharomyces cerevisiae and Arabidopsis thaliana. The comparison reveals that (1) biclustering in general has advantages over a conventional hierarchical clustering approach, (2) there are considerable performance differences between the tested methods and (3) already the simple reference model delivers relevant patterns within all considered settings.  Availability: The datasets used, the outcomes of the biclustering algorithms and the Bimax implementation for the reference model are available at http://www.tik.ee.ethz.ch/sop/bimax  Contact: bleuler@tik.ee.ethz.ch  Supplementary information: Supplementary data are available at http://www.tik.ee.ethz.ch/sop/bimax
+},
+URL = {http://bioinformatics.oxfordjournals.org/cgi/content/abstract/22/9/1122},
+eprint = {http://bioinformatics.oxfordjournals.org/cgi/reprint/22/9/1122.pdf}
+}
+@Article{hubert85comparing,
+author = {L. Hubert and P. Arabie},
+title = {Comparing Partitions},
+journal = {Journal of Classification},
+year = {1985},
+OPTkey = {},
+OPTvolume = {2},
+OPTnumber = {},
+OPTpages = {193-218},
+OPTmonth = {},
+OPTnote = {},
+OPTannote = {}
+}
+
+@Article{milligan85exam,
+author = {G. W. Milligan and M. C. Cooper},
+title = {An examination of procedures for determining the number of clusters in a data set},
+journal = {Psychometrika},
+year = {1985},
+OPTkey = {},
+OPTvolume = {50},
+OPTnumber = {},
+OPTpages = {159-179},
+OPTmonth = {June},
+}
+
+@inproceedings{lanck04kerneldatafusion,
+	abstract = {Kernel methods provide a principled framework in which to represent many types of data, including vectors, strings, trees and graphs. As such, these methods are useful for drawing inferences about biological phenomena. We describe a method for combining multiple kernel representations in an optimal fashion, by formulating the problem as a convex optimization problem that can be solved using semidefinite programming techniques. The method is applied to the problem of predicting yeast protein functional classifications using a support vector machine (SVM) trained on five types of data. For this problem, the new method performs better than a previously-described Markov random field method, and better than the SVM trained on any single type of data.},
+	author = {Lanckriet, G. R.  and Deng, M.  and Cristianini, N.  and Jordan, M. I.  and Noble, W. S. },
+	booktitle = {Proceedings of the Pacific Symposium on Biocomputing},
+	month = {January},
+	pages = {300--311},
+	title = {Kernel-based data fusion and its application to protein function prediction in yeast},
+	year = {2004}
+}
+@article{lanck04statframework,
+	abstract = {MOTIVATION: During the past decade, the new focus on genomics has highlighted a particular challenge: to integrate the different views of the genome that are provided by various types of experimental data. RESULTS: This paper describes a computational framework for integrating and drawing inferences from a collection of genome-wide measurements. Each dataset is represented via a kernel function, which defines generalized similarity relationships between pairs of entities, such as genes or proteins. The kernel representation is both flexible and efficient, and can be applied to many different types of data. Furthermore, kernel functions derived from different types of data can be combined in a straightforward fashion. Recent advances in the theory of kernel methods have provided efficient algorithms to perform such combinations in a way that minimizes a statistical loss function. These methods exploit semidefinite programming techniques to reduce the problem of finding optimizing kernel combinations to a convex optimization problem. Computational experiments performed using yeast genome-wide datasets, including amino acid sequences, hydropathy profiles, gene expression data and known protein-protein interactions, demonstrate the utility of this approach. A statistical learning algorithm trained from all of these data to recognize particular classes of proteins--membrane proteins and ribosomal proteins--performs significantly better than the same algorithm trained on any single type of data. AVAILABILITY: Supplementary data at http://noble.gs.washington.edu/proj/sdp-svm},
+	address = {Department of Electrical Engineering and Computer Science, University of California, Berkeley 94720, USA.},
+	author = {Lanckriet, G. R.  and De Bie, T.  and Cristianini, N.  and Jordan, M. I.  and Noble, W. S. },
+	citeulike-article-id = {227608},
+	issn = {1367-4803},
+	journal = {Bioinformatics},
+	month = {November},
+	number = {16},
+	pages = {2626--2635},
+	title = {A statistical framework for genomic data fusion.},
+	volume = {20},
+	year = {2004}
+}
+
+@ARTICLE{hughes00functional,
+  author = {Timothy R. Hughes and Matthew J. Marton and Allan R. Jones and Christopher
+	J. Roberts and Roland Stoughton and Christopher D. Armour and Holly
+	A. Bennett and Ernest Coffey and Hongyue Dai and Yudong D. He and
+	Matthew J. Kidd and Amy M. King and Michael R. Meyer and David Slade
+	and Pek Y. Lum and Sergey B. Stepaniants and Daniel D. Shoemaker
+	and Daniel Gachotte and Kalpana Chakraburtty and Julian Simon and
+	Martin Bard and Stephen H. Friend},
+  title = {Functional Discovery via a Compendium of Expression Profiles},
+  journal = {Cell},
+  year = {2000},
+  volume = {102},
+  pages = {109-126},
+  month = {July},
+  url = {http://www.cell.com/cgi/content/abstract/102/1/109/},
+}
+
+@article{jong02modeling,
+	abstract = {In order to understand the functioning of organisms on the molecular level, we need to know which genes are expressed, when and where in the organism, and to which extent. The regulation of gene expression is achieved through genetic regulatory systems structured by networks of interactions between DNA, RNA, proteins, and small molecules. As most genetic regulatory networks of interest involve many components connected through interlocking positive and negative feedback loops, an intuitive understanding of their dynamics is hard to obtain. As a consequence, formal methods and computer tools for the modeling and simulation of genetic regulatory networks will be indispensable. This paper reviews formalisms that have been employed in mathematical biology and bioinformatics to describe genetic regulatory systems, in particular directed graphs, Bayesian networks, Boolean networks and their generalizations, ordinary and partial differential equations, qualitative differential equations, stochastic equations, and rule-based formalisms. In addition, the paper discusses how these formalisms have been used in the simulation of the behavior of actual regulatory systems.},
+	address = {Institut National de Recherche en Informatique et en Automatique (INRIA), Unité de Recherche Rhône-Alpes, 655 avenue de l'Europe, Montbonnot, 38334 Saint Ismier CEDEX, France. Hidde.de-Jong@inrialpes.fr},
+	author = {de Jong, H. },
+	issn = {1066-5277},
+	journal = {J Comput Biol},
+	number = {1},
+	pages = {67--103},
+	title = {Modeling and simulation of genetic regulatory systems: a literature review.},
+	volume = {9},
+	year = {2002}
+}
+
+@article{amos05integrative,
+	author = {Tanay, Amos   and Steinfeld, Israel   and Kupiec, Martin   and Shamir, Ron  },
+	journal = {Molecular Systems Biology},
+	month = {March},
+	number = {1},
+	pages = {msb4100005-E1--msb4100005-E10},
+	priority = {0},
+	publisher = {Nature Publishing Group},
+	title = {Integrative analysis of genome-wide experiments in the context of a large high-throughput data compendium},
+	volume = {1},
+	year = {2005}
+}
+
+@article{gasch00genomicexpn,
+	abstract = {We explored genomic expression patterns in the yeast Saccharomyces cerevisiae responding to diverse environmental transitions. DNA microarrays were used to measure changes in transcript levels over time for almost every yeast gene, as cells responded to temperature shocks, hydrogen peroxide, the superoxide-generating drug menadione, the sulfhydryl-oxidizing agent diamide, the disulfide-reducing agent dithiothreitol, hyper- and hypo-osmotic shock, amino acid starvation, nitrogen source depletion, and progression into stationary phase. A large set of genes (approximately 900) showed a similar drastic response to almost all of these environmental changes. Additional features of the genomic responses were specialized for specific conditions. Promoter analysis and subsequent characterization of the responses of mutant strains implicated the transcription factors Yap1p, as well as Msn2p and Msn4p, in mediating specific features of the transcriptional response, while the identification of novel sequence elements provided clues to novel regulators. Physiological themes in the genomic responses to specific environmental stresses provided insights into the effects of those stresses on the cell.},
+	address = {Department of Biochemistry, Stanford University School of Medicine, Stanford, CA 94305-5428, USA.},
+	author = {Gasch, A. P.  and Spellman, P. T.  and Kao, C. M.  and Carmel-Harel, O.  and Eisen, M. B.  and Storz, G.  and Botstein, D.  and Brown, P. O. },
+	citeulike-article-id = {307585},
+	issn = {1059-1524},
+	journal = {Mol Biol Cell},
+	keywords = {bio high_throughput_dataset},
+	month = {December},
+	number = {12},
+	pages = {4241--4257},
+	priority = {1},
+	title = {Genomic expression programs in the response of yeast cells to environmental changes.},
+	volume = {11},
+	year = {2000}
+}
+@article{saldanha04nutritional,
+author = {Saldanha, Alok J. and Brauer, Matthew J. and Botstein, David},
+title = {Nutritional Homeostasis in Batch and Steady-State Culture of Yeast},
+journal = {Mol. Biol. Cell},
+volume = {15},
+number = {9},
+pages = {4089-4104},
+year = {2004},
+abstract = {We studied the physiological response to limitation by diverse nutrients in batch and steady-state (chemostat) cultures of S. cerevisiae. We found that the global pattern of transcription in steady-state cultures in limiting phosphate or sulfate is essentially identical to that of batch cultures growing in the same medium just before the limiting nutrient is completely exhausted. The massive stress response and complete arrest of the cell cycle that occurs when nutrients are fully exhausted in batch cultures is not observed in the chemostat, indicating that the cells in the chemostat are "poor, not starving." Similar comparisons using leucine or uracil auxotrophs limited on leucine or uracil again showed patterns of gene expression in steady-state closely resembling those of corresponding batch cultures just before they exhaust the nutrient. Although there is also a strong stress response in the auxotrophic batch cultures, cell cycle arrest, if it occurs at all, is much less uniform. Many of the differences among the patterns of gene expression between the four nutrient limitations are interpretable in light of known involvement of the genes in stress responses or in the regulation or execution of particular metabolic pathways appropriate to the limiting nutrient. We conclude that cells adjust their growth rate to nutrient availability and maintain homeostasis in the same way in batch and steady state conditions; cells in steady-state cultures are in a physiological condition normally encountered in batch cultures.
+  },
+}
+
+@inproceedings{brian_semisupgraph2005,
+	address = {New York, NY, USA},
+	author = {Kulis, Brian   and Basu, Sugato   and Dhillon, Inderjit   and Mooney, Raymond  },
+	booktitle = {ICML '05: Proceedings of the 22nd international conference on Machine learning},
+	citeulike-article-id = {686723},
+	doi = {http://doi.acm.org/10.1145/1102351.1102409},
+	keywords = {spectral},
+	pages = {457--464},
+	priority = {2},
+	publisher = {ACM Press},
+	title = {Semi-supervised graph clustering: a kernel approach},
+	year = {2005}
+}
+@Book{kernel_methodsvert2004,
+address={The MIT Press, Cambridge, Massachussetts},
+editor = {B. Schölkopf and K. Tsuda and J.-P. Vert},
+title = {Kernel Methods in Computational Biology},
+publisher = {MIT Press},
+year = {2004}
+
+}
+
+@misc{ hunter_molbio93,
+  author = {L. Hunter},
+  title = {Molecular biology for computer scientists},
+  text = {Artificial Intelligence and Molecular Biology, chapter 1, (pp. 1--46). AAAI Press.},
+  year = {1993},
+  url = {citeseer.ist.psu.edu/hunter93molecular.html}
+ }
+  
+@techreport{zhu_semisup2005,
+	author = {Zhu, Xiaojin  },
+	institution = {Computer Sciences, University of Wisconsin-Madison},
+	title = {Semi-Supervised Learning Literature Survey},
+	url = {http://www.cs.wisc.edu/~jerryzhu/pub/ssl_survey.pdf},
+	year = {2005}
+}
+@misc{grira2005unsupsurvey,
+  author = {Nizar Grira and Michel Crucianu and Nozha Boujemaa},
+  title = {Unsupervised and Semi-supervised Clustering:a Brief Survey},
+  url = {citeseer.ist.psu.edu/727015.html}, 
+  year={2005}
+  }
+@ARTICLE{steuer_validation2006,
+  author = {Ralf Steuer and Peter Humburg and Joachim Selbig},
+  title = {Validation and functional annotation of expression-based clusters based on gene ontology},
+  journal = {BMC Bioinformatics},
+  volume = {7},
+  pages = {380},
+  url = {http://www.citebase.org/abstract?id=oai:biomedcentral.com:1471-2105-7-380},
+  year = {2006}
+}
+@incollection{figueiredo2006clustering,
+  author = {Mario Figueiredo and Dong Seon Cheng and Vittorio Murino},
+  title = {Clustering Under Prior Knowledge with Application to Image Segmentation},
+  booktitle = {Advances in Neural Information Processing Systems 19},
+  editor = {B. Scholkopf and J.C. Platt and T. Hofmann},
+  publisher = {MIT Press},
+  address = {Cambridge, MA},
+  year = {2007}
+  }
+@book{johnshaw2004kernelmethods,
+	author = {Shawe-Taylor, John   and Cristianini, Nello  },
+	isbn = {0521813972},
+	month = {June},
+	publisher = {Cambridge University Press},
+	title = {Kernel Methods for Pattern Analysis},
+	year = {2004}
+}
+@techreport{luxberg2006tutorial_spectral,
+   author = {von Luxburg, U. },
+   title = {A tutorial on spectral clustering},
+   year = {2006},
+   number = {149},
+   month = {08},
+   institution = {Max Planck Institute for Biological Cybernetics},
+   abstract = {In recent years, spectral clustering has become one of the most
+popular modern clustering algorithms. It is simple to implement, can
+be solved efficiently by standard linear algebra software, and very
+often outperforms traditional clustering algorithms such as the
+k-means algorithm. Nevertheless, on the first glance spectral
+clustering looks a bit mysterious, and it is not obvious to see why it
+works at all and what it really does. This article is a tutorial
+introduction to spectral clustering. We describe different graph
+Laplacians and their basic properties, present the most common
+spectral clustering algorithms, and derive those algorithms from
+scratch by several different approaches.  Advantages and disadvantages
+of the different spectral clustering algorithms are discussed.}
+}
+@inproceedings{dhillon2004kernel_kmeans,
+ author = {Inderjit S. Dhillon and Yuqiang Guan and Brian Kulis},
+ title = {Kernel k-means: spectral clustering and normalized cuts},
+ booktitle = {KDD '04: Proceedings of the tenth ACM SIGKDD international conference on Knowledge discovery and data mining},
+ year = {2004},
+ isbn = {1-58113-888-1},
+ pages = {551--556},
+ location = {Seattle, WA, USA},
+ doi = {http://doi.acm.org/10.1145/1014052.1014118},
+ publisher = {ACM Press},
+ address = {New York, NY, USA},
+ }
+@ARTICLE{friedman00using,
+  author = {Nir Friedman and Michal Linial and Iftach Nachman and Dana Pe'er},
+  title = {Using {B}ayesian networks to analyze expression data},
+  journal = {Journal of Computational Biology},
+  year = {2000},
+  volume = {7},
+  pages = {601-620},
+  number = {3},
+  month = {August},
+  url = {http://citeseer.ist.psu.edu/friedman99using.html},
+}
+@ARTICLE{husmeier03sensitivity,
+  author = {Husmeier, Dirk},
+  title = {Sensitivity and specificity of inferring genetic regulatory interactions
+	from microarray experiments with dynamic Bayesian networks},
+  journal = {Bioinformatics},
+  year = {2003},
+  volume = {19},
+  pages = {2271-2282},
+  number = {17},
+  abstract = {Motivation: {B}ayesian networks have been applied to infer genetic
+	regulatory interactions from microarray gene expression data. This
+	inference problem is particularly hard in that interactions between
+	hundreds of genes have to be learned from very small data sets, typically
+	containing only a few dozen time points during a cell cycle. Most
+	previous studies have assessed the inference results on real gene
+	expression data by comparing predicted genetic regulatory interactions
+	with those known from the biological literature. This approach is
+	controversial due to the absence of known gold standards, which renders
+	the estimation of the sensitivity and specificity, that is, the true
+	and (complementary) false detection rate, unreliable and difficult.
+	The objective of the present study is to test the viability of the
+	{B}ayesian network paradigm in a realistic simulation study. First,
+	gene expression data are simulated from a realistic biological network
+	involving DNAs, mRNAs, inactive protein monomers and active protein
+	dimers. Then, interaction networks are inferred from these data in
+	a reverse engineering approach, using {B}ayesian networks and {B}ayesian
+	learning with Markov chain Monte Carlo. Results: The simulation results
+	are presented as receiver operator characteristics curves. This allows
+	estimating the proportion of spurious gene interactions incurred
+	for a specified target proportion of recovered true interactions.
+	The findings demonstrate how the network inference performance varies
+	with the training set size, the degree of inadequacy of prior assumptions,
+	the experimental sampling strategy and the inclusion of further,
+	sequence-based information. Availability: The programs and data used
+	in the present study are available from http://www.bioss.sari.ac.uk/~dirk/Supplements},
+  eprint = {http://bioinformatics.oupjournals.org/cgi/reprint/19/17/2271.pdf},
+  url = {http://bioinformatics.oupjournals.org/cgi/content/abstract/19/17/2271},
+}
+@article{ihmels02revealing,
+	author = {Ihmels, James   and Friedlander, Gilgi   and Bergmann, Sven   and Sarig, Ofer   and Ziv, Yaniv   and Barkai, Naama },
+	journal = {Nature Genet},
+	pages = {370--377},
+	title = {Revealing modular organization in the yeast transcriptional network},
+	volume = {31},
+	year = {2002}
+}
+@article{lotem04network,
+	abstract = {Genes and proteins generate molecular circuitry that enables the cell to process information and respond to stimuli. A major challenge is to identify characteristic patterns in this network of interactions that may shed light on basic cellular mechanisms. Previous studies have analyzed aspects of this network, concentrating on either transcription-regulation or protein-protein interactions. Here we search for composite network motifs: characteristic network patterns consisting of both transcription-regulation and protein-protein interactions that recur significantly more often than in random networks. To this end we developed algorithms for detecting motifs in networks with two or more types of interactions and applied them to an integrated data set of protein-protein interactions and transcription regulation in Saccharomyces cerevisiae. We found a two-protein mixed-feedback loop motif, five types of three-protein motifs exhibiting coregulation and complex formation, and many motifs involving four proteins. Virtually all four-protein motifs consisted of combinations of smaller motifs. This study presents a basic framework for detecting the building blocks of networks with multiple types of interactions.},
+	address = {Department of Molecular Genetics and Biotechnology, Faculty of Medicine, Hebrew University, Jerusalem 91120, Israel.},
+	author = {Yeger-Lotem, E.  and Sattath, S.  and Kashtan, N.  and Itzkovitz, S.  and Milo, R.  and Pinter, R. Y.  and Alon, U.  and Margalit, H. },
+	issn = {0027-8424},
+	journal = {Proc Natl Acad Sci U S A},
+	keywords = {interaction network protein-protein},
+	month = {April},
+	number = {16},
+	pages = {5934--5939},
+	title = {Network motifs in integrated cellular networks of transcription-regulation and protein-protein interaction.},
+	volume = {101},
+	year = {2004}
+}
+@misc{ murphy99modelling,
+  author = {K. Murphy and S. Mian},
+  title = {Modelling gene expression data using dynamic Bayesian networks},
+  text = {Murphy, K. and Mian, S. (1999). Modelling gene expression data using dynamic
+    Bayesian networks. Technical report, Computer Science Division, University
+    of California, Berkeley, CA.},
+  year = {1999},
+  url = {citeseer.ist.psu.edu/murphy99modelling.html} 
+  }
+  @ARTICLE{zou05dynamic,
+  author = {Zou, Min and Conzen, Suzanne D.},
+  title = {A new dynamic Bayesian network (DBN) approach for identifying gene
+	regulatory networks from time course microarray data},
+  journal = {Bioinformatics},
+  year = {2005},
+  volume = {21},
+  pages = {71-79},
+  number = {1},
+  abstract = {Motivation: Signaling pathways are dynamic events that take place
+	over a given period of time. In order to identify these pathways,
+	expression data over time are required. Dynamic Bayesian network
+	(DBN) is an important approach for predicting the gene regulatory
+	networks from time course expression data. However, two fundamental
+	problems greatly reduce the effectiveness of current DBN methods.
+	The first problem is the relatively low accuracy of prediction, and
+	the second is the excessive computational time. Results: In this
+	paper, we present a DBN-based approach with increased accuracy and
+	reduced computational time compared with existing DBN methods. Unlike
+	previous methods, our approach limits potential regulators to those
+	genes with either earlier or simultaneous expression changes (up-
+	or down-regulation) in relation to their target genes. This allows
+	us to limit the number of potential regulators and consequently reduce
+	the search space. Furthermore, we use the time difference between
+	the initial change in the expression of a given regulator gene and
+	its potential target gene to estimate the transcriptional time lag
+	between these two genes. This method of time lag estimation increases
+	the accuracy of predicting gene regulatory networks. Our approach
+	is evaluated using time-series expression data measured during the
+	yeast cell cycle. The results demonstrate that this approach can
+	predict regulatory networks with significantly improved accuracy
+	and reduced computational time compared with existing DBN approaches.
+	Availability: The programs described in this paper can be obtained
+	from the corresponding author upon request. Contact: sconzen@medicine.bsd.uchicago.edu},
+  eprint = {http://bioinformatics.oupjournals.org/cgi/reprint/21/1/71.pdf},
+  url = {http://bioinformatics.oupjournals.org/cgi/content/abstract/21/1/71},
+}
+@INPROCEEDINGS{imoto03combining,
+  author = {Imoto, Seiya and Higuchi, T. and Goto, T. and Tashiro, K. and Kuhara,
+	S. and Miyano, S.},
+  title = {Combining microarrays and biological knowledge for estimating gene
+	networks via {B}ayesian networks},
+  booktitle = {Proc. 2nd Computational Systems Bioinformatics},
+  year = {2003},
+  pages = {104-113},
+  url = {http://bonsai.ims.u-tokyo.ac.jp/~imoto/008-54-imoto54.pdf},
+}
+@ARTICLE{tamada05utilizing,
+  author = {Yoshinori Tamada and Hideo Bannai and Seiya Imoto and Toshiaki Katayama
+	and Minoru Kanehisa and Satoru Miyano},
+  title = {Utilizing evolutionary information and gene expression data for estimating
+	gene networks with bayesian network models.},
+  journal = {J Bioinform Comput Biol},
+  year = {2005},
+  volume = {3},
+  pages = {1295-313},
+  number = {6},
+  month = {Dec},
+  abstract = {Since microarray gene expression data do not contain sufficient information
+	for estimating accurate gene networks, other biological information
+	has been considered to improve the estimated networks. Recent studies
+	have revealed that highly conserved proteins that exhibit similar
+	expression patterns in different organisms, have almost the same
+	function in each organism. Such conserved proteins are also known
+	to play similar roles in terms of the regulation of genes. Therefore,
+	this evolutionary information can be used to refine regulatory relationships
+	among genes, which are estimated from gene expression data. We propose
+	a statistical method for estimating gene networks from gene expression
+	data by utilizing evolutionarily conserved relationships between
+	genes. Our method simultaneously estimates two gene networks of two
+	distinct organisms, with a Bayesian network model utilizing the evolutionary
+	information so that gene expression data of one organism helps to
+	estimate the gene network of the other. We show the effectiveness
+	of the method through the analysis on Saccharomyces cerevisiae and
+	Homo sapiens cell cycle gene expression data. Our method was successful
+	in estimating gene networks that capture many known relationships
+	as well as several unknown relationships which are likely to be novel.
+	Supplementary information is available at http://bonsai.ims.u-tokyo.ac.jp/~tamada/bayesnet/.},
+  keywords = {16374908},
+  owner = {markowet},
+  pii = {S0219720005001569},
+}
+
+@ARTICLE{tamada03estimating,
+  author = {Tamada, Yoshinori and Kim, SunYong and Bannai, Hideo and Imoto, Seiya
+	and Tashiro, Kousuke and Kuhara, Satoru and Miyano, Satoru},
+  title = {Estimating gene networks from gene expression data by combining
+	Bayesian network model with promoter element detection},
+  journal = {Bioinformatics},
+  year = {2003},
+  volume = {19},
+  pages = {227ii-236},
+  number = {90002},
+  abstract = {We present a statistical method for estimating gene networks and detecting
+	promoter elements simultaneously. When estimating a network from
+	gene expression data alone, a common problem is that the number of
+	microarrays is limited compared to the number of variables in the
+	network model, making accurate estimation a difficult task. Our method
+	overcomes this problem by integrating the microarray gene expression
+	data and the DNA sequence information into a {B}ayesian network model.
+	The basic idea of our method is that, if a parent gene is a transcription
+	factor, its children may share a consensus motif in their promoter
+	regions of the DNA sequences. Our method detects consensus motifs
+	based on the structure of the estimated network, then re-estimates
+	the network using the result of the motif detection. We continue
+	this iteration until the network becomes stable. To show the effectiveness
+	of our method, we conducted Monte Carlo simulations and applied our
+	method to Saccharomyces cerevisiae data as a real application. Contact:
+	tamada@ims.u-tokyo.ac.jp},
+  eprint = {http://bioinformatics.oupjournals.org/cgi/reprint/19/suppl_2/ii227.pdf},
+  url = {http://bioinformatics.oupjournals.org/cgi/content/abstract/19/suppl_2/ii227},
+}
+
+@article{pan06incorporating,
+	author = {Pan, Wei},
+	issn = {1367-4803},
+	journal = {Bioinformatics},
+	keywords = {bayesian knowledge net prior},
+	month = {April},
+	number = {7},
+	pages = {795--801},
+	publisher = {Oxford University Press},
+	title = {Incorporating gene functions as priors in model-based clustering of microarray gene expression data},
+	volume = {22},
+	year = {2006}
+}
+@article{werhli06comparative,
+	author = { Werhli, Adriano V and Grzegorczyk, Marco and Husmeier, Dirk},
+	issn = {1367-4803},
+	journal = {Bioinformatics},
+	month = {October},
+	number = {20},
+	pages = {2523--2531},
+	publisher = {Oxford University Press},
+	title = {Comparative evaluation of reverse engineering gene regulatory networks with relevance networks, graphical gaussian models and bayesian networks},
+	volume = {22},
+	year = {2006}
+}
+@article{beyer06integrated,
+	abstract = {Systematic chromatin immunoprecipitation (chIP-chip) experiments have become a central technique for mapping transcriptional interactions in model organisms and humans. However, measurement of chromatin binding does not necessarily imply regulation, and binding may be difficult to detect if it is condition or co-factor dependent. To address these challenges, we present an approach for reliably assigning transcription factors (TFs) to target genes that integrates many lines of direct and indirect evidence into a single probabilistic model. Using this approach, we analyze publicly available chIP-chip binding profiles measured for yeast TFs in standard conditions, showing that our model interprets these data with significantly higher accuracy than previous methods. Pooling the high-confidence interactions reveals a large network containing 363 significant sets of factors (TF modules) that cooperate to regulate common target genes. In addition, the method predicts 980 novel binding interactions with high confidence that are likely to occur in so-far untested conditions. Indeed, using new chIP-chip experiments we show that predicted interactions for the factors Rpn4 and Pdr1 are observed only after treatment of cells with methyl-methanesulfonate, a DNA-damaging agent. We outline the first approach for consistently integrating all available evidences for TF - target interactions and we comprehensively identify the resulting TF module hierarchy. Prioritizing experimental conditions for each factor will be especially important as increasing numbers of chIP-chip assays are performed in complex organisms such as humans, for which standard conditions are ill-defined.},
+	author = {Beyer, Andreas   and Workman, Christopher   and Hollunder, Jens   and Radke, D{\"o}rte   and M{\"o}ller, Ulrich   and Wilhelm, Thomas   and Ideker, Trey  G. },
+	citeulike-article-id = {674931},
+	doi = {10%2E1371%2Fjournal%2Epcbi%2E0020070%2Eeor},
+	journal = {PLoS Computational Biology},
+	keywords = {algorithm gene_regulation genomics model network prediction tf transcription_factor},
+	month = {May},
+	number = {2006},
+	title = {Integrated Assessment and Prediction of Transcription Factor Binding},
+	volume = {preprint},
+	year = {2006}
+}
+@article{lemmens06Inferring,
+	abstract = {'ReMoDiscovery' is an intuitive algorithm to correlate regulatory programs with regulators and corresponding motifs to a set of co-expressed genes. It exploits in a concurrent way three independent data sources: ChIP-chip data, motif information and gene expression profiles. When compared to published module discovery algorithms, ReMoDiscovery is fast and easily tunable. We evaluated our method on yeast data, where it was shown to generate biologically meaningful findings and allowed the prediction of potential novel roles of transcriptional regulators.},
+	address = {BIOI@SCD, Department of Electrical Engineering, KU Leuven, Kasteelpark Arenberg, B-3001 Heverlee, Belgium.},
+	author = {Lemmens, K.  and Dhollander, T.  and De Bie, T.  and Monsieurs, P.  and Engelen, K.  and Smets, B.  and Winderickx, J.  and De Moor, B.  and Marchal, K. },
+	citeulike-article-id = {964200},
+	doi = {10.1186/gb-2006-7-5-r37},
+	issn = {1465-6914},
+	journal = {Genome Biol},
+	keywords = {no-tag},
+	number = {5},
+	priority = {4},
+	title = {Inferring transcriptional modules from ChIP-chip, motif and microarray data.},
+	url = {http://dx.doi.org/10.1186/gb-2006-7-5-r37},
+	volume = {7},
+	year = {2006}
+}
+@article{yang02normalization,
+	abstract = {There are many sources of systematic variation in cDNA microarray experiments which affect the measured gene expression levels (e.g. differences in labeling efficiency between the two fluorescent dyes). The term normalization refers to the process of removing such variation. A constant adjustment is often used to force the distribution of the intensity log ratios to have a median of zero for each slide. However, such global normalization approaches are not adequate in situations where dye biases can depend on spot overall intensity and/or spatial location within the array. This article proposes normalization methods that are based on robust local regression and account for intensity and spatial dependence in dye biases for different types of cDNA microarray experiments. The selection of appropriate controls for normalization is discussed and a novel set of controls (microarray sample pool, MSP) is introduced to aid in intensity-dependent normalization. Lastly, to allow for comparisons of expression levels across slides, a robust method based on maximum likelihood estimation is proposed to adjust for scale differences among slides.},
+	address = {Department of Statistics, Helen Wills Neuroscience Institute, University of California, Berkeley, CA 94720-3860, USA.},
+	author = {Yang, Y. H.  and Dudoit, S.  and Luu, P.  and Lin, D. M.  and Peng, V.  and Ngai, J.  and Speed, T. P. },
+	issn = {1362-4962},
+	journal = {Nucleic Acids Res},
+	month = {February},
+	number = {4},
+	title = {Normalization for cDNA microarray data: a robust composite method addressing single and multiple slide systematic variation.},
+	volume = {30},
+	year = {2002}
+}
+
+@article{Quackenbush02microarray,
+	abstract = {Underlying every microarray experiment is an experimental question that one would like to address. Finding a useful and satisfactory answer relies on careful experimental design and the use of a variety of data-mining tools to explore the relationships between genes or reveal patterns of expression. While other sections of this issue deal with these lofty issues, this review focuses on the much more mundane but indispensable tasks of 'normalizing' data from individual hybridizations to make meaningful comparisons of expression levels, and of 'transforming' them to select genes for further analysis and data mining.},
+	address = {The Institute for Genomic Research, 9712 Medical Center Drive, Rockville, Maryland 20850, USA. johnq@tigr.org},
+	author = {Quackenbush, J. },
+	doi = {10.1038/ng1032},
+	issn = {1061-4036},
+	journal = {Nat Genet},
+	month = {December},
+	pages = {496--501},
+	priority = {0},
+	title = {Microarray data normalization and transformation.},
+	volume = {32 Suppl},
+	year = {2002}
+}
+@article{Quackenbush06computational,
+	abstract = {Objectives: To review the current state of the art in computational methods for the analysis of DNA microarray data. Methods: The review considers methods of microarray data collection, transformation and representation, comparisons and predictions of gene expression from the data, their mechanistic analysis, related systems biology, and the application of clustering techniques. Results: Functional genomics approaches have greatly increased the rate at which data on biological systems is generated, leading to corresponding challenges in analyzing the data through advanced computational techniques. The paper compares and contrasts the application of computational clustering for discovery, comparison, and prediction of gene expression classes, together with their evaluation and relation to mechanistic analyses of biological systems. Conclusion: Methods for assaying gene expression levels by DNA microarray experiments produce considerably more data than other techniques, and require a wide variety of computational techniques for identifying patterns of expression that may be biologically significant. These will have to be verified and validated by comparison to results from other methods, integrated with other systems data, and provide the feedback for further experimentation for testing mechanistic or other biological hypotheses.},
+	address = {Department of Biostatistics and Computational Biology, Dana-Farber Cancer Institute and Department of Biostatistics, Harvard School of Public Health, Boston, MA, USA.},
+	author = {Quackenbush, J. },
+	citeulike-article-id = {911066},
+	issn = {0026-1270},
+	journal = {Methods Inf Med},
+	keywords = {msc},
+	pages = {91--103},
+	priority = {2},
+	title = {Computational approaches to analysis of DNA microarray data.},
+	volume = {45 Suppl 1},
+	year = {2006}
+}
+@article{Schulze01navigating,
+	abstract = {Parallel quantification of large numbers of messenger RNA transcripts using microarray technology promises to provide detailed insight into cellular processes involved in the regulation of gene expression. This should allow new understanding of signalling networks that operate in the cell and of the molecular basis and classification of disease. But can the technology deliver such far-reaching promises?},
+	address = {Signal Transduction Laboratory, Imperial Cancer Research Fund, 44Lincoln's Inn Fields, London WC2A 3PX, UK. schulze@icrf.icnet.uk},
+	author = {Schulze, A.  and Downward, J. },
+	citeulike-article-id = {97132},
+	doi = {10.1038/35087138},
+	issn = {1465-7392},
+	journal = {Nat Cell Biol},
+	keywords = {no-tag},
+	month = {August},
+	number = {8},
+	priority = {1},
+	title = {Navigating gene expression using microarrays--a technology review.},
+	volume = {3},
+	year = {2001}
+}
+@article{Smythe03Statistical,
+	author = {Smyth, G. K. and Yang, Y.H. and Speed, T. P.},
+	journal = {Methods in Molecular Biology},
+	title = {Statistical issues in cDNA microarray data analysis},
+	year = {2003},
+	pages = {111--136}
+}
+@article{Waters06Brief,
+author = {Waters, Katrina M. and Pounds, Joel G. and Thrall, Brian D.},
+title = {Data merging for integrated microarray and proteomic analysis},
+journal = {Brief Funct Genomic Proteomic},
+year = {2006},
+abstract = {The functioning of even a simple biological system is much more complicated than the sum of its genes, proteins and metabolites. A premise of systems biology is that molecular profiling will facilitate the discovery and characterization of important disease pathways. However, as multiple levels of effector pathway regulation appear to be the norm rather than the exception, a significant challenge presented by high-throughput genomics and proteomics technologies is the extraction of the biological implications of complex data. Thus, integration of heterogeneous types of data generated from diverse global technology platforms represents the first challenge in developing the necessary foundational databases needed for predictive modelling of cell and tissue responses. Given the apparent difficulty in defining the correspondence between gene expression and protein abundance measured in several systems to date, how do we make sense of these data and design the next experiment? In this review, we highlight current approaches and challenges associated with integration and analysis of heterogeneous data sets, focusing on global analysis obtained from high-throughput technologies.
+}
+}
+@article{harbison04transcriptional,
+	author = {Harbison, Christopher  T.  and Gordon, Benjamin  D.  and Lee, Tong  I.  and Rinaldi, Nicola  J.  and Macisaac, Kenzie  D.  and Danford, Timothy  W.  and Hannett, Nancy  M.  and Tagne, Jean-Bosco   and Reynolds, David  B.  and Yoo, Jane   and Jennings, Ezra  G.  and Zeitlinger, Julia   and Pokholok, Dmitry  K.  and Kellis, Manolis   and Rolfe, Alex  P.  and Takusagawa, Ken  T.  and Lander, Eric  S.  and Gifford, David  K.  and Fraenkel, Ernest   and Young, Richard  A. },
+	citeulike-article-id = {466068},
+	doi = {10.1038/nature02800},
+	journal = {Nature},
+	keywords = {regulatory transcription},
+	number = {7004},
+	pages = {99--104},
+	priority = {5},
+	title = {Transcriptional regulatory code of a eukaryotic genome},
+	url = {http://dx.doi.org/10.1038/nature02800},
+	volume = {431},
+	year = {2004}
+}
+@article{lee02transcriptional,
+	abstract = {We have determined how most of the transcriptional regulators encoded in the eukaryote Saccharomyces cerevisiae associate with genes across the genome in living cells. Just as maps of metabolic networks describe the potential pathways that may be used by a cell to accomplish metabolic processes, this network of regulator-gene interactions describes potential pathways yeast cells can use to regulate global gene expression programs. We use this information to identify network motifs, the simplest units of network architecture, and demonstrate that an automated process can use motifs to assemble a transcriptional regulatory network structure. Our results reveal that eukaryotic cellular functions are highly connected through networks of transcriptional regulators that regulate other transcriptional regulators.},
+	address = {Whitehead Institute for Biomedical Research, Nine Cambridge Center, Cambridge, MA 02142, USA.},
+	author = {Lee, T. I.  and Rinaldi, N. J.  and Robert, F.  and Odom, D. T.  and Bar-Joseph, Z.  and Gerber, G. K.  and Hannett, N. M.  and Harbison, C. T.  and Thompson, C. M.  and Simon, I.  and Zeitlinger, J.  and Jennings, E. G.  and Murray, H. L.  and Gordon, D. B.  and Ren, B.  and Wyrick, J. J.  and Tagne, J. B.  and Volkert, T. L.  and Fraenkel, E.  and Gifford, D. K.  and Young, R. A. },
+	citeulike-article-id = {2107},
+	doi = {10.1126/science.1075090},
+	issn = {1095-9203},
+	journal = {Science},
+	keywords = {no-tag},
+	month = {October},
+	number = {5594},
+	pages = {799--804},
+	priority = {0},
+	title = {Transcriptional regulatory networks in Saccharomyces cerevisiae.},
+	volume = {298},
+	year = {2002}
+}
+@article{Griffin02Complementary,
+author = {Griffin, Timothy J. and Gygi, Steven P. and Ideker, Trey and Rist, Beate and Eng, Jimmy and Hood, Leroy and Aebersold, Ruedi},
+title = {Complementary Profiling of Gene Expression at the Transcriptome and Proteome Levels in Saccharomyces cerevisiae},
+journal = {Mol Cell Proteomics},
+volume = {1},
+number = {4},
+pages = {323-333},
+doi = {10.1074/mcp.M200001-MCP200},
+year = {2002},
+abstract = {Using an integrated genomic and proteomic approach, we have investigated the effects of carbon source perturbation on steady-state gene expression in the yeast Saccharomyces cerevisiae growing on either galactose or ethanol. For many genes, significant differences between the abundance ratio of the messenger RNA transcript and the corresponding protein product were observed. Insights into the perturbative effects on genes involved in respiration, energy generation, and protein synthesis were obtained that would not have been apparent from measurements made at either the messenger RNA or protein level alone, illustrating the power of integrating different types of data obtained from the same sample for the comprehensive characterization of biological systems and processes.
+},
+}
+
+@misc{sherlock01smd,
+  author = {G. Sherlock and T. Hernandez-Boussard},
+  title = {The Stanford Microarray Database},
+  text = {G. Sherlock, T. Hernandez-Boussard, et al. The Stanford Microarray Database.
+    Nucleic Acids Research, 29(1):152--155, 2001. http://daisy.stanford.edu/MicroArray/SMD/},
+  year = {2001},
+  url = {citeseer.ist.psu.edu/sherlock01stanford.html} 
+  }
+@article{GO,
+	abstract = {The exponential growth in the volume of accessible biological information has generated a confusion of voices surrounding the annotation of molecular information about genes and their products. The Gene Ontology (GO) project seeks to provide a set of structured vocabularies for specific biological domains that can be used to describe gene products in any organism. This work includes building three extensive ontologies to describe molecular function, biological process, and cellular component, and providing a community database resource that supports the use of these ontologies. The GO Consortium was initiated by scientists associated with three model organism databases: SGD, the Saccharomyces Genome database; FlyBase, the Drosophila genome database; and MGD/GXD, the Mouse Genome Informatics databases. Additional model organism database groups are joining the project. Each of these model organism information systems is annotating genes and gene products using GO vocabulary terms and incorporating these annotations into their respective model organism databases. Each database contributes its annotation files to a shared GO data resource accessible to the public at http://www.geneontology.org/. The GO site can be used by the community both to recover the GO vocabularies and to access the annotated gene product data sets from the model organism databases. The GO Consortium supports the development of the GO database resource and provides tools enabling curators and researchers to query and manipulate the vocabularies. We believe that the shared development of this molecular annotation resource will contribute to the unification of biological information.},
+	author = {Gene Ontology Consortium},
+	doi = {10.1101/gr.180801},
+	issn = {1088-9051},
+	journal = {Genome Res},
+	keywords = {hlj-alignerror hlj-ontalign ontology},
+	month = {August},
+	number = {8},
+	pages = {1425--1433},
+	title = {Creating the gene ontology resource: design and implementation.},
+	volume = {11},
+	year = {2001}
+}
+@book{ernstwit2004statis_microarrays,
+	author = {Wit, Ernst and McClure, John},
+	isbn = {0470849932},
+	month = {August},
+	publisher = {John Wiley and Sons},
+	title = {Statistics for Microarrays: Design, Analysis and Inference},
+	year = {2004}
+}
+
+ @article{pan2006incorporating,
+ author = {Wei Pan},
+ title = {Incorporating gene functions as priors in model-based clustering of microarray gene expression data},
+ journal = {Bioinformatics},
+ volume = {22},
+ number = {7},
+ year = {2006},
+ issn = {1367-4803},
+ pages = {795--801},
+ doi = {http://dx.doi.org/10.1093/bioinformatics/btl011},
+ publisher = {Oxford University Press},
+ address = {Oxford, UK},
+ }
+@misc{kamvar03spectral,
+	abstract = {We present a simple, easily implemented spectral learning algorithm that applies equally whether we have no supervisory information, pairwise link constraints, or labeled examples. In the unsupervised case, it performs consistently with other spectral clustering algorithms. In the supervised case, our approach achieves high accuracy on the categorization of thousands of documents given only a few dozen labeled training documents for the 20 Newsgroups data set. Furthermore, its...},
+	author = {Kamvar, S.  and Klein, D.  and Manning, C. },
+	booktitle = {Proc. 18th International Joint Conference on Artificial Intelligence},
+	citeulike-article-id = {79537},
+	keywords = {clustering document semi-supervised toread},
+	pages = {561--566},
+	priority = {3},
+	publisher = {Morgan Kaufmann Publishers, San Francisco, USA},
+	title = {Spectral learning},
+	url = {http://citeseer.ist.psu.edu/kamvar03spectral.html},
+	year = {2003}
+}
+@article{xu04segmentation,
+author = {Stella X. Yu and Jianbo Shi},
+title = {Segmentation Given Partial Grouping Constraints},
+journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+volume = {26},
+number = {2},
+year = {2004},
+issn = {0162-8828},
+pages = {173-183},
+doi = {http://doi.ieeecomputersociety.org/10.1109/TPAMI.2004.1262179},
+publisher = {IEEE Computer Society},
+address = {Los Alamitos, CA, USA},
+}
+
+@article{Teixeira06yeastract,
+author = {Teixeira, Miguel C. and Monteiro, Pedro and Jain, Pooja and Tenreiro, Sandra and Fernandes, Alexandra R. and Mira, Nuno P. and Alenquer, Marta and Freitas, Ana T. and Oliveira, Arlindo L. and Sa-Correia, Isabel},
+title = {The YEASTRACT database: a tool for the analysis of transcription regulatory associations in Saccharomyces cerevisiae},
+journal = {Nucl. Acids Res.},
+volume = {34},
+number = {1},
+pages = {D446-451},
+doi = {10.1093/nar/gkj013},
+year = {2006},
+abstract = {We present the YEAst Search for Transcriptional Regulators And Consensus Tracking (YEASTRACT; www.yeastract.com) database, a tool for the analysis of transcription regulatory associations in Saccharomyces cerevisiae. This database is a repository of 12 346 regulatory associations between transcription factors and target genes, based on experimental evidence which was spread throughout 861 bibliographic references. It also includes 257 specific DNA-binding sites for more than a hundred characterized transcription factors. Further information about each yeast gene included in the database was obtained from Saccharomyces Genome Database (SGD), Regulatory Sequences Analysis Tools and Gene Ontology (GO) Consortium. Computational tools are also provided to facilitate the exploitation of the gathered data when solving a number of biological questions as exemplified in the Tutorial also available on the system. YEASTRACT allows the identification of documented or potential transcription regulators of a given gene and of documented or potential regulons for each transcription factor. It also renders possible the comparison between DNA motifs, such as those found to be over-represented in the promoter regions of co-regulated genes, and the transcription factor-binding sites described in the literature. The system also provides an useful mechanism for grouping a list of genes (for instance a set of genes with similar expression profiles as revealed by microarray analysis) based on their regulatory associations with known transcription factors.
+},
+}
+
+@article{lewis06svm,
+ author = {Darrin P. Lewis and Tony Jebara and William Stafford Noble},
+ title = {Support vector machine learning from heterogeneous data: an empirical analysis using protein sequence and structure},
+ journal = {Bioinformatics},
+ volume = {22},
+ number = {22},
+ year = {2006},
+ issn = {1367-4803},
+ pages = {2753--2760},
+ doi = {http://dx.doi.org/10.1093/bioinformatics/btl475},
+ publisher = {Oxford University Press},
+ address = {Oxford, UK},
+ }
+ 
+ @article{gatviks03scoring,
+author = {Gat-Viks, I. and Sharan, R. and Shamir, R.},
+title = {Scoring clustering solutions by their biological relevance},
+journal = {Bioinformatics},
+volume = {19},
+number = {18},
+pages = {2381-2389},
+doi = {10.1093/bioinformatics/btg330},
+year = {2003},
+abstract = {Motivation: A central step in the analysis of gene expression data is the identification of groups of genes that exhibit similar expression patterns. Clustering gene expression data into homogeneous groups was shown to be instrumental in functional annotation, tissue classification, regulatory motif identification, and other applications. Although there is a rich literature on clustering algorithms for gene expression analysis, very few works addressed the systematic comparison and evaluation of clustering results. Typically, different clustering algorithms yield different clustering solutions on the same data, and there is no agreed upon guideline for choosing among them.  Results: We developed a novel statistically based method for assessing a clustering solution according to prior biological knowledge. Our method can be used to compare different clustering solutions or to optimize the parameters of a clustering algorithm. The method is based on projecting vectors of biological attributes of the clustered elements onto the real line, such that the ratio of between-groups and within-group variance estimators is maximized. The projected data are then scored using a non-parametric analysis of variance test, and the score's confidence is evaluated. We validate our approach using simulated data and show that our scoring method outperforms several extant methods, including the separation to homogeneity ratio and the silhouette measure. We apply our method to evaluate results of several clustering methods on yeast cell-cycle gene expression data.  Availability: The software is available from the authors upon request.
+},
+URL = {http://bioinformatics.oxfordjournals.org/cgi/content/abstract/19/18/2381},
+eprint = {http://bioinformatics.oxfordjournals.org/cgi/reprint/19/18/2381.pdf}
+}
+
+@inproceedings{speer05spectral,
+  author = {N. Speer and H. Fr�lich and C. Spieth and A. Zell},
+  title = {Functional Grouping of Genes Using Spectral Clustering and Gene Ontology},
+  booktitle = {Proceedings of the IEEE International Joint Conference on Neural Networks},
+  year = {2005},
+  pages = {298-303},
+  publisher = {IEEE Press},
+  url = {citeseer.ist.psu.edu/speer05functional.html} 
+}
+@inproceedings{tsuda99supportasymmetric,
+  author = {K. Tsuda},
+  title = {Support Vector Classifier with Asymmetric Kernel Functions},
+  booktitle= {European Symposium on Artificial Neural Networks},
+  pages = {183-188},
+  year = {1999},
+  url = {citeseer.ist.psu.edu/article/tsuda98support.html}
+} 
+
+@inproceedings{roth2002going,
+  author    = {Volker Roth and
+               Julian Laub and
+               Joachim M. Buhmann and
+               Klaus-Robert M{\"u}ller},
+  title     = {Going Metric: Denoising Pairwise Data.},
+  booktitle = {NIPS},
+  year      = {2002},
+  pages     = {817-824},
+  ee        = {http://books.nips.cc/papers/files/nips15/AA43.pdf},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@book{hastie2001elements,
+	author = {Hastie, T.  and Tibshirani, R.  and Friedman, J. H. },
+	howpublished = {Hardcover},
+	isbn = {0387952845},
+	keywords = {machine-learning statistic},
+	month = {August},
+	priority = {2},
+	publisher = {Springer},
+	title = {The Elements of Statistical Learning},
+	url = {http://www.amazon.ca/exec/obidos/redirect?tag=citeulike04-20{\&}path=ASIN/0387952845},
+	year = {2001}
+}
+
+@techreport{dhillon05unified,
+title = {A Unified View of Kernel k-means, Spectral Clustering and Graph Cuts},
+author = {Inderjit S. Dhillon and Yuqiang Guan and Brian Kulis},
+institution = {University of Texas Dept. of Computer Science},
+number = {TR-04-25},
+url = {http://www.cs.utexas.edu/ftp/pub/techreports/tr04-25.pdf},
+year = {2005},
+abstract = {Recently, a variety of clustering algorithms have been proposed to handle data that is not linearly separable. Spectral clustering and kernel k-means are two such methods that are seemingly quite different. In this paper, we show that a general weighted kernel k-means objective is mathematically equivalent to a weighted graph partitioning objective. Special cases of this graph partitioning objective include ratio cut, normalized cut and ratio association. Our equivalence has important consequences: the weighted kernel k-means algorithm may be used to directly optimize the graph partitioning objectives, and conversely, spectral methods may be used to optimize the weighted kernel k-means objective. Hence, in cases where eigenvector computation is prohibitive, we eliminate the need for any eigenvector computation for graph partitioning. Moreover, we show that the Kernighan-Lin objective can also be incorporated into our framework, leading to an incremental weighted kernel k-means algorithm for local optim ization of the objective. We further discuss the issue of convergence of weighted kernel k-means for an arbitrary graph affinity matrix and provide a number of experimental results. These results show that non-spectral methods for graph partitioning are as effective as spectral methods and can be used for problems such as image segmentation in addition to data clustering. },
+keywords = {2005 clustering graphs kernels spectral }
+} 
+@techreport{higham00computing,
+    author = {N. J. HIGHAM},
+    title = {Computing the nearest correlation matrix},
+    number = {389},
+    address = {Manchester, England},
+    pages = {14},
+    year = {2000},
+    url = {citeseer.ist.psu.edu/higham00computing.html}
+}
+@inproceedings{carlos05maximum,
+  author    = {Carlos E. Thomaz and
+               Duncan Fyfe Gillies},
+  title     = {A Maximum Uncertainty LDA-Based Approach for Limited Sample
+               Size Problems : With Application to Face Recognition.},
+  booktitle = {SIBGRAPI},
+  year      = {2005},
+  pages     = {89-96},
+  ee        = {http://doi.ieeecomputersociety.org/10.1109/SIBGRAPI.2005.6},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+@article{jaynes57maxent,
+	abstract = {Information theory provides a constructive criterion for setting up probability distributions on the basis of partial knowledge; and leads to a type of statistical inference which is called the maximum-entropy estimate. It is the least biased estimate possible on the given information; i.e.; it is maximally noncommittal with regard to missing information. If one considers statistical mechanics as a form of statistical inference rather than as a physical theory; it is found that the usual computational rules; starting with the determination of the partition function; are an immediate consequence of the maximum-entropy principle. In the resulting subjective statistical mechanics the usual rules are thus justified independently of any physical argument; and in particular independently of experimental verification; whether or not the results agree with experiment; they still represent the best estimates that could have been made on the basis of the information available. 
+ It is concluded that statistical mechanics need not be regarded as a physical theory dependent for its validity on the truth of additional assumptions not contained in the laws of mechanics (such as ergodicity; metric transitivity; equal  a priori  probabilities; etc.). Furthermore; it is possible to maintain a sharp distinction between its physical and statistical aspects. The former consists only of the correct enumeration of the states of a system and their properties; the latter is a straightforward example of statistical inference.},
+	author = {Jaynes, E. T.},
+	citeulike-article-id = {695031},
+	doi = {10.1103/PhysRev.106.620},
+	journal = {Physical Review},
+	keywords = {1957 entropy inference information-theory shannon statistical-mechanics statistics thermodynamics uncertainty von-neumann},
+	month = {May},
+	number = {4},
+	pages = {620+},
+	priority = {0},
+	publisher = {American Physical Society},
+	title = {Information Theory and Statistical Mechanics},
+	url = {http://dx.doi.org/10.1103/PhysRev.106.620},
+	volume = {106},
+	year = {1957}
+}
+@inproceedings{jaynes82onrationale,
+  author =       {Jaynes, E. T.},
+  title =        {On the rationale for maximum entropy methods},
+  booktitle =    {IEEE Volume V 70, Issue N 9},
+  pages =        {939--952},
+  month =        {September},
+  year =         {1982}
+}
+
+@article{shi00normalized,
+    author = {Jianbo Shi and Jitendra Malik},
+    title = {Normalized Cuts and Image Segmentation},
+    journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+    volume = {22},
+    number = {8},
+    pages = {888-905},
+    year = {2000},
+    url = {citeseer.ist.psu.edu/shi97normalized.html}
+}
+@inproceedings{basu04prob,
+  author =       {Sugato Basu and Mikhail Bilenko and Raymond J. Mooney},
+  title =        {A Probabilistic Framework for Semi-Supervised Clustering},
+  booktitle =    {KDD04},
+  pages =        {59--68},
+  address =      {Seattle, WA},
+  month =        {Aug},
+  year =         {2004},
+  url = {citeseer.ist.psu.edu/basu04probabilistic.html} 
+}
+@inproceedings{Kondor02diffusion,
+  author    = {Risi Imre Kondor and
+               John D. Lafferty},
+  title     = {Diffusion Kernels on Graphs and Other Discrete Input Spaces.},
+  booktitle = {ICML},
+  year      = {2002},
+  pages     = {315-322},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+@article{dolinski2005changing,
+	abstract = {Research with budding yeast (Saccharomyces cerevisiae) has been transformed by the publication, nearly a decade ago, of the entire genome DNA sequence. The introduction of this first eukaryotic genomic sequence changed the yeast research environment significantly, not just because of dramatic progress in technical means but also because the sequence made accessible a new class of scientific questions. A central goal of yeast research remains the determination of the biological role of every sequence feature in the yeast genome. The most remarkable change has been the shift in perspective from focus on individual genes and functionalities to a more global view of how the cellular networks and systems interact and function together to produce the highly evolved organism we see today.},
+	address = {Lewis-Sigler Institute for Integrative Genomics, Department of Molecular Biology, Princeton University, Princeton, New Jersey 08544 USA.},
+	author = {Dolinski, K.  and Botstein, D. },
+	citeulike-article-id = {580622},
+	doi = {10.1101/gr.3727505},
+	issn = {1088-9051},
+	journal = {Genome Res},
+	keywords = {genettic-interactions},
+	month = {December},
+	number = {12},
+	pages = {1611--1619},
+	priority = {2},
+	title = {Changing perspectives in yeast research nearly a decade after the genome sequence.},
+	url = {http://dx.doi.org/10.1101/gr.3727505},
+	volume = {15},
+	year = {2005}
+}
+@article{Waters2006Datamerging,
+	author = {Waters},
+	journal = {Briefings in Functional Genomics and Proteomics},
+	title = {Data merging for integrated microarray and proteomic analysis},
+	url = {http://intl-bfgp.oxfordjournals.org/cgi/content/abstract/ell019v1},
+	month = {May},
+	year = {2006}
+}
+
+@article{huang2006incorporating,
+author = {Huang, Desheng and Pan, Wei},
+title = {Incorporating biological knowledge into distance-based clustering analysis of microarray gene expression data},
+journal = {Bioinformatics},
+volume = {22},
+number = {10},
+pages = {1259-1268},
+doi = {10.1093/bioinformatics/btl065},
+year = {2006},
+abstract = {Motivation: Because co-expressed genes are likely to share the same biological function, cluster analysis of gene expression profiles has been applied for gene function discovery. Most existing clustering methods ignore known gene functions in the process of clustering.  Results: To take advantage of accumulating gene functional annotations, we propose incorporating known gene functions into a new distance metric, which shrinks a gene expression-based distance towards 0 if and only if the two genes share a common gene function. A two-step procedure is used. First, the shrinkage distance metric is used in any distance-based clustering method, e.g. K-medoids or hierarchical clustering, to cluster the genes with known functions. Second, while keeping the clustering results from the first step for the genes with known functions, the expression-based distance metric is used to cluster the remaining genes of unknown function, assigning each of them to either one of the clusters obtained in the first step or some new clusters. A simulation study and an application to gene function prediction for the yeast demonstrate the advantage of our proposal over the standard method.  Contact: weip@biostat.umn.edu
+},
+URL = {http://bioinformatics.oxfordjournals.org/cgi/content/abstract/22/10/1259},
+eprint = {http://bioinformatics.oxfordjournals.org/cgi/reprint/22/10/1259.pdf}
+}
+@article{Troyanskaya2003Bayesian,
+author = {Troyanskaya, Olga G. and Dolinski, Kara and Owen, Art B. and Altman, Russ B. and Botstein, David},
+title = {A Bayesian framework for combining heterogeneous data sources for gene function prediction (in Saccharomyces cerevisiae)},
+journal = {PNAS},
+volume = {100},
+number = {14},
+pages = {8348-8353},
+doi = {10.1073/pnas.0832373100},
+year = {2003},
+abstract = {Genomic sequencing is no longer a novelty, but gene function annotation remains a key challenge in modern biology. A variety of functional genomics experimental techniques are available, from classic methods such as affinity precipitation to advanced high-throughput techniques such as gene expression microarrays. In the future, more disparate methods will be developed, further  increasing the need for integrated computational analysis of data generated by these studies. We address this problem with MAGIC (Multisource Association of Genes by Integration of Clusters), a general framework that uses formal Bayesian reasoning to integrate heterogeneous types of high-throughput biological data (such as large-scale two-hybrid screens and multiple microarray analyses) for accurate gene function prediction. The system formally incorporates expert knowledge about relative accuracies of data sources to combine them within a normative framework. MAGIC provides a belief level with its output that allows the user to vary the stringency of predictions. We applied MAGIC to Saccharomyces cerevisiae genetic and physical interactions, microarray, and transcription factor binding sites data and assessed the biological relevance of gene groupings using Gene Ontology annotations produced by the Saccaromyces Genome Database. We found that by creating functional groupings based on heterogeneous data types, MAGIC improved accuracy of the groupings compared with microarray analysis alone. We describe several of the biological gene groupings identified.
+},
+URL = {http://www.pnas.org/cgi/content/abstract/100/14/8348},
+eprint = {http://www.pnas.org/cgi/reprint/100/14/8348.pdf}
+}
+
+@article{eisen1998cluster,
+	abstract = {A system of cluster analysis for genome-wide expression data from DNA microarray hybridization is described that uses standard statistical algorithms to arrange genes according to similarity in pattern of gene expression. The output is displayed graphically, conveying the clustering and the underlying expression data simultaneously in a form intuitive for biologists. We have found in the budding yeast Saccharomyces cerevisiae that clustering gene expression data groups together efficiently genes of known similar function, and we find a similar tendency in human data. Thus patterns seen in genome-wide expression experiments can be interpreted as indications of the status of cellular processes. Also, coexpression of genes of known function with poorly characterized or novel genes may provide a simple means of gaining leads to the functions of many genes for which information is not available currently.},
+	address = {Department of Genetics, Stanford University School of Medicine, 300 Pasteur Avenue, Stanford, CA 94305, USA.},
+	author = {Eisen, M. B.  and Spellman, P. T.  and Brown, P. O.  and Botstein, D. },
+	citeulike-article-id = {141840},
+	issn = {0027-8424},
+	journal = {Proc Natl Acad Sci U S A},
+	keywords = {gene-expression genettic-interactions genome},
+	month = {December},
+	number = {25},
+	pages = {14863--14868},
+	priority = {2},
+	title = {Cluster analysis and display of genome-wide expression patterns.},
+	url = {http://www.pnas.org/cgi/content/abstract/95/25/14863},
+	volume = {95},
+	year = {1998}
+}
+
+@article{bramier2007coclustering,
+ author = {Markus Brameier and Carsten Wiuf},
+ title = {Co-clustering and visualization of gene expression data and gene ontology terms for Saccharomyces cerevisiae using self-organizing maps},
+ journal = {J. of Biomedical Informatics},
+ volume = {40},
+ number = {2},
+ year = {2007},
+ issn = {1532-0464},
+ pages = {160--173},
+ doi = {http://dx.doi.org/10.1016/j.jbi.2006.05.001},
+ publisher = {Elsevier Science},
+ address = {San Diego, USA},
+ }
+@Article{mishra2007effect,
+	AUTHOR = {Mishra, Alok and Gillies, Duncan},
+	TITLE = {Effect of microarray data heterogeneity on regulatory gene module discovery},
+	JOURNAL = {BMC Systems Biology},
+	VOLUME = {1},
+	YEAR = {2007},
+	NUMBER = {Suppl 1},
+	PAGES = {S2},
+	URL = {http://www.biomedcentral.com/1752-0509/1?issue=S1},
+	DOI = {10.1186/1752-0509-1-S1-S2},
+	ISSN = {1752-0509},
+}
+
+@incollection{mishra2007data,
+  author = {Mishra, Alok and Gillies, Duncan},
+  title = {Data Integration for Regulatory Gene Module Discovery},
+  booktitle = {Handbook of Research on Systems Biology Applications in Medicine},
+  editor = {Andriani Daskalaki},
+  publisher = {IGI Global},
+  address = {Hershey, PA},
+  year = {2008},
+  }
+
+@inproceedings{mishra2008Semisup,
+  author    = {Alok Mishra and Duncan Gillies},
+  title     = {Semi Supervised Spectral Clustering for Regulatory Module Discovery},
+  booktitle = {Data Integration in the Life Sciences},
+  year      = {2008},
+  pages     = {192-203},
+  doi       = {10.1007/978-3-540-69828-9_19},
+  url       = {http://www.springerlink.com/content/r24wg7q07x26552x}
+}
+@incollection{mishra2007elements,
+  author = {Mishra, Alok and Gillies, Duncan},
+  title = {Validation Issues in Regulatory Module Discovery},
+  booktitle = {Elements of Computational Systems Biology},
+  editor = {Huma Lodhi and Stephen Muggleton},
+  publisher = {John Wiley \& Sons, Inc.},
+  address = {Hershey, PA},
+  year = {2008},
+  isbn = {0470180935}
+  }
+
+
+@Article{donath1973lower,
+  author =       {W. E. Donath and A. J. Hoffman},
+  title =        {Lower Bounds for the Partitioning of Graphs},
+  journal =      {IBM J. Res. Dev},
+  volume =       {17},
+  number =       {5},
+  pages =        {420--425},
+  month =        {Sep},
+  year =         {1973},
+  ISSN =         {0018-8646}
+}
+
+@article{kellis2003sequence,
+author = {Kellis, Manolis   and Patterson, Nick   and Endrizzi, Matthew   and Birren, Bruce   and Lander, Eric  S. },
+citeulike-article-id = {466258},
+doi = {10.1038/nature01644},
+journal = {Nature},
+keywords = {gene_regulation genome protein-dna_interaction transcription_factor},
+month = {May},
+number = {6937},
+pages = {241--254},
+priority = {2},
+title = {Sequencing and comparison of yeast species to identify genes and regulatory elements},
+url = {http://dx.doi.org/10.1038/nature01644},
+volume = {423},
+year = {2003}
+}
+
+@inproceedings{ng2001onspectral,
+  author    = {Andrew Y. Ng and
+               Michael I. Jordan and
+               Yair Weiss},
+  title     = {On Spectral Clustering: Analysis and an algorithm},
+  booktitle = {NIPS},
+  year      = {2001},
+  pages     = {849-856},
+  ee        = {http://www-2.cs.cmu.edu/Groups/NIPS/NIPS2001/papers/psgz/AA35.ps.gz},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@TECHREPORT{bradley00constrained,
+    author = {P. S. Bradley and K. P. Bennett and A. Demiriz},
+    title = {Constrained k-means clustering},
+    institution = {MSR-TR-2000-65, Microsoft Research},
+    year = {2000}
+}
+@article{Dunn1974wellseparated,
+	author = {J.C. Dunn},
+	journal = {Journal of Cybernetics},
+	title = {Well-separated clusters and optimal fuzzy partitions},
+	pages = {95--104},
+        volume = {4}, 
+	year = {1974}
+}
+
+@article{Davies1979ClusterSeparation,
+  author = {D.L. Davies and D.W. Bouldin},
+  title = {A Cluster Separation Measure},
+  journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year = {1979},
+  volume = {1 (2)},
+  pages = {224-227}
+}
+
+@article{MIPSMewes2004,
+	author = {Mewes, H. W.  and Amid, C.  and Arnold, R.  and Frishman, D.  and Gueldener, U.  and Mannhaupt, G.  and Muensterkoetter, M.  and Pagel, P.  and Strack, N.  and Stuempflen, V.  and Warfsmann, J.  and Ruepp, A. },
+	citeulike-article-id = {509},
+	issn = {1362-4962},
+	journal = {Nucleic Acids Res},
+	keywords = {classic, db},
+	month = {January},
+	title = {MIPS: analysis and annotation of proteins from whole genomes.},
+	volume = {32 Database issue},
+	year = {2004}
+}
+@article{Hanisch2002Coclustering,
+	abstract = {MOTIVATION: Large scale gene expression data are often analysed by clustering genes based on gene expression data alone, though a priori knowledge in the form of biological networks is available. The use of this additional information promises to improve exploratory analysis considerably. RESULTS: We propose constructing a distance function which combines information from expression data and biological networks. Based on this function, we compute a joint clustering of genes and vertices of the network. This general approach is elaborated for metabolic networks. We define a graph distance function on such networks and combine it with a correlation-based distance function for gene expression measurements. A hierarchical clustering and an associated statistical measure is computed to arrive at a reasonable number of clusters. Our method is validated using expression data of the yeast diauxic shift. The resulting clusters are easily interpretable in terms of the biochemical network and the gene expression data and suggest that our method is able to automatically identify processes that are relevant under the measured conditions.},
+	author = {Hanisch, D.  and Zien, A.  and Zimmer, R.  and Lengauer, T. },
+	citeulike-article-id = {350992},
+	issn = {1367-4803},
+	journal = {Bioinformatics},
+	keywords = {clustering, microarray, networks},
+	priority = {2},
+	title = {Co-clustering of biological networks and gene expression data.},
+	url = {http://view.ncbi.nlm.nih.gov/pubmed/12169542},
+	volume = {18 Suppl 1},
+	year = {2002}
+}
+@incollection{jean2006kernels,
+ title = {Kernels for gene regulatory regions},
+ author = {Jean-Philippe Vert and Robert Thurman and William Stafford Noble},
+ booktitle = {Advances in Neural Information Processing Systems 18},
+ editor = {Y. Weiss and B. Sch\"{o}lkopf and J. Platt},
+ publisher = {MIT Press},
+ address = {Cambridge, MA},
+ pages = {1401--1408},
+ year = {2006}
+}
+
+@article{Gibons2002Judging,
+author = {Gibbons, Francis D. and Roth, Frederick P.},
+title = {Judging the Quality of Gene Expression-Based Clustering Methods Using Gene Annotation},
+journal = {Genome Res.},
+volume = {12},
+number = {10},
+pages = {1574-1581},
+doi = {10.1101/gr.397002},
+year = {2002},
+abstract = {We compare several commonly used expression-based gene clustering algorithms using a figure of merit based on the mutual information between cluster membership and known gene attributes. By studying various publicly available expression data sets we conclude that enrichment of clusters for biological function is, in general, highest at rather low cluster numbers. As a measure of dissimilarity between the expression patterns of two genes, no method outperforms Euclidean distance for ratio-based measurements, or Pearson distance for non-ratio-based measurements at the optimal choice of cluster number. We show the self-organized-map approach to be best for both measurement types at higher numbers of clusters. Clusters of genes derived from single- and average-linkage hierarchical clustering tend to produce worse-than-random results.[The algorithm described is available at http://llama.med.harvard.edu, under Software.]
+},
+URL = {http://www.genome.org/cgi/content/abstract/12/10/1574},
+eprint = {http://www.genome.org/cgi/reprint/12/10/1574.pdf}
+}
+
+@book{chapelle2006semisup,
+	editor = {Chapelle, O.  and Sch\"{o}lkopf, B.  and Zien, A. },
+	howpublished = {Hardcover},
+	isbn = {0262033585},
+	keywords = {book, semi-supervised, semi-supervised-clustering, semi-supervised-learning},
+	month = {September},
+	priority = {5},
+	publisher = {The MIT Press},
+	title = {Semi-Supervised Learning (Adaptive Computation and Machine Learning)},
+	url = {http://www.amazon.ca/exec/obidos/redirect?tag=citeulike09-20\&amp;path=ASIN/0262033585},
+	year = {2006}
+}
+
+@article{Holloway2006MachineLearning,
+ author = {D. T. Holloway and M. A. Kon and C. DeLisi},
+ title = {Machine learning methods for transcription data integration},
+ journal = {IBM J. Res. Dev.},
+ volume = {50},
+ number = {6},
+ year = {2006},
+ issn = {0018-8646},
+ pages = {631--643},
+ publisher = {IBM Corp.},
+ address = {Riverton, NJ, USA},
+ }
+
+@article{Tsuda2004Learning,
+ author = {Koji Tsuda and William Stafford Noble},
+ title = {Learning kernels from biological networks by maximizing entropy},
+ journal = {Bioinformatics},
+ volume = {20},
+ number = {1},
+ year = {2004},
+ issn = {1367-4803},
+ pages = {326--333},
+ doi = {http://dx.doi.org/10.1093/bioinformatics/bth906},
+ publisher = {Oxford University Press},
+ address = {Oxford, UK},
+ }
+@article{Tai2008Incorporating,
+	author = {Tai, Feng   and Pan, Wei  },
+	citeulike-article-id = {2050560},
+	doi = {10.1093/bioinformatics/btm488},
+	journal = {Bioinformatics},
+	keywords = {classification, geneset, pathways, regularization},
+	month = {December},
+	number = {23},
+	pages = {3170--3177},
+	posted-at = {2008-03-31 00:00:17},
+	priority = {2},
+	title = {Incorporating prior knowledge of gene functional groups into regularized discriminant analysis of microarray data},
+	url = {http://dx.doi.org/10.1093/bioinformatics/btm488},
+	volume = {23},
+	year = {2007}
+}
+@article{Liang2008Adaptive,
+	author = {Sun, Liang   and Ji, Shuiwang   and Ye, Jieping  },
+	citeulike-article-id = {2587063},
+	doi = {10.1186/1471-2105-9-162},
+	issn = {1471-2105},
+	journal = {BMC Bioinformatics},
+	keywords = {adaptive, function, kernel, miranda, protein},
+	month = {March},
+	pages = {162+},
+	posted-at = {2008-04-05 21:57:25},
+	priority = {2},
+	title = {Adaptive diffusion kernel learning from biological networks for protein function prediction},
+	url = {http://dx.doi.org/10.1186/1471-2105-9-162},
+	volume = {9},
+	year = {2008}
+}
+@book{mackay2008information,
+	author = {Mackay, David  J. C. },
+	citeulike-article-id = {141092},
+	howpublished = {Hardcover},
+	isbn = {0521642981},
+	keywords = {bayesian, information\_theory},
+	month = {June},
+	posted-at = {2008-07-25 20:16:09},
+	priority = {2},
+	publisher = {Cambridge University Press},
+	title = {Information Theory, Inference \& Learning Algorithms},
+	url = {http://www.amazon.ca/exec/obidos/redirect?tag=citeulike09-20\&amp;path=ASIN/0521642981},
+	year = {2002}
+}
+@article{sha48mathematical,
+	title = {A Mathematical Theory of Communication},
+	author = {Claude Elwood Shannon},
+	journal = {Bell System Technical Journal},
+	pages = {379-423, 623-656},
+	volume = {27},
+	year = {1948},
+	biburl = {http://www.bibsonomy.org/bibtex/2af7743a4d864dafda3ee876036059087/dret},
+	description = {dret'd bibliography},
+	uri = {http://cm.bell-labs.com/cm/ms/what/shannonday/paper.html},
+	keywords = {imported }
+}
+
+@book{Cover2005Elements,
+	address = {New York, NY, USA},
+	author = {Cover, Thomas  M.  and Thomas, Joy  A. },
+	citeulike-article-id = {165404},
+	isbn = {0471062596},
+	keywords = {informationtheory},
+	posted-at = {2005-11-28 04:23:14},
+	priority = {2},
+	publisher = {Wiley-Interscience},
+	title = {Elements of information theory},
+	url = {http://portal.acm.org/citation.cfm?id=129837},
+	year = {1991}
+}
+@article{fujibuchi2007classification,
+	author = {Fujibuchi, Wataru   and Kato, Tsuyoshi  },
+	citeulike-article-id = {1505086},
+	doi = {http://dx.doi.org/10.1186/1471-2105-8-267},
+	issn = {1471-2105},
+	journal = {BMC Bioinformatics},
+	keywords = {classifier, microarray},
+	month = {July},
+	pages = {267+},
+	posted-at = {2007-07-28 16:18:40},
+	priority = {5},
+	title = {Classification of heterogeneous microarray data by maximum entropy kernel},
+	url = {http://dx.doi.org/10.1186/1471-2105-8-267},
+	volume = {8},
+	year = {2007}
+}
+@book{Strang2006Linear,
+	author = {Strang, Gilbert  },
+	citeulike-article-id = {331775},
+	howpublished = {Hardcover},
+	isbn = {0155510053},
+	keywords = {applied-math, linear-algebra},
+	month = {February},
+	posted-at = {2006-08-16 13:15:58},
+	priority = {0},
+	publisher = {Brooks Cole},
+	title = {Linear Algebra and Its Applications},
+	url = {http://www.amazon.ca/exec/obidos/redirect?tag=citeulike09-20\&amp;path=ASIN/0155510053},
+	year = {1988}
+}
+
+@InProceedings{Jeffreys46,
+  author =       {H. Jeffreys},
+  title =        {An invariant form for the prior probability in estimation problems.},
+  booktitle =    {Proc. Royal Soc. London (A)},
+  volume =       {186},
+  pages =        {453--461},
+  year =         {1946},
+}
+@TECHREPORT{Johnson01symmetrizing,
+    author = {Don H. Johnson and Sinan Sinanović},
+    title = {Symmetrizing the Kullback-Leibler distance},
+    institution = {IEEE Transactions on Information Theory},
+    year = {2001}
+}
+@inproceedings{Davis2007InfoTheoretic,
+	address = {New York, NY, USA},
+	author = {Davis, Jason  V.  and Kulis, Brian   and Jain, Prateek   and Sra, Suvrit   and Dhillon, Inderjit  S. },
+	booktitle = {ICML 2007: Proceedings of the 24th international conference on Machine learning},
+	citeulike-article-id = {1471101},
+	doi = {http://dx.doi.org/10.1145/1273496.1273523},
+	isbn = {9781595937933},
+	keywords = {2007, distance, icml, information-theory, learning, metric-learning},
+	pages = {209--216},
+	posted-at = {2008-11-23 06:41:09},
+	priority = {5},
+	publisher = {ACM Press},
+	title = {Information-theoretic metric learning},
+	url = {http://dx.doi.org/10.1145/1273496.1273523},
+	year = {2007}
+}
+@inproceedings{Lu2008Constrained,
+        AUTHOR = {Lu, Z.D. and Carreira Perpinan, M.A.},
+        TITLE = {Constrained spectral clustering through affinity propagation},
+        BOOKTITLE = {CVPR 2008:Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+        YEAR = {2008},
+        PAGES = {1-8}
+}
+@article{cherry98sgd,
+	address = {Department of Genetics, Stanford University, Stanford, CA 94305-5120, USA. cherry@genome.stanford.edu},
+	author = {Cherry, J. M.  and Adler, C.  and Ball, C.  and Chervitz, S. A.  and Dwight, S. S.  and Hester, E. T.  and Jia, Y.  and Juvik, G.  and Roe, T.  and Schroeder, M.  and Weng, S.  and Botstein, D. },
+	citeulike-article-id = {540},
+	doi = {http://dx.doi.org/10.1093/nar/26.1.73},
+	issn = {0305-1048},
+	journal = {Nucleic Acids Res},
+	keywords = {database, genome, thesis, yeast},
+	month = {January},
+	number = {1},
+	pages = {73--79},
+	posted-at = {2008-09-25 10:21:05},
+	priority = {2},
+	title = {SGD: Saccharomyces Genome Database.},
+	url = {http://dx.doi.org/10.1093/nar/26.1.73},
+	volume = {26},
+	year = {1998}
+}
+
+@book{alberts02molecular,
+	author = {Alberts, Bruce   and Johnson, Alexander   and Lewis, Julian   and Raff, Martin   and Roberts, Keith   and Walter, Peter  },
+	isbn = {0815332181},
+	publisher = {Garland},
+	title = {Molecular Biology of the Cell},
+	year = {2002}
+}
+
+@ARTICLE{payne98ypd,
+    author = {William E. Payne and James I. Garrels},
+    title = {Yeast Protein Database (YPD): a database for the complete proteome of Saccharomyces cerevisiae},
+    journal = {Nucleic Acids Research},
+    year = {1998},
+    volume = {26},
+    pages = {57--62}
+}
+
+@article{ge01correlation,
+	address = {Dana-Farber Cancer Institute and Department of Genetics, Harvard Medical School, Boston, Massachusetts 02115, USA.},
+	author = {Ge, H.  and Liu, Z.  and Church, G. M.  and Vidal, M. },
+	citeulike-article-id = {309439},
+	doi = {http://dx.doi.org/10.1038/ng776},
+	issn = {1061-4036},
+	journal = {Nat Genet},
+	keywords = {co, expression, mrna},
+	month = {December},
+	number = {4},
+	pages = {482--486},
+	posted-at = {2008-10-23 18:24:14},
+	priority = {2},
+	title = {Correlation between transcriptome and interactome mapping data from Saccharomyces cerevisiae.},
+	url = {http://dx.doi.org/10.1038/ng776},
+	volume = {29},
+	year = {2001}
+}
+
+@article{Gueldener2006MPact,
+	address = {Institute for Bioinformatics, GSF National Research Center for Environment and Health, Ingolstadter Landstrasse 1, D-85764 Neuherberg, Germany. u.gueldener@gsf.de},
+	author = {Gueldener, U.  and Muensterkoetter, M.  and Oesterheld, M.  and Pagel, P.  and Ruepp, A.  and Mewes, H. W.  and Stuempflen, V. },
+	citeulike-article-id = {752821},
+	doi = {http://dx.doi.org/10.1093/nar/gkj003},
+	issn = {1362-4962},
+	journal = {Nucleic Acids Res},
+	keywords = {database, ppi, yeast},
+	month = {January},
+	number = {Database issue},
+	posted-at = {2006-07-11 13:51:27},
+	priority = {2},
+	title = {MPact: the MIPS protein interaction resource on yeast.},
+	url = {http://dx.doi.org/10.1093/nar/gkj003},
+	volume = {34},
+	year = {2006}
+}
+
+@article{yu2004annotation,
+	address = {Department of Molecular Biophysics and Biochemistry, Yale University, New Haven, Connecticut 06520, USA.},
+	author = {Yu, H.  and Luscombe, N. M.  and Lu, H. X.  and Zhu, X.  and Xia, Y.  and Han, J. D.  and Bertin, N.  and Chung, S.  and Vidal, M.  and Gerstein, M. },
+	citeulike-article-id = {227096},
+	doi = {http://dx.doi.org/10.1101/gr.1774904},
+	issn = {1088-9051},
+	journal = {Genome Res},
+	keywords = {cis-regulation, evolution, network, p2p, regulatory},
+	month = {June},
+	number = {6},
+	pages = {1107--1118},
+	posted-at = {2006-09-23 01:56:15},
+	priority = {2},
+	title = {Annotation transfer between genomes: protein-protein interologs and protein-DNA regulogs.},
+	url = {http://dx.doi.org/10.1101/gr.1774904},
+	volume = {14},
+	year = {2004}
+}
+@article{zhu1999scpd,
+	address = {Cold Spring Harbor Laboratory, PO Box 100, 1 Bungtown Road, Cold Spring Harbor, NY 11724, USA. zhuj@cshl.org},
+	author = {Zhu, J.  and Zhang, M. Q. },
+	citeulike-article-id = {890155},
+	issn = {1367-4803},
+	journal = {Bioinformatics},
+	keywords = {promoter},
+	number = {7-8},
+	pages = {607--611},
+	posted-at = {2006-10-09 15:33:09},
+	priority = {2},
+	title = {SCPD: a promoter database of the yeast Saccharomyces cerevisiae.},
+	url = {http://view.ncbi.nlm.nih.gov/pubmed/10487868},
+	volume = {15},
+	year = {1999}
+}
+@article{myers2007context,
+ author = {Myers,, Chad L. and Troyanskaya,, Olga G.},
+ title = {Context-sensitive data integration and prediction of biological networks},
+ journal = {Bioinformatics},
+ volume = {23},
+ number = {17},
+ year = {2007},
+ issn = {1367-4803},
+ pages = {2322--2330},
+ doi = {http://dx.doi.org/10.1093/bioinformatics/btm332},
+ publisher = {Oxford University Press},
+ address = {Oxford, UK},
+ }
+@article{sprinzak2003how,
+	abstract = {Data of protein-protein interactions provide valuable insight into the molecular networks underlying a living cell. However, their accuracy is often questioned, calling for a rigorous assessment of their reliability. The computation offered here provides an intelligible mean to assess directly the rate of true positives in a data set of experimentally determined interacting protein pairs. We show that the reliability of high-throughput yeast two-hybrid assays is about 50\%, and that the size of the yeast interactome is estimated to be 10,000-16,600 interactions.},
+	address = {Department of Molecular Genetics and Biotechnology, Faculty of Medicine, P.O. Box 12272, The Hebrew University of Jerusalem, 91120, Jerusalem, Israel.},
+	author = {Sprinzak, E.  and Sattath, S.  and Margalit, H. },
+	citeulike-article-id = {302434},
+	issn = {0022-2836},
+	journal = {J Mol Biol},
+	keywords = {proteininteractions},
+	month = {April},
+	number = {5},
+	pages = {919--923},
+	posted-at = {2006-01-21 23:04:35},
+	priority = {2},
+	title = {How reliable are experimental protein-protein interaction data?},
+	url = {http://view.ncbi.nlm.nih.gov/pubmed/12662919},
+	volume = {327},
+	year = {2003}
+}
+@article{segal2007genomiccode,
+	author = {Segal, Eran   and Fondufe-Mittendorf, Yvonne   and Chen, Lingyi   and Th\r{a}str\"{o}m, Annchristine   and Field, Yair   and Moore, Irene  K.  and Wang, Ji-Ping  Z.  and Widom, Jonathan  },
+	citeulike-article-id = {766038},
+	doi = {http://dx.doi.org/10.1038/nature04979},
+	issn = {0028-0836},
+	journal = {Nature},
+	keywords = {bioinformatics, genetics},
+	month = {July},
+	number = {7104},
+	pages = {772--778},
+	posted-at = {2007-01-05 02:39:40},
+	priority = {2},
+	publisher = {Nature Publishing Group},
+	title = {A genomic code for nucleosome positioning},
+	url = {http://dx.doi.org/10.1038/nature04979},
+	volume = {442},
+	year = {2006}
+}
+@book{chung1997spectralgraph,
+	author = {Chung, Fan  R. K.},
+	howpublished = {Paperback},
+	isbn = {0821803158},
+	keywords = {graph-theory},
+	month = {February},
+	publisher = {{American Mathematical Society}},
+	title = {Spectral Graph Theory (CBMS Regional Conference Series in Mathematics, No. 92) (Cbms Regional Conference Series in Mathematics)},
+	year = {1997}
+}
+@article{schaeffer1997graphclustering,
+	author = {Schaeffer, Satu  E. },
+	citeulike-article-id = {1700211},
+	doi = {http://dx.doi.org/10.1016/j.cosrev.2007.05.001},
+	journal = {Computer Science Review},
+	keywords = {clustering, review},
+	month = {August},
+	number = {1},
+	pages = {27--64},
+	posted-at = {2009-02-20 17:53:24},
+	priority = {5},
+	title = {Graph clustering},
+	url = {http://dx.doi.org/10.1016/j.cosrev.2007.05.001},
+	volume = {1},
+	year = {2007}
+}
+@MISC{brookes2005matrix,
+  author = {Mike Brookes},
+  title = {The Matrix Reference Manual},
+  howpublished = {online, http://www.ee.ic.ac.uk/hp/staff/dmb/matrix/intro.html},
+  year = {2005},
+  owner = {alokm},
+  timestamp = {2009.04.16},
+  url = {http://www.ee.ic.ac.uk/hp/staff/dmb/matrix/intro.html}
+}
+@book{boyd2004convexopt,
+	abstract = {{Convex optimization problems arise frequently in many different fields. A comprehensive introduction to the subject, this book shows in detail how such problems can be solved numerically with great efficiency. The focus is on recognizing convex optimization problems and then finding the most appropriate technique for solving them. The text contains many worked examples and homework exercises and will appeal to students, researchers and practitioners in fields such as engineering, computer science, mathematics, statistics, finance, and economics.}},
+	author = {Boyd, Stephen   and Vandenberghe, Lieven  },
+	citeulike-article-id = {163662},
+	comment = {Code, PDF here: http://www.stanford.edu/\~{}boyd/cvxbook/},
+	howpublished = {Hardcover},
+	isbn = {0521833787},
+	keywords = {machine\_learning},
+	month = {March},
+	posted-at = {2008-03-13 01:30:18},
+	priority = {2},
+	publisher = {{Cambridge University Press}},
+	title = {Convex Optimization},
+	url = {http://www.amazon.ca/exec/obidos/redirect?tag=citeulike09-20\&amp;path=ASIN/0521833787},
+	year = {2004}
+}
+@book{kullback1997info,
+	abstract = {{<div>Highly useful text studies the logarithmic measures of information and their application to testing statistical hypotheses. Topics include introduction and definition of measures of information, their relationship to Fisher's information measure and sufficiency, fundamental inequalities of information theory, much more. Numerous worked examples and problems. References. Glossary. Appendix. 1968 2nd, revised edition.<br></div>}},
+	address = {New York, USA},
+	author = {Kullback, Solomon  },
+	citeulike-article-id = {2795610},
+	howpublished = {Paperback},
+	isbn = {0486696847},
+	keywords = {statistics},
+	month = {July},
+	posted-at = {2009-04-04 20:41:11},
+	priority = {2},
+	publisher = {Dover Publications},
+	title = {Information Theory and Statistics (Dover Books on Mathematics)},
+	url = {http://www.amazon.ca/exec/obidos/redirect?tag=citeulike09-20\&amp;path=ASIN/0486696847},
+	year = {1997}
+}
+@Article{Moler2003Nineteen,
+  author =       {Cleve Moler and Charles Van Loan},
+  title =        {Nineteen Dubious Ways to Compute the Exponential of a
+                 Matrix, Twenty-Five Years Later},
+  journal =      {J-SIAM-REVIEW},
+  volume =       {45},
+  number =       {1},
+  pages =        {3--49},
+  month =        {mar},
+  year =         {2003},
+  ISSN =         {0036-1445 (print), 1095-7200 (electronic)},
+}
+
+@inproceedings{meila2000learning,
+	author = {Meila, Marina   and Shi, Jianbo  },
+	booktitle = {NIPS},
+	citeulike-article-id = {498897},
+	keywords = {graph-partitioning, random-walk, segmentation, spectral-clustering, yrbcn},
+	pages = {873--879},
+	posted-at = {2008-06-10 19:15:41},
+	priority = {2},
+	title = {Learning Segmentation by Random Walks},
+	url = {http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.33.2235},
+	year = {2000}
+}
+@techreport{verma2003comparison,
+        title = {A comparison of spectral clustering algorithms},
+        author = {D. Verma and M. Meila},
+        institution = {University of Washington, Tech. Rep. UW-CSE-03-05-01},
+        year = 2003,
+        biburl = {http://www.bibsonomy.org/bibtex/2829d5543415a8d8cd6c0db75c025c9d3/folke},
+	keywords = {graph detection community theory spectral},
+    }
+
+@article{werner2002comparative,
+	abstract = {The ongoing analyses of published genome-scale data sets is evidence that different approaches are required to completely mine this data. We report the use of novel tools for both visualization and data set comparison to analyze yeast gene-expression (cell cycle and exit from stationary phase/G(0)) and protein-interaction studies. This analysis led to new insights about each data set. For example, G(1)-regulated genes are not co-regulated during exit from stationary phase, indicating that the cells are not synchronized. The tight clustering of other genes during exit from stationary-phase data set further indicates the physiological responses during G(0) exit are separable from cell-cycle events. Comparison of the two data sets showed that ribosomal-protein genes cluster tightly during exit from stationary phase, but are found in three significantly different clusters in the cell-cycle data set. Two protein-interaction data sets were also compared with the gene-expression data. Visual analysis of the complete data sets showed no clear correlation between co-expression of genes and protein interactions, in contrast to published reports examining subsets of the protein-interaction data. Neither two-hybrid study identified a large number of interactions between ribosomal proteins, consistent with recent structural data, indicating that for both data sets, the identification of false-positive interactions may be lower than previously thought.},
+	address = {Biology Department, University of New Mexico, Albuquerque, New Mexico 87131, USA. maggieww@unm.edu},
+	author = {Werner-Washburne, M.  and Wylie, B.  and Boyack, K.  and Fuge, E.  and Galbraith, J.  and Weber, J.  and Davidson, G. },
+	citeulike-article-id = {393090},
+	doi = {10.1101/gr.225402},
+	issn = {1088-9051},
+	journal = {Genome Res},
+	month = {October},
+	number = {10},
+	pages = {1564--1573},
+	posted-at = {2005-11-15 05:53:06},
+	priority = {2},
+	title = {Comparative analysis of multiple genome-scale data sets.},
+	url = {http://dx.doi.org/10.1101/gr.225402},
+	volume = {12},
+	year = {2002}
+}
+	
+@article{kemmeren2002protein,
+	author = {Kemmeren, P. },
+	citeulike-article-id = {3443933},
+	comment = {In this study, authors basically explore how analysis of large collections of DNA microarray data can be applied to verify protein-protein interactions.Presently available microarray expression data and high-throughput protein interaction data are extensively analyzed. The results show significant differences within and between data sets and emphasize the requirement for additional verification of high-throughput-generated data.
+
+Approch:Two general approaches for determining mRNA coexpression of protein pairs are depicted. In the first approach (I), coexpression is determined by calculating the distance measure and retrieving this from a distance matrix. In the second general approach (II), the distance matrix is used for ensuing clustering. In this case, the degree of coexpression is based on the ultrametric distance of the derived dendogram. Variations of both approaches were tested by applying different distance measures and hierarchical clustering algorithms(unweighted pair-group method average linkage, weighted pair-group method average linkage, complete linkage, and single linkage). For further analysis, a cosine correlation distance only approach has been used for the different protein interaction datasets},
+	doi = {10.1016/S1097-2765(02)00531-2},
+	issn = {10972765},
+	journal = {Molecular Cell},
+	keywords = {co, expression, mrna},
+	month = {May},
+	number = {5},
+	pages = {1133--1143},
+	posted-at = {2008-10-23 17:14:59},
+	priority = {2},
+	title = {Protein Interaction Verification and Functional Annotation by Integrated Analysis of Genome-Scale Data},
+	url = {http://dx.doi.org/10.1016/S1097-2765(02)00531-2},
+	volume = {9},
+	year = {2002}
+}
+
+@article{gerstein2002proteomics,
+	author = {Gerstein, Mark   and Lan, Ning   and Jansen, Ronald  },
+	citeulike-article-id = {524390},
+	doi = {10.1126/science.1068664},
+	journal = {Science},
+	keywords = {interactome, proteome},
+	month = {January},
+	number = {5553},
+	pages = {284--287},
+	posted-at = {2008-11-13 17:02:05},
+	priority = {2},
+	title = {PROTEOMICS: Enhanced: Integrating Interactomes},
+	url = {http://dx.doi.org/10.1126/science.1068664},
+	volume = {295},
+	year = {2002}
+}
+@article{schwikowski2000protein,
+	author = {Schwikowski, Benno   and Uetz, Peter   and Fields, Stanley  },
+	citeulike-article-id = {129279},
+	journal = {Nat. Biotechnol.},
+	keywords = {bibtex-import},
+	pages = {1257--1261},
+	posted-at = {2005-03-15 21:56:05},
+	priority = {2},
+	title = {A network of protein-protein interactions in yeast},
+	volume = {18},
+	year = {2000}
+}
+@book{golub1996matrix,
+	abstract = {<P>Revised and updated, the third edition of Golub and Van Loan's classic text in computer science provides essential information about the mathematical background and algorithmic skills required for the production of numerical software. This new edition includes thoroughly revised chapters on matrix multiplication problems and parallel matrix computations, expanded treatment of CS decomposition, an updated overview of floating point arithmetic, a more accurate rendition of the modified Gram-Schmidt process, and new material devoted to GMRES, QMR, and other methods designed to handle the sparse unsymmetric linear system problem.</P>},
+	author = {Golub, Gene  H.  and Van Loan, Charles  F. },
+	citeulike-article-id = {252315},
+	howpublished = {Paperback},
+	isbn = {0801854148},
+	keywords = {matrix, numerical-method},
+	month = {October},
+	posted-at = {2007-12-04 04:05:27},
+	priority = {5},
+	publisher = {The Johns Hopkins University Press},
+	title = {Matrix Computations (Johns Hopkins Studies in Mathematical Sciences)},
+	url = {http://www.amazon.ca/exec/obidos/redirect?tag=citeulike09-20\&amp;path=ASIN/0801854148},
+	year = {1996}
+}
+@article{field2008distinct,
+    author = {Field, Yair AND Kaplan, Noam AND Fondufe-Mittendorf, Yvonne AND Moore, Irene K. AND Sharon, Eilon AND Lubling, Yaniv AND Widom, Jonathan AND Segal, Eran},
+    journal = {PLoS Comput Biol},
+    publisher = {Public Library of Science},
+    title = {Distinct Modes of Regulation by Chromatin Encoded through Nucleosome Positioning Signals},
+    year = {2008},
+    month = {11},
+    volume = {4},
+    url = {http://dx.doi.org/10.1371%2Fjournal.pcbi.1000216},
+    pages = {e1000216},
+    abstract = {<title>Author Summary</title>
+<p>The detailed positions of nucleosomes along genomes have critical roles in transcriptional regulation. Consequently, it is important to understand the principles that govern the organization of nucleosomes in vivo and the functional consequences of this organization. Here we report on progress in identifying the functional consequences of nucleosome organization, in understanding the way in which nucleosome organization is encoded in the DNA, and in linking the two, by suggesting that distinct transcriptional behaviors are encoded through the genome's intrinsic nucleosome organization. Our results thus provide insight on the broader question of understanding how transcriptional programs are encoded in the DNA sequence. These new insights were enabled by individually sequencing ∼380,000 nucleosomes from yeast in their entirety. Using this map, we refine our previous model for predicting nucleosome positions and demonstrate that our new model predicts nucleosome organizations in yeast with high accuracy and that its nucleosome positioning signals are predictive across eukaryotes. We show that the yeast genome may utilize these nucleosome positioning signals to encode regions with both relatively open (nucleosome-depleted) chromatin organizations and relatively closed (nucleosome-covered) chromatin organizations and that this encoding can partly explain aspects of transcription factor binding, gene expression, transcriptional noise, and DNA replication.</p>
+},
+    number = {11},
+    doi = {10.1371/journal.pcbi.1000216}
+}        
+
+@article{kaplan2008nucleosome,
+	abstract = {Nucleosome organization is critical for gene regulation. In living cells this organization is determined by multiple factors, including the action of chromatin remodellers, competition with site-specific DNA-binding proteins, and the DNA sequence preferences of the nucleosomes themselves. However, it has been difficult to estimate the relative importance of each of these mechanisms in vivo, because in vivo nucleosome maps reflect the combined action of all influencing factors. Here we determine the importance of nucleosome DNA sequence preferences experimentally by measuring the genome-wide occupancy of nucleosomes assembled on purified yeast genomic DNA. The resulting map, in which nucleosome occupancy is governed only by the intrinsic sequence preferences of nucleosomes, is similar to in vivo nucleosome maps generated in three different growth conditions. In vitro, nucleosome depletion is evident at many transcription factor binding sites and around gene start and end sites, indicating that nucleosome depletion at these sites in vivo is partly encoded in the genome. We confirm these results with a micrococcal nuclease-independent experiment that measures the relative affinity of nucleosomes for <40,000 double-stranded 150-base-pair oligonucleotides. Using our in vitro data, we devise a computational model of nucleosome sequence preferences that is significantly correlated with in vivo nucleosome occupancy in Caenorhabditis elegans. Our results indicate that the intrinsic DNA sequence preferences of nucleosomes have a central role in determining the organization of nucleosomes in vivo.},
+	author = {Kaplan, Noam   and Moore, Irene  K.  and Fondufe-Mittendorf, Yvonne   and Gossett, Andrea  J.  and Tillo, Desiree   and Field, Yair   and Leproust, Emily  M.  and Hughes, Timothy  R.  and Lieb, Jason  D.  and Widom, Jonathan   and Segal, Eran  },
+	citeulike-article-id = {3803885},
+	doi = {10.1038/nature07667},
+	issn = {0028-0836},
+	journal = {Nature},
+	keywords = {nucleosome},
+	month = {December},
+	posted-at = {2009-03-19 11:42:54},
+	priority = {2},
+	publisher = {Nature Publishing Group},
+	title = {The DNA-encoded nucleosome organization of a eukaryotic genome},
+	url = {http://dx.doi.org/10.1038/nature07667},
+	year = {2008}
+}
+
+@inproceedings{MacQueen67kmeans,
+	author = {Macqueen, J. B. },
+	booktitle = {Proceedings of the Fifth Berkeley Symposium on Mathematical Statistics and Probability},
+	citeulike-article-id = {903715},
+	keywords = {clustering},
+	pages = {281--297},
+	posted-at = {2006-10-18 14:32:45},
+	priority = {2},
+	title = {Some methods of classification and analysis of multivariate observations},
+	year = {1967}
+}
+
+@article{jain06spectral,
+	address = {Newton, MA, USA},
+	author = {Jain, Varun   and Zhang, Hao  },
+	citeulike-article-id = {3428013},
+	journal = {Comput. Aided Des.},
+	number = {5},
+	pages = {398--407},
+	posted-at = {2008-10-18 17:42:09},
+	priority = {2},
+	publisher = {Butterworth-Heinemann},
+	title = {A spectral approach to shape-based retrieval of articulated 3D models},
+	volume = {39},
+	year = {2007}
+}
+	
+@article{angenent99laplace,
+  author    = {Sigurd Angenent and
+               Steven Haker and
+               Allen Tannenbaum and
+               Ron Kikinis},
+  title     = {On the Laplace-Beltrami Operator and Brain Surface Flattening},
+  journal   = {IEEE Trans. Med. Imaging},
+  volume    = {18},
+  number    = {8},
+  year      = {1999},
+  pages     = {700-711},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+@article{deleeuw2005mds,
+  author =	"Jan de Leeuw",
+  title =	"Modern Multidimensional Scaling: Theory and Applications (Second Edition)",
+  journal =	"Journal of Statistical Software, Book Reviews",
+  volume =	"14",
+  number =	"4",
+  pages =	"1--2",
+  day =  	"1",
+  month =	"9",
+  year = 	"2005",
+  CODEN =	"JSSOBK",
+  ISSN = 	"1548-7660",
+  bibdate =	"2005-09-01",
+  URL =  	"http://www.jstatsoft.org/v14/b04",
+  accepted =	"2005-09-01",
+  acknowledgement = "",
+  keywords =	"",
+  submitted =	"2005-09-01",
+}
+@article{haifang2006manifold,
+author = {Haifeng Chen and Guofei Jiang and Kenji Yoshihira},
+title = {Robust Nonlinear Dimensionality Reduction for Manifold Learning},
+journal ={Pattern Recognition, International Conference on},
+volume = {2},
+year = {2006},
+issn = {1051-4651},
+pages = {447-450},
+doi = {http://doi.ieeecomputersociety.org/10.1109/ICPR.2006.1011},
+publisher = {IEEE Computer Society},
+address = {Los Alamitos, CA, USA},
+}		
+	
+@inproceedings{tung2001constraint,
+  author    = {Anthony K. H. Tung and
+               Raymond T. Ng and
+               Laks V. S. Lakshmanan and
+               Jiawei Han},
+  title     = {Constraint-based clustering in large databases},
+  booktitle = {ICDT},
+  year      = {2001},
+  pages     = {405-419},
+  ee        = {db/conf/icdt/KungNLH01.html, http://link.springer.de/link/service/series/0558/bibs/1973/19730405.htm},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+@inproceedings{wagstaff2000clustering,
+ author = {Wagstaff, Kiri and Cardie, Claire},
+ title = {Clustering with Instance-level Constraints},
+ booktitle = {ICML 2000: Proceedings of the Seventeenth International Conference on Machine Learning},
+ year = {2000},
+ isbn = {1-55860-707-2},
+ pages = {1103--1110},
+ publisher = {Morgan Kaufmann Publishers Inc.},
+ address = {San Francisco, CA, USA},
+ }
+
+@article{saul2006smd,
+	author = {Saul, L. K.  and Weinberger, K. Q.  and Ham, J. H.  and Sha, F.  and Lee, D. D. },
+	citeulike-article-id = {2326251},
+	journal = {Semisupervised Learning. MIT Press: Cambridge, MA},
+	keywords = {manifold-learning},
+	posted-at = {2008-02-03 14:25:31},
+	priority = {3},
+	title = {{Spectral methods for dimensionality reduction}},
+	year = {2006}
+}
+@inproceedings{nadler06fundamental,
+  author    = {Boaz Nadler and
+               Meirav Galun},
+  title     = {Fundamental Limitations of Spectral Clustering},
+  booktitle = {NIPS},
+  year      = {2006},
+  pages     = {1017-1024},
+  ee        = {http://books.nips.cc/papers/files/nips19/NIPS2006_0134.pdf},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+@article{gianchandani2006matrix,
+    author = {Gianchandani, Erwin P AND Papin, Jason A AND Price, Nathan D AND Joyce, Andrew R AND Palsson, Bernhard O},
+    journal = {PLoS Comput Biol},
+    publisher = {Public Library of Science},
+    title = {Matrix Formalism to Describe Functional States of Transcriptional Regulatory Systems},
+    year = {2006},
+    month = {08},
+    volume = {2},
+    url = {http://dx.plos.org/10.1371%2Fjournal.pcbi.0020101},
+    pages = {e101},
+    abstract = {<p>Complex regulatory networks control the transcription state of a genome. These transcriptional regulatory networks (TRNs) have been mathematically described using a Boolean formalism, in which the state of a gene is represented as either transcribed or not transcribed in response to regulatory signals. The Boolean formalism results in a series of regulatory rules for the individual genes of a TRN that in turn can be used to link environmental cues to the transcription state of a genome, thereby forming a complete transcriptional regulatory system (TRS). Herein, we develop a formalism that represents such a set of regulatory rules in a matrix form. Matrix formalism allows for the systemic characterization of the properties of a TRS and facilitates the computation of the transcriptional state of the genome under any given set of environmental conditions. Additionally, it provides a means to incorporate mechanistic detail of a TRS as it becomes available. In this study, the regulatory network matrix, <bold>R</bold>, for a prototypic TRS is characterized and the fundamental subspaces of this matrix are described. We illustrate how the matrix representation of a TRS coupled with its environment (<bold>R*</bold>) allows for a sampling of all possible expression states of a given network, and furthermore, how the fundamental subspaces of the matrix provide a way to study key TRS features and may assist in experimental design.</p>},
+    number = {8},
+    doi = {10.1371/journal.pcbi.0020101}
+}        
+
+
+@inproceedings{weiss1999segmentation,
+	address = {Washington, DC, USA},
+	author = {Weiss, Yair  },
+	booktitle = {ICCV '99: Proceedings of the International Conference on Computer Vision-Volume 2},
+	citeulike-article-id = {576371},
+	keywords = {bibtex-import},
+	posted-at = {2006-04-04 23:04:17},
+	priority = {2},
+	publisher = {IEEE Computer Society},
+	title = {Segmentation Using Eigenvectors: A Unifying View},
+	year = {1999}
+}
+@article{kluger2003spectral,
+	abstract = {Global analyses of RNA expression levels are useful for classifying genes and overall phenotypes. Often these classification problems are linked, and one wants to find "marker genes" that are differentially expressed in particular sets of "conditions." We have developed a method that simultaneously clusters genes and conditions, finding distinctive "checkerboard" patterns in matrices of gene expression data, if they exist. In a cancer context, these checkerboards correspond to genes that are markedly up- or downregulated in patients with particular types of tumors. Our method, spectral biclustering, is based on the observation that checkerboard structures in matrices of expression data can be found in eigenvectors corresponding to characteristic expression patterns across genes or conditions. In addition, these eigenvectors can be readily identified by commonly used linear algebra approaches, in particular the singular value decomposition (SVD), coupled with closely integrated normalization steps. We present a number of variants of the approach, depending on whether the normalization over genes and conditions is done independently or in a coupled fashion. We then apply spectral biclustering to a selection of publicly available cancer expression data sets, and examine the degree to which the approach is able to identify checkerboard structures. Furthermore, we compare the performance of our biclustering methods against a number of reasonable benchmarks (e.g., direct application of SVD or normalized cuts to raw data).},
+	address = {Department of Genetics, Yale University, New Haven, Connecticut 06520, USA.},
+	author = {Kluger, Y.  and Basri, R.  and Chang, J. T.  and Gerstein, M. },
+	citeulike-article-id = {79882},
+	doi = {10.1101/gr.648603},
+	issn = {1088-9051},
+	journal = {Genome Res},
+	keywords = {biclustering, spectral},
+	month = {April},
+	number = {4},
+	pages = {703--716},
+	posted-at = {2009-01-08 20:49:52},
+	priority = {2},
+	title = {Spectral biclustering of microarray data: coclustering genes and conditions.},
+	url = {http://dx.doi.org/10.1101/gr.648603},
+	volume = {13},
+	year = {2003}
+}
+
+
+@inproceedings{klein2002frominstance,
+ author = {Klein,, Dan and Kamvar,, Sepandar D. and Manning,, Christopher D.},
+ title = {From Instance-level Constraints to Space-Level Constraints: Making the Most of Prior Knowledge in Data Clustering},
+ booktitle = {ICML '02: Proceedings of the Nineteenth International Conference on Machine Learning},
+ year = {2002},
+ isbn = {1-55860-873-7},
+ pages = {307--314},
+ publisher = {Morgan Kaufmann Publishers Inc.},
+ address = {San Francisco, CA, USA},
+ }
+@inproceedings{basu2004probabilistic,
+  author =       {Sugato Basu and Mikhail Bilenko and Raymond J. Mooney},
+  title =        {A Probabilistic Framework for Semi-Supervised Clustering},
+  booktitle =    {KDD04},
+  pages =        {59--68},
+  address =      {Seattle, WA},
+  month =        {Aug},
+  year =         {2004},
+  url = {citeseer.ist.psu.edu/basu04probabilistic.html} 
+}
+
+@inproceedings{xing2003metric,
+	abstract = {Many algorithms rely critically on being given a good metric over their inputs. For instance, data can often be clustered in many “plausible” ways, and if a clustering algorithm such as K-means initially fails to find one that is meaningful to a user, the only recourse may be for the user to manually tweak the metric until sufficiently good clusters are found. For these and other applications requiring good metrics, it is desirable that we provide a more systematic way for users to indicate what they consider “similar. ” For instance, we may ask them to provide examples. In this paper, we present an algorithm that, given examples of similar (and, if desired, dissimilar) pairs of points in ¢¤ {\pounds} , learns a distance metric over ¢¥ {\pounds} that respects these relationships. Our method is based on posing metric learning as a convex optimization problem, which allows us to give efficient, local-optima-free algorithms. We also demonstrate empirically that the learned metrics can be used to significantly improve clustering performance. 1},
+	author = {Xing, Eric  P.  and Ng, Andrew  Y.  and Jordan, Michael  I.  and Russell, Stuart  },
+	booktitle = {Advances in Neural Information Processing Systems 15},
+	citeulike-article-id = {3799267},
+	keywords = {distance, learning, metric},
+	pages = {505--512},
+	posted-at = {2008-12-17 03:43:19},
+	priority = {2},
+	title = {Distance metric learning, with application to clustering with side-information},
+	url = {http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.58.3667},
+	volume = {15},
+	year = {2003}
+}
+@article{yu2004segmentation,
+ author = {Yu,, Stella X. and Shi,, Jianbo},
+ title = {Segmentation Given Partial Grouping Constraints},
+ journal = {IEEE Trans. Pattern Anal. Mach. Intell.},
+ volume = {26},
+ number = {2},
+ year = {2004},
+ issn = {0162-8828},
+ pages = {173--183},
+ doi = {http://dx.doi.org/10.1109/TPAMI.2004.1262179},
+ publisher = {IEEE Computer Society},
+ address = {Washington, DC, USA},
+ }
+@book{ding2008spectral,
+ author = {Ding,, Chris and Zha,, Hongyuan},
+ title = {Spectral Clustering, Ordering and Ranking: Statistical Learning with Matrix Factorizations},
+ year = {2008},
+ isbn = {0387304487, 9780387304489},
+ publisher = {Springer Publishing Company, Incorporated},
+ }
+@book{basu2008constrained,
+ author = {Basu,, Sugato and Davidson,, Ian and Wagstaff,, Kiri},
+ title = {Constrained Clustering: Advances in Algorithms, Theory, and Applications},
+ year = {2008},
+ isbn = {1584889969, 9781584889960},
+ publisher = {Chapman \& Hall/CRC},
+ }
+
+@book{jain1988algorithms,
+	address = {Upper Saddle River, NJ, USA},
+	author = {Jain, Anil  K.  and Dubes, Richard  C. },
+	citeulike-article-id = {165423},
+	isbn = {013022278X},
+	keywords = {clustering},
+	posted-at = {2005-04-20 14:10:48},
+	priority = {2},
+	publisher = {Prentice-Hall, Inc.},
+	title = {Algorithms for clustering data},
+	url = {http://portal.acm.org/citation.cfm?id=42779},
+	year = {1988}
+}
+
+@article{fiedler1975property,
+	author = {Fiedler, M. },
+	citeulike-article-id = {1031337},
+	journal = {Czechoslovak Mathematical Journal},
+	keywords = {algorithmic},
+	posted-at = {2007-01-09 10:08:48},
+	priority = {2},
+	title = {A property of eigenvectors of nonnegative symmetric matrices and its application to graph theory},
+	volume = {25},
+	year = {1975}
+}
+
+@article{sonnenburg2006largescale,
+	abstract = {While classical kernel-based learning algorithms are based on a single kernel, in practice it is often
+desirable to use multiple kernels. Lanckriet et al. (2004) considered conic combinations of kernel
+matrices for classification, leading to a convex quadratically constrained quadratic program. We
+show that it can be rewritten as a semi-infinite linear program that can be efficiently solved by recy-
+cling the standard SVM implementations. Moreover, we generalize the formulation and our method
+to a larger class of problems, including regression and one-class classification. Experimental re-
+sults show that the proposed algorithm works for hundred thousands of examples or hundreds of
+kernels to be combined, and helps for automatic model selection, improving the interpretability of
+the learning result. In a second part we discuss general speed up mechanism for SVMs, especially
+when used with sparse feature maps as appear for string kernels, allowing us to train a string kernel
+SVM on a 10 million real-world splice data set from computational biology. We integrated multi-
+ple kernel learning in our machine learning toolbox SHOGUN for which the source code is publicly
+available at http://www.fml.tuebingen.mpg.de/raetsch/projects/shogun.},
+	author = {Sonnenburg, S\"{o}ren   and R\"{a}tsch, Gunnar   and Sch\"{a}fer, Christin   and Sch\"{o}lkopf, Bernhard  },
+	citeulike-article-id = {3790153},
+	journal = {Journal of Machine Learning Research},
+	keywords = {c-kernels, s-collected, t-learning},
+	pages = {1531--1565},
+	posted-at = {2008-12-15 19:23:43},
+	priority = {2},
+	title = {Large Scale Multiple Kernel Learning},
+	volume = {7},
+	year = {2006}
+}
+
+@ARTICLE{thomaz2004covariance,
+title={A new covariance estimate for Bayesian classifiers in biometric recognition},
+author={Thomaz, C.E. and Gillies, D.F. and Feitosa, R.Q.},
+journal={Circuits and Systems for Video Technology, IEEE Transactions on},
+year={2004},
+month={Feb.},
+volume={14},
+number={2},
+pages={ 214-223},
+keywords={ Bayes methods, covariance matrices, face recognition, fingerprint identification, group theory, image classification, maximum entropy methods Bayesian classifiers, biometric pattern recognition, covariance estimation, covariance estimator, facial expression, fingerprint classification, maximum entropy covariance selection method, maximum uncertainty, sample group covariance matrices},
+doi={10.1109/TCSVT.2003.821984},
+ISSN={1051-8215}, }
+
+	
+@Article{soumya2002assoc,
+   author   = {Raychaudhuri,S. and Chang,J.T. and Sutphin,P.D. and Altman,R.B.},
+    title   = {{Associating genes with gene ontology codes using a maximum entropy analysis of biomedical literature.}},
+    journal = {Genome Res},
+    volume  = 12,
+    pages   = {203--214},
+    year    = {2002},
+    }      
+@article{transfac1996,
+	abstract = {TRANSFAC is a database about eukaryotic transcription regulating DNA sequence elements and the transcription factors binding to and acting through them. This report summarizes the present status of this database and accompanying retrieval tools.},
+	address = {Gesellschaft f\"{u}r Biotechnologische Forschung mbH, Department of GenomeAnalysis, Braunschweig, Germany.},
+	author = {Wingender, E.  and Dietze, P.  and Karas, H.  and Kn\"{u}ppel, R. },
+	citeulike-article-id = {876703},
+	doi = {10.1093/nar/24.1.238},
+	issn = {0305-1048},
+	journal = {Nucleic Acids Res},
+	keywords = {database},
+	month = {January},
+	number = {1},
+	pages = {238--241},
+	posted-at = {2007-12-12 14:09:36},
+	priority = {2},
+	title = {TRANSFAC: a database on transcription factors and their DNA binding sites.},
+	url = {http://dx.doi.org/10.1093/nar/24.1.238},
+	volume = {24},
+	year = {1996}
+}
+

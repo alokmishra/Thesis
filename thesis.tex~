@@ -1,0 +1,116 @@
+\documentclass[a4paper,12pt,oneside]{book}
+%\documentclass[a4paper,12pt,twoside,openright]{report}
+\usepackage[left=3cm,right=3cm,top=5cm,bottom=3cm]{geometry}
+
+%\documentclass[a4paper,11pt,twoside]{report}
+%\usepackage[left=2cm,right=2cm,top=4cm,bottom=3cm]{geometry}
+
+\usepackage[figuresright]{rotating}
+\usepackage{amsmath,amssymb}
+\usepackage{subfigure}
+\usepackage{longtable}
+
+\usepackage{amsmath}
+%\usepackage{ps4pdf}
+
+%\PSforPDF{
+\usepackage[usenames,dvipsnames]{pstricks}
+\usepackage{pst-node}
+\usepackage{epsfig}
+%}% end of ps4pdf
+\usepackage{appendix}
+\usepackage[boxed]{algorithm}
+\usepackage{algorithmic}
+\usepackage{natbib}
+\usepackage{floatflt}
+\usepackage[printonlyused]{acronym}
+\usepackage{url}
+\usepackage{multirow}
+
+%% following 3 loaded in thesis.preamble
+%\usepackage{verbatim}
+%\usepackage{graphicx}
+%\usepackage{setspace}
+
+\makeatletter
+\def\MyBox{\pst@object{MyBox}}
+\def\MyBox@i#1#2#3{{%
+	\use@par                        % Local parameters
+	\if@star\solid@star\fi          % Stared version
+	\pssetlength{\pst@dimc}{-\psframesep}
+	\psaddtolength{\pst@dimc}{-\psframesep}
+	\psaddtolength{\pst@dimc}{-\pslinewidth}
+	\psaddtolength{\pst@dimc}{-\pslinewidth}
+	\pssetlength{\pst@dima}{#1}
+	\psaddtolength{\pst@dima}{\pst@dimc}
+	\pssetlength{\pst@dimb}{#2}
+	\psaddtolength{\pst@dimb}{\pst@dimc}
+	\setbox\z@\vbox to\pst@dimb{\hsize\pst@dima\sloppy\vfil#3\vfil}%
+	\psframebox{\box\z@}%
+}}
+
+\makeatother
+
+\include{thesis.preamble}
+\begin{document}
+\symbolfootnote
+\bibliographystyle{apalike}
+%\bibliographystyle{abbrv}
+
+\title{\LARGE {\bf Data Integration for Regulatory Module Discovery}\\
+ \vspace*{6mm}
+}
+
+\author{Alok Mishra}
+\submitdate{June 2009}
+
+
+\frontmatter
+\maketitle
+%%\preface
+\input{declaration/declaration}
+\input{abstract/abstract}
+\input{acknowledgements/acknowledgements}
+\input{dedication/dedication}
+%%\input{quotes/quotes}
+
+test
+\body
+%\normallinespacing
+\mediumlinespacing
+\mainmatter
+\chapter{Introduction}
+\input{introduction/introduction}
+
+\chapter{Regulatory Module Discovery Algorithms}
+\input{background/background}
+
+\chapter{Data Integration for Regulatory Module Discovery}
+\input{chapter1/arraydata} 
+
+\chapter{Semi-supervised Regulatory Module Discovery}
+\input{chapter2/semi_sup}
+
+\chapter{Maximum Entropy Kernel Integration for Regulatory Module Discovery} \label{chap_maxent}
+\input{chapter3/max_entropy}
+
+\chapter{Summary and Future Work}
+\input{conclusion/conclusion}
+
+\appendix
+\addappheadtotoc
+%\addtocontents{toc}{\protect\contentsline{chapter}{Appendix:}{}}
+
+\chapter{GO Term Enrichment after Integration} \label{appendix:go_enrichment_results}
+\input{appendices/semisup_stress_go_results}
+\input{appendices/maxent_stress_go_results}
+
+\aloklinespacing
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{/home/alok/phd/post_viva/thesis/bioinfo} 
+%\bibliography{/homes/am2203/phd/bioinfo/bioinforeports/bioinfo}
+\addcontentsline{toc}{chapter}{Acronyms}
+\aloklinespacing
+\input{acronyms/acronyms}
+
+\end{document}

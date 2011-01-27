@@ -1,0 +1,522 @@
+\begin{quote} ``Just as the constant increase of entropy is the basic law of the universe, so it is the basic law of life to be ever more highly structured and to struggle against entropy'' - \textit{Vaclav Havel}  \end{quote} 
+ 
+While our previous chapter discussed the impact of data integration of the same type (microarrays), in this chapter we focus on the integration of the other type, where datasets of different types are used in a cooperative manner. Different datasets are not being merged \textit{literally}, but one is used to \textit{guide} the clustering of the other. We propose a type of clustering method with \textit{supervision} extracted from \textit{prior biological knowledge} in order to guide the process of clustering.
+
+When a small amount of prior knowledge is available in the form of \textit{pairwise relationships} between genes, instead of simply using this knowledge for the external validation of the results of clustering, we can use it in order to guide the clustering process thus providing a limited form of supervision. We call these methods \textit{semi-supervised clustering} \footnote{This is different from Semi-Supervised Learning \citep{grira2005unsupsurvey} which is a class of machine learning techniques that make use of both labelled and unlabelled data for training. They are called semi-supervised because the available knowledge is far from being enough for fully supervised learning even in a transductive form.} because unlike supervised or constrained clustering \citep{bradley00constrained}, the final results of clustering is not required to enforce the constraints. The constraints act as guidelines and are enforced only if they are complementary to the data being clustered. For semi-supervised clustering to be profitable, the two sources of information, i.e., the similarity measure (used by all clustering methods) as well as the constraints available should not completely contradict each other.
+In our novel formulation, named \acfi{SSSC}, supervision (prior knowledge) is provided in the form of binary constraints and clustering is done in the spectral space \citep{shi00normalized, ng2001onspectral}. The prior knowledge is derived from DNA binding data from ChIP-chip experiments, PPI data and known TF-gene interactions from a curated database. These are used to guide the process of clustering microarray data.
+
+\section{Spectral Clustering}
+The goal of any clustering is to partition a set of points into disjoint sets where the points within a partition are as similar as possible while points within different partitions are as dissimilar as possible. In this section, we discuss how spectral clustering achieves this objective. 
+\subsection{Graph notations}
+Given a set of data points, we can compute similarities between them using a suitable \textit{similarity function}. Given these similarities between the data points, a dataset can be respresented as a \textit{graph} which is a set of \textit{vertices} and \textit{edges} connecting vertices \textit{(V,E)}. The vertices \textit{(V)} represent the data points while the edges \textit{(E)} represent the links between the data points. Usually a certain threshold of similarity value is chosen above which the edges are linked between data points. For \textit{weighted} graphs the edges also have the similarity values as \textit{weights}. Once we have this undirected weighted graph, the goal of a clustering algorithm is to partition it such that edge weights between the points \textit{within} a partition are high while the edge weights between points of \textit{different} partitions are low. We begin with some definitions.
+
+Let $G = (V,E)$ be an \textit{undirected weighted} graph with vertices $V = {v_{1},\dots,v_{n}}$, edges $E= {e_{1},\dots,e_{n}}$ and each edge $e_{ij}$ between vertex $i$ and $j$  has a non-negative weight $w_{ij}$. The weights matrix $W = (w_{ij})_{i,j=1,\dots,n}$ is also known as the \textit{adjacency matrix} of this graph. For non existing edges, $w_{ij}=0$. The graph is assumed to have no self-edges, i.e., $w_{ii}=0$. In order to understand spectral clustering we need some more definitions for this graph.
+
+The \textit{degree} ($d_{i}$) of a vertex $v_{i}$ is defined as
+\[
+d_{i} = \sum_{j=1}^{n}w_{ij}
+\]
+
+which intuitively is the row-wise sum for the respective row of the adjacency matrix. In the graph, this can also be understood in terms of sum of edge weights for that particular vertex. The \textit{degree matrix} $D$ is defined as the \textit{diagonal} matrix with the individual vertex degrees $d_{1}$, \dots, $d_{n}$ along the diagonal, everything else being $0$.
+
+\subsection{Similarity matrices and graph Laplacians}
+There are various ways of converting similarities between a given set of data points into a graph - both in choosing the similarity function to compute similarities among the data points as well as deciding about how to turn the similarity values into a graph.
+
+A \textit{$\varepsilon$-neighbourhood} graph is obtained by joining edges between points whose similarity values are larger than  $\varepsilon$. Figure-\ref{fig:constraints_with_pval} shows two examples of such a graph using two different values of $\varepsilon$. A \ac{KNN} graph has edges between a point and $k$ other points that are most similar to it. This leads to a directed graph because the neighbourhood relation is not symmetric, i.e., $v_{a}$ might have $v_{b}$ as one of its k-nearest neighbours but the vice-versa might not be true. To convert this into an undirected one, we can either totally ignore the direction or take a more restrictive approach where two nodes are connected \textit{only} if both of them are \aclp{KNN} of each other. The latter type is also referred to as a \textit{mutual \acl{KNN} graph}.
+
+A \textit{fully connected} graph is one where all pairs of points have positive similarity values and are connected. This leads to a denser graph in comparison to previous ones. While in the earlier ones, the local neighbourhood relationship was enforced with either a threshold ($\varepsilon$) or a maximum of $k$-neighbours, in a fully connected graph we have to choose a similarity function that should do this. For all our work, we have used the Gaussian similarity function which encodes this neighbourhood relation automatically. In this function, $exp \left( -\frac{{\parallel \textbf{x}-\textbf{x}^{'} \parallel}^{2}}{2\sigma^{2}}\right)$, $\sigma$ controls the width of the neighbourhood. The Gaussian similarity function is an exponential function, therefore depending on $\sigma$, the similarity falls non-linearly (exponentially) with increasing distance. This property makes it desirable to use where neighbourhood relations are important. Various other similarity functions for vector data are discussed in Chapter-\ref{chap_maxent}.
+
+Spectral clustering is based on the \textit{Laplacian} matrix which has its origins in spectral graph theory \citep{chung1997spectralgraph}. There are various types of Laplacians. All of these assume that we have an undirected graph $G$ with positive weight matrix $W$ ($w_{ij} \geq 0$) and a corresponding degree matrix $D$. An \textit{unnormalized} Laplacian is defined as 
+
+\[
+	L = D-W
+\] 
+The matrix $L$ has the following properties
+\begin{itemize}
+    \item $L$ is always symmetric and positive semi-definite.
+    \item $L$ has $n$ non-negative, real-valued eigenvalues $\lambda_{1}(=0) \leq \lambda_{2}\leq \dots \leq \lambda_{n}$. The number of smallest eigenvalues (=0), i.e., its multiplicity, corresponds to the number of connected components in the graph. 
+\end{itemize}
+
+There are two popular variants of the \textit{normalized} Laplacian. They are defined as
+
+\begin{eqnarray}
+	L_{symmetric} &=& D^{-1/2} L D^{-1/2} = I - D^{-1/2} W D^{-1/2} \label{eqn-lap_sym}\\
+	L_{random walk} &=& D^{-1}L = I - D^{-1}W 
+\end{eqnarray}
+where $D^{-1/2}$ is the inverse square root of matrix $D$. Since $D$ is a diagonal matrix and the square root of a diagonal matrix D is formed by taking the square root of all the entries on the diagonal
+
+\begin{displaymath}
+    \mathbf{D^{\frac{-1}{2}}} = \begin{bmatrix} \frac{1}{\sqrt{d_{11}}} & 0 & \dots & 0\\
+				 0 & \frac{1}{\sqrt{d_{22}}} & \dots & 0\\
+                                 \vdots & \vdots & \ddots & \vdots\\
+				 0 & 0 & \dots & \frac{1}{\sqrt{d_{nn}}}\\
+                 \end{bmatrix}
+\end{displaymath}
+Like the unnormalized Laplacian, the normalized ones are also always symmetric and positive semi-definite. They too have non-negative, real-valued eigenvalues $\lambda_{1}(=0) \leq \lambda_{2}\leq \dots \leq \lambda_{n}$ and the multiplicity of the smallest eigenvalue is the number of connected components in the graph. Laplacians could be interpreted as \textit{gradients} on graphs and it has connections to differential geometry. 
+\subsection{Graph clustering}
+As seen earlier, given a set of data points, a similarity function can be used to calculate the pairwise similarities among them, resulting in a similarity matrix. Given its graph representation, the clustering can be defined as a \textit{graph partitioning} problem where the edges between the points of the \textit{same} cluster have high weights while the edges between points belonging to \textit{different} clusters have low weights. Before we discuss the algorithm in detail, we discuss the general problem of graph clustering and its relation to spectral clustering. 
+
+We know that the key objective of clustering is to find sets of points that are \textit{maximally similar to each other within a set} and \textit{maximally dissimilar to points in other sets}. If we have a similarity graph, as discussed earlier, the problem can be restated to find a partition of the given graph such that the edges between points within a partition have higher weights as compared to edges between points in different partitions. Graph clustering or partitioning is an old problem and has been exhaustively studied \footnote{For a good review, see \cite{schaeffer1997graphclustering}}. The spectral clustering can be derived as an approximation to the graph partitioning objectives \citep{luxberg2006tutorial_spectral}. Before we start, we need some definitions.
+
+If we have two disjoint partitions A, B then 
+\[
+	Cut(A,B) = \sum_{i \in A,j \in B}w_{ij}
+\] 
+	
+So, if we have a graph G with adjacency matrix $W$, then we can construct a partition by solving the \textit{min-cut} problem, which can be understood as choosing the partitions $A_{1},\dots,A_{k}$ such that we minimize the following cut.
+
+\[
+	Cut(A_{1},\dots,A_{k}) = \sum_{i=1}^{k}Cut(A_{i},\bar{A}_{i})
+\] 
+where \={A} is the complement of $A$. While theoretically it can be solved, yet in practice it may yield clusters of size 1 (trivial clusters), which is not usually the goal of clustering. We want clusters that are \textit{reasonably} big. This is specified in terms of two popular \textit{objective functions} namely \textit{RatioCut} and normalized cut or \textit{NCut}.
+
+\begin{eqnarray}
+    RatioCut(A_{1},\dots,A_{k}) &=& \sum_{i=1}^{k}\frac{Cut(A_{i},\bar{A}_{i})}{|A_{i}|} \\
+    NCut(A_{1},\dots,A_{k}) &=& \sum_{i=1}^{k}\frac{Cut(A_{i},\bar{A}_{i})}{vol(A_{i})}
+\end{eqnarray}
+
+While in RatioCut the normalizing factor is the $|A_{i}|$, which is the total number of vertices (points) in the $i_{th}$ partition, in NCut, the normalizing factor is $vol(A_{i})$ which is the sum of all edge weights in the partition. The role of this normalizing factor is to make the partition \textit{balanced} as measured by number of vertices or sum of edge weights. Even though the formulation is simple and elegant, it is an NP-hard\footnote{NP-hard (nondeterministic polynomial-time hard) is a class of problem in computational complexity theory} problem. The spectral clustering algorithm is a way to solve a relaxed version of these objective functions. 
+
+Another way to understand this is that in both RatioCut and NCut, the numerator tries to achieve the objective of making different clusters as dissimilar to each other as possible, i.e., minimize the between cluster similarity. This is one half of the key requirement of any clustering algorithm's objective. The other half is that the within-cluster similarity should also be maximized. In other words $\sum_{i,j \in A}w_{ij}$ and $\sum_{i,j \in \bar{A}}w_{ij}$ should be maximized. Let's see how this is satisfied in each of the objective functions. 
+
+\begin{eqnarray}
+ \sum_{i,j \in A}w_{ij} &=& \sum_{i \in A, j \in A \cup \bar{A}}w_{ij} - \sum_{i \in A, j \in \bar{A}}w_{ij} \\
+                        &=& vol(A) - Cut(A,\bar{A})	 
+\end{eqnarray}
+
+We can see that NCut satisfies this by maximizing the $vol(A)$ and minimizing $Cut(A,\bar{A})$. RatioCut doesn't lead to this objective. As shown in \citet{luxberg2006tutorial_spectral}, relaxing NCut leads to using the \textit{normalized} Laplacian in spectral clustering while relaxing RatioCut leads to the use of \textit{unnormalized} Laplacian. Therefore, normalized spectral clustering satisfies both the key clustering criteria while unnormalized spectral clustering only implements the first criteria. One key point to note is that there is no guarantee on the quality of the clustering solution of the relaxed problem compared to the exact solution. 
+
+\subsection{Algorithm explanation}
+Spectral clustering is a technique in which the eigenvectors of the Laplacian matrix (which is derived from the \textit{similarity} matrix) corresponding to the smallest eigenvalues are used to derive a clustering of the given data points. The methods are called spectral, because they make use of the \textit{spectrum}\footnote{The set of eigenvectors of the normalized Laplacian matrix is usually called the \textit{spectrum} of the Laplacian (or the spectrum of the associated graph)} of the graph. It has been applied to diverse domains, e.g. image segmentation \citep{shi00normalized, weiss1999segmentation} and bioinformatics \citep{speer05spectral}. Most spectral clustering algorithms can be considered to have three stages:
+\begin{description}
+    \item[Normalization] This consists of computing the similarity matrix from the raw data using a suitable similarity function. We call this the \textit{normalization} step because different types of data (vector, graph or string) get converted to a common format (similarity matrix).
+    \item[Eigen Decomposition] This consists of computing the eigenvalues and the corresponding eigenvectors of the similarity matrix. This step could be considered as the mapping of original data to the spectral domain.
+    \item[Clustering] This step consists of using a traditional clustering algorithm (usually k-means) to cluster the vectors in the spectral domain.	
+\end{description}
+Different spectral clustering algorithms differ in the number of eigenvectors used (single or many) as well as the type of Laplacian used (unnormalized or normalized). \citet{verma2003comparison} did a systematic comparison of different popular spectral \citep{shi00normalized, ng2001onspectral, meila2000learning} and traditional clustering algorithms on artificial as well as real-world datasets. They report that spectral methods are more stable to noise than other tested algorithms. Both \citet{shi00normalized} and \citet{meila2000learning} have used the $L_{random walk}$ normalized Laplacian while \citet{ng2001onspectral} have used the $L_{symmetric}$ normalized Laplacian. Apart from this, there is no major difference between the techniques of all these algorithms. Since \citet{verma2003comparison} did not find significant differences among the two normalized Laplacians, we have used the algorithm by \citet{ng2001onspectral} which is the most recent one. This algorithm is described in Algorithm-\ref{alg:spectral_clustering}.
+\begin{algorithm}
+\caption{Spectral clustering}
+\label{alg:spectral_clustering}
+\begin{algorithmic}[1]
+\REQUIRE Dataset ($X$), number of clusters ($k$) 
+
+\STATE Calculate the symmetric similarity matrix $K_{n \times n}$  using Gaussian similarity function  $K_{ij}=exp \left( -\frac{{\parallel x_{i}-x_{j} \parallel}^{2}}{2\sigma^{2}}\right)$ if $i\neq j$, and set $K_{ii}=0$. 
+
+\STATE Calculate normalized Laplacian $L'=D^{-1/2}KD^{-1/2}$ where D is the diagonal matrix with $d_{jj}=\sum_{i}d_{ji}$ 
+
+\STATE Find the eigenvectors $v^{1},v^{2},\dots,v^{k}$ corresponding to the largest k eigenvalues of $L'$. 
+
+\STATE Use these k eigenvectors as columns to get $V_{n \times k}$. 
+
+\STATE Normalize the row to have unit norm, i.e., $U_{n \times k}$ such that $u_{ij}= v_{ij}/(\sum_{k}{v_{ik}^{2}})^{\frac{1}{2}}$
+
+\STATE Cluster the points representing the rows of this matrix $(u_{i})_{i=1,...,n}$ using k-means algorithm into k clusters, $C_{1},C_{2},\dots,C_{k}$.  
+
+\STATE Output clusters $A_{1},A_{2},\dots,A_{k}$ such that $A_{i}=\{x_{j}|u_{j}\in C_{i}\}$. This assigns the original point $x_{j}$ to cluster $A_{i}$ if $u_{j}$ is in cluster $C_{i}$. 
+
+\end{algorithmic}
+\end{algorithm}
+
+In the previous description of this algorithm, we had mentioned that the eigenvectors corresponding to the smallest eigenvalues are used. However, in the step-3 of algorithm, we are proposing to take the eigenvectors corresponding to the largest k eigenvalues. This is because here we are using the Laplacian $L'$ instead of the form $L_{symmetric=}I-L'$ described earlier (refer eqn-\ref{eqn-lap_sym}). This changes the eigenvalues from $\lambda_{i}$ to $1-\lambda_{i}$.
+
+To summarize the functioning of this algorithm: it changes the representation of the data points from the original space to the spectral space after the various steps (1-5) of transformation as shown in Algorithm-\ref{alg:spectral_clustering}. After that, any clustering algorithm can be used to cluster the data points. The reason for this transformation is that it allows better identification of non-linear clusters. Non-linear patterns are very hard to identify using traditional clustering methods but after the spatial transformation it becomes trivial to find them. For a detailed understanding of why this algorithm works, refer \citet{ng2001onspectral}. 
+
+Spectral clustering is very appealing because it yields a very standard linear algebra problem for which there are various efficient solvers (algorithm implementations) already available. It can be implemented for even large datasets if the similarity matrix is sparse. Unlike traditional clustering algorithms like k-means, there are no issues of dependency on starting point or getting stuck in local optimum. On the flip side, choosing the right similarity function and its parameters is non-trivial.
+
+\section{Datasets and Our Algorithm} \label{chap2:sec:materials}
+
+\subsection{Microarray datasets}
+We have used two popular microarray datasets on which the clustering is carried out, both of them based on experiments done on yeast (Saccharomyces cerevisiae). The dataset by \citet{gasch00genomicexpn} was obtained by exposing yeast to diverse environmental (stress) conditions such as temperature shocks, hydrogen peroxide, the superoxide generating drug menadione, the sulfhydryl-oxidizing agent diamide, the disulfide-reducing agent dithiothreitol, hyper and hypo-osmotic shock, amino-acid starvation and nitrogen source depletion. More than 900 genes showed drastic response to these environmental changes. We selected only those genes that displayed a change of three fold in \textit{at least one experiment}. There were 1246 genes fulfilling this criterion. The assumption behind this selection strategy is that the majority of genes which do not show much change in their expression levels during a process are unrelated to it.
+
+The second microarray dataset was based on cell-cycle experiments by \citet{spellman98comprehensive} where the objective was to identify yeast genes which were involved in cell-cycle regulation. This was achieved using DNA microarrays synchronized using three independent methods: $\alpha$ factor arrest, elutriation, and arrest of a cdc15 temperature sensitive mutant. Again, we selected only those genes that displayed a change of two fold in \textit{at least one experiment}. There were 1732 genes fulfilling this criterion. The reason why we only filtered for two fold change is because stress leads to a much more widespread expression change across the genome. Therefore, the number of genes that show change at two fold are too high. On the other hand, expression level changes are not that severe in a normal cell-cycle study. So, the number of genes at two fold change are not that high.
+
+In both the datasets, for data imputation we use the R \textit{impute} package which uses \textit{k-nearest neighbour} algorithm to impute missing values. It uses a Euclidean distance metric for finding nearest neighbours. We used the $log_{2}$ of the ratio of the mean of Channel 2 (experimental expression) to the mean of Channel 1 (control expression) since this is likely to create a Gaussian distribution \citep{ernstwit2004statis_microarrays}.
+
+For the experiments where we combined microarray with DNA-binding data, we needed to do other steps of pre-processing. We found the list of genes responsible for the TFs that were tested for binding. Then we ensured that our microarray dataset had those. The reasoning behind this is that some of them might be missing after the filtering step. In such a case, they were extracted from the original unfiltered dataset and incorporated in the final filtered one. The number of these is small compared to the total number of genes and we didn't want to loose any of them.
+
+\subsection{DNA-binding dataset}
+One of the datasets which we have used to guide the clustering process is the DNA-binding dataset on yeast \citep{harbison04transcriptional}. It was created using genome-wide location analysis techniques to determine the genomic occupancy of 203 DNA-binding transcriptional factors. In this dataset, the likelihood of a particular TF binding to the promoter region of another gene is reported in terms of a confidence value (p-value). A lower p-value indicates higher confidence. In order to extract binary constraints from this dataset, we need some threshold on these reported p-values of interactions. We investigated a range of p-value cut-offs, each corresponding to a certain set of constraints. This was to study the impact of \textit{number} and \textit{quality} of constraints on the biological significance of clustering. Since these are experimentally determined, we consider them as a more reliable evidence of genetic interaction. After extracting the constraints, we use them for guiding the clustering process. 
+
+As stated, we used the p-value thresholds to convert the confidence value data into binary constraints. For example, if the p-value threshold is  0.001 then all values below this are considered as \textit{definitely bound} and hence assigned a value of 1. The rest are assigned 0 (not bound). A significant point to note is that these p-value cut-offs have a dual role. They determine the number of constraints as well as the quality of constraints. As the p-value cutoff is increased, the number of constraints increases, but a higher p-value also indicates lower confidence, hence the quality of the constraints falls. Table-\ref{tab:no_constraints} shows the number of constraints corresponding to various p-value cut-offs. Figure-\ref{fig:constraints_with_pval} shows these constraints graphically where we can see that the graph density is very high at p=0.001 compared to at p=0.0001. 
+
+We also had to do some pre-processing with regards to the microarray dataset. We only selected those genes that are common to both the datasets. Because of this the number of constraints is further reduced as shown in the column - Common Genes of Table-\ref{tab:no_constraints}. This is the final set of constraints which we have used. Therefore, our constraints are transformed into a $m \times n $ matrix where $m$ is the number of genes and $n$ is the number of TFs. This constraints matrix is used to modify the similarity matrix that we obtain from the microarray data as discussed in Section-\ref{sec:sssc}.
+
+\begin{figure}[htp]
+  \begin{center}
+   \subfigure[Constraints at p=0.0001]{\label{fig:graph_constraints_0.0001}\includegraphics[scale=0.2]{chapter2/graph_0.0001.eps}}
+   \subfigure[Constraints at p=0.001]{\label{fig:graph_constraints_0.001}\includegraphics[scale=0.2]{chapter2/graph_0.001.eps}}
+
+  \end{center}
+\caption{Constraints derived from DNA-binding dataset at various p-value cutoffs}
+\label{fig:constraints_with_pval}
+\end{figure}
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+p-value & \multicolumn{3}{|c|}{Number of Constraints} \\ \cline{2-4}
+& All Genes & Common Genes (Stress) & Common Genes (Cell-cycle)\\
+\hline
+0.0001 & 2061  & 544   & 681\\
+0.0005 & 3436  & 846   & 1032\\
+0.001  & 4358  & 1053  & 1288\\
+0.005  & 8562  & 1959  & 2442\\
+0.01   & 12455 & 2776  & 3505\\
+0.05   & 35917 & 7407  & 9713\\
+0.1    & 63531 & 12579 & 17055\\
+\hline 
+\end{tabular}
+\caption{Number of constraints from DNA-binding dataset at various p-value thresholds}
+\label{tab:no_constraints}
+\end{table}
+
+\subsection{PPI dataset}
+Another source of constraints is the popular PPI dataset from MIPS Comprehensive Yeast Genome Database (CYGD) \citep{Gueldener2006MPact}. It has been called a gold standard because of its quality and comprehensiveness \citep{yu2004annotation}. This dataset has information related to the proximity of proteins in yeast based on more than 15600 protein-protein interaction records (9200 physical, 6400 genetic) which was compiled manually from the literature (3680 from single experiments) and published large-scale experiments. In addition to this, 268 manually extracted protein complexes as well as 783 complexes derived from large-scale experiments results in 87000 putative binary interactions. 
+
+The common gene count between the cell-cycle dataset and the PPI dataset is 1207 while the same between the stress dataset and the PPI dataset is 889. This is attributed to the smaller number of genes in the stress dataset. The final number of constraints are given in Table-\ref{tab:ppi_yeastract:no_constraints}.
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+Interactions Dataset & \multicolumn{3}{|c|}{Number of Constraints} \\ \cline{2-4}
+& All Genes & Common Genes (Stress) & Common Genes (Cell-cycle)\\
+\hline
+PPI          & 15446 & 442  & 1129 \\
+YEASTRACT    & 34471 & 8644 & 9717 \\
+\hline 
+\end{tabular}
+\caption{Number of constraints derived from PPI and Yeastract datasets}
+\label{tab:ppi_yeastract:no_constraints}
+\end{table}
+
+\subsection{TF-gene interactions dataset} \label{yeastract-db}
+We also derived constrains from an independently curated database of known TF-gene interactions known as YEASTRACT(Yeast Search for Transcriptional Regulators And Consensus Tracking). YEASTRACT\footnote{interactions file created on 25/12/2008} \citep{Teixeira06yeastract} is a curated repository of more than 30990 regulatory associations between transcription factors and target genes in Saccharomyces cerevisiae, based on more than 1000 bibliographic references. In this database, the curators consider interaction to have occurred when there is change in the expression of the target gene owing to the deletion (or mutation) of the transcription factor-encoding gene. They also consider evidence based on TF binding to the promoter region of the target gene based on band-shift, footprinting or chromatin immunoprecipitation assays. They also describe potential associations but we have not considered them as we wanted to stick to known facts. 
+
+The common gene count between the cell-cycle dataset and YEASTRACT dataset is 1586 while the same between the stress dataset and the YEASTRACT dataset is 1198. Again this is attributed to the smaller number of genes in the stress dataset. The final number of constraints are given in Table-\ref{tab:ppi_yeastract:no_constraints}.
+
+\subsection{Semi-supervised spectral clustering} \label{sec:sssc}
+We propose a semi supervised form of the spectral clustering method, which is detailed in Algorithm-\ref{alg:semi_sup_spectral_clustering} and shown in Figure-\ref{fig:semi_sup_spectral_clustering}. We are clustering microarray data, hence the genes can be considered the variables and their pairwise similarity values are calculated using a Gaussian affinity function. We have chosen this similarity function because it naturally encodes the local neighbourhood property and its value falls rapidly as the pairwise dissimilarity increases. Once we have this similarity matrix, we use the constraints derived from our secondary datasets to modify it. Since our constraints already encode our belief about potential interactions, we set each value in the similarity matrix to 1 (maximum similarity) if there is a 1 in the corresponding constraints matrix. All other values are left unchanged as we have no information regarding them. The idea behind changing the values to represent maximum similarity is to give the algorithm the maximum incentive to keep them in the same cluster. The resulting matrix is the final similarity matrix that we use for spectral clustering (Steps 3-7). We have used the algorithm suggested by \citet{ng2001onspectral}. The implementation was done in R using readily available libraries for linear algebra. 
+
+We calculate the normalized Laplacian and then find its eigenvalues. If we believe there are $k$ clusters then eigenvectors corresponding to the $k$ smallest eigenvalues are chosen. If we arrange these $k$ eigenvectors column-wise then we end up with a $n \times k$ matrix. Each row of this matrix is then normalized to have unit norm. Then we cluster the rows using the k-means clustering algorithm. For all these integrated matrices, the k-means clustering of the eigenvectors was started from fixed centres. These 50 centres, each representing a cluster, were the genes encoding the TFs that had the highest numbers of DNA-interactions in the DNA-binding dataset. The idea behind this choice is to guide the clustering process to start from meaningful positions rather than random ones. Again, in step-4 of algorithm, we are proposing to take the eigenvectors corresponding to the largest k eigenvalues. This is because here we are using the Laplacian $L'$ instead of the form $L_{symmetric=}I-L'$ described earlier (refer eqn-\ref{eqn-lap_sym}). This changes the eigenvalues from $\lambda_{i}$ to $1-\lambda_{i}$. 
+
+\begin{algorithm}
+\caption{Semi-supervised spectral clustering}
+\label{alg:semi_sup_spectral_clustering}
+\begin{algorithmic}[1]
+\REQUIRE Dataset ($X$), number of clusters ($k$) 
+
+\STATE Calculate the symmetric similarity matrix $K_{n \times n}$  using Gaussian similarity function  $K_{ij}=exp \left( -\frac{{\parallel x_{i}-x_{j} \parallel}^{2}}{2\sigma^{2}}\right)$ if $i\neq j$, and set $K_{ii}=0$. 
+
+\STATE Use the constraints to modify $K, K_{final}=K \oplus C$ where C is the constraints matrix. $K \oplus C$ implies that we set $K_{i,j}=1$ where $C_{i,j}=1$. 
+
+\STATE Calculate the normalized Laplacian $L'=D^{-1/2}K_{final}D^{-1/2}$ where D is the diagonal matrix with $d_{jj}=\sum_{i}d_{ji}$ 
+
+\STATE Find the eigenvectors $v^{1},v^{2},\dots,v^{k}$ corresponding to the largest k eigenvalues of $L'$. 
+
+\STATE Use these k eigenvectors as columns to get $V_{n \times k}$. 
+
+\STATE Normalize the rows to have unit norm, i.e., $U_{n \times k}$ such that $u_{ij}= v_{ij}/(\sum_{k}{v_{ik}^{2}})^{\frac{1}{2}}$
+
+\STATE Cluster the points representing the rows of this matrix $(u_{i})_{i=1,...,n}$ using k-means algorithm into k clusters, $C_{1},C_{2},\dots,C_{k}$.  
+
+\STATE Output clusters $A_{1},A_{2},\dots,A_{k}$ such that $A_{i}=\{x_{j}|u_{j}\in C_{i}\}$. This assigns the original point $x_{j}$ to cluster $A_{i}$ if $u_{j}$ is in cluster $C_{i}$. 
+
+\end{algorithmic}
+\end{algorithm}
+
+\begin{figure*}[htp]
+\centering
+\scalebox{1.0}{
+\begin{pspicture}(0,0)(16,12)
+\psframe[framearc=0.1,linewidth=0.5mm](0,0)(16,12)
+
+\rput(8.5,9.5){\Rnode{B}{$\begin{pmatrix}
+1 & 1 & 0 & 0\\
+0 & 0 & 0 & 1\\
+1 & 0 & 1 & 1\\
+0 & 0 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 1 & 1\\
+1 & 0 & 1 & 1\\
+1 & 0 & 0 & 0\\
+\end{pmatrix}
+$}}
+\rput(5.1,9.5){\MyBox*[linecolor=lightgray]{4}{2}{Constraints Matrix derived from supervision sources}}
+
+\pcline{->}(8.5,7)(8.5,5)
+\pcline{->}(2.5,3.8)(3.5,3.8)
+
+% microarray box and text
+\rput(0.4,2.5){\Rnode{A}{\psgrid[gridwidth=0.02,subgridwidth=0.02,gridlabels=0.0pt,subgriddiv=4](0,0)(0,0)(2,3)}}
+\rput(1.5,5.7){Conditions}
+\rput(1.8,1.2){Microarray Data}
+\rput{-270.0}(0.2,3.5){\rput(0,0){Genes}}
+
+\rput(5.35,4){\Rnode{C}{$\begin{pmatrix}
+0.2 & 0.5 & 0.6 & 0.2\\
+0.3 & 0.3 & 0.3 & 0.3\\
+0.2 & 0.4 & 0.6 & 0.2\\
+0.7 & 0.4 & 0.3 & 0.6\\
+0.2 & 0.4 & 0.1 & 0.5\\
+0.2 & 0.4 & 0.1 & 0.2\\
+0.5 & 0.6 & 0.6 & 0.5\\
+0.1 & 0.3 & 0.7 & 0.2\\
+\end{pmatrix}
+$}}
+\rput(5.5,1.2){Affinity Matrix}
+
+\pcline{->}(7.6,3.8)(9.75,3.8)\nbput{\MyBox*[linecolor=lightgray]{3}{1}{set $A_{i,j}=1$ where $C_{i,j}=1$ }}
+\rput(12,4){\Rnode{D}{$\begin{pmatrix}
+1 & 1 & 0.6 & 0.2\\
+0.3 & 0.3 & 0.3 & 1\\
+1 & 0.4 & 1 & 1\\
+0.7 & 0.4 & 0.3 & 0.6\\
+0.2 & 0.4 & 1 & 0.5\\
+0.2 & 0.4 & 1 & 1\\
+1 & 0.6 & 1 & 1\\
+1 & 0.3 & 0.7 & 0.2\\
+\end{pmatrix}
+$}}
+\rput(12,1.2){Final Matrix}
+
+\pcline{->}(14,3.8)(14.7,3.8)
+\rput{-270.0}(15,3.8){\rput(0.1,-0.3){\MyBox*[linecolor=lightgray]{4}{1}{Spectral Clustering}}}
+
+\end{pspicture} 
+}
+
+\caption{Semi-supervised spectral clustering}
+\label{fig:semi_sup_spectral_clustering}
+\end{figure*}
+
+\subsection{Parameter optimization} \label{chap2:sec:param_opt}
+For any clustering algorithm, the most important decisions are the choice of the number of clusters and the free parameters. In our case, the similarity among gene pairs is calculated using a Gaussian similarity function and the only free parameter is the width of the Gaussian, $\sigma$. For any unsupervised task of an exploratory nature, the \textit{correct} number of clusters is data dependent. We chose to use 50 clusters in our experiments, based on earlier justifications by \citet{ihmels02revealing} and \citet{segal03module} which showed that the Saccharomyces Cerevisiae genome contains approximately 50 sets of functionally related genes. Both the authors have shown statistically that this number provides a better fit to the underlying data distribution, compared to a higher or lower numbers of modules.
+
+In order to determine the value of $\sigma$ we initially used one of the most popular \textit{internal} cluster quality validation index namely Dunn's Index \citep{Dunn1974wellseparated}. Internal cluster quality validation indices take a dataset and the resulting clustering and use information fully intrinsic to the data itself to assess the quality of clustering. This is different from \textit{external} validation indices that use information independent of the dataset for validating the clustering, e.g. gene ontology. The underlying logic of using this to choose $\sigma$ is to search for a value which results in the best quality clusters. We carried out this $\sigma$ optimization without using the supervision step, clustering only the microarray dataset because our objective is to study the impact of supervision. If we incorporate it prior to optimization then the constraints will impact the original similarity matrix.
+
+\textit{Dunn's} index can be defined as 
+\[
+\text{Dunn's index}= \min_{C_{i}\in C} \left( \min_{C_{j} \in C \backslash i} \left( \frac{dist(C_{i},C_{j})}{\max_{C_{k}\in C}diam(C_{k})} \right) \right)
+\]
+where $diam(C_{k})$ is the maximum (complete) distance between two points within a cluster and $dist(C_{i},C_{j})$ is the minimum (single) distance between any two points in clusters $C_{i}$ and $C_{j}$. We can observe that the value of this index is high if the inter-cluster separation is high compared to the largest cluster diameter. This corresponds to a fundamental objective of good clustering, namely to maximize the inter-cluster separation and minimize the intra-cluster distances. Hence \textit{better} clustering will have \textit{higher} values of this index. This index, though very easy to comprehend, can be quite unstable especially in the presence of outliers. 
+
+Another popular internal cluster quality validation index - \textit{Davies-Bouldin's} index is defined as
+\[
+\text{Davies Bouldin's index}=\frac{1}{M} \sum_{i=1}^{M}\max_{\begin{subarray}{c}j=1\dots M \\ j\neq i \end{subarray}} \left( \frac{\sigma_{C_{i}}+\sigma_{C_{j}}}{\delta(C_{i},C_{j})} \right)
+\]
+
+where M is the total number of clusters, $\sigma_{C_{i}}$ is the average distance of all points in the $i_{th}$ cluster from the cluster centre and $\delta(C_{i},C_{j})$ is the distance between the cluster centres of the $i_{th}$ cluster and $j_{th}$ cluster. The value of this index decreases if clusters $i$ and $j$ are compact and their centres are far away from each other. Hence \textit{smaller} values indicate better clustering.
+
+We ran the spectral algorithm for a range of $\sigma$ values. The range of $\sigma$ values was determined as both the upper and lower extremes beyond which all the points resulted in a trivial clustering (single cluster).  For each $\sigma$ value, we did 10 runs as spectral clustering depends on k-means which has random starting points. We also repeated the k-means algorithm twenty five times, each run being initialised randomly, and chose the best clustering with the minimum total \textit{dispersion}. Dispersion was computed by taking the cumulative sum of within-cluster sum of squared distances (from each point to the centre) across all the clusters of a clustering run.  
+
+\subsubsection{Stress dataset}
+
+\begin{figure}[tp]
+ \centering
+ \includegraphics[scale=1.0]{chapter2/stress_dunn.eps}
+ \caption{Stress dataset: Sigma optimization using Dunn's Index}
+ \label{fig:sigma_opt_dunn}
+\end{figure}
+
+The results for the Dunn's index based sigma optimisation for the stress dataset is shown in Figure-\ref{fig:sigma_opt_dunn} which shows the mean values along with standard deviation error bars. The x-axis uses a log-scale because of the spread of the data.  Dunn's index has the optimal region between 0.001 and 0.03 and has its maximum value (best clustering) at $\sigma=0.007$. It is worthwhile to note that the best quality clustering also has the least standard deviation.
+
+\begin{figure}[tp]
+ \centering
+ \includegraphics[scale=1.0]{chapter2/stress_davies.eps}
+ \caption{Stress dataset: Sigma optimization using Davies Bouldin's Index}
+ \label{fig:sigma_opt_dav}
+\end{figure}
+
+As seen in Figure-\ref{fig:sigma_opt_dav}, the Davies-Bouldin's index has its optimal region between 0.01 and 0.07. It has its minimum value (best clustering) at $\sigma=0.05$. As the standard deviation at many of the $\sigma$ values in the stress dataset was high and the results of both of these cluster quality validation indices were not completely in agreement ($\sigma=0.007$ vs $\sigma=0.05$), we investigated another independent method for estimating the best $\sigma$. For this, we took a very different approach relating to the use of the constraints. While adding supervision (constraints) we used a value of 1 (maximum similarity) irrespective of the value of $\sigma$ which determines the pairwise similarity values of genes. Now since this value (1) is arbitrary, it may not lead to these constraints being satisfied in the clustering process if the value is \textit{very} different from the rest of the similarity values. However, we would not like these constraint values to be rejected as outliers.  Therefore, we believe that the optimum value of $\sigma$ should also be in the range where the constraints are at least moderately satisfied and not outright rejected. We define the \textit{Constraints Satisfaction Ratio} (CSR) as
+
+\[
+\text{CSR}= \left( \frac{\text{number of constraints satisfied}}{\text{number of constraints applied}} \right) 
+\]
+
+\begin{figure}[tp]
+ \centering
+ \includegraphics[scale=1.0]{chapter2/stress_csr.eps}
+ \caption{Stress dataset: Sigma optimization using Constraints Satisfaction Ratio}
+ \label{fig:sigma_opt_csr}
+\end{figure}
+ 
+We used this index to confirm our choice of $\sigma$. As seen in Figure-\ref{fig:sigma_opt_csr}, the best value of sigma is at $\sigma=0.001$. Please note that in this case we did not have to repeat runs of the clustering because as stated earlier, for all supervised matrices, the k-means clustering of the eigenvectors was started from fixed centres. These 50 centres (each representing a cluster) were the genes encoding the TFs that had the highest numbers of DNA-interactions in the DNA-binding dataset. We have not exhaustively searched the space of all possible $\sigma$ values (which can be done with a suitable optimization algorithm but is expensive time-wise), but we have chosen our value based on the consensus of optimal regions across results using all these three validation indices. We have used $\sigma=0.01$ values for all our further analysis for this (stress) dataset. 
+
+\subsubsection{Cell-cycle dataset}
+
+\begin{figure}[tp]
+ \centering
+ \includegraphics[scale=1.0]{chapter2/ccycle_dunn.eps}
+ \caption{Cell-cycle dataset: Sigma optimization using Dunn's Index}
+ \label{fig:ccycle_sigma_opt_dunn}
+\end{figure}
+
+The result for Dunn's index based optimisation for the cell-cycle dataset is shown in Figure-\ref{fig:ccycle_sigma_opt_dunn} which shows the mean values along with standard deviation error bars. The x-axis uses a log-scale because of the spread of the data.  Dunn's index has its maximum value (best clustering) at $\sigma=0.005$ and has an optimal region from 0.003 to 0.03. 
+
+\begin{figure}[tp]
+ \centering
+ \includegraphics[scale=1.0]{chapter2/ccycle_davies.eps}
+ \caption{Cell-cycle dataset: Sigma optimization using Davies Bouldin's Index}
+ \label{fig:ccycle_sigma_opt_dav}
+\end{figure}
+
+As seen in Figure-\ref{fig:ccycle_sigma_opt_dav}, the Davies-Bouldin's index has its minimum value (best clustering) at $\sigma=0.03$ and the optimal region between 0.01 to 0.05. Even though the results for this dataset are more in agreement than the stress dataset, they are not in perfect agreement. Therefore, we also investigated using our previously explained \textit{Constraints Satisfaction Ratio}. As seen in Figure-\ref{fig:ccycle_sigma_opt_csr}, the curve shows a steep increase after $\sigma=0.03$. As before the k-means clustering of the eigenvectors was started from fixed centres. These 50 centres (each representing a cluster) were the genes encoding the TFs that had the highest numbers of DNA-interactions in the DNA-binding dataset. Based on consensus of all the three, we have used $\sigma=0.03$ value for all our further analysis for this dataset (cell-cycle). 
+ 
+\begin{figure}[tp]
+ \centering
+ \includegraphics[scale=1.0]{chapter2/ccycle_csr.eps}
+ \caption{Cell-cycle dataset: Sigma optimization using Constraints Satisfaction Ratio}
+ \label{fig:ccycle_sigma_opt_csr}
+\end{figure}
+
+\section{Algorithm Validation}
+After the parameter choices, we performed an independent validation of our results to check if the data integration was being effective. For this, we developed our own external cluster validity index, which is based on the concept of counting gene pairs within clusters that have a \textit{common} parent \ac{TF}.  We calculate a normalised count of such gene pairs in each cluster and use it as a measure of the biological significance of the cluster. The gene pairs with a common transcription factor were not derived from the DNA-binding dataset that we used for supervision but were taken from an independently curated database, YEASTRACT (refer Section-\ref{yeastract-db}). 
+
+Suppose N is the total number of points in all the clusters, and K is the total number of clusters. If we define our clustering algorithm as an encoder, $k=E(i)$, which assigns each data point to a cluster $k$, then our Biological Significance Score, BSS is defined as
+
+\[
+BSS = \frac{1}{K}\sum_{i=1}^{K}\frac{1}{\binom{N_{i}}{2}}\sum_
+{\substack{
+a \neq b \\
+E(a)=E(b)=i}}
+ C((PTF(a) \cap PTF(b)) )
+\]
+where 
+\begin{eqnarray*}
+\binom{N_{i}}{2} & = & \frac{N_{i} * (N_{i}-1)}{2} \mbox{ ,}\\
+N_{i} &=& \sum_{k=1}^{N}I(E(k)=i) \mbox{ and} \\
+C(x) &=& \mbox{Cardinality of set x}\\
+PTF(\textbf{g}) &=& \mbox{set of TFs that are known to bind to gene \textbf{g}}
+\end{eqnarray*}
+
+\begin{figure}[tp]
+ \centering
+ \includegraphics[scale=1.0]{chapter2/alg_valid.eps}
+ \caption{Biological significance with constraints}
+ \label{fig:bss_constraints}
+\end{figure}
+
+Using this (BSS) score, we were able to show that the algorithm can \textit{successfully use the information present in the DNA-binding data}. The original authors of the DNA-binding dataset \citep{harbison04transcriptional} have reported that they found the p-value of 0.001 to be the one which best represented known TF-DNA interactions. It maximizes inclusion of legitimate TFs and minimizes false positives. Lower values were too strict and higher values found many false positives. We were able to show a similar trend with our score (BSS) when different p-value cut-offs were used for selecting the constraints from the DNA-binding data. As discussed earlier in Section-\ref{chap2:sec:materials}, p-values are used as cutoffs in order to get our constraints. As a baseline, we also calculated the value when no constraints are applied (p-value=$10^{-6}$). 
+
+From our results in Figure-\ref{fig:bss_constraints} for the stress dataset, we can see that with the addition of more constraints the cluster quality score improves till the p-value matches 0.0005 (which is very near the optimal p-value cut-off of 0.001 suggested by the original authors for best quality results for known TF-DNA interactions) and then gradually falls with increasing p-value after the peak. This signifies that when the number is larger than the optimum then the constraints represent noise and not-meaningful TF-gene interaction, and hence the clustering of microarray data is confused and the results get worse. From this result, we can conclude that the algorithm can meaningfully utilise the constraints. 
+
+Now that we have seen that the algorithm really works and has been validated using an external index, we move on to study the biological significance of data integration. We would like to study if the resulting clusters are biologically any better or not when DNA-binding dataset constraints are used to guide the microarray data.
+
+\section{Biological Validation}
+\input{chapter2/ccycle_sup_go}
+Evaluation of the results of our clustering algorithm requires careful consideration since there are no gold standards against which performance can be measured. The two prominent types of cluster validation measures are \textit{internal} and \textit{external} validation indices. As indicated earlier, internal indices take a dataset and the resulting clustering and use information fully intrinsic to the data itself to assess the quality of clustering while external validation indices use information independent of the dataset for validating the clustering. We already saw the use of an internal validity measure for parameter ($\sigma$) selection. As they are fully dependent on the data itself, internal indices do not give any indication of the biological significance of the resulting clusters. In the previous section, we also proposed an external validation index and used it to show that our clustering algorithm works. But that index is not suitable for the biological validation of results. This is because there is an overlap between applying constraints (some of which are justified on the basis of known TF-gene interactions) and counting gene pairs with common parents (BSS).  
+
+There are various other methods that have been used in the past for external validation, many of which have used the information available in the Gene Ontology. They calculate the statistical significance of the gene ontology terms in the clusters. While this method gives us general ideas about which clusters might represent what functions, it doesn't allow us to functionally compare different clustering results \textit{numerically}. Some attempts have been made to provide such a numerical index using mutual information and related concepts by \citet{Gibons2002Judging} and \citet{gatviks03scoring}. We have followed the method described in Section-\ref{biosig_go} to obtain the p-value of each GO term in a particular cluster. A sample of these values for the stress dataset after integration with DNA-binding dataset is shown in Table-\ref{tab:stress_chip_0.0001}. In order to compare two sets of clusters, e.g. before and after data integration, we compute the mean of the negative log of the p-values of all the GO terms in each of the cluster sets. A negative logarithm value ensures that we get positive values to compare the results, with a larger value indicating better enrichment.
+
+\subsection{Biological Significance using Gene Ontology} \label{biosig_go}
+\input{appendices/appendix-B}
+
+\section{Results}
+\begin{table}[t]
+\centering
+\scalebox{0.9}{
+\begin{tabular}{@{\extracolsep{\fill}}|p{0.75in}|p{0.90in}|p{0.70in}|p{0.70in}|p{0.65in}|p{0.70in}|p{0.70in}|p{0.65in}|}
+\hline
+\multicolumn{2}{|c|}{Constraint Source} & \multicolumn{6}{|c|}{Mean Enrichment}\\ \cline{1-8}
+& p-value cutoffs (no. of constraints) & \multicolumn{3}{|c|}{across all terms} & \multicolumn{3}{|c|}{for top 50 terms}\\ \cline{3-8}
+       & & Before integration &  After integration & Percent gain & Before integration &  After integration & Percent gain\\
+\hline
+\multirow{7}{*}{ChIP-chip}& & & & & & & \\ 
+& 0.0001 (544)  &  8.101  &  9.029  &  11.457 & 11.057  &  12.266  &  10.938 \\ 
+& 0.0005 (846)  &  8.101  &  8.923  &  10.151 & 11.057  &  13.324  &  20.500 \\ 
+& 0.001 (1053)  &  8.101  &  8.404  &  3.735  & 11.057  &  12.546  &  13.465 \\ 
+& 0.005 (1959)  &  8.101  &  7.617  &  -5.974 & 11.057  &  10.831  &  -2.048 \\ 
+& 0.01 (2776)    &  8.101  &  8.613  &  6.323  & 11.057  &  12.206  &  10.389 \\ 
+& 0.05 (7407)    &  8.101  &  7.927  &  -2.148 & 11.057  &  10.826  &  -2.088 \\ 
+& 0.1 (12579)     &  8.101  &  7.692  &  -5.047 & 11.057  &  10.610  &  -4.045 \\ \hline
+PPI  & All (442) &  8.101  &  7.849  &  -3.116 & 11.057  &  11.462  &  3.664  \\ \hline
+Yeastract & All (8644) &  8.101  &  7.325  &  -9.579 & 11.057  &  10.695  &  -3.271 \\
+
+\hline 
+\end{tabular}
+}
+\caption{Stress microarray dataset: Comparison of mean p-values of enriched GO terms before and after supervision}
+\label{tab:stress:semisup_mean_pvals}
+\end{table}
+
+The results of mean p-values of all the GO terms' enrichment before and after integration for the stress dataset are shown in Table-\ref{tab:stress:semisup_mean_pvals}. We have calculated the effect of integration of the DNA-binding dataset as we change the number and quality of constraints extracted from it (by changing the p-value threshold below which an interaction is considered a constraint). For the PPI and Yeastract datasets, we took all the interactions that were between the common set of genes between the microarray and the interactions datasets. 
+
+We calculated the mean p-values of enrichment for all the GO terms associated to the genes in individual clusters. But it is possible that the number of clusters is not perfect and some clusters end up having terms that are not much enriched at all. To account for this, we also calculated the mean enrichment of 50 highest enriched GO terms and then compared them before and after integration. Across all the terms, the percentage gain shows the trend that we had seen in Figure-\ref{fig:bss_constraints} for algorithm validation. So, it independently validates that the highest quality constraints are till p-value of 0.0005 and after that even though the number of constraints increases, their quality decreases. This is again in agreement with the observations of the original experimenters of the DNA-binding dataset \citep{harbison04transcriptional}. One thing that is notably different from the results of algorithm validation is that here we see some negative scores relative to the unsupervised one. This could most possibly be explained by the bias induced in the BSS because of counting common parent TFs while the DNA-binding data constraints are also of similar nature. Across the top 50 most enriched terms, the observations are similar though the results are more pronounced (percentage gain is better as compared to across all terms) in most cases. This is ascribed to removal of lots of lowly enriched terms and the noise they were adding. Because of this, we consider the 50 terms enrichment score to be superior.
+
+PPI constraints do not seem to add much value when we see all the terms, but for the top 50 terms, it is improving the results by a small percentage (3.664\%). One of the reasons for this is, as indicated earlier, the integration could be meaningful if each of the datasets complement the other. If there are a lot of conflicting values in the similarities of each of the datasets then the resulting matrix will have a lot of noise and this will be reflected in the final clusters. We observe similar negative results for the Yeastract dataset. While PPI seems like a boundary case, the Yeastract data is definitely not complementary with the stress dataset, hence negative gain across top 50 as well as all the terms. 
+
+\begin{table}[t]
+\centering
+\scalebox{0.9}{
+\begin{tabular}{@{\extracolsep{\fill}}|p{0.75in}|p{0.94in}|p{0.70in}|p{0.70in}|p{0.65in}|p{0.70in}|p{0.70in}|p{0.65in}|}
+\hline
+\multicolumn{2}{|c|}{Constraint Source} & \multicolumn{6}{|c|}{Mean Enrichment}\\ \cline{1-8}
+& p-value cutoffs (no. of constraints)& \multicolumn{3}{|c|}{across all terms} & \multicolumn{3}{|c|}{for top 50 terms}\\ \cline{3-8}
+       & & Before integration &  After integration & Percent gain & Before integration &  After integration & Percent gain\\
+\hline
+\multirow{7}{*}{ChIP-chip}& & & & & & & \\ 
+& 0.0001 (681) &   7.167 &   7.412 &   3.419	& 9.411 & 10.108 & 7.407 \\ 
+& 0.0005 (1032) &   7.167 &   7.156 &   -0.158 & 9.411 & 9.547  & 1.442  \\
+& 0.001 (1288)  &   7.167 &   7.124 &   -0.610 & 9.411 & 9.578  & 1.773  \\
+& 0.005 (2442)  &   7.167 &   7.228 &   0.842	& 9.411 & 8.842  & -6.043 \\
+& 0.01 (3505)   &   7.167 &   7.713 &   7.617	& 9.411 & 10.305 & 9.496  \\
+& 0.05 (9713)   &   7.167 &   7.997 &   11.576 & 9.411 & 10.453 & 11.071 \\
+& 0.1 (17055)    &   7.167 &   8.085 &   12.809 & 9.411 & 10.065 & 6.951  \\ \hline
+PPI       & All (1129) &   7.167 &   6.784 &   -5.349 & 9.411 &   9.825  &   4.399 \\ \hline 
+Yeastract & All (9717) &   7.167 &   7.392 &   3.134  & 9.411 &   10.155 &   7.910 \\
+\hline 
+\end{tabular}
+}
+\caption{Cell-cycle microarray dataset: Comparison of mean p-values of enriched GO terms before and after supervision}
+\label{tab:ccycle:semisup_mean_pvals}
+\end{table}
+
+The results of average p-values of all the GO terms and top 50 terms before and after integration for the cell-cycle dataset are shown in Table-\ref{tab:ccycle:semisup_mean_pvals}. If we observe the results of top 50 terms for integration with the DNA-binding dataset, all the integration results have improved the score except one (at p=0.005). The results for all terms are not very different even though we observe a very small negative score for p-values of 0.0005 and 0.001. The biggest improvements are shown at larger p-values. This is in contrast with the earlier (stress) results where the p-values till 0.0005 had performed better, and the larger ones, poorly. 
+
+The reason we had chosen stress and cell-cycle datasets is because they represent two ends of the spectrum \citep{amos05integrative}. A possible explanation of the above behaviour is that interactions at lower p-value are the prominent ones which are compatible with the stress dataset (which too has sharp variations) while the higher p-value result in background interactions that are compatible with the nature of cell-cycle dataset (where there are little sharp variations).
+
+PPI integration has results very similar to the stress with a small improvement (top 50 terms). On the other  hand, Yeastract integration has shown a much better improvement in score in comaprison to stress (7.9\% vs -3.2\%) and is more compatible with the cell-cycle data. The reasons for this could be the same as described about the DNA-binding constraints at different thresholds. 
+
+The goal of integration is to have more biologically relevant clusters from which hypotheses could be derived to be carried out and validated in wet labs. All our result data is available upon request. For the the best clustering gain results (top 50 terms) across both the datasets (stress dataset at p-value of 0.0005), we have provided the best 5 enriched GO terms in each cluster in Table-\ref{appendix:semisup_stress_pval} as part of Appendix-\ref{appendix:go_enrichment_results}. 
+
+\section{Related Work and Discussion}
+\subsection{Constrained clustering}
+The concept of applying prior knowledge in the form of constraints to clustering algorithms is not new. Initial \textit{supervised} clustering algorithms were modifications of traditional ones and ensured that the resulting clusters had to satisfy the applied constraints. One of the first papers in this area by \citet{bradley00constrained} proposed a constrained version of the famous \textit{k-means} \citep{MacQueen67kmeans} clustering algorithm by posing the problem in terms of minimum cost network flows. Their objective behind adding the constraints was to assign a certain minimum number of points to each cluster. \citet{tung2001constraint} have done a systematic study of various constrained clustering algorithms. \citet{basu2008constrained} is a recent book on constrained clustering.
+
+\subsection{Semi-supervised clustering}
+While constrained clustering algorithms work towards satisfying known constraints, other distance based clustering algorithms were developed in which the metric that a clustering algorithm uses in order to calculate distance between a pair of data-points was modified by incorporating constraints from other sources of data. These were the first \textit{semi-supervised} clustering algorithms. They did not enforce the constraints, but used the constraints to provide guidance in the cluster formation process. This is the crucial difference between a \textit{supervised} and a \textit{semi-supervised} clustering algorithm. In the former, the constraints are derived from known ground truth and have to be satisfied, whereas in the latter, the constraints are additional sources of information but are considered noisy and hence not necessarily exactly correct. This is a characteristic of the DNA-binding, PPI and TF-gene interactions data that we use for deriving our constraints, and also our justification for using the semi supervised algorithm. 
+
+\citet{klein2002frominstance} used the concept of ``must-link'' and ``can-not link'' constraints on the hierarchical agglomerative clustering \citep{jain1988algorithms}. They reported that it improved upon earlier constrained clustering algorithms and required a much smaller number of constraints for similar accuracy. According to them constraints suggest space-level generalizations beyond their instance-level assertions. In other words, if a point A is linked to another point B, then A should also probably be linked to points that are near B and \textit{vice-versa}. They used this idea to \textit{propagate} constraints. \citet{basu2004probabilistic} have proposed a probabilistic model for semi-supervised clustering based on \acp{HMRF} that provides a more principled framework for incorporating supervision. It combines the constraint based and distance based approached into a single unified model.
+ 
+Our technique is likewise based on the concept of using the constraints obtained from one dataset in order to modify the similarity value that is obtained from another dataset. The key difference is that while all the previous work has used this principal to do clustering in some feature space, our technique uses the modified similarity values to cluster in spectral space (spectral clustering). 
+
+\subsubsection{Spectral clustering}
+The field of spectral clustering was started by \citet{donath1973lower} who came up with the idea of constructing graph partitions using the eigenvectors of an adjacency matrix. It has generated a lot of interest in recent years \citep{shi00normalized,ng2001onspectral} in clustering related research and has been applied from \textit{object retrieval} \citep{jain06spectral} to \textit{brain surface flattening} \citep{angenent99laplace}. A nice review of this subject and its relation to other related topics can be found in \citet{luxberg2006tutorial_spectral} and an upcoming\footnote{to be published in Feb 2010} book by \citet{ding2008spectral}.
+
+As we have discussed earlier, spectral clustering works on similarity matrices. In that respect, it is similar to \textit{multi-dimensional scaling} or in general, the broader class of \textit{metric multidimensional scaling} \citep{deleeuw2005mds} algorithms which also operate on a similarity matrix and are useful for visualization of high dimensional data by mapping it to lower dimensions. The key difference between these and spectral clustering is that while they operate in the feature space, spectral clustering works in the spectral space. Spectral clustering has close relations to the field of non-linear dimensionality reduction techniques like \textit{manifold learning} \citep{saul2006smd, haifang2006manifold} and semi-supervised learning \citep{grira2005unsupsurvey}. \citet{nadler06fundamental} have discussed the fundamental limitations of spectral clustering. \citet{dhillon05unified} have shown the equivalence between kernel k-means \citep{johnshaw2004kernelmethods} and spectral clustering. This result gains importance when the similarity matrix is too large for eigen-decomposition and iterative techniques need to be used. 
+
+Even before the recent interest in spectral clustering, a matrix formalism has been used to describe the functional states of transcriptional regulatory systems. \citet{gianchandani2006matrix} used such a model to characterise the properties of a TRS and facilitate the computation of the transcriptional state of the genome under any given environmental conditions. 
+
+One of the first applications of spectral clustering to bioinformatics was by \citet{kluger2003spectral} who used it to simultaneously clusters genes and conditions (biclustering) for various cancer datasets. In a cancer context, the clusters correspond to genes that are markedly up or down regulated in patients with particular types of tumors. They present a number of variants of the approach, depending on whether the normalization over genes and conditions is done independently or in a coupled fashion. They analysed publicly available cancer expression data sets, and examined the degree to which the approach is able to identify clusters. They have also compared the performance against a number of reasonable benchmarks (e.g., direct application of SVD or normalized cuts to raw data). \citet{speer05spectral} used spectral clustering to cluster Gene Ontology terms to find sets of genes that might be functionally related. They used an information theoretic measure borrowed from text mining, where it had been used to calculate semantic similarities between words, to calculate the similarity values between the terms of the Gene Ontology.
+
+
+\subsubsection{Semi-supervised spectral clustering}
+\citet{kamvar03spectral} propose an algorithm for classification called \textit{spectral classification} which modifies the similarity matrix to 1 if the known training data belong to the same class and 0 otherwise. The similarity matrix is subject to eigen-decomposition and then classification is done in the spectral space. The advantage of doing this is that they can use labelled data (provides class constraints) as well as unlabelled data (similarity computation). They report better performance than the \textit{naive Bayes} classifier in classifying newsgroups. They have also proposed a constrained spectral clustering with must-link and cannot-link constraints along with an additive normalized laplacian \citep{fiedler1975property} and used it for classification. The results and the comparison with other algorithms for this is not systematic and clearly presented which makes it difficult to judge its performance. 
+
+\citet{brian_semisupgraph2005} proposed a semi-supervised version of the kernel k-means algorithm. The only difference between our formulation and theirs is that after modifying the similarity matrix we use spectral clustering while they have used kernel k-means algorithm. They argue that this might be better for larger datasets where eigenvalue computation might be computationally expensive whereas kernel k-means being a iterative algorithm, doesn't face this problem. This is true but the drawback with kernel k-means is that like k-means it can get stuck in local optima while spectral techniques always try to approximate the global optimum.
+
+Most algorithms discussed till now rely critically on a good metric over their inputs. If a clustering algorithm fails to find clusters that are meaningful, then the recourse usually is to manually tweak the metric until sufficiently good clusters are found. \citet{xing2003metric} proposed an algorithm that, given examples of similar (and, if desired, dissimilar) pairs of points, \textit{learns} a distance metric that respects these relationships. They also demonstrate that the learned metrics can be used to significantly improve clustering performance. 
+
+\subsection{Co-clustering}
+This is a related and overlapping technique where two or more sources of data are combined. The key difference from semi-supervised or constrained clustering is that in co-clustering, one dataset is not used to guide the other. Rather, both the datasets are combined with equal or varying weights by combining their distance metrics to come up with a new one which is then used for clustering. We will see a detailed discussion and review in the next chapter.
+
+\section{Conclusion}
+
+We have proposed a technique to integrate diverse datasets where one is acting as a source of supervision on the clustering of the other. As part of this, we have investigated two methods for determining the best Gaussian kernel to obtain the affinity matrix from the data. We also propose a new external method to optimise the kernel using constraints themselves. Further, we have introduced a validation method which scores the resulting gene clusters by reference to a third type of data. By replicating the trend available in the DNA-binding data, our results independently demonstrated that the information available in it has been successfully incorporated in the combined matrix. 
+
+Since our technique is quite generic, in future, our work can be extended by using other sources as prior knowledge, for example the similarity between the promoter sequences of genes. In this chapter, we imposed an arbitrary cutoff on the binding data and thus converted indeterminate knowledge into definite knowledge. In the next chapter, we propose a technique where instead of creating definite constraints, we extract similarities from graphs of interactions and then integrate the datasets. It is based on the principle of maximizing the entropy of the resulting matrix. 
+
+One of the shortcomings of this research is that it is known that gene regulation is a very condition specific activity and hence the expression values that we observe are a result of regulation happening at one particular time. However, the datasets that we have used are from different conditions. The microarray datasets as well as the DNA-binding, PPI and Yeastract datasets were not experimentally observed at the same time or even by the same researchers. This is also a fundamental limitation of the underlying experimental techniques, since microarrays themselves do not represent a single time point, but rather the integration of gene activity over a time period. Moreover, knowledge about gene modules is not complete and this hinders the validation process. 
+

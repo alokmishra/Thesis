@@ -1,0 +1,42 @@
+
+\documentclass[a4paper,12pt,twoside]{report}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=3cm]{geometry}
+%\usepackage[body={6.0in, 8.2in},left=1.25in,right=1.25in]{geometry}
+\include{thesis.preamble}
+
+
+\begin{document}
+
+\title{\LARGE {\bf Grid-enabled Performance Analysis using Stochastic Logics}\\
+ \vspace*{6mm}
+}
+
+\author{Tamas Suto}
+\submitdate{October 2008}
+
+\normallinespacing
+\maketitle
+
+\preface
+\input{abstract/abstract}
+\input{acknowledgements/acknowledgements}
+\input{dedication/dedication}
+\input{quotes/quotes}
+
+\body
+\input{introduction/introduction}
+\input{background/background}
+
+% body of thesis comes here
+
+\input{conclusion/conclusion}
+
+\appendix
+% appendices come here
+
+
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{alpha}
+\bibliography{bibliography/bibliography}
+
+\end{document}

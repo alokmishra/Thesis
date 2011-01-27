@@ -1,0 +1,45 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: thesis.aux
+The style file: apalike.bst
+Database file #1: /home/alok/phd/post_viva/thesis/bioinfo.bib
+You've used 127 entries,
+            1935 wiz_defined-function locations,
+            1186 strings with 29653 characters,
+and the built_in function-call counts, 57007 in all, are:
+= -- 5472
+> -- 2782
+< -- 86
++ -- 1015
+- -- 966
+* -- 5023
+:= -- 9813
+add.period$ -- 383
+call.type$ -- 127
+change.case$ -- 1106
+chr.to.int$ -- 124
+cite$ -- 127
+duplicate$ -- 2014
+empty$ -- 3762
+format.name$ -- 1169
+if$ -- 11173
+int.to.chr$ -- 4
+int.to.str$ -- 0
+missing$ -- 127
+newline$ -- 633
+num.names$ -- 388
+pop$ -- 1002
+preamble$ -- 1
+purify$ -- 1115
+quote$ -- 0
+skip$ -- 1531
+stack$ -- 0
+substring$ -- 3936
+swap$ -- 309
+text.length$ -- 25
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 738
+warning$ -- 0
+while$ -- 419
+width$ -- 0
+write$ -- 1637

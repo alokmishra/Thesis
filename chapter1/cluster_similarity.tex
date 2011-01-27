@@ -1,0 +1,138 @@
+\begin{sidewaystable}[htp]
+\begin{center}
+
+\subtable[Cluster variation among stress datasets]
+{
+\label{results:unnorm:intra_class_clustering_variation}
+\begin{tabular}{|c|c|c|c|}
+\hline
+& DS-STRESS1 & DS-STRESS2 & DS-STRESS3 \\
+
+\hline
+
+DS-STRESS1 & 0.5420 (0.0161) & 0.0261 (0.0024) & 0.0709 (0.0024)\\ \hline
+DS-STRESS2 & -      & 0.5070 (0.0162) & 0.0213 (0.0014)\\ \hline
+DS-STRESS3 & -      & -      & 0.5227 (0.0483)\\ \hline
+
+\end{tabular}
+}
+
+\subtable[Comparison of clustering of individual stress datasets versus progressively mixed datasets]
+{
+\label{results:unnorm:stress_vs_mixed}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ & DS-STRESS & DS-STRESS-CCYCLE & DS-ALL & DS-CCYCLE & DS-RANDOM\\
+\hline
+DS-STRESS1 & 0.1616 & 0.1368 & 0.1186 & 0.0354 & 0.0003 \\ \hline
+DS-STRESS2 & 0.0606 & 0.0555 & 0.0528 & 0.0176 & 0.0001 \\ \hline
+DS-STRESS3 & 0.1105 & 0.1109 & 0.0989 & 0.0309 & 0.0001 \\ \hline
+
+\end{tabular}
+}
+
+\subtable[Comparison of cell-cycle and stress to mixed data clustering]
+{
+\label{results:unnorm:cell-cycle_vs_mixed}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ & DS-STRESS & DS-CCYCLE & DS-STRESS-CCYCLE & DS-ALL & DS-RANDOM \\ \hline
+DS-CCYCLE & 0.0418 & 0.4736 & 0.0783 & 0.0638 & 0.0007 \\ \hline
+DS-STRESS & 0.5288 & 0.0418 & 0.2197 & 0.1784 & 0.0003 \\ \hline
+\end{tabular}
+}
+\caption{Cluster similarity among full (non scale-normalized) datasets}
+\label{results:unnorm}
+
+\end{center}
+\end{sidewaystable}
+
+\begin{sidewaystable}[htp]
+\begin{center}
+
+\subtable[Cluster variation among stress datasets]
+{
+\label{results:filtered:intra_class_clustering_variation}
+\begin{tabular}{|c|c|c|c|}
+\hline
+& DS-STRESS1 & DS-STRESS2 & DS-STRESS3 \\
+\hline
+
+DS-STRESS1 & 0.6600 & 0.1747 & 0.2417 \\ \hline
+DS-STRESS2 & -      & 0.5500 & 0.1155 \\ \hline
+DS-STRESS3 & -      & -      & 0.5933 \\ \hline
+
+\end{tabular}
+}
+
+\subtable[Comparison of clustering of individual stress datasets versus progressively mixed datasets]
+{
+\label{results:filtered:stress_vs_mixed}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ & DS-STRESS & DS-STRESS-CCYCLE & DS-ALL & DS-CCYCLE & DS-RANDOM\\
+\hline
+DS-STRESS1 & 0.3425 & 0.3378 & 0.3434 & 0.0981 & 0.0037 \\ \hline
+DS-STRESS2 & 0.1060 & 0.0920 & 0.0759 & 0.0252 & 0.0022 \\ \hline
+DS-STRESS3 & 0.2470 & 0.2534 & 0.2325 & 0.0925 & 0.0023 \\ \hline
+\end{tabular}
+}
+
+\subtable[Comparison of cell-cycle and stress to mixed data clustering]
+{
+\label{results:filtered:cell-cycle_vs_mixed}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ & DS-STRESS & DS-CCYCLE & DS-STRESS-CCYCLE & DS-ALL & DS-RANDOM \\ \hline
+DS-CCYCLE & 0.0663 & 0.4768 & 0.0812 & 0.0614 & 0.00068 \\ \hline
+DS-STRESS & 0.5986 & 0.0663 & 0.3067 & 0.2244 & 0.0013 \\ \hline
+\end{tabular}
+}
+\caption{Cluster similarity among filtered (non scale-normalized) datasets}
+\label{results:filtered}
+
+\end{center}
+\end{sidewaystable}
+
+\begin{sidewaystable}[htp]
+\begin{center}
+
+\subtable[Cluster variation among stress datasets]
+{
+\label{results:norm:intra_class_clustering_variation}
+\begin{tabular}{|c|c|c|c|}
+\hline
+& DS-STRESS1 & DS-STRESS2 & DS-STRESS3 \\
+\hline
+DS-STRESS1 & 0.4446 & 0.0125 & 0.0340 \\ \hline
+DS-STRESS2 & -      & 0.4740 & 0.0086 \\ \hline
+DS-STRESS3 & -      & -      & 0.4652 \\ \hline
+\end{tabular}
+}
+
+\subtable[Comparison of clustering of individual stress datasets versus progressively mixed datasets]
+{
+\label{results:norm:stress_vs_mixed}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ & DS-STRESS & DS-STRESS-CCYCLE & DS-ALL & DS-CCYCLE & DS-RANDOM\\
+\hline
+DS-STRESS1 & 0.0550 & 0.0468 & 0.0532 & 0.0070 & 0.0001 \\ \hline
+DS-STRESS2 & 0.0186 & 0.0165 & 0.0192 & 0.0025 & 0.0003 \\ \hline
+DS-STRESS3 & 0.0419 & 0.0345 & 0.0364 & 0.0053 & 0.0004 \\ \hline
+\end{tabular}
+}
+\subtable[Comparison of cell-cycle and stress to mixed data clustering]
+{
+\label{results:norm:cell-cycle_vs_mixed}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ & DS-STRESS & DS-CCYCLE & DS-STRESS-CCYCLE & DS-ALL & DS-RANDOM \\ \hline
+DS-CCYCLE & 0.0068 & 0.5310 & 0.0117 & 0.0093 & 0.0008 \\ \hline
+DS-STRESS & 0.4751 & 0.0068 & 0.0781 & 0.0623 & 0.0003 \\ \hline
+\end{tabular}
+}
+\caption{Cluster similarity among full (scale-normalized) datasets}
+\label{results:norm}
+\end{center}
+\end{sidewaystable}

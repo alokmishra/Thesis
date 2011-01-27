@@ -1,0 +1,398 @@
+\chapter{Conclusion}
+
+\label{ch:conclusions}
+
+\section{Summary of Thesis Achievements}
+
+% This thesis has addressed the two major challenges which
+% confront the Markovian performance analyst in the quest to predict the
+% dynamic behaviour of complex real life systems:
+% \begin{itemize}
+% \item {\bf Construction of the state space and state graph.}  The
+% first challenge is to enumerate the large number of low-level states
+% that the system can enter and to construct a graph which describes how
+% the system moves from state to state. 
+% \item {\bf Solution of the large sparse set of steady-state
+% equations.} The second challenge is to map the state graph onto a
+% Markov chain and to determine the long-run probabilty of being in each
+% of the states by solving a large sparse set of linear equations
+% derived from the chain.
+% \end{itemize}
+
+This thesis has addressed the challenge of constructing and
+solving very large continuous time Markov chains derived from
+dynamic specifications of complex concurrent systems.
+
+% that emerge from...
+
+% \item {\bf Construction of the state space and state graph.}  The
+% first challenge is to enumerate the large number of low-level states
+% that the system can enter and to construct a graph which describes how
+% the system moves from state to state. 
+% \item {\bf Solution of the large sparse set of steady-state
+% equations.} The second challenge is to map the state graph onto a
+% Markov chain and to determine the long-run probabilty of being in each
+% of the states by solving a large sparse set of linear equations
+% derived from the chain.
+
+Conventional methods for Markov chain analysis are limited to small
+chains because they have very high time and space requirements. This
+problem has been attacked on two fronts: parallelism has been used to
+reduce time requirements, while probabilistic and disk-based storage
+techniques have been used to reduce space requirements. In contrast to
+many of the contemporary approaches discussed in Chapter
+\ref{ch:contemporary}, the novel generation and solution techniques
+developed in Chapter \ref{ch:state} and Chapter \ref{ch:solution} do
+not place any restrictions on the type of system that can be
+analysed. Nor are the techniques limited to any particular formalism,
+being applicable to a wide class of stochastic models that includes
+Stochastic Petri nets, Queueing networks, Queueing Petri nets and
+Stochastic Process Algebras.
+
+The parallel dynamic probabilistic state space generation algorithm
+described in Chapter \ref{ch:state} is the first major contribution of
+this work. This algorithm rapidly enumerates the large number of
+low-level states that a system can enter and constructs a graph which
+describes how the system moves from state to state. The use of hash
+compaction means that memory requirements are very low and independent
+of the length of the state vector. Since the method is probabilistic,
+there is a risk that states may be misidentified or omitted from the
+state graph. However, this probability has been quantified and has
+been shown to be extremely low. Uniquely for a probabilistic scheme,
+the algorithm makes use of dynamic memory allocation. This avoids the
+problems of over or under-allocation associated with a traditional
+static memory allocation. Further, the algorithm parallelises well and
+has an enhanced variant with a low communication overhead. A
+theoretical performance model shows that the algorithm delivers good
+speedups and exhibits good scalability. These properties are confirmed
+by results from an implementation running on a Fujitsu AP3000
+distributed memory parallel computer. State spaces of over 100 million
+states and 1 billion arcs are generated across 16 nodes in just over
+half an hour, with an omission probability of under 0.05\%, i.e. there
+is a 99.95\% chance that the state graph has been generated in its
+entirety without omitting or misidentifying any states whatsoever.
+Further, the omission probability may be arbitrarily reduced at
+logarithmic runtime cost.
+
+% The parallel dynamic probabilistic state space generation algorithm
+% described in Chapter \ref{ch:state} has several attractive
+% properties. Firstly, the method makes use of hash compaction to
+% compress state vectors, so memory use is very low and independent of
+% the length of the state vector. This compaction technique has the
+% beneficial side-effect of allowing for simple and rapid comparisons
+% between state vectors. These advantages come at the cost that two or
+% more distinct states might have the same compressed representation. If
+% this should happen, states will be misidentified, leading to incorrect
+% arcs in the state graph and the possible omission of states from the
+% state space. This probability has been quantified and has been shown
+% to be extremely low. Secondly, and uniquely for a probabilistic
+% method, our algorithm makes use of dynamic memory allocation. This
+% avoids the problems of over or under-allocation associated with a
+% traditional static memory allocation. Thirdly, the algorithm
+% parallelises well and has a communication efficient variant with a
+% very low communication overhead. A theoretical performance model shows
+% that the algorithm delivers good speedups and exhibits good
+% scalability. These properties are confirmed by results of an actual
+% implementation running on a Fujitsu AP3000 distributed memory parallel
+% computer.  State spaces of over 100 million states are generated
+% across 16 nodes of in just over half an hour, with an omission
+% probability of just 0.05\%. It is important to emphasise that the
+% omission probability given here applies to the entire state graph and
+% is not a per-state probability -- i.e. there is a 99.95\% chance that
+% the correct state graph has been generated in its entirety without
+% omitting or misidentifying any states whatsoever. Further, the
+% omission probability may be arbitrarily reduced at logarithmic runtime
+% cost.
+
+The distributed disk-based solution technique of Chapter
+\ref{ch:solution} is the second major contribution of this work. This
+technique determines the long-run probability of being in each state
+by mapping the state graph onto a Markov chain and then solving a
+large sparse set of linear equations derived from the chain. The focus
+is on two numerical methods that are suited to parallel
+implementation, viz. the Jacobi and Conjugate Gradient Squared (CGS)
+algorithms. Parallel sparse matrix-vector multiplication emerges as
+the critical bottleneck in these methods. The efficiency of this
+operation is improved in two ways. Firstly, the states of the chain's
+transition matrix are remapped in order to improve data
+locality. Secondly, the remapped matrix is distributed across
+processors such that the number of non-zero elements allocated to each
+node is the same, thus ensuring a good load balance. Per processor
+memory requirements are low since transition matrix elements are not
+stored in memory but are kept on disk and read in as needed. In
+addition, all vectors held in memory are completely distributed and
+the number of vectors stored in memory is kept to a minimum by writing
+unused intermediate vectors to disk. We have described and implemented
+a distributed high performance solver architecture that makes use of
+two processes per node to overlap disk I/O with computation and
+communication. The resulting parallel solver delivers good speedups
+and is able to solve systems of the order of 100 million states and 1
+billion transitions. Solving such a large problem on a single machine
+would be a daunting task indeed~-- besides the huge amount of
+computation required, the memory required to store the solution vector
+alone would be over 800MB.
+
+% advantages over its
+% conventional exhaustive and probabilistic counterparts. The advantage
+% over conventional exhaustive techniques lies in the fact that our
+% method makes use of hash compaction to compress state vectors, so that
+% memory use is very low and independent of the length of the state
+% vector. ). The
+% advantage of our method over existing probabilistic algorithms is
+% threefold. Firstly, the omission probability is extremely low and is
+% competitive with the best existing probabilistic techniques. Secondly,
+% the algorithm makes use of dynamic memory allocation, which avoids the
+% problems of over or under-allocation associated with a traditional
+% static allocation. Finally, we have shown how to parallelise our
+% algorithm efficiently, and developed an enhanced version that has a
+% even lower communication overhead. A theoretical performance model of
+% the algorithm running on a 2D wraparound mesh shows that the algorithm
+% delivers good speedups and scalability. These properties are confirmed
+% by results of an implementation running on a Fujitsu AP3000 parallel
+% computer.
+
+To place the main contributions in context, the remaining tools for a
+complete parallel performance analysis pipeline have been implemented
+in C++ using the Message Passing Interface (MPI) standard. Chapter
+\ref{ch:implementation} describes the final toolset which comprises an
+interface language parser, a parallel state space generator, a
+parallel matrix transposer, a parallel steady-state solver and a
+parallel performance analyser. This pipeline provides an efficient and
+seamless way of automatically obtaining performance measures for
+unrestricted high-level system specifications with very large underlying
+state spaces and state graphs.
+
+% This dissertation has addressed the challenge of constructing and
+% analysing the large continuous time Markov chains that emerge from
+% stochastic models of complex concurrent systems. This problem has been
+
+% There are two major challenges which confront the Markovian
+% performance analyst in the quest to predict the dynamic behaviour of
+% complex real life systems:
+% \begin{itemize}
+% \item {\bf Construction of the state space and state graph.}  The
+% first challenge is to enumerate the large number of low-level states
+% that the system can enter and to construct a graph which describes how
+% the system moves from state to state. 
+% \item {\bf Solution of the large sparse set of steady-state
+% equations.} The second challenge is to map the state graph onto a
+% Markov chain and to determine the long-run probabilty of being in each
+% of the states by solving a large sparse set of linear equations
+% derived from the chain.
+% \end{itemize}
+
+% The first challenge is to enumerate the
+% large number of low-level states that the system can enter and, at the
+% same time, to construct a {\em state graph} which describes how the
+% system moves from state to state. The second challenge is to map the
+% state graph onto a Markov chain and to determine the long-run
+% probability of being in each of the states by solving a large sparse
+% set of linear equations derived from the chain. Both of these phases
+% are bottlenecks in the performance analysis pipeline
+
+% This dissertation has confronted these challenges on two fronts:
+% parallelism has been used to reduce time requirements, while
+% probabilistic and disk-based storage techniques have been used to
+% reduce space requirements. In contrast to many contemporary
+% approaches, the generation and solution techniques developed here do
+% not place any restrictions on the type of system that can be
+% analysed. In addition, the techniques are not limited to systems that
+% have been described using a particular formalism -- instead they are
+% applicable to a wide class of stochastic models that includes
+% Stochastic Petri nets, Queueing networks and Stochastic Process
+% Algebras.
+
+% This dissertation has addressed the challenge of generating and
+% solving the large continuous time Markov chains that emerge from
+% stochastic models of complex concurrent systems. This problem has been
+% attacked on two fronts: parallelism has been used to reduce time
+% requirements, while probabilistic and disk-based storage techniques
+% have been used to reduce space requirements. In contrast to many
+% contemporary approaches, the generation and solution techniques
+% developed here do not place any restrictions on the type of system
+% that can be analysed. In addition, the techniques are not limited to
+% any particular formalism, being applicable to a wide class of
+% stochastic models that includes Stochastic Petri nets, Queueing
+% networks and Stochastic Process Algebras.
+
+\section{Applications}
+
+In this section, we highlight the applicability of our contributions to
+the general area of the correctness and performance analysis of
+concurrent systems.
+%, and discuss the limitations of our approach.
+
+% applicability to other areas
+
+Our perspective in this thesis has been focused on the parallel
+generation and solution of large Markov models {\em for the purposes
+of performance analysis}. 
+% To this end, we have succeeded in
+% dramatically increasing the size of models that can be analysed. 
+However, the ability to generate and manipulate large state spaces
+derived from model specifications is also of interest to those
+concerned with the {\em correctness analysis} of concurrent
+systems. In this context, our parallel state space generation
+algorithm can be applied to the construction of the labelled
+transition systems used by researchers in the model checking
+community. Support for this can be provided by simply annotating each
+arc in the state graph with an action name rather than a transition
+rate. Furthermore, the existing state space generation algorithm
+already provides basic correctness checks, such as deadlock detection
+and detection of ``unsafe'' states through the assertion of
+user-specified invariants. Although our parallel solution algorithm
+has less relevance to correctness analysis, model checking algorithms
+also manipulate very large transition matrices. Consequently, a
+parallel disk-based approach may be appropriate when verifying certain
+logical formulae on very large state spaces.
+% liveness in parallel is difficult
+
+Although we have considered unrestricted, non-hierarchical systems,
+our techniques can also be applied to structured methods for
+compositional reachability analysis \cite{Gia99} and compositional
+performance analysis \cite{Hil94,Her99}. These methods generate and
+solve submodels in a modular fashion, and apply state space reduction
+rules as submodels are synthesised. Support for this can be provided
+by extending the interface language to allow for the specification of
+submodels and by extending the state generator so that it can combine
+independently generated submodel state spaces subject to
+synchronisation constraints. The resulting framework would support
+larger, less restricted submodels, and would allow for very large
+intermediate and final state space sizes.
+
+% application to modelling of systems with non-markovian distributions
+% using phase type approximations
+
+Finally, while our framework incorporates explicit support only for
+transitions that fire immediately or after an exponentially
+distributed delay, general (non-exponential) firing delays can be
+approximated by using phase-type distributions. A phase-type
+distribution is the distribution of the time to absorption in a
+network of exponential stages. Each exponential stage $i$ is
+associated with a rate $\mu_i$ and a set of routing probabilities
+$p_{ij}$ describing the probabilities of routing a client from stage
+$i$ to stage $j$ (where $j$ includes the absorbing stage). A good
+example of a phase-type distribution is the Erlang$_n$ distribution,
+which is formed as a series of $n$ exponential stages with the same
+rate $\mu$. This distribution is often used to approximate a
+deterministic delay of length $n/\mu$. Since phase-type distributions
+can themselves be specified at a low-level as CTMCs, no modifications
+to the interface language are required to support them, although
+extensions allowing for their compact specification could be
+added. Note that the price paid for this increased modelling realism
+is an increased state space size (since now the stage of the each
+phase-type distribution is an additional component of the state descriptor).
+
+% However, to
+% allow for the higher-level specification of phase-type distributions,
+
+% The price paid for the increased realism is an increased state space
+% size (since now the stage of the each phase-type distribution is
+% part of the state descriptor).
+
+% - although our work has been concerned with distributed memory
+%  parallel systems and workstation clusters, application to shared
+%  memory systems.
+
+% cater for queueing networks, queueing petri nets, 
+% Although our interface language provides enough theoretical
+% expressive power to specify these models, ideally a more convenient way of
+% specifying the state vector (i.e. as a string instead of a vector of
+% numbers, although these two forms are equivalent) and transitions is
+% needed. 
+
+% The interface language presented in Section~\ref{sec:interfacelang}
+% uses state vectors made up of several integers. This provides a
+% natural way of specifying a state vector and transitions between
+% states for Petri nets, queueing networks and Queueing Petri nets.
+
+% . Support for Process algebras 
+
+% Stochastic Process Algebras \cite{Hil94} are emerging as a popular way
+% of specifying and analysing systems in a compositional
+% fashion. 
+
+% - provides enough expressive power 
+%  models, interface language needs to provide more support for process
+%  algebras, specifically in terms of specifying the state vector more
+%  conveniently and providing support for combining independently
+%  generated submodel state spaces subject to synchronisation
+%  constraints.
+
+\section{Future Work}
+
+This section discusses some ideas for future work that would improve
+the capacity, efficiency and applicability of our methods.
+
+The capacity of the parallel state space generation algorithm could
+be improved by using magnetic disk to support a larger state hash
+table. Since the state hash table is accessed randomly, this does not
+at first appear to be feasible. However, lookup operations on states
+in the state table can be delayed, and then periodically checked {\em
+en masse} against a state table that is read from disk in a linear
+fashion. This idea has already been shown to work well using a static
+probabilistic algorithm in a single processor context \cite{SteDil98},
+where storing over 95\% of the state table on disk resulted in a
+slowdown of only 25\%. There is no reason to suspect that equally good
+results could not be obtained in a parallel context using our dynamic
+algorithm.
+
+The capacity and efficiency of the parallel disk-based solver could be
+improved by developing scalable numerical methods that have lower
+memory requirements and lower communication overheads, and that reuse
+matrix blocks as they are generated. Lower communication overheads and
+higher processor utilizations could be achieved by using asynchronous
+iterations \cite{FroSzy99}. Under this approach all synchronisation
+points between processors are eliminated and processors exchange data
+on an infrequent, asynchronous basis. Although in general more
+computation is required to achieve convergence relative to a
+synchronous scheme, communication overhead is lower and all idle time
+is eliminated. Reuse of matrix blocks could be accomplished using two
+stage methods \cite{MigPenSzy96}. During each ``outer'' iteration,
+these methods reuse diagonal matrix blocks several times to perform
+several ``inner'' iterations. However, in order to avoid load
+balancing problems, the distribution of states over processors would
+need to be adjusted according to the size of the diagonal blocks.
+
+It is possible to solve for the stationary distribution of a finite
+continuous-time Markov chain if and only if the chain is irreducible,
+i.e. if every state communicates with every other state. Therefore, a
+useful addition to our toolset would be a parallel functional analyser
+that performs a strongly connected component analysis of the states in
+a given state graph. If transient states are found, they should be
+eliminated, and if more than one strongly connected component exists,
+the states in each component should be analysed as separate Markov
+chains. Unfortunately, all known efficient algorithms for the
+connected component analysis of directed graphs require some sort of 
+depth-first search of the state graph, which makes them difficult to
+parallelise \cite{Ste97}. Consequently it would be interesting to
+investigate connected component analysis algorithms that are based on
+a breadth-first search strategy and thus amenable to parallel
+implementation.
+
+In real systems, performance targets are often specified in terms of
+response time distributions. For example, in a transaction processing
+environment it might be required that 95\% of all transactions
+complete in under 30 seconds. In such situations, it is useful to know
+the distribution of the passage time \cite{She93,Kul95} between two
+given states in the state graph. Convolving the distributions of the
+state holding times across all possible paths between the states is a
+computationally expensive task, but one that is well suited to
+parallel implementation.
+
+Finally, although transitions with non-exponential firing delays can
+be approximated using phase-type distributions, systems with
+exponential and deterministic firing delays could be modelled and
+analysed exactly by using the techniques proposed by Lindemann for
+Deterministic and Stochastic Petri nets (DSPNs) \cite{Lin98}. Steady
+state analysis of such models that have concurrently enabled
+deterministic transitions typically involves the solution of several
+very large systems of integral and linear equations. A parallel
+disk-based approach could therefore be beneficial.
+% , although
+% considerable effort would have to be spent in identifying
+% opportunities for data parallelism.
+
+
+
+

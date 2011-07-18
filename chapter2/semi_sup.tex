@@ -371,6 +371,8 @@ As seen in Figure-\ref{fig:ccycle_sigma_opt_dav}, the Davies-Bouldin's index has
  \label{fig:ccycle_sigma_opt_csr}
 \end{figure}
 
+
+\begin{comment}
 \section{Algorithm Validation}
 After the parameter choices, we performed an independent validation of our results to check if the data integration was being effective. For this, we developed our own external cluster validity index, which is based on the concept of counting gene pairs within clusters that have a \textit{common} parent \ac{TF}.  We calculate a normalised count of such gene pairs in each cluster and use it as a measure of the biological significance of the cluster. The gene pairs with a common transcription factor were not derived from the DNA-binding dataset that we used for supervision but were taken from an independently curated database, YEASTRACT (refer Section-\ref{yeastract-db}). 
 
@@ -403,6 +405,241 @@ Using this (BSS) score, we were able to show that the algorithm can \textit{succ
 From our results in Figure-\ref{fig:bss_constraints} for the stress dataset, we can see that with the addition of more constraints the cluster quality score improves till the p-value matches 0.0005 (which is very near the optimal p-value cut-off of 0.001 suggested by the original authors for best quality results for known TF-DNA interactions) and then gradually falls with increasing p-value after the peak. This signifies that when the number is larger than the optimum then the constraints represent noise and not-meaningful TF-gene interaction, and hence the clustering of microarray data is confused and the results get worse. From this result, we can conclude that the algorithm can meaningfully utilise the constraints. 
 
 Now that we have seen that the algorithm really works and has been validated using an external index, we move on to study the biological significance of data integration. We would like to study if the resulting clusters are biologically any better or not when DNA-binding dataset constraints are used to guide the microarray data.
+\end{comment}
+
+\section{Statistical validation of results}
+In my original thesis, the techniques were applied on real biological sets. Examiners pointed out that the results that were obtained could be purely by chance because of the characteristics of those particular data-sets and it was dangerous to draw conclusions based on those data-sets alone. It was suggested that data-sets should be perturbed and variance of results should be reported.
+
+In semi-supervised clustering chapter, we are applying constraints in order to improve the quality of clustering. In order to justify that our results are not by accident, we need to re-sample the data-sets and then apply the constraints and then compute the variance of cluster stability. 
+
+We start with computing the cluster consistency of each data-set individually i.e. when we sub-sample them and before integration with otherdatasets, compute the cluster quality consistency across all the sub-sampling runs. The exact procedure is outlined below:
+
+\begin{enumerate}
+  
+\item We got the full data-sets stress [ref] and cell-cycle [ref] data-sets from SMD [ref]. It had x genes including NORFs. Since not much is known about the function of NORFs , so we removed all the NORF from the data-sets. That left us with x genes in the stress data-set and y genes in the cell-cycle data-sets. They had a and b experiment counts respectively.
+ 
+\item We create ten perturbed data-sets from each of stress and cell-cycle datasets after subsampling (drawing 90\% of the genes randomly).
+
+\item In order to compute the similarity matrix from the stress and cell-cycle datasets, we need to find the most optimum sigma. In order to do this we compute the Dunn’s index and Davies Bouldin’s index for each of the datasets. The same sigma is used for all the perturbed datasets because sigma should not change significantly for a data-set because of perturbation.
+
+\item Once we have the sigma values, we cluster all the original and perturbed datasets and  compute the Dunn and DB’s index for the resulting clusters. Then we report the mean and std deviation of the indices. 
+
+\item We also compute the biological validity index and report its mean and variance for the datasets.
+
+\item The goal is to show the cluster quality consistency with perturbation in data and clearly demonstrate that the clustering algorithm itself is stable with perturbations in data. Now that we are confident about the algorithm quality, we move on to the next step of studying the semi-supervided version of it.
+
+\end{enumerate}
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Serial No. & Dunn’s index  & Davies Bouldin’s index\\
+\hline 
+1 & 0.04398243 & 3.188676 \\
+2 & 0.04306639 & 3.231177 \\
+3 & 	0.04160664 & 3.136993 \\
+4 & 	0.03673846 & 3.191647 \\
+5 & 	0.04010983 & 3.154793 \\
+6 & 	0.04787347 & 3.146264 \\
+7 & 	0.02902327 & 3.212804 \\
+8 & 	0.02349388 & 3.24161 \\
+9 & 	0.03802108 & 3.163264 \\
+10 & 	0.0563652 & 3.188100 \\
+11 & 	0.03952356 & 3.168467 \\
+\hline 
+\end{tabular}
+\caption{Tabulate Db and Dunns values for pertubations of Stress dataset. Report mean and variance. Indicates that algorithm itself results in consistent cluster quality.}
+\label{tab:no_constraints}
+\end{table}
+
+
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Serial No. & Dunn’s index  & Davies Bouldin’s index\\
+\hline
+1 & 0.03368041 & 2.989561 \\
+2 & 0.04296991 & 3.026842 \\
+3 & 0.01052886 & 3.127289 \\
+4 & 0.03681052 & 2.967362 \\
+5 & 0.04211076 & 3.005138 \\
+6 & 0.01081028 & 3.112537 \\
+7 & 0.03603748 & 3.027375 \\
+8 & 0.02896914 & 2.975535 \\
+9 & 0.03686515 & 3.038505 \\
+10 & 0.03952675 & 2.871799 \\
+11 & 0.02926203 & 3.00763 \\
+\hline 
+\end{tabular}
+\caption{Tabulate Db and Dunns values for pertubations of Cell-Cycle dataset. Report mean and variance. Indicates that algorithm itself results in consistent cluster quality.}
+\label{tab:no_constraints}
+\end{table}
+
+\begin{table}
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Description & \multicolumn{2}{|c|}{Dunn’s index}  & \multicolumn{2}{|c|}{Davies Bouldin’s index}\\
+\hline
+ & Mean & St. Dev & Mean & St. Dev\\
+\hline
+Stress only  & 0.0400 & 0.0087 & 3.1840 & 0.0341 \\
+Cell cycle only & 0.0316 & 0.0113 & 3.0136 & 0.0693 \\
+\hline 
+\end{tabular}
+\caption{Summary of mean and variance of individual datasets. This shows that our results are not random and small pertubations in data doesn’t change the results.}
+\label{tab:no_constraints}
+\end{table}
+
+
+Next we demonstrate that the semi-supervised set of experiments too do not produce results randomly and are consistent across sub-sampled datasets. 
+
+1. We create ten constraints data-sets from each constraints dataset by subsampling (drawing 90\% of the genes randomly). 
+We, now combine pairs of perturbed, micro-array and constraints data-sets, cluster and then report its Dunn’s, DB and Biological validity index. 
+We repeat this for all pairs. This is to demonstrate that our results are not random and the biological index value is not deviating much.
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Serial No. & Dunn’s index  & Davies Bouldin’s index\\
+\hline
+1 & 0.03089432 & 3.556163 \\
+2 & 0.03321191 & 4.226998 \\
+3 & 0.02888006 & 3.957121 \\
+4 & 0.02731343 & 3.766975 \\
+5 & 0.03100476 & 3.748136 \\
+6 & 0.04172875 & 3.611934 \\
+7 & 0.02727648 & 3.70486 \\
+8 & 0.03053157 & 3.908451 \\
+9 & 0.03172383 & 3.733790 \\
+10 & 0.03420332 & 3.403322 \\
+11 & 0.0312116 & 3.477314 \\
+\hline 
+\end{tabular}
+\caption{Tabulate Db and Dunns values for pertubations of Stress-Chip dataset. Report mean and variance. Indicates that algorithm itself results in consistent cluster quality}
+\label{tab:no_constraints}
+\end{table}
+
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Serial No. & Dunn’s index  & Davies Bouldin’s index\\
+\hline
+1 & 0.04904669 & 3.563832 \\
+2 & 0.05276492 & 3.552624 \\
+3 & 0.03059342 & 3.65504 \\
+4 & 0.03120301 & 3.729151 \\
+5 & 0.03151477 & 3.712506 \\
+6 & 0.03608802 & 3.581163 \\
+7 & 0.02796911 & 3.691222 \\
+8 & 0.04236918 & 3.713929 \\
+9 & 0.03390614 & 3.513863 \\
+10 & 0.0332141 & 3.770361 \\
+11 & 0.03531316 & 3.625731 \\
+\hline 
+\end{tabular}
+\caption{Tabulate Db and Dunns values for pertubations of Stress-PPI dataset. Report mean and variance. Indicates that algorithm itself results in consistent cluster quality.}
+\label{tab:no_constraints}
+\end{table}
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Serial No. & Dunn’s index  & Davies Bouldin’s index\\
+\hline
+1 &  0.02777897 & 3.523816 \\
+2 & 0.01287181 & 3.365275 \\
+3 & 0.03601802 & 3.40098 \\
+4 & 0.02776162 & 3.563739 \\
+5 & 0.03599602 & 3.4396 \\
+6 & 0.03671904 &  3.631468 \\
+7 &  0.03603748 & 3.429060 \\
+8 &  0.03518232 & 3.406876 \\
+9 &  0.03876811 & 3.441273 \\
+10 &  0.03532557 & 3.563856 \\
+11 &  0.03534912 &  3.297843 \\
+\hline 
+\end{tabular}
+\caption{Tabulate Db and Dunns values for pertubations of CCycle-Chip dataset. Report mean and variance. Indicates that algorithm itself results in consistent cluster quality.}
+\label{tab:no_constraints}
+\end{table}
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Serial No. & Dunn’s index  & Davies Bouldin’s index\\
+\hline
+1 & 0.01359537 & 3.289819 \\
+2 & 0.04214127 & 3.544937 \\
+3 & 0.02760288 & 3.562716 \\
+4 & 0.03359021 & 3.419286 \\
+5 & 0.03575436 & 3.438057 \\
+6 & 0.03155372 & 3.764982 \\
+7 & 0.03372035 & 3.576627 \\
+8 & 0.02835823 & 3.557268 \\
+9 & 0.03526276 & 3.68283 \\
+10 & 0.04028695 & 3.344107 \\
+11 & 0.03255372 & 3.578498 \\
+\hline 
+\end{tabular}
+\caption{Tabulate Db and Dunns values for pertubations of CCycle-PPI dataset. Report mean and variance. Indicates that algorithm itself results in consistent cluster quality.}
+\label{tab:no_constraints}
+\end{table}
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Serial No. & Dunn’s index  & Davies Bouldin’s index\\
+\hline
+1 & 0.02746167 & 4.34282 \\
+2 & 0.03222197 & 4.390683 \\
+3 & 0.02823931 &  4.232013 \\
+4 & 0.02939493 &  4.362611 \\
+5 & 0.02742154 & 4.269306 \\
+6 & 0.02760314 & 4.416886 \\
+7 & 0.02787649 & 4.089062 \\
+8 & 0.02709607 & 3.842911 \\
+9 & 0.02733636 & 4.4379 \\
+10 & 0.02829065 & 4.429637 \\
+11 & 0.02746646 &  4.165664 \\
+\hline 
+\end{tabular}
+\caption{Db and Dunns values for pertubations of CCycle-Yeastract dataset. Indicates that algorithm itself results in consistent cluster quality.}
+\label{tab:no_constraints}
+\end{table}
+
+\begin{table}
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Description & \multicolumn{2}{|c|}{Dunn’s index}  & \multicolumn{2}{|c|}{Davies Bouldin’s index}\\
+\hline
+ & Mean & St. Dev & Mean & St. Dev\\
+\hline
+Stress-Chip & 0.0316 & 0.0040 & 3.7359 & 0.2339 \\
+Stress-PPI & 0.0367 & 0.0080 & 3.6463 & 0.0843 \\
+CCycle-Chip & 0.0325 & 0.0074 & 3.4603 & 0.0992 \\
+CCycle-PPI & 0.0322 & 0.0076 & 3.5236 & 0.1406 \\
+CCycle-YT & 0.0282 & 0.0015 & 4.2709 & 0.1820 \\
+\hline 
+\end{tabular}
+\caption{Summary of mean and variance of combined datasets. This shows that our results are not random and small pertubations in data doesn’t change the results of semi-supervised clustering.}
+\label{tab:no_constraints}
+\end{table}
+
+
+
+Now that we are convinced that the algorithm itself is behaving well, we move on to to study the real biological significance of clusters obtained. For this, we just need to observe the results of combinations of original datasets and not the perturbed versions. We get the biological validity value and also analyze the GO terms graph. We put the final clusters of genes (before and after combination) through Genomica which is a tool to analyze the characteristics of resulting clustering using Gene Ontology. Discuss the main characteristics and biological significance before and after addition.
+
 
 \section{Biological Validation}
 \input{chapter2/ccycle_sup_go}

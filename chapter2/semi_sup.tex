@@ -300,14 +300,18 @@ In order to determine the value of $\sigma$ we initially used one of the most po
 \[
 \text{Dunn's index}= \min_{C_{i}\in C} \left( \min_{C_{j} \in C \backslash i} \left( \frac{dist(C_{i},C_{j})}{\max_{C_{k}\in C}diam(C_{k})} \right) \right)
 \]
-where $diam(C_{k})$ is the maximum (complete) distance between two points within a cluster and $dist(C_{i},C_{j})$ is the minimum (single) distance between any two points in clusters $C_{i}$ and $C_{j}$. We can observe that the value of this index is high if the inter-cluster separation is high compared to the largest cluster diameter. This corresponds to a fundamental objective of good clustering, namely to maximize the inter-cluster separation and minimize the intra-cluster distances. Hence \textit{better} clustering will have \textit{higher} values of this index. This index, though very easy to comprehend, can be quite unstable especially in the presence of outliers. 
+where $diam(C_{k})$ is the maximum (complete) distance between two points within a cluster and $dist(C_{i},C_{j})$ is the minimum (single) distance between any two points in clusters $C_{i}$ and $C_{j}$. 
+We can observe that the value of this index is high if the inter-cluster separation is high compared to the largest cluster diameter. 
+This corresponds to a fundamental objective of good clustering, namely to maximize the inter-cluster separation and minimize the intra-cluster distances. 
+Hence \textit{better} clustering will have \textit{higher} values of this index. This index, though very easy to comprehend, can be quite unstable especially in the presence of outliers. 
 
 Another popular internal cluster quality validation index - \textit{Davies-Bouldin's} index is defined as
 \[
 \text{Davies Bouldin's index}=\frac{1}{M} \sum_{i=1}^{M}\max_{\begin{subarray}{c}j=1\dots M \\ j\neq i \end{subarray}} \left( \frac{\sigma_{C_{i}}+\sigma_{C_{j}}}{\delta(C_{i},C_{j})} \right)
 \]
 
-where M is the total number of clusters, $\sigma_{C_{i}}$ is the average distance of all points in the $i_{th}$ cluster from the cluster centre and $\delta(C_{i},C_{j})$ is the distance between the cluster centres of the $i_{th}$ cluster and $j_{th}$ cluster. The value of this index decreases if clusters $i$ and $j$ are compact and their centres are far away from each other. Hence \textit{smaller} values indicate better clustering.
+where M is the total number of clusters, $\sigma_{C_{i}}$ is the average distance of all points in the $i_{th}$ cluster from the cluster centre and $\delta(C_{i},C_{j})$ is the distance between the cluster centres of the $i_{th}$ cluster and $j_{th}$ cluster. 
+The value of this index decreases if clusters $i$ and $j$ are compact and their centres are far away from each other. Hence \textit{smaller} values indicate better clustering.
 
 We ran the spectral algorithm for a range of $\sigma$ values. The range of $\sigma$ values was determined as both the upper and lower extremes beyond which all the points resulted in a trivial clustering (single cluster).  For each $\sigma$ value, we did 10 runs as spectral clustering depends on k-means which has random starting points. We also repeated the k-means algorithm twenty five times, each run being initialised randomly, and chose the best clustering with the minimum total \textit{dispersion}. Dispersion was computed by taking the cumulative sum of within-cluster sum of squared distances (from each point to the centre) across all the clusters of a clustering run.  
 
@@ -315,62 +319,46 @@ We ran the spectral algorithm for a range of $\sigma$ values. The range of $\sig
 
 \begin{figure}[tp]
  \centering
- \includegraphics[scale=1.0]{chapter2/stress_dunn.eps}
+ \includegraphics[scale=1.0]{/home/alok/phd/post_viva/semisup/results/plots/stress_dunn.eps}
  \caption{Stress dataset: Sigma optimization using Dunn's Index}
- \label{fig:sigma_opt_dunn}
+ \label{fig:stress_sigma_opt_dunn}
 \end{figure}
 
-The results for the Dunn's index based sigma optimisation for the stress dataset is shown in Figure-\ref{fig:sigma_opt_dunn} which shows the mean values along with standard deviation error bars. The x-axis uses a log-scale because of the spread of the data.  Dunn's index has the optimal region between 0.001 and 0.03 and has its maximum value (best clustering) at $\sigma=0.007$. It is worthwhile to note that the best quality clustering also has the least standard deviation.
+The results for the Dunn's index based sigma optimisation for the stress dataset is shown in Figure-\ref{fig:stress_sigma_opt_dunn} which shows the mean values along with standard deviation error bars. 
+The x-axis uses a log-scale because of the spread of the data.  For Dunn's index, where higher values are better, the plot has the optimal region between 0.003 and 0.005 where the values are high and the standard deviations are low.
+The maximum value (best clustering) at $\sigma=0.005$. It is worthwhile to note that the best quality clustering also has a very low standard deviation.
 
 \begin{figure}[tp]
  \centering
- \includegraphics[scale=1.0]{chapter2/stress_davies.eps}
+ \includegraphics[scale=1.0]{/home/alok/phd/post_viva/semisup/results/plots/stress_davies.eps}
  \caption{Stress dataset: Sigma optimization using Davies Bouldin's Index}
- \label{fig:sigma_opt_dav}
+ \label{fig:stress_sigma_opt_dav}
 \end{figure}
 
-As seen in Figure-\ref{fig:sigma_opt_dav}, the Davies-Bouldin's index has its optimal region between 0.01 and 0.07. It has its minimum value (best clustering) at $\sigma=0.05$. As the standard deviation at many of the $\sigma$ values in the stress dataset was high and the results of both of these cluster quality validation indices were not completely in agreement ($\sigma=0.007$ vs $\sigma=0.05$), we investigated another independent method for estimating the best $\sigma$. For this, we took a very different approach relating to the use of the constraints. While adding supervision (constraints) we used a value of 1 (maximum similarity) irrespective of the value of $\sigma$ which determines the pairwise similarity values of genes. Now since this value (1) is arbitrary, it may not lead to these constraints being satisfied in the clustering process if the value is \textit{very} different from the rest of the similarity values. However, we would not like these constraint values to be rejected as outliers.  Therefore, we believe that the optimum value of $\sigma$ should also be in the range where the constraints are at least moderately satisfied and not outright rejected. We define the \textit{Constraints Satisfaction Ratio} (CSR) as
-
-\[
-\text{CSR}= \left( \frac{\text{number of constraints satisfied}}{\text{number of constraints applied}} \right) 
-\]
-
-\begin{figure}[tp]
- \centering
- \includegraphics[scale=1.0]{chapter2/stress_csr.eps}
- \caption{Stress dataset: Sigma optimization using Constraints Satisfaction Ratio}
- \label{fig:sigma_opt_csr}
-\end{figure}
- 
-We used this index to confirm our choice of $\sigma$. As seen in Figure-\ref{fig:sigma_opt_csr}, the best value of sigma is at $\sigma=0.001$. Please note that in this case we did not have to repeat runs of the clustering because as stated earlier, for all supervised matrices, the k-means clustering of the eigenvectors was started from fixed centres. These 50 centres (each representing a cluster) were the genes encoding the TFs that had the highest numbers of DNA-interactions in the DNA-binding dataset. We have not exhaustively searched the space of all possible $\sigma$ values (which can be done with a suitable optimization algorithm but is expensive time-wise), but we have chosen our value based on the consensus of optimal regions across results using all these three validation indices. We have used $\sigma=0.01$ values for all our further analysis for this (stress) dataset. 
+As seen in Figure-\ref{fig:stress_sigma_opt_dav}, the Davies-Bouldin's index, where lower values indicate better clustering, has its optimal region between 0.003 and 0.03. It has its minimum value (best clustering) at $\sigma=0.01$. However, the standard deviation is unacceptably high.
+Considering that the next best value is $\sigma=0.005$ and it also has low standard deviation as well as it is in agreement with the Dunn's index values we choose this as the optimal sigma value for this dataset for further computations.  
 
 \subsubsection{Cell-cycle dataset}
 
 \begin{figure}[tp]
  \centering
- \includegraphics[scale=1.0]{chapter2/ccycle_dunn.eps}
+ \includegraphics[scale=1.0]{/home/alok/phd/post_viva/semisup/results/plots/ccycle_dunn.eps}
  \caption{Cell-cycle dataset: Sigma optimization using Dunn's Index}
  \label{fig:ccycle_sigma_opt_dunn}
 \end{figure}
 
-The result for Dunn's index based optimisation for the cell-cycle dataset is shown in Figure-\ref{fig:ccycle_sigma_opt_dunn} which shows the mean values along with standard deviation error bars. The x-axis uses a log-scale because of the spread of the data.  Dunn's index has its maximum value (best clustering) at $\sigma=0.005$ and has an optimal region from 0.003 to 0.03. 
+The result for Dunn's index based optimisation for the cell-cycle dataset is shown in Figure-\ref{fig:ccycle_sigma_opt_dunn} which shows the mean values along with standard deviation error bars. 
+The x-axis uses a log-scale because of the spread of the data.  Dunn's index has its maximum value (best clustering) at $\sigma=0.03$ and has a very low standard deviation there. 
 
 \begin{figure}[tp]
  \centering
- \includegraphics[scale=1.0]{chapter2/ccycle_davies.eps}
+ \includegraphics[scale=1.0]{/home/alok/phd/post_viva/semisup/results/plots/ccycle_davies.eps}
  \caption{Cell-cycle dataset: Sigma optimization using Davies Bouldin's Index}
  \label{fig:ccycle_sigma_opt_dav}
 \end{figure}
 
-As seen in Figure-\ref{fig:ccycle_sigma_opt_dav}, the Davies-Bouldin's index has its minimum value (best clustering) at $\sigma=0.03$ and the optimal region between 0.01 to 0.05. Even though the results for this dataset are more in agreement than the stress dataset, they are not in perfect agreement. Therefore, we also investigated using our previously explained \textit{Constraints Satisfaction Ratio}. As seen in Figure-\ref{fig:ccycle_sigma_opt_csr}, the curve shows a steep increase after $\sigma=0.03$. As before the k-means clustering of the eigenvectors was started from fixed centres. These 50 centres (each representing a cluster) were the genes encoding the TFs that had the highest numbers of DNA-interactions in the DNA-binding dataset. Based on consensus of all the three, we have used $\sigma=0.03$ value for all our further analysis for this dataset (cell-cycle). 
- 
-\begin{figure}[tp]
- \centering
- \includegraphics[scale=1.0]{chapter2/ccycle_csr.eps}
- \caption{Cell-cycle dataset: Sigma optimization using Constraints Satisfaction Ratio}
- \label{fig:ccycle_sigma_opt_csr}
-\end{figure}
-
+As seen in Figure-\ref{fig:ccycle_sigma_opt_dav}, the Davies-Bouldin's index has its minimum value (best clustering) at $\sigma=0.05$ and the optimal region between 0.01 to 0.7. However, the standard deviation there is higher in comparison to at $\sigma=0.03$. 
+Based on the consensus of both, we have used $\sigma=0.03$ value for all our further analysis for this dataset (cell-cycle). 
 
 \begin{comment}
 \section{Algorithm Validation}
@@ -408,26 +396,24 @@ Now that we have seen that the algorithm really works and has been validated usi
 \end{comment}
 
 \section{Statistical validation of results}
-In my original thesis, the techniques were applied on real biological sets. Examiners pointed out that the results that were obtained could be purely by chance because of the characteristics of those particular data-sets and it was dangerous to draw conclusions based on those data-sets alone. It was suggested that data-sets should be perturbed and variance of results should be reported.
-
-In semi-supervised clustering chapter, we are applying constraints in order to improve the quality of clustering. In order to justify that our results are not by accident, we need to re-sample the data-sets and then apply the constraints and then compute the variance of cluster stability. 
-
-We start with computing the cluster consistency of each data-set individually i.e. when we sub-sample them and before integration with otherdatasets, compute the cluster quality consistency across all the sub-sampling runs. The exact procedure is outlined below:
+The datasets that we have, represent experiments done under particular conditions. If we base our results just on those datasets, the results that we obtain could be purely by chance because of the characteristics of those particular data-sets and it would be dangerous to draw conclusions based on those data-sets alone. 
+Therefore, we have perturbed the datasets and report the mean and variance of results in order to justify that the results are not random. We begin by showing that spectral clustering results are immune to minor perturbations of data and the resulting clusters are not too different from each other. 
+We start with the full stress and cell-cycle data-sets from SMD as discussed earlier. It had x genes including NORFs. Since not much is known about the function of NORFs , so we removed all the NORF from the data-sets. 
+That left us with x genes in the stress data-set and y genes in the cell-cycle data-sets. They had a and b experiment counts respectively. We created ten perturbed data-sets from each of stress and cell-cycle datasets after 
+subsampling (drawing 90\% of the genes randomly). The exact procedure is outlined below
 
 \begin{enumerate}
   
-\item We got the full data-sets stress [ref] and cell-cycle [ref] data-sets from SMD [ref]. It had x genes including NORFs. Since not much is known about the function of NORFs , so we removed all the NORF from the data-sets. That left us with x genes in the stress data-set and y genes in the cell-cycle data-sets. They had a and b experiment counts respectively.
+\item We got the full stress and cell-cycle data-sets. It had x genes including NORFs. Since not much is known about the function of NORFs , so we removed all the NORF from the data-sets. That left us with x genes in the stress data-set and y genes in the cell-cycle data-sets. They had a and b experiment counts respectively.
  
-\item We create ten perturbed data-sets from each of stress and cell-cycle datasets after subsampling (drawing 90\% of the genes randomly).
+\item We created ten perturbed data-sets from each of stress and cell-cycle datasets after subsampling (drawing 90\% of the genes randomly).
 
 \item In order to compute the similarity matrix from the stress and cell-cycle datasets, we need to find the most optimum sigma. In order to do this we compute the Dunn’s index and Davies Bouldin’s index for each of the datasets. The same sigma is used for all the perturbed datasets because sigma should not change significantly for a data-set because of perturbation.
 
-\item Once we have the sigma values, we cluster all the original and perturbed datasets and  compute the Dunn and DB’s index for the resulting clusters. Then we report the mean and std deviation of the indices. 
+\item Once we have the sigma values, we cluster all the original and perturbed datasets and  compute the Dunn and DB’s index for the resulting clusters. 
+Then we report the mean and standard deviation of the indices. 
 
-\item We also compute the biological validity index and report its mean and variance for the datasets.
-
-\item The goal is to show the cluster quality consistency with perturbation in data and clearly demonstrate that the clustering algorithm itself is stable with perturbations in data. Now that we are confident about the algorithm quality, we move on to the next step of studying the semi-supervided version of it.
-
+\item The goal is to show the cluster quality consistency with perturbation in data. 
 \end{enumerate}
 
 \begin{table}
@@ -449,11 +435,9 @@ Serial No. & Dunn’s index  & Davies Bouldin’s index\\
 11 & 	0.03952356 & 3.168467 \\
 \hline 
 \end{tabular}
-\caption{Tabulate Db and Dunns values for pertubations of Stress dataset. Report mean and variance. Indicates that algorithm itself results in consistent cluster quality.}
-\label{tab:no_constraints}
+\caption{Dunn's and Davies Bouldin's values for pertubed Stress dataset. Indicates that algorithm itself results in consistent cluster quality.}
+\label{tab:stress_only_perturb}
 \end{table}
-
-
 
 \begin{table}
 \centering
@@ -474,8 +458,8 @@ Serial No. & Dunn’s index  & Davies Bouldin’s index\\
 11 & 0.02926203 & 3.00763 \\
 \hline 
 \end{tabular}
-\caption{Tabulate Db and Dunns values for pertubations of Cell-Cycle dataset. Report mean and variance. Indicates that algorithm itself results in consistent cluster quality.}
-\label{tab:no_constraints}
+\caption{Dunn's and Davies Bouldin's values for pertubed Cell-Cycle dataset. Indicates that algorithm itself results in consistent cluster quality.}
+\label{tab:cellcycle_only_perturb}
 \end{table}
 
 \begin{table}
@@ -491,15 +475,17 @@ Cell cycle only & 0.0316 & 0.0113 & 3.0136 & 0.0693 \\
 \hline 
 \end{tabular}
 \caption{Summary of mean and variance of individual datasets. This shows that our results are not random and small pertubations in data doesn’t change the results.}
-\label{tab:no_constraints}
+\label{tab:stress_ccycle_perturb}
 \end{table}
 
+As we can see in the mean and standard deviation values in Table-\ref{tab:stress_ccycle_perturb}, that the spectral clustering algorithm itself is quite stable with perturbations of 
+data and the resulting cluster qualities are not widely varying. We can see that the results of cell cycle dataset are having more variance in comparison to the stress dataset. This is seen in results of both Dunn's and Davies Bouldin's indices.
 
-Next we demonstrate that the semi-supervised set of experiments too do not produce results randomly and are consistent across sub-sampled datasets. 
-
-1. We create ten constraints data-sets from each constraints dataset by subsampling (drawing 90\% of the genes randomly). 
-We, now combine pairs of perturbed, micro-array and constraints data-sets, cluster and then report its Dunn’s, DB and Biological validity index. 
-We repeat this for all pairs. This is to demonstrate that our results are not random and the biological index value is not deviating much.
+Next we do a similar analysis of our proposed semi-supervised spectral clustering algoritm and demonstrate that it too does not produce results randomly and are consistent across sub-sampled datasets. . In semi-supervised clustering, we are applying constraints in order to improve the quality 
+of clustering. In order to justify that our results are not by accident, we need to sub-sample the data-sets as well as the contraints and then apply the sampled constraints. After this we need to compute the 
+variance of cluster stability. We create ten constraints data-sets from each constraints dataset by subsampling (drawing 90\% of the genes randomly). Then we combine pairs of perturbed micro-array and constraints data-sets, 
+cluster and then report its Dunn’s and Davies Bouldin's clustering quality indices. We repeat this for all pairs. To reiterate, this is to demonstrate that our results are not 
+random and that they are statistically valid.
 
 \begin{table}
 \centering
@@ -520,8 +506,8 @@ Serial No. & Dunn’s index  & Davies Bouldin’s index\\
 11 & 0.0312116 & 3.477314 \\
 \hline 
 \end{tabular}
-\caption{Tabulate Db and Dunns values for pertubations of Stress-Chip dataset. Report mean and variance. Indicates that algorithm itself results in consistent cluster quality}
-\label{tab:no_constraints}
+\caption{Dunn's and Davies Bouldin's index values after combination of sub-sampled Stress and Chip-Chip datasets}
+\label{tab:stress_chip_perturbed}
 \end{table}
 
 
@@ -544,8 +530,8 @@ Serial No. & Dunn’s index  & Davies Bouldin’s index\\
 11 & 0.03531316 & 3.625731 \\
 \hline 
 \end{tabular}
-\caption{Tabulate Db and Dunns values for pertubations of Stress-PPI dataset. Report mean and variance. Indicates that algorithm itself results in consistent cluster quality.}
-\label{tab:no_constraints}
+\caption{Dunn's and Davies Bouldin's index values after combination of sub-sampled Stress and PPI datasets}
+\label{tab:stress_ppi_perturbed}
 \end{table}
 
 \begin{table}
@@ -567,8 +553,8 @@ Serial No. & Dunn’s index  & Davies Bouldin’s index\\
 11 &  0.03534912 &  3.297843 \\
 \hline 
 \end{tabular}
-\caption{Tabulate Db and Dunns values for pertubations of CCycle-Chip dataset. Report mean and variance. Indicates that algorithm itself results in consistent cluster quality.}
-\label{tab:no_constraints}
+\caption{Dunn's and Davies Bouldin's index values after combination of sub-sampled Cell-cycle and Chip-Chip datasets}
+\label{tab:ccycle_chip_perturbed}
 \end{table}
 
 \begin{table}
@@ -590,8 +576,8 @@ Serial No. & Dunn’s index  & Davies Bouldin’s index\\
 11 & 0.03255372 & 3.578498 \\
 \hline 
 \end{tabular}
-\caption{Tabulate Db and Dunns values for pertubations of CCycle-PPI dataset. Report mean and variance. Indicates that algorithm itself results in consistent cluster quality.}
-\label{tab:no_constraints}
+\caption{Dunn's and Davies Bouldin's index values after combination of sub-sampled Cell-cycle and PPI datasets}
+\label{tab:ccycle_ppi_perturbed}
 \end{table}
 
 \begin{table}
@@ -613,8 +599,8 @@ Serial No. & Dunn’s index  & Davies Bouldin’s index\\
 11 & 0.02746646 &  4.165664 \\
 \hline 
 \end{tabular}
-\caption{Db and Dunns values for pertubations of CCycle-Yeastract dataset. Indicates that algorithm itself results in consistent cluster quality.}
-\label{tab:no_constraints}
+\caption{Dunn's and Davies Bouldin's index values after combination of sub-sampled Cell-cycle and Yeastract datasets}
+\label{tab:ccycle_yt_perturbed}
 \end{table}
 
 \begin{table}
@@ -627,17 +613,22 @@ Description & \multicolumn{2}{|c|}{Dunn’s index}  & \multicolumn{2}{|c|}{Davie
 \hline
 Stress-Chip & 0.0316 & 0.0040 & 3.7359 & 0.2339 \\
 Stress-PPI & 0.0367 & 0.0080 & 3.6463 & 0.0843 \\
+\hline
 CCycle-Chip & 0.0325 & 0.0074 & 3.4603 & 0.0992 \\
 CCycle-PPI & 0.0322 & 0.0076 & 3.5236 & 0.1406 \\
 CCycle-YT & 0.0282 & 0.0015 & 4.2709 & 0.1820 \\
 \hline 
 \end{tabular}
-\caption{Summary of mean and variance of combined datasets. This shows that our results are not random and small pertubations in data doesn’t change the results of semi-supervised clustering.}
-\label{tab:no_constraints}
+\caption{Mean and variance of all combined datasets. This shows that the results of semi-supervised clustering are not random and small pertubations in data doesn’t change the results wildly.}
+\label{tab:mean_stdev_combined_perturbed}
 \end{table}
+
+Tables-\ref{tab:stress_chip_perturbed}-\ref{tab:ccycle_yt_perturbed} show the cluster quality results of individual combinations of datasets. We have compiled the mean and standard deviation values of these 
+individual results in Table-\ref{tab:mean_stdev_combined_perturbed}. [TODO - analyse this!]
 
 Now that we are confident of clustering quality as well as semi-supervised clustering we analyse the biological significance of combinations. For this, we need to observe the results of combinations of original datasets 
 and not the perturbed versions. We get the biological validity value and also later analyze the GO terms graph. We report below the values of pre and post combination of biological significance values.
+
 \begin{table}
 \centering
 \begin{tabular}{|l|l|l|}
@@ -729,11 +720,27 @@ Yeastract & All (8644) &  8.101  &  7.325  &  -9.579 & 11.057  &  10.695  &  -3.
 \label{tab:stress:semisup_mean_pvals}
 \end{table}
 
-The results of mean p-values of all the GO terms' enrichment before and after integration for the stress dataset are shown in Table-\ref{tab:stress:semisup_mean_pvals}. We have calculated the effect of integration of the DNA-binding dataset as we change the number and quality of constraints extracted from it (by changing the p-value threshold below which an interaction is considered a constraint). For the PPI and Yeastract datasets, we took all the interactions that were between the common set of genes between the microarray and the interactions datasets. 
+The results of mean p-values of all the GO terms' enrichment before and after integration for the stress dataset are shown in Table-\ref{tab:stress:semisup_mean_pvals}. 
+We have calculated the effect of integration of the DNA-binding dataset as we change the number and quality of constraints extracted from it (by changing the p-value threshold 
+below which an interaction is considered a constraint). For the PPI and Yeastract datasets, we took all the interactions that were between the common set of genes 
+between the microarray and the interactions datasets. 
 
-We calculated the mean p-values of enrichment for all the GO terms associated to the genes in individual clusters. But it is possible that the number of clusters is not perfect and some clusters end up having terms that are not much enriched at all. To account for this, we also calculated the mean enrichment of 50 highest enriched GO terms and then compared them before and after integration. Across all the terms, the percentage gain shows the trend that we had seen in Figure-\ref{fig:bss_constraints} for algorithm validation. So, it independently validates that the highest quality constraints are till p-value of 0.0005 and after that even though the number of constraints increases, their quality decreases. This is again in agreement with the observations of the original experimenters of the DNA-binding dataset \citep{harbison04transcriptional}. One thing that is notably different from the results of algorithm validation is that here we see some negative scores relative to the unsupervised one. This could most possibly be explained by the bias induced in the BSS because of counting common parent TFs while the DNA-binding data constraints are also of similar nature. Across the top 50 most enriched terms, the observations are similar though the results are more pronounced (percentage gain is better as compared to across all terms) in most cases. This is ascribed to removal of lots of lowly enriched terms and the noise they were adding. Because of this, we consider the 50 terms enrichment score to be superior.
+We calculated the mean p-values of enrichment for all the GO terms associated to the genes in individual clusters. But it is possible that the number of 
+clusters is not perfect and some clusters end up having terms that are not much enriched at all. To account for this, we also calculated the mean 
+enrichment of 50 highest enriched GO terms and then compared them before and after integration. Across all the terms, the percentage gain 
+shows the trend that we had seen in Figure-\ref{fig:bss_constraints} for algorithm validation. So, it independently validates that the highest quality 
+constraints are till p-value of 0.0005 and after that even though the number of constraints increases, their quality decreases. This is again in agreement with 
+the observations of the original experimenters of the DNA-binding dataset \citep{harbison04transcriptional}. One thing that is notably different from the results of 
+algorithm validation is that here we see some negative scores relative to the unsupervised one. This could most possibly be explained by the bias induced in the 
+BSS because of counting common parent TFs while the DNA-binding data constraints are also of similar nature. Across the top 50 most enriched terms, the 
+observations are similar though the results are more pronounced (percentage gain is better as compared to across all terms) in most cases. This is 
+ascribed to removal of lots of lowly enriched terms and the noise they were adding. Because of this, we consider the 50 terms enrichment score to be superior.
 
-PPI constraints do not seem to add much value when we see all the terms, but for the top 50 terms, it is improving the results by a small percentage (3.664\%). One of the reasons for this is, as indicated earlier, the integration could be meaningful if each of the datasets complement the other. If there are a lot of conflicting values in the similarities of each of the datasets then the resulting matrix will have a lot of noise and this will be reflected in the final clusters. We observe similar negative results for the Yeastract dataset. While PPI seems like a boundary case, the Yeastract data is definitely not complementary with the stress dataset, hence negative gain across top 50 as well as all the terms. 
+PPI constraints do not seem to add much value when we see all the terms, but for the top 50 terms, it is improving the results by a small percentage (3.664\%). 
+One of the reasons for this is, as indicated earlier, the integration could be meaningful if each of the datasets complement the other. If there are 
+a lot of conflicting values in the similarities of each of the datasets then the resulting matrix will have a lot of noise and this will be reflected in the final clusters. 
+We observe similar negative results for the Yeastract dataset. While PPI seems like a boundary case, the Yeastract data is definitely not complementary with the stress dataset, 
+hence negative gain across top 50 as well as all the terms. 
 
 \begin{table}[t]
 \centering
@@ -761,13 +768,23 @@ Yeastract & All (9717) &   7.167 &   7.392 &   3.134  & 9.411 &   10.155 &   7.9
 \label{tab:ccycle:semisup_mean_pvals}
 \end{table}
 
-The results of average p-values of all the GO terms and top 50 terms before and after integration for the cell-cycle dataset are shown in Table-\ref{tab:ccycle:semisup_mean_pvals}. If we observe the results of top 50 terms for integration with the DNA-binding dataset, all the integration results have improved the score except one (at p=0.005). The results for all terms are not very different even though we observe a very small negative score for p-values of 0.0005 and 0.001. The biggest improvements are shown at larger p-values. This is in contrast with the earlier (stress) results where the p-values till 0.0005 had performed better, and the larger ones, poorly. 
+The results of average p-values of all the GO terms and top 50 terms before and after integration for the cell-cycle dataset are shown in 
+Table-\ref{tab:ccycle:semisup_mean_pvals}. If we observe the results of top 50 terms for integration with the DNA-binding dataset, all the integration results have 
+improved the score except one (at p=0.005). The results for all terms are not very different even though we observe a very small negative score for p-values 
+of 0.0005 and 0.001. The biggest improvements are shown at larger p-values. This is in contrast with the earlier (stress) results where the 
+p-values till 0.0005 had performed better, and the larger ones, poorly. 
 
-The reason we had chosen stress and cell-cycle datasets is because they represent two ends of the spectrum \citep{amos05integrative}. A possible explanation of the above behaviour is that interactions at lower p-value are the prominent ones which are compatible with the stress dataset (which too has sharp variations) while the higher p-value result in background interactions that are compatible with the nature of cell-cycle dataset (where there are little sharp variations).
+The reason we had chosen stress and cell-cycle datasets is because they represent two ends of the spectrum \citep{amos05integrative}. A possible explanation of 
+the above behaviour is that interactions at lower p-value are the prominent ones which are compatible with the stress dataset (which too has sharp variations) while the 
+higher p-value result in background interactions that are compatible with the nature of cell-cycle dataset (where there are little sharp variations).
 
-PPI integration has results very similar to the stress with a small improvement (top 50 terms). On the other  hand, Yeastract integration has shown a much better improvement in score in comaprison to stress (7.9\% vs -3.2\%) and is more compatible with the cell-cycle data. The reasons for this could be the same as described about the DNA-binding constraints at different thresholds. 
+PPI integration has results very similar to the stress with a small improvement (top 50 terms). On the other  hand, Yeastract integration has shown a much better 
+improvement in score in comaprison to stress (7.9\% vs -3.2\%) and is more compatible with the cell-cycle data. The reasons for this could be the same as described 
+about the DNA-binding constraints at different thresholds. 
 
-The goal of integration is to have more biologically relevant clusters from which hypotheses could be derived to be carried out and validated in wet labs. All our result data is available upon request. For the the best clustering gain results (top 50 terms) across both the datasets (stress dataset at p-value of 0.0005), we have provided the best 5 enriched GO terms in each cluster in Table-\ref{appendix:semisup_stress_pval} as part of Appendix-\ref{appendix:go_enrichment_results}. 
+The goal of integration is to have more biologically relevant clusters from which hypotheses could be derived to be carried out and validated in wet labs. 
+All our result data is available upon request. For the the best clustering gain results (top 50 terms) across both the datasets (stress dataset at p-value of 0.0005), 
+we have provided the best 5 enriched GO terms in each cluster in Table-\ref{appendix:semisup_stress_pval} as part of Appendix-\ref{appendix:go_enrichment_results}. 
 
 \section{Related Work and Discussion}
 \subsection{Constrained clustering}

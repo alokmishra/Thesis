@@ -1,6 +1,5 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2010.10.5)  27 JAN 2011 12:15
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2011.4.6)  24 JUL 2011 12:33
 entering extended mode
- restricted \write18 enabled.
  %&-line parsing enabled.
 **thesis.tex
 (./thesis.tex
@@ -344,6 +343,10 @@ Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 (/usr/share/texmf-texlive/tex/latex/multirow/multirow.sty
 \bigstrutjot=\dimen147
 )
+(/usr/share/texmf-texlive/tex/latex/comment/comment.sty
+\CommentStream=\write3
+
+Excluding comment 'comment')
 \@input{thesis.preamble.aux}
 \openout2 = `thesis.preamble.aux'.
 
@@ -366,21 +369,25 @@ Package: `setspace' 6.7 <2000/12/01>
 ) (./blocked.sty) (./uhead.sty) (./boxit.sty) (./icthesis.sty)
 \c@definition=\count141
 \c@theorem=\count142
-) (./thesis.aux)
+) (./thesis.aux
+
+LaTeX Warning: Label `tab:no_constraints' multiply defined.
+
+)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
 
 *geometry auto-detecting driver*
 *geometry detected driver: dvips*
@@ -424,7 +431,7 @@ driver: dvips
 (1in=72.27pt, 1cm=28.45pt)
 -----------------------
 
-Overfull \vbox (9.409pt too high) detected at line 69
+Overfull \vbox (9.409pt too high) detected at line 70
  []
 
 [1
@@ -464,25 +471,33 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 
 
 ] [8] [9])
-\tf@toc=\write3
-\openout3 = `thesis.toc'.
+\tf@toc=\write4
+\openout4 = `thesis.toc'.
 
  [10]
-(./thesis.lot [11
+(./thesis.lot
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+ [11
+
+
+]
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+)
+\tf@lot=\write5
+\openout5 = `thesis.lot'.
+
+ [12] [13] (./thesis.lof [14
 
 
 ])
-\tf@lot=\write4
-\openout4 = `thesis.lot'.
+\tf@lof=\write6
+\openout6 = `thesis.lof'.
 
- [12] (./thesis.lof [13
-
-
-])
-\tf@lof=\write5
-\openout5 = `thesis.lof'.
-
- [14]
+ [15]
 Chapter 1.
 (./introduction/introduction.tex
 Package acronym Info: Label `acro:TF' newly defined as it shall be overridden
@@ -699,95 +714,257 @@ Overfull \hbox (36.2858pt too wide) in paragraph at lines 288--289
  []
 
 [62] [63] [64]
-File: chapter2/stress_dunn.eps Graphic file (type eps)
- <chapter2/stress_dunn.eps>
-File: chapter2/stress_davies.eps Graphic file (type eps)
- <chapter2/stress_davies.eps> [65]
-File: chapter2/stress_csr.eps Graphic file (type eps)
+File: /home/alok/phd/post_viva/semisup/results/plots/stress_dunn.eps Graphic fi
+le (type eps)
 
-<chapter2/stress_csr.eps> [66]
-File: chapter2/ccycle_dunn.eps Graphic file (type eps)
- <chapter2/ccycle_dunn.eps>
-File: chapter2/ccycle_davies.eps Graphic file (type eps)
+</home/alok/phd/post_viva/semisup/results/plots/stress_dunn.eps>
+File: /home/alok/phd/post_viva/semisup/results/plots/stress_davies.eps Graphic 
+file (type eps)
 
-<chapter2/ccycle_davies.eps> [67] [68]
-File: chapter2/ccycle_csr.eps Graphic file (type eps)
- <chapter2/ccycle_csr.eps> [69]
-File: chapter2/alg_valid.eps Graphic file (type eps)
+</home/alok/phd/post_viva/semisup/results/plots/stress_davies.eps> [65]
+File: /home/alok/phd/post_viva/semisup/results/plots/ccycle_dunn.eps Graphic fi
+le (type eps)
 
-<chapter2/alg_valid.eps> [70] (./chapter2/ccycle_sup_go.tex
+</home/alok/phd/post_viva/semisup/results/plots/ccycle_dunn.eps>
+File: /home/alok/phd/post_viva/semisup/results/plots/ccycle_davies.eps Graphic 
+file (type eps)
+
+</home/alok/phd/post_viva/semisup/results/plots/ccycle_davies.eps> [66]
+[67]
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+
+Overfull \hbox (3.11946pt too wide) in paragraph at lines 411--412
+[]\OT1/cmr/m/n/12 In or-der to com-pute the sim-i-lar-ity ma-trix from the stre
+ss and cell-cycle datasets,
+ []
+
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+[68]
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+ [69] [70]
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+
+Overfull \hbox (3.58057pt too wide) in paragraph at lines 626--628
+[]\OT1/cmr/m/n/12 Tables-4.6[]-4.10[] show the clus-ter qual-ity re-sults of in
+-di-vid-ual com-bi-na-tions of datasets.
+ []
+
+
+Overfull \hbox (4.09627pt too wide) in paragraph at lines 634--646
+ [][] 
+ []
+
+File: /home/alok/phd/post_viva/semisup/results/analysis/semisup_stress_only.eps
+ Graphic file (type eps)
+</home/alok/phd/post_viva/semisup/results/analysis/semisup_stress_only.eps>
+[71] [72] [73]
+Overfull \vbox (213.63797pt too high) has occurred while \output is active []
+
+
+[74]
+File: /home/alok/phd/post_viva/semisup/results/analysis/semisup_stress_chip.eps
+ Graphic file (type eps)
+
+</home/alok/phd/post_viva/semisup/results/analysis/semisup_stress_chip.eps>
+Overfull \vbox (73.27147pt too high) has occurred while \output is active []
+
+
+[75]
+File: /home/alok/phd/post_viva/semisup/results/analysis/semisup_stress_ppi.eps 
+Graphic file (type eps)
+
+</home/alok/phd/post_viva/semisup/results/analysis/semisup_stress_ppi.eps>
+Overfull \vbox (73.27147pt too high) has occurred while \output is active []
+
+
+[76]
+File: /home/alok/phd/post_viva/ec2machine/semisup/results/analysis/semisup_ccyc
+le_only.eps Graphic file (type eps)
+
+</home/alok/phd/post_viva/ec2machine/semisup/results/analysis/semisup_ccycle_on
+ly.eps>
+Overfull \vbox (73.27147pt too high) has occurred while \output is active []
+
+
+[77]
+File: /home/alok/phd/post_viva/ec2machine/semisup/results/analysis/semisup_ccyc
+le_chip.eps Graphic file (type eps)
+
+</home/alok/phd/post_viva/ec2machine/semisup/results/analysis/semisup_ccycle_ch
+ip.eps>
+Overfull \vbox (73.27147pt too high) has occurred while \output is active []
+
+
+[78]
+File: /home/alok/phd/post_viva/ec2machine/semisup/results/analysis/semisup_ccyc
+le_ppi.eps Graphic file (type eps)
+
+</home/alok/phd/post_viva/ec2machine/semisup/results/analysis/semisup_ccycle_pp
+i.eps>
+Overfull \vbox (73.27147pt too high) has occurred while \output is active []
+
+
+[79]
+File: /home/alok/phd/post_viva/ec2machine/semisup/results/analysis/semisup_ccyc
+le_yt.eps Graphic file (type eps)
+
+</home/alok/phd/post_viva/ec2machine/semisup/results/analysis/semisup_ccycle_yt
+.eps>
+Overfull \vbox (73.27147pt too high) has occurred while \output is active []
+
+
+[80] (./chapter2/ccycle_sup_go.tex
 Overfull \hbox (8.7615pt too wide) in paragraph at lines 3--33
  [][] 
  []
 
-) [71] [72] (./appendices/appendix-B.tex [73])
-Underfull \hbox (badness 3168) in paragraph at lines 439--439
+) [81] (./appendices/appendix-B.tex [82])
+Underfull \hbox (badness 3168) in paragraph at lines 718--718
 []\OT1/cmr/m/n/12 After in-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 439--439
+Underfull \hbox (badness 10000) in paragraph at lines 718--718
 []\OT1/cmr/m/n/12 Percent
  []
 
 
-Underfull \hbox (badness 3168) in paragraph at lines 439--439
+Underfull \hbox (badness 3168) in paragraph at lines 718--718
 []\OT1/cmr/m/n/12 After in-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 439--439
+Underfull \hbox (badness 10000) in paragraph at lines 718--718
 []\OT1/cmr/m/n/12 Percent
  []
 
 
-Overfull \hbox (40.65063pt too wide) in paragraph at lines 439--440
+Overfull \hbox (40.65063pt too wide) in paragraph at lines 718--719
  [][] 
  []
 
-[74] [75]
-Underfull \hbox (badness 4366) in paragraph at lines 471--471
+[83]
+
+LaTeX Warning: Reference `fig:bss_constraints' on page 84 undefined on input li
+ne 731.
+
+[84]
+Underfull \hbox (badness 4366) in paragraph at lines 766--766
 []\OT1/cmr/m/n/12 p-value cut-
  []
 
 
-Underfull \hbox (badness 3168) in paragraph at lines 471--471
+Underfull \hbox (badness 3168) in paragraph at lines 766--766
 []\OT1/cmr/m/n/12 After in-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 471--471
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 []\OT1/cmr/m/n/12 Percent
  []
 
 
-Underfull \hbox (badness 3168) in paragraph at lines 471--471
+Underfull \hbox (badness 3168) in paragraph at lines 766--766
 []\OT1/cmr/m/n/12 After in-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 471--471
+Underfull \hbox (badness 10000) in paragraph at lines 766--766
 []\OT1/cmr/m/n/12 Percent
  []
 
 
-Overfull \hbox (43.2529pt too wide) in paragraph at lines 471--472
+Overfull \hbox (43.2529pt too wide) in paragraph at lines 766--767
  [][] 
  []
 
-[76] [77]
+[85] [86]
 Package acronym Info: Label `acro:HMRF' newly defined as it shall be overridden
 
-although it is yet undefined on input line 491.
- [78] [79] [80] [81]) [82]
+although it is yet undefined on input line 796.
+ [87] [88] [89] [90]) [91]
 Chapter 5.
-(./chapter3/max_entropy.tex [83
+(./chapter3/max_entropy.tex [92
 
-] [84] [85] [86] [87] [88] [89] [90]
+] [93] [94] [95] [96] [97] [98] [99]
 Missing character: There is no Ã in font cmr12!
 Missing character: There is no ¶ in font cmr12!
- [91]
-[92] [93] [94] [95] [96] [97] [98]
+ [100]
+[101] [102] [103] [104] [105] [106] [107]
 File: chapter3/stress_ppi_dunn.eps Graphic file (type eps)
  <chapter3/stress_ppi_dunn.eps>
 File: chapter3/stress_ppi_davies.eps Graphic file (type eps)
@@ -818,7 +995,7 @@ File: chapter3/stress_tf_withinss.eps Graphic file (type eps)
 
 LaTeX Warning: Float too large for page by 43.70178pt on input line 314.
 
-[99] [100] [101]
+[108] [109] [110]
 File: chapter3/ccycle_ppi_dunn.eps Graphic file (type eps)
  <chapter3/ccycle_ppi_dunn.eps>
 File: chapter3/ccycle_ppi_davies.eps Graphic file (type eps)
@@ -849,7 +1026,7 @@ File: chapter3/ccycle_tf_withinss.eps Graphic file (type eps)
 
 LaTeX Warning: Float too large for page by 55.20178pt on input line 355.
 
-[102] [103] [104] [105] [106]
+[111] [112] [113] [114] [115]
 Overfull \hbox (1.61507pt too wide) in paragraph at lines 384--384
 []\OT1/cmr/m/n/10 Datasets| 
  []
@@ -959,7 +1136,7 @@ Overfull \hbox (46.87401pt too wide) in paragraph at lines 381--395
  [][] 
  []
 
-[107
+[116
 
 ]
 Overfull \hbox (1.61507pt too wide) in paragraph at lines 411--411
@@ -1087,7 +1264,7 @@ Overfull \hbox (46.87401pt too wide) in paragraph at lines 408--422
  []
 
 File: chapter3/stress_ppi_maxent.eps Graphic file (type eps)
-<chapter3/stress_ppi_maxent.eps> [108]
+<chapter3/stress_ppi_maxent.eps> [117]
 Package acronym Info: Label `acro:SOM' newly defined as it shall be overridden
 although it is yet undefined on input line 441.
 
@@ -1096,22 +1273,22 @@ Overfull \hbox (3.28474pt too wide) in paragraph at lines 441--442
 were clas-si-fied un-der co-clustering.
  []
 
-[109]
+[118]
 Package acronym Info: Label `acro:SVM' newly defined as it shall be overridden
 although it is yet undefined on input line 443.
- [110]
+ [119]
 Package acronym Info: Label `acro:SDP' newly defined as it shall be overridden
 although it is yet undefined on input line 445.
- [111] [112]) [113]
+ [120] [121]) [122]
 Chapter 6.
-(./conclusion/conclusion.tex [114
+(./conclusion/conclusion.tex [123
 
-] [115]
+] [124]
 Package acronym Info: Label `acro:LDA' newly defined as it shall be overridden
 although it is yet undefined on input line 18.
 Package acronym Info: Label `acro:RDA' newly defined as it shall be overridden
 although it is yet undefined on input line 18.
- [116] [117]) [118] [119]
+ [125] [126]) [127] [128]
 Appendix A.
 (./appendices/semisup_stress_go_results.tex
 Overfull \hbox (60.46365pt too wide) in alignment at lines 3--7
@@ -1147,7 +1324,7 @@ Overfull \hbox (60.46365pt too wide) in alignment at lines 42--62
  [] [] [] 
  []
 
-[120
+[129
 
 ]
 Overfull \hbox (60.46365pt too wide) in alignment at lines 62--82
@@ -1159,7 +1336,7 @@ Overfull \hbox (60.46365pt too wide) in alignment at lines 82--102
  [] [] [] 
  []
 
-[121]
+[130]
 Overfull \hbox (60.46365pt too wide) in alignment at lines 102--122
  [] [] [] 
  []
@@ -1169,12 +1346,12 @@ Overfull \hbox (60.46365pt too wide) in alignment at lines 122--142
  [] [] [] 
  []
 
-[122]
+[131]
 Overfull \hbox (60.46365pt too wide) in alignment at lines 142--149
  [] [] [] 
  []
 
-[123]) (./appendices/maxent_stress_go_results.tex [124]
+[132]) (./appendices/maxent_stress_go_results.tex [133]
 Overfull \hbox (60.46365pt too wide) in alignment at lines 3--7
  [] [] [] 
  []
@@ -1213,34 +1390,41 @@ Overfull \hbox (60.46365pt too wide) in alignment at lines 62--74
  [] [] [] 
  []
 
-[125]) (./thesis.bbl [126]
+[134]) (./thesis.bbl [135]
 Underfull \hbox (badness 10000) in paragraph at lines 49--52
 []\OT1/cmr/m/n/12 Brookes, M. (2005).  The ma-trix ref-er-ence man-ual.  on-lin
 e,
  []
 
-[127
+[136
 
-] [128] [129] [130]
+] [137] [138] [139]
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ‡ in font cmr12!
- [131] [132]
+ [140] [141]
 Missing character: There is no Ã in font cmr12!
 Missing character: There is no ¶ in font cmr12!
- [133]
+ [142]
 Missing character: There is no ï in font cmr12!
 Missing character: There is no ¿ in font cmr12!
 Missing character: There is no ½ in font cmr12!
- [134] [135]) (./acronyms/acronyms.tex [136] [137
+ [143] [144]) (./acronyms/acronyms.tex [145] [146
 
-]) [138] (./thesis.aux) ) 
+]) [147] (./thesis.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 6394 strings out of 495062
- 87368 string characters out of 1182644
- 197905 words of memory out of 3000000
- 9336 multiletter control sequences out of 15000+50000
+ 6458 strings out of 495062
+ 89324 string characters out of 1182645
+ 198662 words of memory out of 3000000
+ 9389 multiletter control sequences out of 15000+50000
  18118 words of font info for 70 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  32i,17n,37p,2365b,520s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on thesis.dvi (152 pages, 492576 bytes).
+Output written on thesis.dvi (162 pages, 511792 bytes).

@@ -291,6 +291,97 @@ $}}
 \label{fig:semi_sup_spectral_clustering}
 \end{figure*}
 
+\subsection{Toy dataset explorations} \label{chap2:sec:spirals_dataset}
+The semi-supervised problem can be stated as - there is a real distribution of data points that have certain pairwise similarities and an ideal clustering can be derived from it. 
+We want to recover a clustering as close to the ideal one based on observing some noisy datasets and some facts (acting as constraints in our setup) that are known to us. Before we start work on real datasets 
+we are going to show that semi-supervised clustering indeed is able to leverage external information in the form of pairwise constraints in order to better the clustering results. 
+
+In order to do this, we take a toy dataset (spirals dataset) that has non-linear patterns as seen in Figure-\ref{fig:spirals_original}. This data-set consists of two concentric clusters and was chosen because this is a specially 
+hard problem on which many most traditional clustering algorithms fail. It also shows the effectiveness of spectral clustering in finding non-linear clusters which is not possible with 
+traditional clustering algorithms. To represent the known facts or constraints, we extract some random constraints from it. Then to represent the noisy dataset, we add random noise 
+to it. After this we study if the addition of progressively increasing quantities of the constraints improves the cluster quality of the noisy dataset.
+We have used five-fold cross validation to study the effectiveness of our algorithm. So, in every run of the experiment 80\% of the data acts as training data 
+while remaining 20\% is test data. The exact steps are detailed below 
+
+\begin{enumerate}
+ \item Take the spirals dataset which has two classes visually represented as red and black points as see. Keep one copy as the original dataset and then generate a noisy version of it by randomly 
+adding noise to it. The results of clustering of original and noisy dataset are shown in Figures-\ref{fig:spirals_original} and \ref{fig:spirals_no_constraints} respectively.
+ \item From the original dataset, according to 5-fold cross validation procedure, take 4 parts as the training set and the remaining one as the test set.
+ \item Draw \textit{5} number of contraints from the training set randomly. This is done by separating the points within the test set into two classes and then randomly picking pairs - half from each class.
+ \item Apply these pairwise constraints to the noisy dataset and then cluster it using spectral clustering.
+ \item Check the cluster assignments of the test data points to compute how similar the resulting cluster is to the original clustering.
+ \item Repeat this process 5 times for 5-fold cross validation.
+ \item Increase the number of constraints used in Step-3 by 5 and repeat the whole process till perfect clustering is obtained all the time.
+\end{enumerate}
+
+
+\begin{figure}[p]
+\centering
+\subfigure[Original dataset clustering]{
+\includegraphics[bb=0 0 720 720,scale=0.18]{/home/alok/phd/post_viva/semisup/spirals/100.eps}
+\label{fig:spirals_original}
+}
+\subfigure[Noisy dataset clustering without any constraints]{
+\includegraphics[bb=0 0 720 720,scale=0.18]{/home/alok/phd/post_viva/semisup/spirals/1.eps}
+\label{fig:spirals_no_constraints}
+}
+\subfigure[Noisy dataset clustering with 5 constraints]{
+\includegraphics[bb=0 0 720 720,scale=0.18]{/home/alok/phd/post_viva/semisup/spirals/5.eps}
+\label{fig:spirals_5_constraints}
+}
+\subfigure[Noisy dataset clustering with 10 constraints]{
+\includegraphics[bb=0 0 720 720,scale=0.18]{/home/alok/phd/post_viva/semisup/spirals/10.eps}
+\label{fig:spirals_10_constraints}
+}
+\subfigure[Noisy dataset clustering with 15 constraints]{
+\includegraphics[bb=0 0 720 720,scale=0.18]{/home/alok/phd/post_viva/semisup/spirals/15.eps}
+\label{fig:spirals_15_constraints}
+}
+\subfigure[Noisy dataset clustering with 20 constraints]{
+\includegraphics[bb=0 0 720 720,scale=0.18]{/home/alok/phd/post_viva/semisup/spirals/20.eps}
+\label{fig:spirals_20_constraints}
+}
+\subfigure[Noisy dataset clustering with 25 constraints]{
+\includegraphics[bb=0 0 720 720,scale=0.18]{/home/alok/phd/post_viva/semisup/spirals/25.eps}
+\label{fig:spirals_25_constraints}
+}
+\subfigure[Noisy dataset clustering with 50 constraints]{
+\includegraphics[bb=0 0 720 720,scale=0.18]{/home/alok/phd/post_viva/semisup/spirals/50.eps}
+\label{fig:spirals_50_constraints}
+}
+\label{fig:spirals_visual}
+\caption[Visual indication of Spirals dataset clustering quality improvement with increasing number of known constraints]{}
+\end{figure}
+
+
+\begin{figure}[p]
+\centering
+\subfigure[Cross Validation Run-1]{
+\includegraphics[bb=50 50 410 302,scale=0.5]{/home/alok/phd/post_viva/semisup/spirals/cv_fold1.eps}
+\label{fig:spirals_cv_fold1}
+}
+\subfigure[Cross Validation Run-2]{
+\includegraphics[bb=50 50 410 302,scale=0.5]{/home/alok/phd/post_viva/semisup/spirals/cv_fold2.eps}
+\label{fig:spirals_cv_fold2}
+}
+\subfigure[Cross Validation Run-3]{
+\includegraphics[bb=50 50 410 302,scale=0.5]{/home/alok/phd/post_viva/semisup/spirals/cv_fold3.eps}
+\label{fig:spirals_cv_fold3}
+}
+\subfigure[Cross Validation Run-4]{
+\includegraphics[bb=50 50 410 302,scale=0.5]{/home/alok/phd/post_viva/semisup/spirals/cv_fold4.eps}
+\label{fig:spirals_cv_fold4}
+}
+\subfigure[Cross Validation Run-5]{
+\includegraphics[bb=50 50 410 302,scale=0.5]{/home/alok/phd/post_viva/semisup/spirals/cv_fold5.eps}
+\label{fig:spirals_cv_fold5}
+}
+\label{fig:spirals_cv}
+\caption[Spirals dataset clustering quality improvement with increasing number of known constraints]{}
+\end{figure}
+
+Goal of semi-supervised clustering is to use external knowledge in the form of known pairwise relations between variables in order to improve the quality of clustering. We have shown that applying more constraints indeed lead to better clustering.
+
 \subsection{Parameter optimization} \label{chap2:sec:param_opt}
 For any clustering algorithm, the most important decisions are the choice of the number of clusters and the free parameters. In our case, the similarity among gene pairs is calculated using a Gaussian similarity function and the only free parameter is the width of the Gaussian, $\sigma$. For any unsupervised task of an exploratory nature, the \textit{correct} number of clusters is data dependent. We chose to use 50 clusters in our experiments, based on earlier justifications by \citet{ihmels02revealing} and \citet{segal03module} which showed that the Saccharomyces Cerevisiae genome contains approximately 50 sets of functionally related genes. Both the authors have shown statistically that this number provides a better fit to the underlying data distribution, compared to a higher or lower numbers of modules.
 
@@ -314,6 +405,7 @@ where M is the total number of clusters, $\sigma_{C_{i}}$ is the average distanc
 The value of this index decreases if clusters $i$ and $j$ are compact and their centres are far away from each other. Hence \textit{smaller} values indicate better clustering.
 
 We ran the spectral algorithm for a range of $\sigma$ values. The range of $\sigma$ values was determined as both the upper and lower extremes beyond which all the points resulted in a trivial clustering (single cluster).  For each $\sigma$ value, we did 10 runs as spectral clustering depends on k-means which has random starting points. We also repeated the k-means algorithm twenty five times, each run being initialised randomly, and chose the best clustering with the minimum total \textit{dispersion}. Dispersion was computed by taking the cumulative sum of within-cluster sum of squared distances (from each point to the centre) across all the clusters of a clustering run.  
+
 
 \subsubsection{Stress dataset}
 
@@ -398,13 +490,13 @@ Now that we have seen that the algorithm really works and has been validated usi
 \section{Statistical validation of results}
 The datasets that we have, represent experiments done under particular conditions. If we base our results just on those datasets, the results that we obtain could be purely by chance because of the characteristics of those particular data-sets and it would be dangerous to draw conclusions based on those data-sets alone. 
 Therefore, we have perturbed the datasets and report the mean and variance of results in order to justify that the results are not random. We begin by showing that spectral clustering results are immune to minor perturbations of data and the resulting clusters are not too different from each other. 
-We start with the full stress and cell-cycle data-sets from SMD as discussed earlier. It had x genes including NORFs. Since not much is known about the function of NORFs , so we removed all the NORF from the data-sets. 
-That left us with x genes in the stress data-set and y genes in the cell-cycle data-sets. They had a and b experiment counts respectively. We created ten perturbed data-sets from each of stress and cell-cycle datasets after 
+We start with the full stress and cell-cycle data-sets from SMD as discussed earlier. We created ten perturbed data-sets from each of stress and cell-cycle datasets after 
 subsampling (drawing 90\% of the genes randomly). The exact procedure is outlined below
 
 \begin{enumerate}
   
-\item We got the full stress and cell-cycle data-sets. It had x genes including NORFs. Since not much is known about the function of NORFs , so we removed all the NORF from the data-sets. That left us with x genes in the stress data-set and y genes in the cell-cycle data-sets. They had a and b experiment counts respectively.
+\item We got the full stress and cell-cycle data-sets. The stress dataset had 6361 genes while cell-cycle dataset had 6353 genes including NORFs. Since not much is known about the function of NORFs , so we removed all the NORF from the data-sets. 
+That left us with 6251 genes in the stress data-set and 6257 genes in the cell-cycle data-sets. They had 156 and 60 experiment counts respectively.
  
 \item We created ten perturbed data-sets from each of stress and cell-cycle datasets after subsampling (drawing 90\% of the genes randomly).
 
@@ -647,41 +739,100 @@ Cell-cycle dataset with Yeastract dataset & 52.2 & 64.8\\
 \label{tab:no_constraints}
 \end{table}
 
-We put the final clusters of genes (before and after combination) through Genomica which is a tool to analyze the characteristics of resulting clustering using Gene Ontology. 
-\begin{center}
- \includegraphics[bb=0 0 839 5293, scale=0.13]{/home/alok/phd/post_viva/semisup/results/analysis/semisup_stress_only.eps}
- % semisup_stress_only.eps: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=0 0 839 5293
-\end{center}
+We put the final clusters of genes (before and after combination) through Genomica which is a tool to analyze the characteristics of resulting clustering using Gene Ontology. TODO- Describe it in detail.
 
-\begin{center}
- \includegraphics[bb=0 0 839 5293, scale=0.13]{/home/alok/phd/post_viva/semisup/results/analysis/semisup_stress_chip.eps}
- % semisup_stress_only.eps: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=0 0 839 5293
-\end{center}
+\begin{figure}[p]
+\centering
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[bb=0 0 674 79, scale=0.5]{/home/alok/phd/post_viva/semisup/results/analysis/img_stress_only/1.eps}
+\label{fig:stress_only_enrich_1}
+}
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[bb=0 0 775 967, scale=0.4]{/home/alok/phd/post_viva/semisup/results/analysis/img_stress_only/2.eps}
+\label{fig:stress_only_enrich_2}
+}
+\label{fig:stress_only_enrich}
+\caption[]{Sections of the image showing significant enrichment in Stress only dataset. Full image available in the Appendix}
+\end{figure}
 
-\begin{center}
- \includegraphics[bb=0 0 839 5293, scale=0.13]{/home/alok/phd/post_viva/semisup/results/analysis/semisup_stress_ppi.eps}
- % semisup_stress_only.eps: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=0 0 839 5293
-\end{center}
+\begin{figure}[p]
+\centering
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[scale=0.5]{/home/alok/phd/post_viva/semisup/results/analysis/img_stress_ppi/1.eps}
+\label{fig:stress_ppi_enrich_1}
+}
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[scale=0.4]{/home/alok/phd/post_viva/semisup/results/analysis/img_stress_ppi/2.eps}
+\label{fig:stress_ppi_enrich_2}
+}
+\label{fig:stress_ppi_enrich}
+\caption[]{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from PPI dataset. Full image available in the Appendix}
+\end{figure}
 
-\begin{center}
- \includegraphics[bb=0 0 839 5293, scale=0.13]{/home/alok/phd/post_viva/ec2machine/semisup/results/analysis/semisup_ccycle_only.eps}
- % semisup_stress_only.eps: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=0 0 839 5293
-\end{center}
+\begin{figure}[p]
+\centering
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[scale=0.5]{/home/alok/phd/post_viva/semisup/results/analysis/img_stress_chip/1.eps}
+\label{fig:stress_chip_enrich_1}
+}
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[scale=0.4]{/home/alok/phd/post_viva/semisup/results/analysis/img_stress_chip/2.eps}
+\label{fig:stress_chip_enrich_2}
+}
+\label{fig:stress_chip_enrich}
+\caption[]{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from Chip-Chip dataset. Full image available in the Appendix}
+\end{figure}
 
-\begin{center}
- \includegraphics[bb=0 0 839 5293, scale=0.13]{/home/alok/phd/post_viva/ec2machine/semisup/results/analysis/semisup_ccycle_chip.eps}
- % semisup_stress_only.eps: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=0 0 839 5293
-\end{center}
-\begin{center}
- \includegraphics[bb=0 0 839 5293, scale=0.13]{/home/alok/phd/post_viva/ec2machine/semisup/results/analysis/semisup_ccycle_ppi.eps}
- % semisup_stress_only.eps: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=0 0 839 5293
-\end{center}
-\begin{center}
- \includegraphics[bb=0 0 839 5293, scale=0.13]{/home/alok/phd/post_viva/ec2machine/semisup/results/analysis/semisup_ccycle_yt.eps}
- % semisup_stress_only.eps: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=0 0 839 5293
-\end{center}
+After the stress dataset and ite integration results we move on to the cell cycle dataset.
+
+\begin{figure}[p]
+\centering
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[scale=0.5]{/home/alok/phd/post_viva/ec2machine/semisup/results/analysis/ccycle_only/1.eps}
+\label{fig:ccycle_only_enrich_1}
+}
+\label{fig:ccycle_only_enrich}
+\caption[]{Sections of the image showing significant enrichment in Cell-cycle dataset. Full image available in the Appendix}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[scale=0.5]{/home/alok/phd/post_viva/ec2machine/semisup/results/analysis/ccycle_ppi/1.eps}
+\label{fig:ccycle_ppi_enrich_1}
+}
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[scale=0.5]{/home/alok/phd/post_viva/ec2machine/semisup/results/analysis/ccycle_ppi/2.eps}
+\label{fig:ccycle_ppi_enrich_2}
+}
+\label{fig:ccycle_ppi_enrich}
+\caption[]{Sections of the image showing significant enrichment in Cell-cycle dataset combined with knowledge from PPI dataset. Full image available in the Appendix}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[scale=0.5]{/home/alok/phd/post_viva/ec2machine/semisup/results/analysis/ccycle_chip/1.eps}
+\label{fig:ccycle_ppi_enrich_1}
+}
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[scale=0.5]{/home/alok/phd/post_viva/ec2machine/semisup/results/analysis/ccycle_chip/2.eps}
+\label{fig:ccycle_ppi_enrich_2}
+}
+\label{fig:ccycle_chip_enrich}
+\caption[]{Sections of the image showing significant enrichment in Cell-cycle dataset combined with knowledge from Chip-Chip dataset. Full image available in the Appendix}
+\end{figure}
 
 
+\begin{figure}[p]
+\centering
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[scale=0.5]{/home/alok/phd/post_viva/ec2machine/semisup/results/analysis/ccycle_only/1.eps}
+\label{fig:ccycle_yt_enrich_1}
+}
+\label{fig:ccycle_yt_enrich}
+\caption[]{Sections of the image showing significant enrichment in Cell-cycle dataset combined with Yeastract dataset. Full image available in the Appendix}
+\end{figure}
 
 \section{Biological Validation}
 \input{chapter2/ccycle_sup_go}
@@ -787,6 +938,14 @@ All our result data is available upon request. For the the best clustering gain 
 we have provided the best 5 enriched GO terms in each cluster in Table-\ref{appendix:semisup_stress_pval} as part of Appendix-\ref{appendix:go_enrichment_results}. 
 
 \section{Related Work and Discussion}
+\subsection{Post Viva Discussion Items}
+\subsubsection{GO terms based P-value validation}
+1. Was silhouettte method considered? Why was it rejected?
+2. Why did we choose Dunn and Davies Bouldin's index?
+3. Write a para on internal and external validation indices and justify our choice.
+
+\subsubsection{A section on mutual information based approaches to validation and why it is better than the rest}
+
 \subsection{Constrained clustering}
 The concept of applying prior knowledge in the form of constraints to clustering algorithms is not new. Initial \textit{supervised} clustering algorithms were modifications of traditional ones and ensured that the resulting clusters had to satisfy the applied constraints. One of the first papers in this area by \citet{bradley00constrained} proposed a constrained version of the famous \textit{k-means} \citep{MacQueen67kmeans} clustering algorithm by posing the problem in terms of minimum cost network flows. Their objective behind adding the constraints was to assign a certain minimum number of points to each cluster. \citet{tung2001constraint} have done a systematic study of various constrained clustering algorithms. \citet{basu2008constrained} is a recent book on constrained clustering.
 

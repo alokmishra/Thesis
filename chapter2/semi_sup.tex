@@ -783,7 +783,7 @@ We put the final clusters of genes (before and after combination) through Genomi
 \caption[]{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from Chip-Chip dataset. Full image available in the Appendix}
 \end{figure}
 
-After the stress dataset and ite integration results we move on to the cell cycle dataset.
+After the stress dataset and its integration results we move on to the cell cycle dataset.
 
 \begin{figure}[p]
 \centering
@@ -964,7 +964,6 @@ As we have discussed earlier, spectral clustering works on similarity matrices. 
 Even before the recent interest in spectral clustering, a matrix formalism has been used to describe the functional states of transcriptional regulatory systems. \citet{gianchandani2006matrix} used such a model to characterise the properties of a TRS and facilitate the computation of the transcriptional state of the genome under any given environmental conditions. 
 
 One of the first applications of spectral clustering to bioinformatics was by \citet{kluger2003spectral} who used it to simultaneously clusters genes and conditions (biclustering) for various cancer datasets. In a cancer context, the clusters correspond to genes that are markedly up or down regulated in patients with particular types of tumors. They present a number of variants of the approach, depending on whether the normalization over genes and conditions is done independently or in a coupled fashion. They analysed publicly available cancer expression data sets, and examined the degree to which the approach is able to identify clusters. They have also compared the performance against a number of reasonable benchmarks (e.g., direct application of SVD or normalized cuts to raw data). \citet{speer05spectral} used spectral clustering to cluster Gene Ontology terms to find sets of genes that might be functionally related. They used an information theoretic measure borrowed from text mining, where it had been used to calculate semantic similarities between words, to calculate the similarity values between the terms of the Gene Ontology.
-
 
 \subsubsection{Semi-supervised spectral clustering}
 \citet{kamvar03spectral} propose an algorithm for classification called \textit{spectral classification} which modifies the similarity matrix to 1 if the known training data belong to the same class and 0 otherwise. The similarity matrix is subject to eigen-decomposition and then classification is done in the spectral space. The advantage of doing this is that they can use labelled data (provides class constraints) as well as unlabelled data (similarity computation). They report better performance than the \textit{naive Bayes} classifier in classifying newsgroups. They have also proposed a constrained spectral clustering with must-link and cannot-link constraints along with an additive normalized laplacian \citep{fiedler1975property} and used it for classification. The results and the comparison with other algorithms for this is not systematic and clearly presented which makes it difficult to judge its performance. 

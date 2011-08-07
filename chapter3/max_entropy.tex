@@ -272,87 +272,34 @@ As seen in Figure-\ref{fig:stress_ppi_opt}, for the microarray stress dataset, t
 
 \begin{figure}[htp]
   \begin{center}
-    \subfigure[Microarray $\sigma$ optimization using Dunn' index]
-            {\label{fig:stress_ppi_dunn}\includegraphics[scale=0.7]{chapter3/stress_ppi_dunn.eps}}
-    \subfigure[Microarray $\sigma$ optimization using Davies Bouldin's index]
-            {\label{fig:stress_ppi_davies}\includegraphics[scale=0.7]{chapter3/stress_ppi_davies.eps}} \\
+    \subfigure[Microarray $\beta$ optimization using total within-cluster sum of square distances]
+            {\label{fig:ppi_withinss}\includegraphics[scale=0.7]{/home/alok/phd/post_viva/maxent/results/sigmaopt/plots/chip_withinss.eps}}
+    \subfigure[Microarray $\beta$ optimization using total within-cluster sum of square distances]
+            {\label{fig:chip_withinss}\includegraphics[scale=0.7]{/home/alok/phd/post_viva/maxent/results/sigmaopt/plots/chip_withinss.eps}} \\
     \subfigure[PPI $\beta$ optimization using total within-cluster sum of square distances]
-            {\label{fig:stress_ppi_withinss}\includegraphics[scale=0.7]{chapter3/stress_ppi_withinss.eps}}
+            {\label{fig:yt_withinss}\includegraphics[scale=0.7]{/home/alok/phd/post_viva/maxent/results/sigmaopt/plots/yt_withinss.eps}}
   \end{center}
-  \caption{Microarray (stress) and PPI datasets: Sigma and Beta optimization}
-  \label{fig:stress_ppi_opt}
+  \caption{PPI, Chip-chip and Yeastract datasets: Beta optimization}
+  \label{fig:chip_ppi_yt_opt}
 \end{figure}
 
-\subsubsection{Stress and ChIP-chip}
-For the microarray stress dataset, as seen in Figure-\ref{fig:stress_chip_opt}, the best values in both the Dunn and Davies Bouldin's index graphs is at $\sigma=0.005$. We chose this because of this consensus even though the standard deviation in both cases is quite high. For the ChIP-chip dataset, the \textit{withinss} values have jumped sharply after $\beta=50$. We looked at the diffusion matrix and observed that this was because after $\beta=50$ all the points were being put into few clusters. This is one of the biggest drawbacks of simple measures like \textit{withinss} which unlike Dunn and Davies Bouldin's index does not take cluster separation into consideration. So, out of the remaining smooth region, we picked the value of $\beta=5$ based on it being the lowest.
-\begin{figure}[htp]
-  \begin{center}
-    \subfigure[Microarray $\sigma$ optimization using Dunn' index]
-            {\label{fig:stress_chip_dunn}\includegraphics[scale=0.7]{chapter3/stress_chip_dunn.eps}}
-    \subfigure[Microarray $\sigma$ optimization using Davies Bouldin's index]
-            {\label{fig:stress_chip_davies}\includegraphics[scale=0.7]{chapter3/stress_chip_davies.eps}} \\
-    \subfigure[ChIP-chip $\beta$ optimization using total within-cluster sum of square distances]
-            {\label{fig:stress_chip_withinss}\includegraphics[scale=0.7]{chapter3/stress_chip_withinss.eps}}
-  \end{center}
-  \caption{Microarray (stress) and ChIP-chip datasets: Sigma and Beta optimization}
-  \label{fig:stress_chip_opt}
+We put the final clusters of genes (before and after combination) through Genomica which is a tool to analyze the characteristics of resulting clustering using Gene Ontology and has been detailed in the 
+previous chapter.
+ 
+\begin{figure}[p]
+\centering
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[bb=0 0 674 79, scale=0.5]{/home/alok/phd/post_viva/semisup/results/analysis/img_stress_only/1.eps}
+\label{fig:stress_only_enrich_1}
+}
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[bb=0 0 775 967, scale=0.4]{/home/alok/phd/post_viva/semisup/results/analysis/img_stress_only/2.eps}
+\label{fig:stress_only_enrich_2}
+}
+\label{fig:stress_only_enrich}
+\caption[]{Sections of the image showing significant enrichment in Stress only dataset. Full image available in the Appendix}
 \end{figure}
 
-\subsubsection{Stress and Yeastract}
-Figure-\ref{fig:stress_tf_opt} shows that for the microarray stress dataset, the best values in both the Dunn and Davies Bouldin's index graphs is at $\sigma=0.003$. We chose this because of this consensus. The standard deviation in Dunn index is quite high but its low for Davies Bouldin's index. Again, for the Yeastract dataset, the \textit{withinss} values have jumped sharply after $\beta=10$. We looked at the diffusion matrix and observed that this was because after $\beta=10$ all the points were being put into few clusters as the similarity values were uniformly similar. We chose $\beta=5$ as it was the lowest value in the plot. 
-\begin{figure}[htp]
-  \begin{center}
-    \subfigure[Microarray $\sigma$ optimization using Dunn' index]
-            {\label{fig:stress_tf_dunn}\includegraphics[scale=0.7]{chapter3/stress_tf_dunn.eps}}
-    \subfigure[Microarray $\sigma$ optimization using Davies Bouldin's index]
-            {\label{fig:stress_tf_davies}\includegraphics[scale=0.7]{chapter3/stress_tf_davies.eps}} \\
-    \subfigure[Yeastract $\beta$ optimization using total within-cluster sum of square distances]
-            {\label{fig:stress_tf_withinss}\includegraphics[scale=0.7]{chapter3/stress_tf_withinss.eps}}
-  \end{center}
-  \caption{Microarray (stress) and Yeastract datasets: Sigma and Beta optimization}
-  \label{fig:stress_tf_opt}
-\end{figure}
-
-\subsubsection{Cell-cycle and (PPI, ChIP-chip and Yeastract)}
-In a similar manner, we found the optimum values for these parameters for the common data between cell-cycle and PPI, Yeastract and ChIP-chip datasets. The plots are in Figures-\ref{fig:ccycle_ppi_opt},\ref{fig:ccycle_chip_opt} and \ref{fig:ccycle_tf_opt} and the parameter choices are summarised in Table-\ref{tab:maxent_mean_pvals}.
-\begin{figure}[htp]
-  \begin{center}
-    \subfigure[Microarray $\sigma$ optimization using Dunn' index]
-            {\label{fig:ccycle_ppi_dunn}\includegraphics[scale=0.7]{chapter3/ccycle_ppi_dunn.eps}}
-    \subfigure[Microarray $\sigma$ optimization using Davies Bouldin's index]
-            {\label{fig:ccycle_ppi_davies}\includegraphics[scale=0.7]{chapter3/ccycle_ppi_davies.eps}} \\
-    \subfigure[PPI $\beta$ optimization using total within-cluster sum of square distances]
-            {\label{fig:ccycle_ppi_withinss}\includegraphics[scale=0.7]{chapter3/ccycle_ppi_withinss.eps}}
-  \end{center}
-  \caption{Microarray (cell-cycle) and PPI datasets: Sigma and Beta optimization}
-  \label{fig:ccycle_ppi_opt}
-\end{figure}
-
-\begin{figure}[htp]
-  \begin{center}
-    \subfigure[Microarray $\sigma$ optimization using Dunn' index]
-            {\label{fig:ccycle_chip_dunn}\includegraphics[scale=0.7]{chapter3/ccycle_chip_dunn.eps}}
-    \subfigure[Microarray $\sigma$ optimization using Davies Bouldin's index]
-            {\label{fig:ccycle_chip_davies}\includegraphics[scale=0.7]{chapter3/ccycle_chip_davies.eps}} \\
-    \subfigure[ChIP-chip $\beta$ optimization using total within-cluster sum of square distances]
-            {\label{fig:ccycle_chip_withinss}\includegraphics[scale=0.7]{chapter3/ccycle_chip_withinss.eps}}
-  \end{center}
-  \caption{Microarray (cell-cycle) and ChIP-chip datasets: Sigma and Beta optimization}
-  \label{fig:ccycle_chip_opt}
-\end{figure}
-
-\begin{figure}[htp]
-  \begin{center}
-    \subfigure[Microarray $\sigma$ optimization using Dunn' index]
-            {\label{fig:ccycle_tf_dunn}\includegraphics[scale=0.7]{chapter3/ccycle_tf_dunn.eps}}
-    \subfigure[Microarray $\sigma$ optimization using Davies Bouldin's index]
-            {\label{fig:ccycle_tf_davies}\includegraphics[scale=0.7]{chapter3/ccycle_tf_davies.eps}} \\
-    \subfigure[Yeastract $\beta$ optimization using total within-cluster sum of square distances]
-            {\label{fig:ccycle_tf_withinss}\includegraphics[scale=0.7]{chapter3/ccycle_tf_withinss.eps}}
-  \end{center}
-  \caption{Microarray (cell-cycle) and Yeastract datasets: Sigma and Beta optimization}
-  \label{fig:ccycle_tf_opt}
-\end{figure}
 
 \begin{table}[t]
 \centering

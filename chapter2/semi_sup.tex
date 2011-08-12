@@ -385,7 +385,19 @@ Goal of semi-supervised clustering is to use external knowledge in the form of k
 \subsection{Parameter optimization} \label{chap2:sec:param_opt}
 For any clustering algorithm, the most important decisions are the choice of the number of clusters and the free parameters. In our case, the similarity among gene pairs is calculated using a Gaussian similarity function and the only free parameter is the width of the Gaussian, $\sigma$. For any unsupervised task of an exploratory nature, the \textit{correct} number of clusters is data dependent. We chose to use 50 clusters in our experiments, based on earlier justifications by \citet{ihmels02revealing} and \citet{segal03module} which showed that the Saccharomyces Cerevisiae genome contains approximately 50 sets of functionally related genes. Both the authors have shown statistically that this number provides a better fit to the underlying data distribution, compared to a higher or lower numbers of modules.
 
-In order to determine the value of $\sigma$ we initially used one of the most popular \textit{internal} cluster quality validation index namely Dunn's Index \citep{Dunn1974wellseparated}. Internal cluster quality validation indices take a dataset and the resulting clustering and use information fully intrinsic to the data itself to assess the quality of clustering. This is different from \textit{external} validation indices that use information independent of the dataset for validating the clustering, e.g. gene ontology. The underlying logic of using this to choose $\sigma$ is to search for a value which results in the best quality clusters. We carried out this $\sigma$ optimization without using the supervision step, clustering only the microarray dataset because our objective is to study the impact of supervision. If we incorporate it prior to optimization then the constraints will impact the original similarity matrix.
+In order to determine the value of $\sigma$, we chose to use cluster quality as the parameter to optimise in order to get the optimal value of $\sigma$. There are two major class of algorithms 
+to validate the cluster quality. \textit{External} validation algorithms evaluate a clustering result based on the knowledge of the correct 
+cluster class labels. This is external information that is not contained in the dataset, hence the name. This allows an objective evaluation and comparison of clustering algorithms based on known facts. In cases where no class labels are available, or the available labels are not reliable, 
+we need to use \textit{internal} validation measures. Internal validation techniques do not use external class labels, but utilise information intrinsic to the data itself. They try to measure how well a given 
+clustering corresponds to the natural cluster structure of the data.
+
+
+We used one of the most popular \textit{internal} cluster quality validation index namely 
+Dunn's Index \citep{Dunn1974wellseparated}. Internal cluster quality validation indices take a dataset and the resulting clustering and use information fully intrinsic 
+to the data itself to assess the quality of clustering. This is different from \textit{external} validation indices that use information independent of the dataset for 
+validating the clustering, e.g. gene ontology. The underlying logic of using this to choose $\sigma$ is to search for a value which results in the best quality 
+clusters. We carried out this $\sigma$ optimization without using the supervision step, clustering only the microarray dataset because our objective is to study the 
+impact of supervision. If we incorporate it prior to optimization then the constraints will impact the original similarity matrix.
 
 \textit{Dunn's} index can be defined as 
 \[

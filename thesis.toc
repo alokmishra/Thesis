@@ -42,53 +42,51 @@
 \contentsline {subsection}{\numberline {4.2.5}Semi-supervised spectral clustering}{61}
 \contentsline {subsection}{\numberline {4.2.6}Toy dataset explorations}{62}
 \contentsline {subsection}{\numberline {4.2.7}Parameter optimization}{64}
-\contentsline {subsubsection}{Stress dataset}{68}
-\contentsline {subsubsection}{Cell-cycle dataset}{70}
-\contentsline {section}{\numberline {4.3}Statistical validation of results}{71}
-\contentsline {section}{\numberline {4.4}Biological Validation}{77}
-\contentsline {subsection}{\numberline {4.4.1}Biological Significance using Gene Ontology}{86}
-\contentsline {section}{\numberline {4.5}Results}{87}
-\contentsline {section}{\numberline {4.6}Related Work and Discussion}{90}
-\contentsline {subsection}{\numberline {4.6.1}Post Viva Discussion Items}{90}
-\contentsline {subsubsection}{GO terms based P-value validation}{90}
-\contentsline {subsubsection}{A section on mutual information based approaches to validation and why it is better than the rest}{90}
-\contentsline {subsection}{\numberline {4.6.2}Constrained clustering}{90}
-\contentsline {subsection}{\numberline {4.6.3}Semi-supervised clustering}{91}
-\contentsline {subsubsection}{Spectral clustering}{92}
-\contentsline {subsubsection}{Semi-supervised spectral clustering}{93}
-\contentsline {subsection}{\numberline {4.6.4}Co-clustering}{94}
-\contentsline {section}{\numberline {4.7}Conclusion}{94}
-\contentsline {chapter}{\numberline {5}Maximum Entropy Kernel Integration for Regulatory Module Discovery}{96}
-\contentsline {section}{\numberline {5.1}Introduction}{96}
-\contentsline {section}{\numberline {5.2}Elementary Linear Algebra}{98}
-\contentsline {subsection}{\numberline {5.2.1}Vectors and matrices}{98}
-\contentsline {subsection}{\numberline {5.2.2}Eigenvalues and eigenvectors}{100}
-\contentsline {subsection}{\numberline {5.2.3}Spectral or eigen-decomposition}{100}
-\contentsline {section}{\numberline {5.3}Kernel Methods}{101}
-\contentsline {subsection}{\numberline {5.3.1}Various kernel or similarity functions}{102}
-\contentsline {subsubsection}{Vector Data}{102}
-\contentsline {subsubsection}{Graph data}{103}
-\contentsline {subsection}{\numberline {5.3.2}From similarities to a valid kernel}{104}
-\contentsline {subsection}{\numberline {5.3.3}Kernel normalization}{105}
-\contentsline {section}{\numberline {5.4}Principle of Maximum Entropy}{105}
-\contentsline {subsection}{\numberline {5.4.1}Entropy}{105}
-\contentsline {subsection}{\numberline {5.4.2}Principle of maximum entropy}{106}
-\contentsline {section}{\numberline {5.5}Maximum Entropy Kernel Integration}{107}
-\contentsline {subsection}{\numberline {5.5.1}Algorithm}{110}
-\contentsline {section}{\numberline {5.6}Datasets and Methodology}{110}
-\contentsline {subsection}{\numberline {5.6.1}Parameter optimisation results}{112}
-\contentsline {subsubsection}{Stress and PPI datasets}{112}
-\contentsline {subsubsection}{Stress and ChIP-chip}{112}
-\contentsline {subsubsection}{Stress and Yeastract}{115}
-\contentsline {subsubsection}{Cell-cycle and (PPI, ChIP-chip and Yeastract)}{115}
-\contentsline {section}{\numberline {5.7}Biological Validation of Results}{120}
-\contentsline {section}{\numberline {5.8}Related Work and Discussion}{123}
-\contentsline {section}{\numberline {5.9}Conclusion}{125}
-\contentsline {chapter}{\numberline {6}Summary and Future Work}{127}
-\contentsline {section}{\numberline {6.1}Summary}{127}
-\contentsline {section}{\numberline {6.2}Challenges and Future Directions}{128}
-\contentsline {section}{\numberline {6.3}Final Remarks}{131}
-\contentsline {chapter}{Appendices}{132}
-\contentsline {chapter}{\numberline {A}GO Term Enrichment after Integration}{133}
-\contentsline {chapter}{Bibliography}{146}
-\contentsline {chapter}{Acronyms}{156}
+\contentsline {subsubsection}{Internal Validation Indices}{67}
+\contentsline {subsubsection}{Stress dataset}{69}
+\contentsline {subsubsection}{Cell-cycle dataset}{71}
+\contentsline {section}{\numberline {4.3}Statistical validation of results}{72}
+\contentsline {section}{\numberline {4.4}Biological Validation}{78}
+\contentsline {subsection}{\numberline {4.4.1}Biological Significance using Gene Ontology}{88}
+\contentsline {section}{\numberline {4.5}Results}{90}
+\contentsline {section}{\numberline {4.6}Related Work and Discussion}{93}
+\contentsline {subsection}{\numberline {4.6.1}Post Viva Discussion Items}{93}
+\contentsline {subsubsection}{GO terms based P-value validation}{93}
+\contentsline {subsubsection}{A section on mutual information based approaches to validation and why it is better than the rest}{93}
+\contentsline {subsection}{\numberline {4.6.2}Constrained clustering}{93}
+\contentsline {subsection}{\numberline {4.6.3}Semi-supervised clustering}{93}
+\contentsline {subsubsection}{Spectral clustering}{94}
+\contentsline {subsubsection}{Semi-supervised spectral clustering}{96}
+\contentsline {subsection}{\numberline {4.6.4}Co-clustering}{96}
+\contentsline {section}{\numberline {4.7}Conclusion}{97}
+\contentsline {chapter}{\numberline {5}Maximum Entropy Kernel Integration for Regulatory Module Discovery}{98}
+\contentsline {section}{\numberline {5.1}Introduction}{98}
+\contentsline {section}{\numberline {5.2}Elementary Linear Algebra}{100}
+\contentsline {subsection}{\numberline {5.2.1}Vectors and matrices}{100}
+\contentsline {subsection}{\numberline {5.2.2}Eigenvalues and eigenvectors}{102}
+\contentsline {subsection}{\numberline {5.2.3}Spectral or eigen-decomposition}{102}
+\contentsline {section}{\numberline {5.3}Kernel Methods}{103}
+\contentsline {subsection}{\numberline {5.3.1}Various kernel or similarity functions}{104}
+\contentsline {subsubsection}{Vector Data}{104}
+\contentsline {subsubsection}{Graph data}{105}
+\contentsline {subsection}{\numberline {5.3.2}From similarities to a valid kernel}{106}
+\contentsline {subsection}{\numberline {5.3.3}Kernel normalization}{107}
+\contentsline {section}{\numberline {5.4}Principle of Maximum Entropy}{107}
+\contentsline {subsection}{\numberline {5.4.1}Entropy}{107}
+\contentsline {subsection}{\numberline {5.4.2}Principle of maximum entropy}{108}
+\contentsline {section}{\numberline {5.5}Maximum Entropy Kernel Integration}{109}
+\contentsline {subsection}{\numberline {5.5.1}Algorithm}{112}
+\contentsline {section}{\numberline {5.6}Datasets and Methodology}{112}
+\contentsline {subsection}{\numberline {5.6.1}Parameter optimisation results}{114}
+\contentsline {subsubsection}{Stress and PPI datasets}{114}
+\contentsline {section}{\numberline {5.7}Biological Validation of Results}{117}
+\contentsline {section}{\numberline {5.8}Related Work and Discussion}{120}
+\contentsline {section}{\numberline {5.9}Conclusion}{122}
+\contentsline {chapter}{\numberline {6}Summary and Future Work}{124}
+\contentsline {section}{\numberline {6.1}Summary}{124}
+\contentsline {section}{\numberline {6.2}Challenges and Future Directions}{125}
+\contentsline {section}{\numberline {6.3}Final Remarks}{128}
+\contentsline {chapter}{Appendices}{129}
+\contentsline {chapter}{\numberline {A}GO Term Enrichment after Integration}{130}
+\contentsline {chapter}{Bibliography}{157}
+\contentsline {chapter}{Acronyms}{167}

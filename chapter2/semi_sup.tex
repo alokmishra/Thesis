@@ -388,36 +388,54 @@ For any clustering algorithm, the most important decisions are the choice of the
 In order to determine the value of $\sigma$, we chose to use cluster quality as the parameter to optimise in order to get the optimal value of $\sigma$. There are two major class of algorithms 
 to validate the cluster quality. \textit{External} validation algorithms evaluate a clustering result based on the knowledge of the correct 
 cluster class labels. This is external information that is not contained in the dataset, hence the name. This allows an objective evaluation and comparison of clustering algorithms based on known facts. In cases where no class labels are available, or the available labels are not reliable, 
-we need to use \textit{internal} validation measures. Internal validation techniques do not use external class labels, but utilise information intrinsic to the data itself. They try to measure how well a given 
-clustering corresponds to the natural cluster structure of the data.
+we need to use \textit{internal} validation measures. Internal validation techniques do not use external class labels, but utilise information intrinsic to the data itself. They try to measure how well a given clustering corresponds to the natural cluster structure of the data.
 
 
-We used one of the most popular \textit{internal} cluster quality validation index namely 
-Dunn's Index \citep{Dunn1974wellseparated}. Internal cluster quality validation indices take a dataset and the resulting clustering and use information fully intrinsic 
-to the data itself to assess the quality of clustering. This is different from \textit{external} validation indices that use information independent of the dataset for 
-validating the clustering, e.g. gene ontology. The underlying logic of using this to choose $\sigma$ is to search for a value which results in the best quality 
-clusters. We carried out this $\sigma$ optimization without using the supervision step, clustering only the microarray dataset because our objective is to study the 
-impact of supervision. If we incorporate it prior to optimization then the constraints will impact the original similarity matrix.
+\subsubsection{Internal Validation Indices} \label{chap2:subsec:cluster_validity_internal}
+Internal measures take a clustering and the underlying dataset as the input, and use information intrinsic to the data to assess the quality of the clustering. 
 
 \textit{Dunn's} index can be defined as 
 \[
 \text{Dunn's index}= \min_{C_{i}\in C} \left( \min_{C_{j} \in C \backslash i} \left( \frac{dist(C_{i},C_{j})}{\max_{C_{k}\in C}diam(C_{k})} \right) \right)
 \]
-where $diam(C_{k})$ is the maximum (complete) distance between two points within a cluster and $dist(C_{i},C_{j})$ is the minimum (single) distance between any two points in clusters $C_{i}$ and $C_{j}$. 
-We can observe that the value of this index is high if the inter-cluster separation is high compared to the largest cluster diameter. 
-This corresponds to a fundamental objective of good clustering, namely to maximize the inter-cluster separation and minimize the intra-cluster distances. 
-Hence \textit{better} clustering will have \textit{higher} values of this index. This index, though very easy to comprehend, can be quite unstable especially in the presence of outliers. 
+where $diam(C_{k})$ is the maximum (complete) distance between two points within a cluster and $dist(C_{i},C_{j})$ is the minimum (single) distance between any two points in clusters $C_{i}$ and $C_{j}$. We can observe that the value of this index is high if the inter-cluster separation is high compared to the largest cluster diameter. This corresponds to a fundamental objective of good clustering, namely to maximize the inter-cluster separation and minimize the intra-cluster distances. Hence \textit{better} clustering will have \textit{higher} values of this index. This index, though very easy to comprehend, can be quite unstable especially in the presence of outliers. 
 
-Another popular internal cluster quality validation index - \textit{Davies-Bouldin's} index is defined as
+Another popular internal cluster quality validation index - \textit{Davies-Bouldin's} index that aims to identify sets of clusters that are compact and well separated is defined as
 \[
 \text{Davies Bouldin's index}=\frac{1}{M} \sum_{i=1}^{M}\max_{\begin{subarray}{c}j=1\dots M \\ j\neq i \end{subarray}} \left( \frac{\sigma_{C_{i}}+\sigma_{C_{j}}}{\delta(C_{i},C_{j})} \right)
 \]
 
-where M is the total number of clusters, $\sigma_{C_{i}}$ is the average distance of all points in the $i_{th}$ cluster from the cluster centre and $\delta(C_{i},C_{j})$ is the distance between the cluster centres of the $i_{th}$ cluster and $j_{th}$ cluster. 
-The value of this index decreases if clusters $i$ and $j$ are compact and their centres are far away from each other. Hence \textit{smaller} values indicate better clustering.
+where M is the total number of clusters, $\sigma_{C_{i}}$ is the average distance of all points in the $i_{th}$ cluster from the cluster centre and $\delta(C_{i},C_{j})$ is the distance between the cluster centres of the $i_{th}$ cluster and $j_{th}$ cluster. The value of this index decreases if clusters $i$ and $j$ are compact and their centres are far away from each other. Hence \textit{smaller} values of this index indicate better clustering.
 
-We ran the spectral algorithm for a range of $\sigma$ values. The range of $\sigma$ values was determined as both the upper and lower extremes beyond which all the points resulted in a trivial clustering (single cluster).  For each $\sigma$ value, we did 10 runs as spectral clustering depends on k-means which has random starting points. We also repeated the k-means algorithm twenty five times, each run being initialised randomly, and chose the best clustering with the minimum total \textit{dispersion}. Dispersion was computed by taking the cumulative sum of within-cluster sum of squared distances (from each point to the centre) across all the clusters of a clustering run.  
+Silhouette index is another well known cluster validity index.
+\[
+s(i)=\frac{b(i)-a(i)}{max(a(i),b(i))} 
+\]
 
+For each datum $i$, let $a(i)$ be the average dissimilarity of $i$ with all other data within the same cluster. We can interpret $a(i)$ as how well matched $i$ is to the cluster it 
+is assigned (the smaller the value, the better the matching). Then find the average dissimilarity of $i$ with the data of another single cluster. Repeat this for every cluster of 
+which $i$ is not a member. Denote the lowest average dissimilarity to $i$ of any such cluster by $b(i)$. The cluster with this average dissimilarity is said to be the 
+\textit{neighbouring cluster} of $i$ as it is, aside from the cluster $i$ is assigned, the cluster in which $i$ fits best.
+
+From the above definition it is clear that
+\[
+-1<s(i)<1 
+\]
+
+For $s(i)$ to be close to 1 we require $a(i) \ll b(i)$. As $a(i)$ is a measure of how dissimilar $i$ is to its own cluster, a small value means it is well matched. 
+A large $b(i)$ implies that $i$ is badly matched to its neighbouring cluster. Thus an $s(i)$ close to one means that the datum is appropriately clustered. If $s(i)$ is close to 
+negative one, then by the same logic we see that $i$ would be more appropriate if it was clustered in its neighbouring cluster. The average $s(i)$ of a cluster is a measure of how tightly grouped all the 
+data in the cluster are. Thus the average $s(i)$ of the entire dataset is a measure of how appropriately the data has been clustered. 
+
+We chose Dunn's Index \citep{Dunn1974wellseparated}. 
+The underlying logic of using this to choose $\sigma$ is to search for a value which results in the best quality clusters. 
+We carried out this $\sigma$ optimization without using the supervision step, clustering only the microarray dataset because our objective is to study the impact of supervision. 
+If we incorporate it prior to optimization then the constraints will impact the original similarity matrix.
+
+We ran the spectral algorithm for a range of $\sigma$ values. The range of $\sigma$ values was determined as both the upper and lower extremes beyond which all the points 
+resulted in a trivial clustering (single cluster).  For each $\sigma$ value, we did 10 runs as spectral clustering depends on k-means which has random starting points. 
+We also repeated the k-means algorithm twenty five times, each run being initialised randomly, and chose the best clustering with the minimum total \textit{dispersion}. 
+Dispersion was computed by taking the cumulative sum of within-cluster sum of squared distances (from each point to the centre) across all the clusters of a clustering run.  
 
 \subsubsection{Stress dataset}
 
@@ -848,9 +866,60 @@ After the stress dataset and its integration results we move on to the cell cycl
 
 \section{Biological Validation}
 \input{chapter2/ccycle_sup_go}
-Evaluation of the results of our clustering algorithm requires careful consideration since there are no gold standards against which performance can be measured. The two prominent types of cluster validation measures are \textit{internal} and \textit{external} validation indices. As indicated earlier, internal indices take a dataset and the resulting clustering and use information fully intrinsic to the data itself to assess the quality of clustering while external validation indices use information independent of the dataset for validating the clustering. We already saw the use of an internal validity measure for parameter ($\sigma$) selection. As they are fully dependent on the data itself, internal indices do not give any indication of the biological significance of the resulting clusters. In the previous section, we also proposed an external validation index and used it to show that our clustering algorithm works. But that index is not suitable for the biological validation of results. This is because there is an overlap between applying constraints (some of which are justified on the basis of known TF-gene interactions) and counting gene pairs with common parents (BSS).  
+Evaluation of the results of our clustering algorithm requires careful consideration since there are no gold standards against which performance can be measured. 
+The two prominent types of cluster validation measures are \textit{internal} and \textit{external} validation indices. As indicated earlier, internal indices take a dataset and 
+the resulting clustering and use information fully intrinsic to the data itself to assess the quality of clustering while external validation indices use information independent 
+of the dataset for validating the clustering. We already saw the use of an internal validity measure for parameter ($\sigma$) selection. As they are fully dependent on the 
+data itself, internal indices do not give any indication of the biological significance of the resulting clusters. In the previous section, we also proposed an external 
+validation index and used it to show that our clustering algorithm works. But that index is not suitable for the biological validation of results. This is because there 
+is an overlap between applying constraints (some of which are justified on the basis of known TF-gene interactions) and counting gene pairs with common parents (BSS).  
 
-There are various other methods that have been used in the past for external validation, many of which have used the information available in the Gene Ontology. They calculate the statistical significance of the gene ontology terms in the clusters. While this method gives us general ideas about which clusters might represent what functions, it doesn't allow us to functionally compare different clustering results \textit{numerically}. Some attempts have been made to provide such a numerical index using mutual information and related concepts by \citet{Gibons2002Judging} and \citet{gatviks03scoring}. We have followed the method described in Section-\ref{biosig_go} to obtain the p-value of each GO term in a particular cluster. A sample of these values for the stress dataset after integration with DNA-binding dataset is shown in Table-\ref{tab:stress_chip_0.0001}. In order to compare two sets of clusters, e.g. before and after data integration, we compute the mean of the negative log of the p-values of all the GO terms in each of the cluster sets. A negative logarithm value ensures that we get positive values to compare the results, with a larger value indicating better enrichment.
+There are various other methods that have been used in the past for external validation, many of which have used the information available in the Gene Ontology. 
+They calculate the statistical significance of the gene ontology terms in the clusters. While this method gives us general ideas about which clusters might represent 
+what functions, it doesn't allow us to functionally compare different clustering results \textit{numerically}. Some attempts have been made to provide 
+such a numerical index using mutual information and related concepts by \citet{Gibons2002Judging} and \citet{gatviks03scoring} using Gene Ontology annotations. 
+
+In order to compare two sets of clusters, e.g. before and after data integration, we have used the technique suggested by \citet{Gibons2002Judging}. We briefly discuss 
+the works of these two papers and then justify our rationale behind our choice.
+
+They devised a figure of merit, z-score, based on mutual information between a clustering result and gene annotation data. The z-score indicates relationships between 
+clustering and annotation, relative to a clustering method that randomly assigns genes to clusters. A higher z-score indicates a clustering result that is further 
+from random. 
+
+GO defines three distinct ontologies (called biological process, molecular function, and cellular component) and represents each as a directed acyclic graph (DAG), 
+consisting of directed edges and vertices, such that each vertex may be descended from several others. Annotation of a gene with a descendant attribute implies that the 
+gene holds all ancestor attributes. They have parsed annotation from SGD of S. cerevisiae genes with GO attributes in such a way that attributes are inherited 
+through the hierarchy, producing a table of ~6300 genes and ~2000 attributes in which a 1 in position (i,j) indicates that the gene i is known to possess attribute 
+j, and a 0 indicates our lack of knowledge about whether gene i possesses attribute j. In other words, absence of annotation is not the same as absence of function.
+
+With this gene-attribute table, they construct a contingency table for each cluster–attribute pair, from which they compute the entropies for each cluster–attribute pair ($H_{A_{i}C}$), 
+for the clustering result independent of attributes ($H_{C}$), and also for each of the $N_{A}$ attributes in the table independent of clusters ($H_{A_{i}}$). 
+Using the definition of mutual information between two variables X and Y, $MI(X,Y) \equiv H(X)+H(Y)−H(X,Y)$, and assuming both absolute and conditional independence of attributes, 
+they expand the total mutual information as a sum of mutual information between clusters and each individual attribute. 
+They compute the total mutual information between the cluster result C and all the attributes $A_{i}$ as:
+\[
+MI(C,A_{1}A_{2},....A_{N_{A}}) = \sum_{i}MI(C,A_{i}) = N_{A}H_{C} + \sum_{i}H_{A_{i}}-\sum_{i}H_{A_{i}}C
+\]
+
+where summation is over all attributes i.
+
+They score a partitioning as follows: 
+\begin{itemize}
+ \item Compute MI for the clustered data ($MI_{real}$), using the attribute database derived from GO/SGD; 
+ \item Compute MI again, for a clustering obtained by randomly assigning genes to clusters of uniform size ($MI_{random}$), repeating until a distribution of values is obtained; 
+ \item Compute a z-score for $MI_{real}$ and the distribution of $MI_{random}$ values (with mean $m_{random}$ and standard deviation $s_{random}$) according to 
+\[
+z = \frac{MI_{real}-m_{random}}{s_{random}} 
+\]
+\end{itemize}
+
+
+The z-score can then be interpreted as a standardized distance between the MI value obtained by clustering and those MI values obtained by random assignment of genes to clusters. 
+The larger the z-score, the greater the distance, and higher scores indicate clustering results more significantly related to gene function.
+
+Clusters to which genes were randomly assigned were chosen to be as nearly uniform in size as possible, so that some of the success of a clustering algorithm relative 
+to random may derive from producing nonuniform cluster size distributions. Uniform cluster sizes yield the highest value of $H_{C}$, which allows for the highest 
+possible $MI(C,X)$ for some variable $X$ of unknown entropy $H(X)$, because $0 \leq MI(C,X) \leq min(H_{C},H(X))$.
 
 \subsection{Biological Significance using Gene Ontology} \label{biosig_go}
 \input{appendices/appendix-B}

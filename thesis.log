@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2011.4.6)  24 JUL 2011 12:33
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2011.4.6)  16 AUG 2011 02:07
 entering extended mode
  %&-line parsing enabled.
 **thesis.tex
@@ -373,21 +373,48 @@ Package: `setspace' 6.7 <2000/12/01>
 
 LaTeX Warning: Label `tab:no_constraints' multiply defined.
 
+
+LaTeX Warning: Label `fig:ccycle_ppi_enrich_1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:ccycle_ppi_enrich_1' multiply defined.
+
+
+LaTeX Warning: Label `fig:ccycle_ppi_enrich_2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:ccycle_ppi_enrich_2' multiply defined.
+
+
+LaTeX Warning: Label `fig:stress_only_enrich_1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:stress_only_enrich_1' multiply defined.
+
+
+LaTeX Warning: Label `fig:stress_only_enrich_2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:stress_only_enrich_2' multiply defined.
+
+
+LaTeX Warning: Label `fig:stress_only_enrich' multiply defined.
+
 )
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
 
 *geometry auto-detecting driver*
 *geometry detected driver: dvips*
@@ -431,7 +458,7 @@ driver: dvips
 (1in=72.27pt, 1cm=28.45pt)
 -----------------------
 
-Overfull \vbox (9.409pt too high) detected at line 70
+Overfull \vbox (9.409pt too high) detected at line 71
  []
 
 [1
@@ -470,16 +497,16 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 ) [7
 
 
-] [8] [9])
+] [8] [9] [10])
 \tf@toc=\write4
 \openout4 = `thesis.toc'.
 
- [10]
+ [11]
 (./thesis.lot
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
- [11
+ [12
 
 
 ]
@@ -490,14 +517,14 @@ Missing character: There is no ™ in font cmr12!
 \tf@lot=\write5
 \openout5 = `thesis.lot'.
 
- [12] [13] (./thesis.lof [14
+ [13] [14] (./thesis.lof [15
 
 
 ])
 \tf@lof=\write6
 \openout6 = `thesis.lof'.
 
- [15]
+ [16]
 Chapter 1.
 (./introduction/introduction.tex
 Package acronym Info: Label `acro:TF' newly defined as it shall be overridden
@@ -713,24 +740,88 @@ Overfull \hbox (36.2858pt too wide) in paragraph at lines 288--289
  [][] 
  []
 
-[62] [63] [64]
+[62] [63]
+File: /home/alok/phd/post_viva/semisup/spirals/100.eps Graphic file (type eps)
+ </home/alok/phd/post_viva/semisup/spirals/100.eps>
+File: /home/alok/phd/post_viva/semisup/spirals/1.eps Graphic file (type eps)
+
+</home/alok/phd/post_viva/semisup/spirals/1.eps>
+Underfull \hbox (badness 5189) in paragraph at lines 327--327
+[]\OT1/cmr/m/n/10 (b) Noisy dataset clus-ter-ing
+ []
+
+File: /home/alok/phd/post_viva/semisup/spirals/5.eps Graphic file (type eps)
+</home/alok/phd/post_viva/semisup/spirals/5.eps>
+Underfull \hbox (badness 6380) in paragraph at lines 331--331
+[]\OT1/cmr/m/n/10 (c) Noisy dataset clus-ter-ing
+ []
+
+File: /home/alok/phd/post_viva/semisup/spirals/10.eps Graphic file (type eps)
+</home/alok/phd/post_viva/semisup/spirals/10.eps>
+Underfull \hbox (badness 5189) in paragraph at lines 335--335
+[]\OT1/cmr/m/n/10 (d) Noisy dataset clus-ter-ing
+ []
+
+File: /home/alok/phd/post_viva/semisup/spirals/15.eps Graphic file (type eps)
+</home/alok/phd/post_viva/semisup/spirals/15.eps>
+Underfull \hbox (badness 6380) in paragraph at lines 339--339
+[]\OT1/cmr/m/n/10 (e) Noisy dataset clus-ter-ing
+ []
+
+File: /home/alok/phd/post_viva/semisup/spirals/20.eps Graphic file (type eps)
+</home/alok/phd/post_viva/semisup/spirals/20.eps>
+Underfull \hbox (badness 7116) in paragraph at lines 343--343
+[]\OT1/cmr/m/n/10 (f) Noisy dataset clus-ter-ing
+ []
+
+File: /home/alok/phd/post_viva/semisup/spirals/25.eps Graphic file (type eps)
+</home/alok/phd/post_viva/semisup/spirals/25.eps>
+Underfull \hbox (badness 5771) in paragraph at lines 347--347
+[]\OT1/cmr/m/n/10 (g) Noisy dataset clus-ter-ing
+ []
+
+File: /home/alok/phd/post_viva/semisup/spirals/50.eps Graphic file (type eps)
+</home/alok/phd/post_viva/semisup/spirals/50.eps>
+Underfull \hbox (badness 5189) in paragraph at lines 351--351
+[]\OT1/cmr/m/n/10 (h) Noisy dataset clus-ter-ing
+ []
+
+File: /home/alok/phd/post_viva/semisup/spirals/cv_fold1.eps Graphic file (type 
+eps)
+</home/alok/phd/post_viva/semisup/spirals/cv_fold1.eps>
+File: /home/alok/phd/post_viva/semisup/spirals/cv_fold2.eps Graphic file (type 
+eps)
+
+</home/alok/phd/post_viva/semisup/spirals/cv_fold2.eps>
+File: /home/alok/phd/post_viva/semisup/spirals/cv_fold3.eps Graphic file (type 
+eps)
+
+</home/alok/phd/post_viva/semisup/spirals/cv_fold3.eps>
+File: /home/alok/phd/post_viva/semisup/spirals/cv_fold4.eps Graphic file (type 
+eps)
+
+</home/alok/phd/post_viva/semisup/spirals/cv_fold4.eps>
+File: /home/alok/phd/post_viva/semisup/spirals/cv_fold5.eps Graphic file (type 
+eps)
+
+</home/alok/phd/post_viva/semisup/spirals/cv_fold5.eps> [64] [65] [66] [67]
+[68]
 File: /home/alok/phd/post_viva/semisup/results/plots/stress_dunn.eps Graphic fi
 le (type eps)
-
-</home/alok/phd/post_viva/semisup/results/plots/stress_dunn.eps>
+ </home/alok/phd/post_viva/semisup/results/plots/stress_dunn.eps>
 File: /home/alok/phd/post_viva/semisup/results/plots/stress_davies.eps Graphic 
 file (type eps)
 
-</home/alok/phd/post_viva/semisup/results/plots/stress_davies.eps> [65]
+</home/alok/phd/post_viva/semisup/results/plots/stress_davies.eps> [69]
+[70]
 File: /home/alok/phd/post_viva/semisup/results/plots/ccycle_dunn.eps Graphic fi
 le (type eps)
-
-</home/alok/phd/post_viva/semisup/results/plots/ccycle_dunn.eps>
+ </home/alok/phd/post_viva/semisup/results/plots/ccycle_dunn.eps>
 File: /home/alok/phd/post_viva/semisup/results/plots/ccycle_davies.eps Graphic 
 file (type eps)
 
-</home/alok/phd/post_viva/semisup/results/plots/ccycle_davies.eps> [66]
-[67]
+</home/alok/phd/post_viva/semisup/results/plots/ccycle_davies.eps> [71]
+[72]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
@@ -738,7 +829,7 @@ Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
 
-Overfull \hbox (3.11946pt too wide) in paragraph at lines 411--412
+Overfull \hbox (3.11946pt too wide) in paragraph at lines 533--534
 []\OT1/cmr/m/n/12 In or-der to com-pute the sim-i-lar-ity ma-trix from the stre
 ss and cell-cycle datasets,
  []
@@ -746,7 +837,6 @@ ss and cell-cycle datasets,
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
-[68]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
@@ -774,13 +864,13 @@ Missing character: There is no ™ in font cmr12!
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
+[73] [74]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
- [69] [70]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
@@ -818,24 +908,479 @@ Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
 
-Overfull \hbox (3.58057pt too wide) in paragraph at lines 626--628
+Overfull \hbox (3.58057pt too wide) in paragraph at lines 748--750
 []\OT1/cmr/m/n/12 Tables-4.6[]-4.10[] show the clus-ter qual-ity re-sults of in
 -di-vid-ual com-bi-na-tions of datasets.
  []
 
 
-Overfull \hbox (4.09627pt too wide) in paragraph at lines 634--646
+Overfull \hbox (4.09627pt too wide) in paragraph at lines 756--768
  [][] 
+ []
+
+[75] [76] [77]
+File: /home/alok/phd/post_viva/semisup/results/analysis/img_stress_only/1.eps G
+raphic file (type eps)
+
+</home/alok/phd/post_viva/semisup/results/analysis/img_stress_only/1.eps>
+File: /home/alok/phd/post_viva/semisup/results/analysis/img_stress_only/2.eps G
+raphic file (type eps)
+
+</home/alok/phd/post_viva/semisup/results/analysis/img_stress_only/2.eps>
+File: /home/alok/phd/post_viva/semisup/results/analysis/img_stress_ppi/1.eps Gr
+aphic file (type eps)
+
+</home/alok/phd/post_viva/semisup/results/analysis/img_stress_ppi/1.eps>
+File: /home/alok/phd/post_viva/semisup/results/analysis/img_stress_ppi/2.eps Gr
+aphic file (type eps)
+
+</home/alok/phd/post_viva/semisup/results/analysis/img_stress_ppi/2.eps>
+
+LaTeX Warning: Float too large for page by 46.612pt on input line 800.
+
+File: /home/alok/phd/post_viva/semisup/results/analysis/img_stress_chip/1.eps G
+raphic file (type eps)
+</home/alok/phd/post_viva/semisup/results/analysis/img_stress_chip/1.eps>
+File: /home/alok/phd/post_viva/semisup/results/analysis/img_stress_chip/2.eps G
+raphic file (type eps)
+
+</home/alok/phd/post_viva/semisup/results/analysis/img_stress_chip/2.eps>
+File: /home/alok/phd/post_viva/ec2machine/semisup/results/analysis/ccycle_only/
+1.eps Graphic file (type eps)
+
+</home/alok/phd/post_viva/ec2machine/semisup/results/analysis/ccycle_only/1.eps
+>
+
+LaTeX Warning: Float too large for page by 60.55743pt on input line 826.
+
+File: /home/alok/phd/post_viva/ec2machine/semisup/results/analysis/ccycle_ppi/1
+.eps Graphic file (type eps)
+
+</home/alok/phd/post_viva/ec2machine/semisup/results/analysis/ccycle_ppi/1.eps>
+File: /home/alok/phd/post_viva/ec2machine/semisup/results/analysis/ccycle_ppi/2
+.eps Graphic file (type eps)
+
+</home/alok/phd/post_viva/ec2machine/semisup/results/analysis/ccycle_ppi/2.eps>
+File: /home/alok/phd/post_viva/ec2machine/semisup/results/analysis/ccycle_chip/
+1.eps Graphic file (type eps)
+
+</home/alok/phd/post_viva/ec2machine/semisup/results/analysis/ccycle_chip/1.eps
+>
+File: /home/alok/phd/post_viva/ec2machine/semisup/results/analysis/ccycle_chip/
+2.eps Graphic file (type eps)
+
+</home/alok/phd/post_viva/ec2machine/semisup/results/analysis/ccycle_chip/2.eps
+>
+File: /home/alok/phd/post_viva/ec2machine/semisup/results/analysis/ccycle_only/
+1.eps Graphic file (type eps)
+
+</home/alok/phd/post_viva/ec2machine/semisup/results/analysis/ccycle_only/1.eps
+>
+
+LaTeX Warning: Float too large for page by 60.55743pt on input line 865.
+
+(./chapter2/ccycle_sup_go.tex
+Overfull \hbox (8.7615pt too wide) in paragraph at lines 3--33
+ [][] 
+ []
+
+) [78] [79] [80] [81] [82] [83] [84] [85] [86]
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no “ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no “ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no ˆ in font cmr12!
+Missing character: There is no ’ in font cmr12!
+ [87]
+(./appendices/appendix-B.tex [88])
+Underfull \hbox (badness 3168) in paragraph at lines 950--950
+[]\OT1/cmr/m/n/12 After in-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 950--950
+[]\OT1/cmr/m/n/12 Percent
+ []
+
+
+Underfull \hbox (badness 3168) in paragraph at lines 950--950
+[]\OT1/cmr/m/n/12 After in-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 950--950
+[]\OT1/cmr/m/n/12 Percent
+ []
+
+
+Overfull \hbox (40.65063pt too wide) in paragraph at lines 950--951
+ [][] 
+ []
+
+[89]
+
+LaTeX Warning: Reference `fig:bss_constraints' on page 90 undefined on input li
+ne 963.
+
+[90]
+Underfull \hbox (badness 4366) in paragraph at lines 998--998
+[]\OT1/cmr/m/n/12 p-value cut-
+ []
+
+
+Underfull \hbox (badness 3168) in paragraph at lines 998--998
+[]\OT1/cmr/m/n/12 After in-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 998--998
+[]\OT1/cmr/m/n/12 Percent
+ []
+
+
+Underfull \hbox (badness 3168) in paragraph at lines 998--998
+[]\OT1/cmr/m/n/12 After in-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 998--998
+[]\OT1/cmr/m/n/12 Percent
+ []
+
+
+Overfull \hbox (43.2529pt too wide) in paragraph at lines 998--999
+ [][] 
+ []
+
+[91] [92] [93]
+Package acronym Info: Label `acro:HMRF' newly defined as it shall be overridden
+
+although it is yet undefined on input line 1036.
+ [94] [95] [96]) [97]
+Chapter 5.
+(./chapter3/max_entropy.tex [98
+
+] [99] [100] [101] [102] [103] [104] [105]
+Missing character: There is no Ã in font cmr12!
+Missing character: There is no ¶ in font cmr12!
+
+[106] [107] [108] [109] [110] [111] [112] [113]
+
+LaTeX Warning: Reference `fig:stress_ppi_opt' on page 114 undefined on input li
+ne 269.
+
+
+LaTeX Warning: Reference `fig:ccycle_tf_opt' on page 114 undefined on input lin
+e 269.
+
+
+LaTeX Warning: Reference `fig:stress_ppi_opt' on page 114 undefined on input li
+ne 271.
+
+File: /home/alok/phd/post_viva/maxent/results/sigmaopt/plots/chip_withinss.eps 
+Graphic file (type eps)
+</home/alok/phd/post_viva/maxent/results/sigmaopt/plots/chip_withinss.eps>
+File: /home/alok/phd/post_viva/maxent/results/sigmaopt/plots/chip_withinss.eps 
+Graphic file (type eps)
+
+</home/alok/phd/post_viva/maxent/results/sigmaopt/plots/chip_withinss.eps>
+File: /home/alok/phd/post_viva/maxent/results/sigmaopt/plots/yt_withinss.eps Gr
+aphic file (type eps)
+
+</home/alok/phd/post_viva/maxent/results/sigmaopt/plots/yt_withinss.eps>
+
+LaTeX Warning: Float too large for page by 55.7573pt on input line 284.
+
+File: /home/alok/phd/post_viva/semisup/results/analysis/img_stress_only/1.eps G
+raphic file (type eps)
+</home/alok/phd/post_viva/semisup/results/analysis/img_stress_only/1.eps>
+File: /home/alok/phd/post_viva/semisup/results/analysis/img_stress_only/2.eps G
+raphic file (type eps)
+
+</home/alok/phd/post_viva/semisup/results/analysis/img_stress_only/2.eps>
+[114] [115] [116]
+Overfull \hbox (1.61507pt too wide) in paragraph at lines 331--331
+[]\OT1/cmr/m/n/10 Datasets| 
+ []
+
+
+Overfull \hbox (4.89807pt too wide) in paragraph at lines 332--332
+[]\OT1/cmr/m/n/10 Dataset
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 332--332
+[]\OT1/cmr/m/n/10 Dataset
+ []
+
+
+Overfull \hbox (6.50922pt too wide) in paragraph at lines 332--332
+[]\OT1/cmr/m/n/10 MaxEnt
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 332--332
+\OT1/cmr/m/n/10 In-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 332--332
+\OT1/cmr/m/n/10 gra-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 332--332
+[]\OT1/cmr/m/n/10 %
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 332--332
+\OT1/cmr/m/n/10 Gain
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 332--332
+[]\OT1/cmr/m/n/10 %
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 332--332
+\OT1/cmr/m/n/10 Gain
+ []
+
+
+Overfull \hbox (4.89807pt too wide) in paragraph at lines 332--332
+[]\OT1/cmr/m/n/10 Dataset
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 332--332
+[]\OT1/cmr/m/n/10 Dataset
+ []
+
+
+Overfull \hbox (6.50922pt too wide) in paragraph at lines 332--332
+[]\OT1/cmr/m/n/10 MaxEnt
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 332--332
+\OT1/cmr/m/n/10 In-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 332--332
+\OT1/cmr/m/n/10 gra-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 332--332
+[]\OT1/cmr/m/n/10 %
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 332--332
+\OT1/cmr/m/n/10 Gain
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 332--333
+[]\OT1/cmr/m/n/10 %
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 332--333
+\OT1/cmr/m/n/10 Gain
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 336--336
+\OT1/cmr/m/n/10 ChIP-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 338--338
+[]\OT1/cmr/m/n/10 Stress
+ []
+
+
+Overfull \hbox (46.87401pt too wide) in paragraph at lines 328--342
+ [][] 
+ []
+
+[117
+
+]
+Overfull \hbox (1.61507pt too wide) in paragraph at lines 358--358
+[]\OT1/cmr/m/n/10 Datasets| 
+ []
+
+
+Overfull \hbox (4.89807pt too wide) in paragraph at lines 359--359
+[]\OT1/cmr/m/n/10 Dataset
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--359
+[]\OT1/cmr/m/n/10 Dataset
+ []
+
+
+Overfull \hbox (6.50922pt too wide) in paragraph at lines 359--359
+[]\OT1/cmr/m/n/10 MaxEnt
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--359
+\OT1/cmr/m/n/10 In-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--359
+\OT1/cmr/m/n/10 gra-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--359
+[]\OT1/cmr/m/n/10 %
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--359
+\OT1/cmr/m/n/10 Gain
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--359
+[]\OT1/cmr/m/n/10 %
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--359
+\OT1/cmr/m/n/10 Gain
+ []
+
+
+Overfull \hbox (4.89807pt too wide) in paragraph at lines 359--359
+[]\OT1/cmr/m/n/10 Dataset
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--359
+[]\OT1/cmr/m/n/10 Dataset
+ []
+
+
+Overfull \hbox (6.50922pt too wide) in paragraph at lines 359--359
+[]\OT1/cmr/m/n/10 MaxEnt
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--359
+\OT1/cmr/m/n/10 In-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--359
+\OT1/cmr/m/n/10 gra-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--359
+[]\OT1/cmr/m/n/10 %
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--359
+\OT1/cmr/m/n/10 Gain
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--360
+[]\OT1/cmr/m/n/10 %
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--360
+\OT1/cmr/m/n/10 Gain
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 361--361
+[]\OT1/cmr/m/n/10 Cell-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 363--363
+[]\OT1/cmr/m/n/10 Cell-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 363--363
+\OT1/cmr/m/n/10 ChIP-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 365--365
+[]\OT1/cmr/m/n/10 Cell-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 365--365
+\OT1/cmr/m/n/10 Cycle
+ []
+
+
+Overfull \hbox (46.87401pt too wide) in paragraph at lines 355--369
+ [][] 
+ []
+
+File: chapter3/stress_ppi_maxent.eps Graphic file (type eps)
+<chapter3/stress_ppi_maxent.eps> [118]
+Package acronym Info: Label `acro:SOM' newly defined as it shall be overridden
+although it is yet undefined on input line 388.
+
+Overfull \hbox (3.28474pt too wide) in paragraph at lines 388--389
+\OT1/cmr/m/n/12 Ear-lier ef-forts in this di-rec-tion re-lated to clus-ter-ing 
+were clas-si-fied un-der co-clustering.
+ []
+
+[119]
+Package acronym Info: Label `acro:SVM' newly defined as it shall be overridden
+although it is yet undefined on input line 390.
+ [120]
+Package acronym Info: Label `acro:SDP' newly defined as it shall be overridden
+although it is yet undefined on input line 392.
+ [121] [122]) [123]
+Chapter 6.
+(./conclusion/conclusion.tex [124
+
+] [125]
+Package acronym Info: Label `acro:LDA' newly defined as it shall be overridden
+although it is yet undefined on input line 18.
+Package acronym Info: Label `acro:RDA' newly defined as it shall be overridden
+although it is yet undefined on input line 18.
+ [126] [127]) [128] [129]
+Appendix A.
+(./appendices/appendix-A.tex
+Overfull \hbox (14.49297pt too wide) in paragraph at lines 1--2
+\OT1/cmr/m/n/12 Images show-ing Gene On-tol-ogy term en-rich-ments in Semi-Supe
+rvised chap-ter (Chapter-
  []
 
 File: /home/alok/phd/post_viva/semisup/results/analysis/semisup_stress_only.eps
  Graphic file (type eps)
 </home/alok/phd/post_viva/semisup/results/analysis/semisup_stress_only.eps>
-[71] [72] [73]
-Overfull \vbox (213.63797pt too high) has occurred while \output is active []
+[130
+
+]
+Overfull \vbox (73.27147pt too high) has occurred while \output is active []
 
 
-[74]
+[131]
 File: /home/alok/phd/post_viva/semisup/results/analysis/semisup_stress_chip.eps
  Graphic file (type eps)
 
@@ -843,7 +1388,7 @@ File: /home/alok/phd/post_viva/semisup/results/analysis/semisup_stress_chip.eps
 Overfull \vbox (73.27147pt too high) has occurred while \output is active []
 
 
-[75]
+[132]
 File: /home/alok/phd/post_viva/semisup/results/analysis/semisup_stress_ppi.eps 
 Graphic file (type eps)
 
@@ -851,7 +1396,7 @@ Graphic file (type eps)
 Overfull \vbox (73.27147pt too high) has occurred while \output is active []
 
 
-[76]
+[133]
 File: /home/alok/phd/post_viva/ec2machine/semisup/results/analysis/semisup_ccyc
 le_only.eps Graphic file (type eps)
 
@@ -860,7 +1405,7 @@ ly.eps>
 Overfull \vbox (73.27147pt too high) has occurred while \output is active []
 
 
-[77]
+[134]
 File: /home/alok/phd/post_viva/ec2machine/semisup/results/analysis/semisup_ccyc
 le_chip.eps Graphic file (type eps)
 
@@ -869,7 +1414,7 @@ ip.eps>
 Overfull \vbox (73.27147pt too high) has occurred while \output is active []
 
 
-[78]
+[135]
 File: /home/alok/phd/post_viva/ec2machine/semisup/results/analysis/semisup_ccyc
 le_ppi.eps Graphic file (type eps)
 
@@ -878,7 +1423,7 @@ i.eps>
 Overfull \vbox (73.27147pt too high) has occurred while \output is active []
 
 
-[79]
+[136]
 File: /home/alok/phd/post_viva/ec2machine/semisup/results/analysis/semisup_ccyc
 le_yt.eps Graphic file (type eps)
 
@@ -887,410 +1432,107 @@ le_yt.eps Graphic file (type eps)
 Overfull \vbox (73.27147pt too high) has occurred while \output is active []
 
 
-[80] (./chapter2/ccycle_sup_go.tex
-Overfull \hbox (8.7615pt too wide) in paragraph at lines 3--33
- [][] 
- []
+[137]
+File: /home/alok/phd/post_viva/maxent/results/analysis/semisup_stress_ppi.eps G
+raphic file (type eps)
 
-) [81] (./appendices/appendix-B.tex [82])
-Underfull \hbox (badness 3168) in paragraph at lines 718--718
-[]\OT1/cmr/m/n/12 After in-
- []
+</home/alok/phd/post_viva/maxent/results/analysis/semisup_stress_ppi.eps>
+[138]
+Overfull \vbox (73.27147pt too high) has occurred while \output is active []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 718--718
-[]\OT1/cmr/m/n/12 Percent
- []
+[139]
+File: /home/alok/phd/post_viva/maxent/results/analysis/semisup_stress_chip.eps 
+Graphic file (type eps)
 
+</home/alok/phd/post_viva/maxent/results/analysis/semisup_stress_chip.eps>
+Overfull \vbox (73.27147pt too high) has occurred while \output is active []
 
-Underfull \hbox (badness 3168) in paragraph at lines 718--718
-[]\OT1/cmr/m/n/12 After in-
- []
 
+[140]
+File: /home/alok/phd/post_viva/maxent/results/analysis/semisup_stress_yt.eps Gr
+aphic file (type eps)
+ </home/alok/phd/post_viva/maxent/results/analysis/semisup_stress_yt.eps>
+Overfull \vbox (73.27147pt too high) has occurred while \output is active []
 
-Underfull \hbox (badness 10000) in paragraph at lines 718--718
-[]\OT1/cmr/m/n/12 Percent
- []
 
+[141]
+File: /home/alok/phd/post_viva/maxent/results/analysis/maxent_stress_ppi.eps Gr
+aphic file (type eps)
+ </home/alok/phd/post_viva/maxent/results/analysis/maxent_stress_ppi.eps>
+Overfull \vbox (73.27147pt too high) has occurred while \output is active []
 
-Overfull \hbox (40.65063pt too wide) in paragraph at lines 718--719
- [][] 
- []
 
-[83]
+[142]
+File: /home/alok/phd/post_viva/maxent/results/analysis/maxent_stress_chip.eps G
+raphic file (type eps)
 
-LaTeX Warning: Reference `fig:bss_constraints' on page 84 undefined on input li
-ne 731.
+</home/alok/phd/post_viva/maxent/results/analysis/maxent_stress_chip.eps>
+Overfull \vbox (73.27147pt too high) has occurred while \output is active []
 
-[84]
-Underfull \hbox (badness 4366) in paragraph at lines 766--766
-[]\OT1/cmr/m/n/12 p-value cut-
- []
 
+[143]
+File: /home/alok/phd/post_viva/maxent/results/analysis/maxent_stress_yt.eps Gra
+phic file (type eps)
+ </home/alok/phd/post_viva/maxent/results/analysis/maxent_stress_yt.eps>
+Overfull \vbox (73.27147pt too high) has occurred while \output is active []
 
-Underfull \hbox (badness 3168) in paragraph at lines 766--766
-[]\OT1/cmr/m/n/12 After in-
- []
 
+[144]
+File: /home/alok/phd/post_viva/ec2machine/maxent/results/analysis/semisup_ccycl
+e_ppi.eps Graphic file (type eps)
 
-Underfull \hbox (badness 10000) in paragraph at lines 766--766
-[]\OT1/cmr/m/n/12 Percent
- []
+</home/alok/phd/post_viva/ec2machine/maxent/results/analysis/semisup_ccycle_ppi
+.eps> [145]
+Overfull \vbox (73.27147pt too high) has occurred while \output is active []
 
 
-Underfull \hbox (badness 3168) in paragraph at lines 766--766
-[]\OT1/cmr/m/n/12 After in-
- []
+[146]
+File: /home/alok/phd/post_viva/ec2machine/maxent/results/analysis/semisup_ccycl
+e_chip.eps Graphic file (type eps)
 
+</home/alok/phd/post_viva/ec2machine/maxent/results/analysis/semisup_ccycle_chi
+p.eps>
+Overfull \vbox (73.27147pt too high) has occurred while \output is active []
 
-Underfull \hbox (badness 10000) in paragraph at lines 766--766
-[]\OT1/cmr/m/n/12 Percent
- []
 
+[147]
+File: /home/alok/phd/post_viva/ec2machine/maxent/results/analysis/semisup_ccycl
+e_yt.eps Graphic file (type eps)
 
-Overfull \hbox (43.2529pt too wide) in paragraph at lines 766--767
- [][] 
- []
+</home/alok/phd/post_viva/ec2machine/maxent/results/analysis/semisup_ccycle_yt.
+eps>
+Overfull \vbox (73.27147pt too high) has occurred while \output is active []
 
-[85] [86]
-Package acronym Info: Label `acro:HMRF' newly defined as it shall be overridden
 
-although it is yet undefined on input line 796.
- [87] [88] [89] [90]) [91]
-Chapter 5.
-(./chapter3/max_entropy.tex [92
+[148]
+File: /home/alok/phd/post_viva/ec2machine/maxent/results/analysis/maxent_ccycle
+_ppi.eps Graphic file (type eps)
 
-] [93] [94] [95] [96] [97] [98] [99]
-Missing character: There is no Ã in font cmr12!
-Missing character: There is no ¶ in font cmr12!
- [100]
-[101] [102] [103] [104] [105] [106] [107]
-File: chapter3/stress_ppi_dunn.eps Graphic file (type eps)
- <chapter3/stress_ppi_dunn.eps>
-File: chapter3/stress_ppi_davies.eps Graphic file (type eps)
+</home/alok/phd/post_viva/ec2machine/maxent/results/analysis/maxent_ccycle_ppi.
+eps>
+Overfull \vbox (73.27147pt too high) has occurred while \output is active []
 
-<chapter3/stress_ppi_davies.eps>
-File: chapter3/stress_ppi_withinss.eps Graphic file (type eps)
- <chapter3/stress_ppi_withinss.eps>
 
-LaTeX Warning: Float too large for page by 43.70178pt on input line 284.
+[149]
+File: /home/alok/phd/post_viva/ec2machine/maxent/results/analysis/maxent_ccycle
+_chip.eps Graphic file (type eps)
 
-File: chapter3/stress_chip_dunn.eps Graphic file (type eps)
-<chapter3/stress_chip_dunn.eps>
-File: chapter3/stress_chip_davies.eps Graphic file (type eps)
- <chapter3/stress_chip_davies.eps>
-File: chapter3/stress_chip_withinss.eps Graphic file (type eps)
+</home/alok/phd/post_viva/ec2machine/maxent/results/analysis/maxent_ccycle_chip
+.eps>
+Overfull \vbox (73.27147pt too high) has occurred while \output is active []
 
-<chapter3/stress_chip_withinss.eps>
 
-LaTeX Warning: Float too large for page by 55.20178pt on input line 299.
+[150]
+File: /home/alok/phd/post_viva/ec2machine/maxent/results/analysis/maxent_ccycle
+_yt.eps Graphic file (type eps)
 
-File: chapter3/stress_tf_dunn.eps Graphic file (type eps)
-<chapter3/stress_tf_dunn.eps>
-File: chapter3/stress_tf_davies.eps Graphic file (type eps)
- <chapter3/stress_tf_davies.eps>
-File: chapter3/stress_tf_withinss.eps Graphic file (type eps)
+</home/alok/phd/post_viva/ec2machine/maxent/results/analysis/maxent_ccycle_yt.e
+ps>
+Overfull \vbox (73.27147pt too high) has occurred while \output is active []
 
-<chapter3/stress_tf_withinss.eps>
 
-LaTeX Warning: Float too large for page by 43.70178pt on input line 314.
-
-[108] [109] [110]
-File: chapter3/ccycle_ppi_dunn.eps Graphic file (type eps)
- <chapter3/ccycle_ppi_dunn.eps>
-File: chapter3/ccycle_ppi_davies.eps Graphic file (type eps)
-
-<chapter3/ccycle_ppi_davies.eps>
-File: chapter3/ccycle_ppi_withinss.eps Graphic file (type eps)
- <chapter3/ccycle_ppi_withinss.eps>
-
-LaTeX Warning: Float too large for page by 43.70178pt on input line 329.
-
-File: chapter3/ccycle_chip_dunn.eps Graphic file (type eps)
-<chapter3/ccycle_chip_dunn.eps>
-File: chapter3/ccycle_chip_davies.eps Graphic file (type eps)
- <chapter3/ccycle_chip_davies.eps>
-File: chapter3/ccycle_chip_withinss.eps Graphic file (type eps)
-
-<chapter3/ccycle_chip_withinss.eps>
-
-LaTeX Warning: Float too large for page by 55.20178pt on input line 342.
-
-File: chapter3/ccycle_tf_dunn.eps Graphic file (type eps)
-<chapter3/ccycle_tf_dunn.eps>
-File: chapter3/ccycle_tf_davies.eps Graphic file (type eps)
- <chapter3/ccycle_tf_davies.eps>
-File: chapter3/ccycle_tf_withinss.eps Graphic file (type eps)
-
-<chapter3/ccycle_tf_withinss.eps>
-
-LaTeX Warning: Float too large for page by 55.20178pt on input line 355.
-
-[111] [112] [113] [114] [115]
-Overfull \hbox (1.61507pt too wide) in paragraph at lines 384--384
-[]\OT1/cmr/m/n/10 Datasets| 
- []
-
-
-Overfull \hbox (4.89807pt too wide) in paragraph at lines 385--385
-[]\OT1/cmr/m/n/10 Dataset
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 385--385
-[]\OT1/cmr/m/n/10 Dataset
- []
-
-
-Overfull \hbox (6.50922pt too wide) in paragraph at lines 385--385
-[]\OT1/cmr/m/n/10 MaxEnt
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 385--385
-\OT1/cmr/m/n/10 In-te-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 385--385
-\OT1/cmr/m/n/10 gra-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 385--385
-[]\OT1/cmr/m/n/10 %
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 385--385
-\OT1/cmr/m/n/10 Gain
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 385--385
-[]\OT1/cmr/m/n/10 %
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 385--385
-\OT1/cmr/m/n/10 Gain
- []
-
-
-Overfull \hbox (4.89807pt too wide) in paragraph at lines 385--385
-[]\OT1/cmr/m/n/10 Dataset
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 385--385
-[]\OT1/cmr/m/n/10 Dataset
- []
-
-
-Overfull \hbox (6.50922pt too wide) in paragraph at lines 385--385
-[]\OT1/cmr/m/n/10 MaxEnt
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 385--385
-\OT1/cmr/m/n/10 In-te-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 385--385
-\OT1/cmr/m/n/10 gra-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 385--385
-[]\OT1/cmr/m/n/10 %
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 385--385
-\OT1/cmr/m/n/10 Gain
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 385--386
-[]\OT1/cmr/m/n/10 %
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 385--386
-\OT1/cmr/m/n/10 Gain
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 389--389
-\OT1/cmr/m/n/10 ChIP-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 391--391
-[]\OT1/cmr/m/n/10 Stress
- []
-
-
-Overfull \hbox (46.87401pt too wide) in paragraph at lines 381--395
- [][] 
- []
-
-[116
-
-]
-Overfull \hbox (1.61507pt too wide) in paragraph at lines 411--411
-[]\OT1/cmr/m/n/10 Datasets| 
- []
-
-
-Overfull \hbox (4.89807pt too wide) in paragraph at lines 412--412
-[]\OT1/cmr/m/n/10 Dataset
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 412--412
-[]\OT1/cmr/m/n/10 Dataset
- []
-
-
-Overfull \hbox (6.50922pt too wide) in paragraph at lines 412--412
-[]\OT1/cmr/m/n/10 MaxEnt
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 412--412
-\OT1/cmr/m/n/10 In-te-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 412--412
-\OT1/cmr/m/n/10 gra-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 412--412
-[]\OT1/cmr/m/n/10 %
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 412--412
-\OT1/cmr/m/n/10 Gain
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 412--412
-[]\OT1/cmr/m/n/10 %
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 412--412
-\OT1/cmr/m/n/10 Gain
- []
-
-
-Overfull \hbox (4.89807pt too wide) in paragraph at lines 412--412
-[]\OT1/cmr/m/n/10 Dataset
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 412--412
-[]\OT1/cmr/m/n/10 Dataset
- []
-
-
-Overfull \hbox (6.50922pt too wide) in paragraph at lines 412--412
-[]\OT1/cmr/m/n/10 MaxEnt
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 412--412
-\OT1/cmr/m/n/10 In-te-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 412--412
-\OT1/cmr/m/n/10 gra-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 412--412
-[]\OT1/cmr/m/n/10 %
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 412--412
-\OT1/cmr/m/n/10 Gain
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 412--413
-[]\OT1/cmr/m/n/10 %
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 412--413
-\OT1/cmr/m/n/10 Gain
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 414--414
-[]\OT1/cmr/m/n/10 Cell-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 416--416
-[]\OT1/cmr/m/n/10 Cell-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 416--416
-\OT1/cmr/m/n/10 ChIP-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 418--418
-[]\OT1/cmr/m/n/10 Cell-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 418--418
-\OT1/cmr/m/n/10 Cycle
- []
-
-
-Overfull \hbox (46.87401pt too wide) in paragraph at lines 408--422
- [][] 
- []
-
-File: chapter3/stress_ppi_maxent.eps Graphic file (type eps)
-<chapter3/stress_ppi_maxent.eps> [117]
-Package acronym Info: Label `acro:SOM' newly defined as it shall be overridden
-although it is yet undefined on input line 441.
-
-Overfull \hbox (3.28474pt too wide) in paragraph at lines 441--442
-\OT1/cmr/m/n/12 Ear-lier ef-forts in this di-rec-tion re-lated to clus-ter-ing 
-were clas-si-fied un-der co-clustering.
- []
-
-[118]
-Package acronym Info: Label `acro:SVM' newly defined as it shall be overridden
-although it is yet undefined on input line 443.
- [119]
-Package acronym Info: Label `acro:SDP' newly defined as it shall be overridden
-although it is yet undefined on input line 445.
- [120] [121]) [122]
-Chapter 6.
-(./conclusion/conclusion.tex [123
-
-] [124]
-Package acronym Info: Label `acro:LDA' newly defined as it shall be overridden
-although it is yet undefined on input line 18.
-Package acronym Info: Label `acro:RDA' newly defined as it shall be overridden
-although it is yet undefined on input line 18.
- [125] [126]) [127] [128]
-Appendix A.
-(./appendices/semisup_stress_go_results.tex
+[151]) (./appendices/semisup_stress_go_results.tex
 Overfull \hbox (60.46365pt too wide) in alignment at lines 3--7
  [] [] [] 
  []
@@ -1324,34 +1566,32 @@ Overfull \hbox (60.46365pt too wide) in alignment at lines 42--62
  [] [] [] 
  []
 
-[129
 
-]
 Overfull \hbox (60.46365pt too wide) in alignment at lines 62--82
  [] [] [] 
  []
 
-
+[152]
 Overfull \hbox (60.46365pt too wide) in alignment at lines 82--102
  [] [] [] 
  []
 
-[130]
+
 Overfull \hbox (60.46365pt too wide) in alignment at lines 102--122
  [] [] [] 
  []
 
-
+[153]
 Overfull \hbox (60.46365pt too wide) in alignment at lines 122--142
  [] [] [] 
  []
 
-[131]
+[154]
 Overfull \hbox (60.46365pt too wide) in alignment at lines 142--149
  [] [] [] 
  []
 
-[132]) (./appendices/maxent_stress_go_results.tex [133]
+) (./appendices/maxent_stress_go_results.tex [155]
 Overfull \hbox (60.46365pt too wide) in alignment at lines 3--7
  [] [] [] 
  []
@@ -1390,27 +1630,27 @@ Overfull \hbox (60.46365pt too wide) in alignment at lines 62--74
  [] [] [] 
  []
 
-[134]) (./thesis.bbl [135]
+[156]) (./thesis.bbl [157]
 Underfull \hbox (badness 10000) in paragraph at lines 49--52
 []\OT1/cmr/m/n/12 Brookes, M. (2005).  The ma-trix ref-er-ence man-ual.  on-lin
 e,
  []
 
-[136
+[158
 
-] [137] [138] [139]
+] [159] [160] [161]
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ‡ in font cmr12!
- [140] [141]
+ [162] [163]
 Missing character: There is no Ã in font cmr12!
 Missing character: There is no ¶ in font cmr12!
- [142]
+ [164]
 Missing character: There is no ï in font cmr12!
 Missing character: There is no ¿ in font cmr12!
 Missing character: There is no ½ in font cmr12!
- [143] [144]) (./acronyms/acronyms.tex [145] [146
+ [165] [166]) (./acronyms/acronyms.tex [167] [168
 
-]) [147] (./thesis.aux)
+]) [169] (./thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1419,12 +1659,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6458 strings out of 495062
- 89324 string characters out of 1182645
- 198662 words of memory out of 3000000
- 9389 multiletter control sequences out of 15000+50000
+ 6541 strings out of 495062
+ 93266 string characters out of 1182645
+ 196922 words of memory out of 3000000
+ 9455 multiletter control sequences out of 15000+50000
  18118 words of font info for 70 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  32i,17n,37p,2365b,520s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on thesis.dvi (162 pages, 511792 bytes).
+Output written on thesis.dvi (185 pages, 535028 bytes).

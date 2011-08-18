@@ -383,67 +383,169 @@
 \citation{ng2001onspectral}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Semi-supervised spectral clustering}{61}}
 \newlabel{sec:sssc}{{4.2.5}{61}}
-\citation{ihmels02revealing}
-\citation{segal03module}
-\citation{Dunn1974wellseparated}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces Semi-supervised spectral clustering}}{62}}
 \newlabel{alg:semi_sup_spectral_clustering}{{3}{62}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.6}Parameter optimization}{62}}
-\newlabel{chap2:sec:param_opt}{{4.2.6}{62}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.6}Toy dataset explorations}{62}}
+\newlabel{chap2:sec:spirals_dataset}{{4.2.6}{62}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Semi-supervised spectral clustering}}{63}}
 \newlabel{fig:semi_sup_spectral_clustering}{{4.2}{63}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Stress dataset: Sigma optimization using Dunn's Index}}{65}}
-\newlabel{fig:stress_sigma_opt_dunn}{{4.3}{65}}
-\@writefile{toc}{\contentsline {subsubsection}{Stress dataset}{65}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Stress dataset: Sigma optimization using Davies Bouldin's Index}}{66}}
-\newlabel{fig:stress_sigma_opt_dav}{{4.4}{66}}
-\@writefile{toc}{\contentsline {subsubsection}{Cell-cycle dataset}{66}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Cell-cycle dataset: Sigma optimization using Dunn's Index}}{67}}
-\newlabel{fig:ccycle_sigma_opt_dunn}{{4.5}{67}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Cell-cycle dataset: Sigma optimization using Davies Bouldin's Index}}{67}}
-\newlabel{fig:ccycle_sigma_opt_dav}{{4.6}{67}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Statistical validation of results}{68}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces Dunn's and Davies Bouldin's values for pertubed Stress dataset. Indicates that algorithm itself results in consistent cluster quality.}}{69}}
-\newlabel{tab:stress_only_perturb}{{4.3}{69}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces Dunn's and Davies Bouldin's values for pertubed Cell-Cycle dataset. Indicates that algorithm itself results in consistent cluster quality.}}{70}}
-\newlabel{tab:cellcycle_only_perturb}{{4.4}{70}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.5}{\ignorespaces Summary of mean and variance of individual datasets. This shows that our results are not random and small pertubations in data doesn’t change the results.}}{70}}
-\newlabel{tab:stress_ccycle_perturb}{{4.5}{70}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.6}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Stress and Chip-Chip datasets}}{71}}
-\newlabel{tab:stress_chip_perturbed}{{4.6}{71}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.7}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Stress and PPI datasets}}{72}}
-\newlabel{tab:stress_ppi_perturbed}{{4.7}{72}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.8}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Cell-cycle and Chip-Chip datasets}}{72}}
-\newlabel{tab:ccycle_chip_perturbed}{{4.8}{72}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.9}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Cell-cycle and PPI datasets}}{73}}
-\newlabel{tab:ccycle_ppi_perturbed}{{4.9}{73}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.10}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Cell-cycle and Yeastract datasets}}{73}}
-\newlabel{tab:ccycle_yt_perturbed}{{4.10}{73}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.11}{\ignorespaces Mean and variance of all combined datasets. This shows that the results of semi-supervised clustering are not random and small pertubations in data doesn’t change the results wildly.}}{73}}
-\newlabel{tab:mean_stdev_combined_perturbed}{{4.11}{73}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.12}{\ignorespaces Biological Significance before and after semi-supervised integration}}{74}}
-\newlabel{tab:no_constraints}{{4.12}{74}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.13}{\ignorespaces A subset of GO term enrichment values for the stress microarray dataset}}{81}}
-\newlabel{tab:stress_chip_0.0001}{{4.13}{81}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Biological Validation}{81}}
+\citation{ihmels02revealing}
+\citation{segal03module}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.7}Parameter optimization}{64}}
+\newlabel{chap2:sec:param_opt}{{4.2.7}{64}}
+\newlabel{fig:spirals_original}{{4.3(a)}{65}}
+\newlabel{sub@fig:spirals_original}{{(a)}{65}}
+\newlabel{fig:spirals_no_constraints}{{4.3(b)}{65}}
+\newlabel{sub@fig:spirals_no_constraints}{{(b)}{65}}
+\newlabel{fig:spirals_5_constraints}{{4.3(c)}{65}}
+\newlabel{sub@fig:spirals_5_constraints}{{(c)}{65}}
+\newlabel{fig:spirals_10_constraints}{{4.3(d)}{65}}
+\newlabel{sub@fig:spirals_10_constraints}{{(d)}{65}}
+\newlabel{fig:spirals_15_constraints}{{4.3(e)}{65}}
+\newlabel{sub@fig:spirals_15_constraints}{{(e)}{65}}
+\newlabel{fig:spirals_20_constraints}{{4.3(f)}{65}}
+\newlabel{sub@fig:spirals_20_constraints}{{(f)}{65}}
+\newlabel{fig:spirals_25_constraints}{{4.3(g)}{65}}
+\newlabel{sub@fig:spirals_25_constraints}{{(g)}{65}}
+\newlabel{fig:spirals_50_constraints}{{4.3(h)}{65}}
+\newlabel{sub@fig:spirals_50_constraints}{{(h)}{65}}
+\newlabel{fig:spirals_visual}{{4.2.6}{65}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Visual indication of Spirals dataset clustering quality improvement with increasing number of known constraints}}{65}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Original dataset clustering}}}{65}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Noisy dataset clustering without any constraints}}}{65}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Noisy dataset clustering with 5 constraints}}}{65}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Noisy dataset clustering with 10 constraints}}}{65}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(e)}{\ignorespaces {Noisy dataset clustering with 15 constraints}}}{65}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(f)}{\ignorespaces {Noisy dataset clustering with 20 constraints}}}{65}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(g)}{\ignorespaces {Noisy dataset clustering with 25 constraints}}}{65}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(h)}{\ignorespaces {Noisy dataset clustering with 50 constraints}}}{65}}
+\newlabel{fig:spirals_cv_fold1}{{4.4(a)}{66}}
+\newlabel{sub@fig:spirals_cv_fold1}{{(a)}{66}}
+\newlabel{fig:spirals_cv_fold2}{{4.4(b)}{66}}
+\newlabel{sub@fig:spirals_cv_fold2}{{(b)}{66}}
+\newlabel{fig:spirals_cv_fold3}{{4.4(c)}{66}}
+\newlabel{sub@fig:spirals_cv_fold3}{{(c)}{66}}
+\newlabel{fig:spirals_cv_fold4}{{4.4(d)}{66}}
+\newlabel{sub@fig:spirals_cv_fold4}{{(d)}{66}}
+\newlabel{fig:spirals_cv_fold5}{{4.4(e)}{66}}
+\newlabel{sub@fig:spirals_cv_fold5}{{(e)}{66}}
+\newlabel{fig:spirals_cv}{{4.2.6}{66}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Spirals dataset clustering quality improvement with increasing number of known constraints}}{66}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Cross Validation Run-1}}}{66}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Cross Validation Run-2}}}{66}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Cross Validation Run-3}}}{66}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Cross Validation Run-4}}}{66}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(e)}{\ignorespaces {Cross Validation Run-5}}}{66}}
+\@writefile{toc}{\contentsline {subsubsection}{Internal Validation Indices}{67}}
+\newlabel{chap2:subsec:cluster_validity_internal}{{4.2.7}{67}}
+\citation{Dunn1974wellseparated}
+\@writefile{toc}{\contentsline {subsubsection}{Stress dataset}{69}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Stress dataset: Sigma optimization using Dunn's Index}}{70}}
+\newlabel{fig:stress_sigma_opt_dunn}{{4.5}{70}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Stress dataset: Sigma optimization using Davies Bouldin's Index}}{70}}
+\newlabel{fig:stress_sigma_opt_dav}{{4.6}{70}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Cell-cycle dataset: Sigma optimization using Dunn's Index}}{71}}
+\newlabel{fig:ccycle_sigma_opt_dunn}{{4.7}{71}}
+\@writefile{toc}{\contentsline {subsubsection}{Cell-cycle dataset}{71}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces Cell-cycle dataset: Sigma optimization using Davies Bouldin's Index}}{72}}
+\newlabel{fig:ccycle_sigma_opt_dav}{{4.8}{72}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Statistical validation of results}{72}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces Dunn's and Davies Bouldin's values for pertubed Stress dataset. Indicates that algorithm itself results in consistent cluster quality.}}{73}}
+\newlabel{tab:stress_only_perturb}{{4.3}{73}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces Dunn's and Davies Bouldin's values for pertubed Cell-Cycle dataset. Indicates that algorithm itself results in consistent cluster quality.}}{74}}
+\newlabel{tab:cellcycle_only_perturb}{{4.4}{74}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.5}{\ignorespaces Summary of mean and variance of individual datasets. This shows that our results are not random and small pertubations in data doesn’t change the results.}}{74}}
+\newlabel{tab:stress_ccycle_perturb}{{4.5}{74}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.6}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Stress and Chip-Chip datasets}}{75}}
+\newlabel{tab:stress_chip_perturbed}{{4.6}{75}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.7}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Stress and PPI datasets}}{76}}
+\newlabel{tab:stress_ppi_perturbed}{{4.7}{76}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.8}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Cell-cycle and Chip-Chip datasets}}{76}}
+\newlabel{tab:ccycle_chip_perturbed}{{4.8}{76}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.9}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Cell-cycle and PPI datasets}}{77}}
+\newlabel{tab:ccycle_ppi_perturbed}{{4.9}{77}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.10}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Cell-cycle and Yeastract datasets}}{77}}
+\newlabel{tab:ccycle_yt_perturbed}{{4.10}{77}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.11}{\ignorespaces Mean and variance of all combined datasets. This shows that the results of semi-supervised clustering are not random and small pertubations in data doesn’t change the results wildly.}}{77}}
+\newlabel{tab:mean_stdev_combined_perturbed}{{4.11}{77}}
 \citation{Gibons2002Judging}
 \citation{gatviks03scoring}
+\@writefile{lot}{\contentsline {table}{\numberline {4.12}{\ignorespaces Biological Significance before and after semi-supervised integration}}{78}}
+\newlabel{tab:no_constraints}{{4.12}{78}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Biological Validation}{78}}
+\newlabel{fig:stress_only_enrich_1}{{4.9(a)}{79}}
+\newlabel{sub@fig:stress_only_enrich_1}{{(a)}{79}}
+\newlabel{fig:stress_only_enrich_2}{{4.9(b)}{79}}
+\newlabel{sub@fig:stress_only_enrich_2}{{(b)}{79}}
+\newlabel{fig:stress_only_enrich}{{4.3}{79}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces }}{79}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{79}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{79}}
+\newlabel{fig:stress_ppi_enrich_1}{{4.10(a)}{80}}
+\newlabel{sub@fig:stress_ppi_enrich_1}{{(a)}{80}}
+\newlabel{fig:stress_ppi_enrich_2}{{4.10(b)}{80}}
+\newlabel{sub@fig:stress_ppi_enrich_2}{{(b)}{80}}
+\newlabel{fig:stress_ppi_enrich}{{4.3}{80}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces }}{80}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{80}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{80}}
+\newlabel{fig:stress_chip_enrich_1}{{4.11(a)}{81}}
+\newlabel{sub@fig:stress_chip_enrich_1}{{(a)}{81}}
+\newlabel{fig:stress_chip_enrich_2}{{4.11(b)}{81}}
+\newlabel{sub@fig:stress_chip_enrich_2}{{(b)}{81}}
+\newlabel{fig:stress_chip_enrich}{{4.3}{81}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces }}{81}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{81}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{81}}
+\newlabel{fig:ccycle_only_enrich_1}{{4.12(a)}{82}}
+\newlabel{sub@fig:ccycle_only_enrich_1}{{(a)}{82}}
+\newlabel{fig:ccycle_only_enrich}{{4.3}{82}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces }}{82}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{82}}
+\newlabel{fig:ccycle_ppi_enrich_1}{{4.13(a)}{83}}
+\newlabel{sub@fig:ccycle_ppi_enrich_1}{{(a)}{83}}
+\newlabel{fig:ccycle_ppi_enrich_2}{{4.13(b)}{83}}
+\newlabel{sub@fig:ccycle_ppi_enrich_2}{{(b)}{83}}
+\newlabel{fig:ccycle_ppi_enrich}{{4.3}{83}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces }}{83}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{83}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{83}}
+\newlabel{fig:ccycle_ppi_enrich_1}{{4.14(a)}{84}}
+\newlabel{sub@fig:ccycle_ppi_enrich_1}{{(a)}{84}}
+\newlabel{fig:ccycle_ppi_enrich_2}{{4.14(b)}{84}}
+\newlabel{sub@fig:ccycle_ppi_enrich_2}{{(b)}{84}}
+\newlabel{fig:ccycle_chip_enrich}{{4.3}{84}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces }}{84}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{84}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{84}}
+\newlabel{fig:ccycle_yt_enrich_1}{{4.15(a)}{85}}
+\newlabel{sub@fig:ccycle_yt_enrich_1}{{(a)}{85}}
+\newlabel{fig:ccycle_yt_enrich}{{4.3}{85}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces }}{85}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{85}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.13}{\ignorespaces A subset of GO term enrichment values for the stress microarray dataset}}{86}}
+\newlabel{tab:stress_chip_0.0001}{{4.13}{86}}
+\citation{Gibons2002Judging}
 \citation{GO}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Biological Significance using Gene Ontology}{82}}
-\newlabel{biosig_go}{{4.4.1}{82}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}Results}{83}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Biological Significance using Gene Ontology}{88}}
+\newlabel{biosig_go}{{4.4.1}{88}}
 \citation{harbison04transcriptional}
-\@writefile{lot}{\contentsline {table}{\numberline {4.14}{\ignorespaces Stress microarray dataset: Comparison of mean p-values of enriched GO terms before and after supervision}}{84}}
-\newlabel{tab:stress:semisup_mean_pvals}{{4.14}{84}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.14}{\ignorespaces Stress microarray dataset: Comparison of mean p-values of enriched GO terms before and after supervision}}{90}}
+\newlabel{tab:stress:semisup_mean_pvals}{{4.14}{90}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Results}{90}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.15}{\ignorespaces Cell-cycle microarray dataset: Comparison of mean p-values of enriched GO terms before and after supervision}}{91}}
+\newlabel{tab:ccycle:semisup_mean_pvals}{{4.15}{91}}
 \citation{amos05integrative}
-\@writefile{lot}{\contentsline {table}{\numberline {4.15}{\ignorespaces Cell-cycle microarray dataset: Comparison of mean p-values of enriched GO terms before and after supervision}}{85}}
-\newlabel{tab:ccycle:semisup_mean_pvals}{{4.15}{85}}
 \citation{bradley00constrained}
 \citation{MacQueen67kmeans}
 \citation{tung2001constraint}
 \citation{basu2008constrained}
-\@writefile{toc}{\contentsline {section}{\numberline {4.6}Related Work and Discussion}{86}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.1}Constrained clustering}{86}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.6}Related Work and Discussion}{93}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.1}Post Viva Discussion Items}{93}}
+\@writefile{toc}{\contentsline {subsubsection}{GO terms based P-value validation}{93}}
+\@writefile{toc}{\contentsline {subsubsection}{A section on mutual information based approaches to validation and why it is better than the rest}{93}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.2}Constrained clustering}{93}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.3}Semi-supervised clustering}{93}}
 \citation{klein2002frominstance}
 \citation{jain1988algorithms}
 \citation{basu2004probabilistic}
@@ -453,177 +555,126 @@
 \citation{angenent99laplace}
 \citation{luxberg2006tutorial_spectral}
 \citation{ding2008spectral}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.2}Semi-supervised clustering}{87}}
-\undonewlabel{acro:HMRF}
-\newlabel{acro:HMRF}{{4.6.2}{87}}
-\acronymused{HMRF}
 \citation{deleeuw2005mds}
 \citation{saul2006smd,haifang2006manifold}
 \citation{grira2005unsupsurvey}
 \citation{nadler06fundamental}
 \citation{dhillon05unified}
 \citation{johnshaw2004kernelmethods}
+\undonewlabel{acro:HMRF}
+\newlabel{acro:HMRF}{{4.6.3}{94}}
+\acronymused{HMRF}
+\@writefile{toc}{\contentsline {subsubsection}{Spectral clustering}{94}}
 \citation{gianchandani2006matrix}
 \citation{kluger2003spectral}
 \citation{speer05spectral}
-\@writefile{toc}{\contentsline {subsubsection}{Spectral clustering}{88}}
 \citation{kamvar03spectral}
 \citation{fiedler1975property}
 \citation{brian_semisupgraph2005}
 \citation{xing2003metric}
-\@writefile{toc}{\contentsline {subsubsection}{Semi-supervised spectral clustering}{89}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.3}Co-clustering}{90}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.7}Conclusion}{90}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Maximum Entropy Kernel Integration for Regulatory Module Discovery}{92}}
+\@writefile{toc}{\contentsline {subsubsection}{Semi-supervised spectral clustering}{96}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.4}Co-clustering}{96}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.7}Conclusion}{97}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Maximum Entropy Kernel Integration for Regulatory Module Discovery}{98}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap_maxent}{{5}{92}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Introduction}{92}}
+\newlabel{chap_maxent}{{5}{98}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Introduction}{98}}
 \acronymused{PPI}
 \citation{Strang2006Linear,golub1996matrix}
 \acronymused{PPI}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Elementary Linear Algebra}{94}}
-\newlabel{maxent:linalg}{{5.2}{94}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Vectors and matrices}{94}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Eigenvalues and eigenvectors}{96}}
-\newlabel{eigval_eigvec}{{5.2.2}{96}}
-\newlabel{eqn:eigenvec_eigenval}{{5.2}{96}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}Spectral or eigen-decomposition}{96}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Kernel Methods}{97}}
-\newlabel{kern_methods}{{5.3}{97}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Elementary Linear Algebra}{100}}
+\newlabel{maxent:linalg}{{5.2}{100}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Vectors and matrices}{100}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Eigenvalues and eigenvectors}{102}}
+\newlabel{eigval_eigvec}{{5.2.2}{102}}
+\newlabel{eqn:eigenvec_eigenval}{{5.2}{102}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}Spectral or eigen-decomposition}{102}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Kernel Methods}{103}}
+\newlabel{kern_methods}{{5.3}{103}}
 \citation{Kondor02diffusion}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Various kernel or similarity functions}{98}}
-\newlabel{kern_types}{{5.3.1}{98}}
-\@writefile{toc}{\contentsline {subsubsection}{Vector Data}{98}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Various kernel or similarity functions}{104}}
+\newlabel{kern_types}{{5.3.1}{104}}
+\@writefile{toc}{\contentsline {subsubsection}{Vector Data}{104}}
 \citation{Moler2003Nineteen}
-\@writefile{toc}{\contentsline {subsubsection}{Graph data}{99}}
-\newlabel{diffusion}{{5.9}{99}}
+\@writefile{toc}{\contentsline {subsubsection}{Graph data}{105}}
+\newlabel{diffusion}{{5.9}{105}}
 \citation{Kondor02diffusion}
 \citation{kernel_methodsvert2004}
 \citation{tsuda99supportasymmetric}
 \citation{roth2002going}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}From similarities to a valid kernel}{100}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}From similarities to a valid kernel}{106}}
 \citation{sha48mathematical}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.3}Kernel normalization}{101}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Principle of Maximum Entropy}{101}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Entropy}{101}}
-\newlabel{information_theory}{{5.4.1}{101}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.3}Kernel normalization}{107}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Principle of Maximum Entropy}{107}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Entropy}{107}}
+\newlabel{information_theory}{{5.4.1}{107}}
 \citation{jaynes57maxent,jaynes82onrationale}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Principle of maximum entropy}{102}}
-\newlabel{maxent_principle}{{5.4.2}{102}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Maximum Entropy Kernel Integration}{103}}
-\newlabel{kern_integration}{{5.5}{103}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Principle of maximum entropy}{108}}
+\newlabel{maxent_principle}{{5.4.2}{108}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Maximum Entropy Kernel Integration}{109}}
+\newlabel{kern_integration}{{5.5}{109}}
 \citation{brookes2005matrix}
 \citation{boyd2004convexopt}
-\newlabel{diff_entropy_gauss}{{5.15}{104}}
-\newlabel{max_det}{{5.17}{104}}
+\newlabel{diff_entropy_gauss}{{5.15}{110}}
+\newlabel{max_det}{{5.17}{110}}
 \citation{thomaz2004covariance,carlos05maximum}
-\newlabel{eigv_split_1}{{5.23}{105}}
-\newlabel{eigv_split_2}{{5.24}{105}}
+\newlabel{eigv_split_1}{{5.23}{111}}
+\newlabel{eigv_split_2}{{5.24}{111}}
 \citation{gasch00genomicexpn,spellman98comprehensive}
 \citation{harbison04transcriptional}
 \citation{Gueldener2006MPact}
 \citation{Teixeira06yeastract}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Algorithm}{106}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {4}{\ignorespaces Maximum Entropy Similarity matrix Integration}}{106}}
-\newlabel{alg:max_ent_integration}{{4}{106}}
-\newlabel{var_contrib1}{{5.28}{106}}
-\newlabel{var_contrib2}{{5.29}{106}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.6}Datasets and Methodology}{106}}
-\newlabel{chap3:sec:materials}{{5.6}{106}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.1}Parameter optimisation results}{108}}
-\newlabel{param_optimisation}{{5.6.1}{108}}
-\@writefile{toc}{\contentsline {subsubsection}{Stress and PPI datasets}{108}}
-\@writefile{toc}{\contentsline {subsubsection}{Stress and ChIP-chip}{108}}
-\newlabel{fig:stress_ppi_dunn}{{5.1(a)}{109}}
-\newlabel{sub@fig:stress_ppi_dunn}{{(a)}{109}}
-\newlabel{fig:stress_ppi_davies}{{5.1(b)}{109}}
-\newlabel{sub@fig:stress_ppi_davies}{{(b)}{109}}
-\newlabel{fig:stress_ppi_withinss}{{5.1(c)}{109}}
-\newlabel{sub@fig:stress_ppi_withinss}{{(c)}{109}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Microarray (stress) and PPI datasets: Sigma and Beta optimization}}{109}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Microarray $\sigma $ optimization using Dunn' index}}}{109}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Microarray $\sigma $ optimization using Davies Bouldin's index}}}{109}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {PPI $\beta $ optimization using total within-cluster sum of square distances}}}{109}}
-\newlabel{fig:stress_ppi_opt}{{5.1}{109}}
-\newlabel{fig:stress_chip_dunn}{{5.2(a)}{110}}
-\newlabel{sub@fig:stress_chip_dunn}{{(a)}{110}}
-\newlabel{fig:stress_chip_davies}{{5.2(b)}{110}}
-\newlabel{sub@fig:stress_chip_davies}{{(b)}{110}}
-\newlabel{fig:stress_chip_withinss}{{5.2(c)}{110}}
-\newlabel{sub@fig:stress_chip_withinss}{{(c)}{110}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Microarray (stress) and ChIP-chip datasets: Sigma and Beta optimization}}{110}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Microarray $\sigma $ optimization using Dunn' index}}}{110}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Microarray $\sigma $ optimization using Davies Bouldin's index}}}{110}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {ChIP-chip $\beta $ optimization using total within-cluster sum of square distances}}}{110}}
-\newlabel{fig:stress_chip_opt}{{5.2}{110}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Parameter values among pairs of datasets after optimization}}{111}}
-\newlabel{tab:maxent_mean_pvals}{{5.1}{111}}
-\@writefile{toc}{\contentsline {subsubsection}{Stress and Yeastract}{111}}
-\@writefile{toc}{\contentsline {subsubsection}{Cell-cycle and (PPI, ChIP-chip and Yeastract)}{111}}
-\newlabel{fig:stress_tf_dunn}{{5.3(a)}{112}}
-\newlabel{sub@fig:stress_tf_dunn}{{(a)}{112}}
-\newlabel{fig:stress_tf_davies}{{5.3(b)}{112}}
-\newlabel{sub@fig:stress_tf_davies}{{(b)}{112}}
-\newlabel{fig:stress_tf_withinss}{{5.3(c)}{112}}
-\newlabel{sub@fig:stress_tf_withinss}{{(c)}{112}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Microarray (stress) and Yeastract datasets: Sigma and Beta optimization}}{112}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Microarray $\sigma $ optimization using Dunn' index}}}{112}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Microarray $\sigma $ optimization using Davies Bouldin's index}}}{112}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Yeastract $\beta $ optimization using total within-cluster sum of square distances}}}{112}}
-\newlabel{fig:stress_tf_opt}{{5.3}{112}}
-\newlabel{fig:ccycle_ppi_dunn}{{5.4(a)}{113}}
-\newlabel{sub@fig:ccycle_ppi_dunn}{{(a)}{113}}
-\newlabel{fig:ccycle_ppi_davies}{{5.4(b)}{113}}
-\newlabel{sub@fig:ccycle_ppi_davies}{{(b)}{113}}
-\newlabel{fig:ccycle_ppi_withinss}{{5.4(c)}{113}}
-\newlabel{sub@fig:ccycle_ppi_withinss}{{(c)}{113}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Microarray (cell-cycle) and PPI datasets: Sigma and Beta optimization}}{113}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Microarray $\sigma $ optimization using Dunn' index}}}{113}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Microarray $\sigma $ optimization using Davies Bouldin's index}}}{113}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {PPI $\beta $ optimization using total within-cluster sum of square distances}}}{113}}
-\newlabel{fig:ccycle_ppi_opt}{{5.4}{113}}
-\newlabel{fig:ccycle_chip_dunn}{{5.5(a)}{114}}
-\newlabel{sub@fig:ccycle_chip_dunn}{{(a)}{114}}
-\newlabel{fig:ccycle_chip_davies}{{5.5(b)}{114}}
-\newlabel{sub@fig:ccycle_chip_davies}{{(b)}{114}}
-\newlabel{fig:ccycle_chip_withinss}{{5.5(c)}{114}}
-\newlabel{sub@fig:ccycle_chip_withinss}{{(c)}{114}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Microarray (cell-cycle) and ChIP-chip datasets: Sigma and Beta optimization}}{114}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Microarray $\sigma $ optimization using Dunn' index}}}{114}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Microarray $\sigma $ optimization using Davies Bouldin's index}}}{114}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {ChIP-chip $\beta $ optimization using total within-cluster sum of square distances}}}{114}}
-\newlabel{fig:ccycle_chip_opt}{{5.5}{114}}
-\newlabel{fig:ccycle_tf_dunn}{{5.6(a)}{115}}
-\newlabel{sub@fig:ccycle_tf_dunn}{{(a)}{115}}
-\newlabel{fig:ccycle_tf_davies}{{5.6(b)}{115}}
-\newlabel{sub@fig:ccycle_tf_davies}{{(b)}{115}}
-\newlabel{fig:ccycle_tf_withinss}{{5.6(c)}{115}}
-\newlabel{sub@fig:ccycle_tf_withinss}{{(c)}{115}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Microarray (cell-cycle) and Yeastract datasets: Sigma and Beta optimization}}{115}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Microarray $\sigma $ optimization using Dunn' index}}}{115}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Microarray $\sigma $ optimization using Davies Bouldin's index}}}{115}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Yeastract $\beta $ optimization using total within-cluster sum of square distances}}}{115}}
-\newlabel{fig:ccycle_tf_opt}{{5.6}{115}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Stress microarray dataset: Comparison of mean p-values of enriched GO terms before and after maximum entropy data integration}}{116}}
-\newlabel{tab:stress:maxent_mean_pvals}{{5.2}{116}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.7}Biological Validation of Results}{116}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Cell-cycle microarray dataset: Comparison of mean p-values of enriched GO terms before and after maximum entropy data integration}}{117}}
-\newlabel{tab:ccycle:maxent_mean_pvals}{{5.3}{117}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Algorithm}{112}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {4}{\ignorespaces Maximum Entropy Similarity matrix Integration}}{112}}
+\newlabel{alg:max_ent_integration}{{4}{112}}
+\newlabel{var_contrib1}{{5.28}{112}}
+\newlabel{var_contrib2}{{5.29}{112}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.6}Datasets and Methodology}{112}}
+\newlabel{chap3:sec:materials}{{5.6}{112}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Parameter values among pairs of datasets after optimization}}{114}}
+\newlabel{tab:maxent_mean_pvals}{{5.1}{114}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.1}Parameter optimisation results}{114}}
+\newlabel{param_optimisation}{{5.6.1}{114}}
+\@writefile{toc}{\contentsline {subsubsection}{Stress and PPI datasets}{114}}
+\newlabel{fig:ppi_withinss}{{5.1(a)}{115}}
+\newlabel{sub@fig:ppi_withinss}{{(a)}{115}}
+\newlabel{fig:chip_withinss}{{5.1(b)}{115}}
+\newlabel{sub@fig:chip_withinss}{{(b)}{115}}
+\newlabel{fig:yt_withinss}{{5.1(c)}{115}}
+\newlabel{sub@fig:yt_withinss}{{(c)}{115}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces PPI, Chip-chip and Yeastract datasets: Beta optimization}}{115}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Microarray $\beta $ optimization using total within-cluster sum of square distances}}}{115}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Microarray $\beta $ optimization using total within-cluster sum of square distances}}}{115}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {PPI $\beta $ optimization using total within-cluster sum of square distances}}}{115}}
+\newlabel{fig:chip_ppi_yt_opt}{{5.1}{115}}
+\newlabel{fig:stress_only_enrich_1}{{5.2(a)}{116}}
+\newlabel{sub@fig:stress_only_enrich_1}{{(a)}{116}}
+\newlabel{fig:stress_only_enrich_2}{{5.2(b)}{116}}
+\newlabel{sub@fig:stress_only_enrich_2}{{(b)}{116}}
+\newlabel{fig:stress_only_enrich}{{5.6.1}{116}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces }}{116}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{116}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{116}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Stress microarray dataset: Comparison of mean p-values of enriched GO terms before and after maximum entropy data integration}}{117}}
+\newlabel{tab:stress:maxent_mean_pvals}{{5.2}{117}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.7}Biological Validation of Results}{117}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Cell-cycle microarray dataset: Comparison of mean p-values of enriched GO terms before and after maximum entropy data integration}}{118}}
+\newlabel{tab:ccycle:maxent_mean_pvals}{{5.3}{118}}
 \citation{Hanisch2002Coclustering}
 \citation{Gueldener2006MPact}
 \citation{huang2006incorporating}
 \citation{bramier2007coclustering}
 \citation{pan06incorporating}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Comparison of biological significance before and after maximum entropy integration of stress microarray and PPI datasets}}{118}}
-\newlabel{fig:maxent_biol_valid}{{5.7}{118}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Comparison of biological significance before and after maximum entropy integration of stress microarray and PPI datasets}}{119}}
+\newlabel{fig:maxent_biol_valid}{{5.3}{119}}
 \citation{Holloway2006MachineLearning}
-\@writefile{toc}{\contentsline {section}{\numberline {5.8}Related Work and Discussion}{119}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.8}Related Work and Discussion}{120}}
 \undonewlabel{acro:SOM}
-\newlabel{acro:SOM}{{5.8}{119}}
+\newlabel{acro:SOM}{{5.8}{120}}
 \acronymused{SOM}
 \undonewlabel{acro:SVM}
-\newlabel{acro:SVM}{{5.8}{119}}
+\newlabel{acro:SVM}{{5.8}{120}}
 \acronymused{SVM}
 \citation{lanck04kerneldatafusion}
 \citation{lewis06svm}
@@ -632,54 +683,54 @@
 \citation{fujibuchi2007classification}
 \citation{Tsuda2004Learning}
 \undonewlabel{acro:SDP}
-\newlabel{acro:SDP}{{5.8}{120}}
+\newlabel{acro:SDP}{{5.8}{121}}
 \acronymused{SDP}
 \citation{Tsuda2004Learning,fujibuchi2007classification}
 \citation{thomaz2004covariance}
-\@writefile{toc}{\contentsline {section}{\numberline {5.9}Conclusion}{121}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Summary and Future Work}{123}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.9}Conclusion}{122}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Summary and Future Work}{124}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Summary}{123}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Summary}{124}}
 \citation{Griffin02Complementary}
 \citation{segal2007genomiccode,field2008distinct,kaplan2008nucleosome}
 \citation{jean2006kernels}
 \citation{lanck04kerneldatafusion}
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Challenges and Future Directions}{124}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Challenges and Future Directions}{125}}
 \acronymused{mRNA}
 \acronymused{mRNA}
 \citation{schaefer05shrinkage}
 \citation{carlos05maximum}
 \citation{Tai2008Incorporating}
 \undonewlabel{acro:LDA}
-\newlabel{acro:LDA}{{6.2}{125}}
+\newlabel{acro:LDA}{{6.2}{126}}
 \acronymused{LDA}
 \undonewlabel{acro:RDA}
-\newlabel{acro:RDA}{{6.2}{125}}
+\newlabel{acro:RDA}{{6.2}{126}}
 \acronymused{RDA}
 \acronymused{RDA}
 \citation{dolinski2005changing}
 \citation{segal04module}
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Final Remarks}{127}}
-\@writefile{toc}{\contentsline {chapter}{Appendices}{128}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}GO Term Enrichment after Integration}{129}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Final Remarks}{128}}
+\@writefile{toc}{\contentsline {chapter}{Appendices}{129}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}GO Term Enrichment after Integration}{130}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{appendix:go_enrichment_results}{{A}{129}}
-\@writefile{lot}{\contentsline {table}{\numberline {A.1}{Stress microarray dataset: P-Values of enriched GO terms after supervision from ChIP-chip data}}{129}}
-\newlabel{appendix:semisup_stress_pval}{{A.1}{129}}
+\newlabel{appendix:go_enrichment_results}{{A}{130}}
+\@writefile{lot}{\contentsline {table}{\numberline {A.1}{Stress microarray dataset: P-Values of enriched GO terms after supervision from ChIP-chip data}}{152}}
+\newlabel{appendix:semisup_stress_pval}{{A.1}{152}}
 \gdef \LT@i {\LT@entry 
     {1}{101.90503pt}\LT@entry 
-    {6}{301.07999pt}\LT@entry 
+    {5}{301.07999pt}\LT@entry 
     {5}{84.26999pt}}
-\@writefile{lot}{\contentsline {table}{\numberline {A.2}{P-Values of enriched GO terms after maximum entropy integration of stress microarray dataset and PPI dataset}}{134}}
-\newlabel{appendix:maxent_stress_pval}{{A.2}{134}}
+\@writefile{lot}{\contentsline {table}{\numberline {A.2}{P-Values of enriched GO terms after maximum entropy integration of stress microarray dataset and PPI dataset}}{156}}
+\newlabel{appendix:maxent_stress_pval}{{A.2}{156}}
 \gdef \LT@ii {\LT@entry 
     {1}{101.90503pt}\LT@entry 
     {5}{301.07999pt}\LT@entry 
     {5}{84.26999pt}}
 \bibdata{/home/alok/phd/post_viva/thesis/bioinfo}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{135}}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{157}}
 \bibcite{alberts02molecular}{{1}{2002}{{Alberts et~al.}}{{}}}
 \bibcite{angenent99laplace}{{2}{1999}{{Angenent et~al.}}{{}}}
 \bibcite{barjoseph03computational}{{3}{2003}{{Bar-Joseph et~al.}}{{}}}
@@ -807,7 +858,7 @@
 \bibcite{yu2004annotation}{{125}{2004}{{Yu et~al.}}{{}}}
 \bibcite{zhu1999scpd}{{126}{1999}{{Zhu and Zhang}}{{}}}
 \bibcite{zou05dynamic}{{127}{2005}{{Zou and Conzen}}{{}}}
-\@writefile{toc}{\contentsline {chapter}{Acronyms}{145}}
+\@writefile{toc}{\contentsline {chapter}{Acronyms}{167}}
 \newacro{mRNA}[\AC@hyperlink{mRNA}{mRNA}]{messenger ribonucleic acid}
 \newacro{RNA}[\AC@hyperlink{RNA}{RNA}]{ribonucleic acid}
 \newacro{TF}[\AC@hyperlink{TF}{TF}]{transcription factor}

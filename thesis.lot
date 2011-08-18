@@ -30,24 +30,24 @@
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {4.1}{\ignorespaces Number of constraints from DNA-binding dataset at various p-value thresholds}}{58}
 \contentsline {table}{\numberline {4.2}{\ignorespaces Number of constraints derived from PPI and Yeastract datasets}}{60}
-\contentsline {table}{\numberline {4.3}{\ignorespaces Dunn's and Davies Bouldin's values for pertubed Stress dataset. Indicates that algorithm itself results in consistent cluster quality.}}{69}
-\contentsline {table}{\numberline {4.4}{\ignorespaces Dunn's and Davies Bouldin's values for pertubed Cell-Cycle dataset. Indicates that algorithm itself results in consistent cluster quality.}}{70}
-\contentsline {table}{\numberline {4.5}{\ignorespaces Summary of mean and variance of individual datasets. This shows that our results are not random and small pertubations in data doesn’t change the results.}}{70}
-\contentsline {table}{\numberline {4.6}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Stress and Chip-Chip datasets}}{71}
-\contentsline {table}{\numberline {4.7}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Stress and PPI datasets}}{72}
-\contentsline {table}{\numberline {4.8}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Cell-cycle and Chip-Chip datasets}}{72}
-\contentsline {table}{\numberline {4.9}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Cell-cycle and PPI datasets}}{73}
-\contentsline {table}{\numberline {4.10}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Cell-cycle and Yeastract datasets}}{73}
-\contentsline {table}{\numberline {4.11}{\ignorespaces Mean and variance of all combined datasets. This shows that the results of semi-supervised clustering are not random and small pertubations in data doesn’t change the results wildly.}}{73}
-\contentsline {table}{\numberline {4.12}{\ignorespaces Biological Significance before and after semi-supervised integration}}{74}
-\contentsline {table}{\numberline {4.13}{\ignorespaces A subset of GO term enrichment values for the stress microarray dataset}}{81}
-\contentsline {table}{\numberline {4.14}{\ignorespaces Stress microarray dataset: Comparison of mean p-values of enriched GO terms before and after supervision}}{84}
-\contentsline {table}{\numberline {4.15}{\ignorespaces Cell-cycle microarray dataset: Comparison of mean p-values of enriched GO terms before and after supervision}}{85}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Dunn's and Davies Bouldin's values for pertubed Stress dataset. Indicates that algorithm itself results in consistent cluster quality.}}{73}
+\contentsline {table}{\numberline {4.4}{\ignorespaces Dunn's and Davies Bouldin's values for pertubed Cell-Cycle dataset. Indicates that algorithm itself results in consistent cluster quality.}}{74}
+\contentsline {table}{\numberline {4.5}{\ignorespaces Summary of mean and variance of individual datasets. This shows that our results are not random and small pertubations in data doesn’t change the results.}}{74}
+\contentsline {table}{\numberline {4.6}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Stress and Chip-Chip datasets}}{75}
+\contentsline {table}{\numberline {4.7}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Stress and PPI datasets}}{76}
+\contentsline {table}{\numberline {4.8}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Cell-cycle and Chip-Chip datasets}}{76}
+\contentsline {table}{\numberline {4.9}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Cell-cycle and PPI datasets}}{77}
+\contentsline {table}{\numberline {4.10}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Cell-cycle and Yeastract datasets}}{77}
+\contentsline {table}{\numberline {4.11}{\ignorespaces Mean and variance of all combined datasets. This shows that the results of semi-supervised clustering are not random and small pertubations in data doesn’t change the results wildly.}}{77}
+\contentsline {table}{\numberline {4.12}{\ignorespaces Biological Significance before and after semi-supervised integration}}{78}
+\contentsline {table}{\numberline {4.13}{\ignorespaces A subset of GO term enrichment values for the stress microarray dataset}}{86}
+\contentsline {table}{\numberline {4.14}{\ignorespaces Stress microarray dataset: Comparison of mean p-values of enriched GO terms before and after supervision}}{90}
+\contentsline {table}{\numberline {4.15}{\ignorespaces Cell-cycle microarray dataset: Comparison of mean p-values of enriched GO terms before and after supervision}}{91}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Parameter values among pairs of datasets after optimization}}{111}
-\contentsline {table}{\numberline {5.2}{\ignorespaces Stress microarray dataset: Comparison of mean p-values of enriched GO terms before and after maximum entropy data integration}}{116}
-\contentsline {table}{\numberline {5.3}{\ignorespaces Cell-cycle microarray dataset: Comparison of mean p-values of enriched GO terms before and after maximum entropy data integration}}{117}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Parameter values among pairs of datasets after optimization}}{114}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Stress microarray dataset: Comparison of mean p-values of enriched GO terms before and after maximum entropy data integration}}{117}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Cell-cycle microarray dataset: Comparison of mean p-values of enriched GO terms before and after maximum entropy data integration}}{118}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{Stress microarray dataset: P-Values of enriched GO terms after supervision from ChIP-chip data}}{129}
-\contentsline {table}{\numberline {A.2}{P-Values of enriched GO terms after maximum entropy integration of stress microarray dataset and PPI dataset}}{134}
+\contentsline {table}{\numberline {A.1}{Stress microarray dataset: P-Values of enriched GO terms after supervision from ChIP-chip data}}{152}
+\contentsline {table}{\numberline {A.2}{P-Values of enriched GO terms after maximum entropy integration of stress microarray dataset and PPI dataset}}{156}

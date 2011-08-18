@@ -14,35 +14,52 @@
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Constraints at p=0.0001}}}{59}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Constraints at p=0.001}}}{59}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Semi-supervised spectral clustering}}{63}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Stress dataset: Sigma optimization using Dunn's Index}}{65}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Stress dataset: Sigma optimization using Davies Bouldin's Index}}{66}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Cell-cycle dataset: Sigma optimization using Dunn's Index}}{67}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Cell-cycle dataset: Sigma optimization using Davies Bouldin's Index}}{67}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Visual indication of Spirals dataset clustering quality improvement with increasing number of known constraints}}{65}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Original dataset clustering}}}{65}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Noisy dataset clustering without any constraints}}}{65}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Noisy dataset clustering with 5 constraints}}}{65}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Noisy dataset clustering with 10 constraints}}}{65}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Noisy dataset clustering with 15 constraints}}}{65}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {Noisy dataset clustering with 20 constraints}}}{65}
+\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {Noisy dataset clustering with 25 constraints}}}{65}
+\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {Noisy dataset clustering with 50 constraints}}}{65}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Spirals dataset clustering quality improvement with increasing number of known constraints}}{66}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Cross Validation Run-1}}}{66}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Cross Validation Run-2}}}{66}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Cross Validation Run-3}}}{66}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Cross Validation Run-4}}}{66}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Cross Validation Run-5}}}{66}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Stress dataset: Sigma optimization using Dunn's Index}}{70}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Stress dataset: Sigma optimization using Davies Bouldin's Index}}{70}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Cell-cycle dataset: Sigma optimization using Dunn's Index}}{71}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Cell-cycle dataset: Sigma optimization using Davies Bouldin's Index}}{72}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces }}{79}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{79}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{79}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces }}{80}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{80}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{80}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces }}{81}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{81}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{81}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces }}{82}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{82}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces }}{83}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{83}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{83}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces }}{84}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{84}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{84}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces }}{85}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{85}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Microarray (stress) and PPI datasets: Sigma and Beta optimization}}{109}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Microarray $\sigma $ optimization using Dunn' index}}}{109}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Microarray $\sigma $ optimization using Davies Bouldin's index}}}{109}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {PPI $\beta $ optimization using total within-cluster sum of square distances}}}{109}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Microarray (stress) and ChIP-chip datasets: Sigma and Beta optimization}}{110}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Microarray $\sigma $ optimization using Dunn' index}}}{110}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Microarray $\sigma $ optimization using Davies Bouldin's index}}}{110}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {ChIP-chip $\beta $ optimization using total within-cluster sum of square distances}}}{110}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Microarray (stress) and Yeastract datasets: Sigma and Beta optimization}}{112}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Microarray $\sigma $ optimization using Dunn' index}}}{112}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Microarray $\sigma $ optimization using Davies Bouldin's index}}}{112}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Yeastract $\beta $ optimization using total within-cluster sum of square distances}}}{112}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Microarray (cell-cycle) and PPI datasets: Sigma and Beta optimization}}{113}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Microarray $\sigma $ optimization using Dunn' index}}}{113}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Microarray $\sigma $ optimization using Davies Bouldin's index}}}{113}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {PPI $\beta $ optimization using total within-cluster sum of square distances}}}{113}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Microarray (cell-cycle) and ChIP-chip datasets: Sigma and Beta optimization}}{114}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Microarray $\sigma $ optimization using Dunn' index}}}{114}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Microarray $\sigma $ optimization using Davies Bouldin's index}}}{114}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {ChIP-chip $\beta $ optimization using total within-cluster sum of square distances}}}{114}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Microarray (cell-cycle) and Yeastract datasets: Sigma and Beta optimization}}{115}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Microarray $\sigma $ optimization using Dunn' index}}}{115}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Microarray $\sigma $ optimization using Davies Bouldin's index}}}{115}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Yeastract $\beta $ optimization using total within-cluster sum of square distances}}}{115}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Comparison of biological significance before and after maximum entropy integration of stress microarray and PPI datasets}}{118}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces PPI, Chip-chip and Yeastract datasets: Beta optimization}}{115}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Microarray $\beta $ optimization using total within-cluster sum of square distances}}}{115}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Microarray $\beta $ optimization using total within-cluster sum of square distances}}}{115}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {PPI $\beta $ optimization using total within-cluster sum of square distances}}}{115}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces }}{116}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{116}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{116}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Comparison of biological significance before and after maximum entropy integration of stress microarray and PPI datasets}}{119}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

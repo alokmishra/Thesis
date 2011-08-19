@@ -53,13 +53,13 @@
 \contentsline {figure}{\numberline {4.15}{\ignorespaces }}{85}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{85}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces PPI, Chip-chip and Yeastract datasets: Beta optimization}}{115}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Microarray $\beta $ optimization using total within-cluster sum of square distances}}}{115}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Microarray $\beta $ optimization using total within-cluster sum of square distances}}}{115}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {PPI $\beta $ optimization using total within-cluster sum of square distances}}}{115}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces }}{116}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{116}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{116}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Comparison of biological significance before and after maximum entropy integration of stress microarray and PPI datasets}}{119}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces PPI, Chip-chip and Yeastract datasets: Beta optimization}}{116}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Microarray $\beta $ optimization using total within-cluster sum of square distances}}}{116}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Microarray $\beta $ optimization using total within-cluster sum of square distances}}}{116}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {PPI $\beta $ optimization using total within-cluster sum of square distances}}}{116}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces }}{117}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{117}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{117}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Comparison of biological significance before and after maximum entropy integration of stress microarray and PPI datasets}}{120}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

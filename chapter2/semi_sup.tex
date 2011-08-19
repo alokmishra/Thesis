@@ -609,7 +609,7 @@ variance of cluster stability. We create ten constraints data-sets from each con
 cluster and then report its Dunn’s and Davies Bouldin's clustering quality indices. We repeat this for all pairs. To reiterate, this is to demonstrate that our results are not 
 random and that they are statistically valid.
 
-\begin{table}
+\begin{table}[p]
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
@@ -633,7 +633,7 @@ Serial No. & Dunn’s index  & Davies Bouldin’s index\\
 \end{table}
 
 
-\begin{table}
+\begin{table}[p]
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
@@ -656,7 +656,7 @@ Serial No. & Dunn’s index  & Davies Bouldin’s index\\
 \label{tab:stress_ppi_perturbed}
 \end{table}
 
-\begin{table}
+\begin{table}[p]
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
@@ -679,7 +679,7 @@ Serial No. & Dunn’s index  & Davies Bouldin’s index\\
 \label{tab:ccycle_chip_perturbed}
 \end{table}
 
-\begin{table}
+\begin{table}[p]
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
@@ -702,7 +702,7 @@ Serial No. & Dunn’s index  & Davies Bouldin’s index\\
 \label{tab:ccycle_ppi_perturbed}
 \end{table}
 
-\begin{table}
+\begin{table}[p]
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
@@ -745,8 +745,9 @@ CCycle-YT & 0.0282 & 0.0015 & 4.2709 & 0.1820 \\
 \label{tab:mean_stdev_combined_perturbed}
 \end{table}
 
-Tables-\ref{tab:stress_chip_perturbed}-\ref{tab:ccycle_yt_perturbed} show the cluster quality results of individual combinations of datasets. We have compiled the mean and standard deviation values of these 
-individual results in Table-\ref{tab:mean_stdev_combined_perturbed}. [TODO - analyse this!]
+Tables - \ref{tab:stress_chip_perturbed} to \ref{tab:ccycle_yt_perturbed} show the cluster quality results of individual combinations of datasets. We have compiled the mean 
+and standard deviation values of these 
+individual results in Table-\ref{tab:mean_stdev_combined_perturbed}. 
 
 Now that we are confident of clustering quality as well as semi-supervised clustering we analyse the biological significance of combinations. For this, we need to observe the results of combinations of original datasets 
 and not the perturbed versions. We get the biological validity value and also later analyze the GO terms graph. We report below the values of pre and post combination of biological significance values.
@@ -882,7 +883,7 @@ such a numerical index using mutual information and related concepts by \citet{G
 In order to compare two sets of clusters, e.g. before and after data integration, we have used the technique suggested by \citet{Gibons2002Judging}. We briefly discuss 
 the works of these two papers and then justify our rationale behind our choice.
 
-They devised a figure of merit, z-score, based on mutual information between a clustering result and gene annotation data. The z-score indicates relationships between 
+\citet{Gibons2002Judging} devised a figure of merit, z-score, based on mutual information between a clustering result and gene annotation data. The z-score indicates relationships between 
 clustering and annotation, relative to a clustering method that randomly assigns genes to clusters. A higher z-score indicates a clustering result that is further 
 from random. 
 
@@ -913,13 +914,19 @@ z = \frac{MI_{real}-m_{random}}{s_{random}}
 \]
 \end{itemize}
 
-
 The z-score can then be interpreted as a standardized distance between the MI value obtained by clustering and those MI values obtained by random assignment of genes to clusters. 
 The larger the z-score, the greater the distance, and higher scores indicate clustering results more significantly related to gene function.
 
 Clusters to which genes were randomly assigned were chosen to be as nearly uniform in size as possible, so that some of the success of a clustering algorithm relative 
 to random may derive from producing nonuniform cluster size distributions. Uniform cluster sizes yield the highest value of $H_{C}$, which allows for the highest 
 possible $MI(C,X)$ for some variable $X$ of unknown entropy $H(X)$, because $0 \leq MI(C,X) \leq min(H_{C},H(X))$.
+
+
+\citet{gatviks03scoring} devised a method that is based on projecting vectors of biological attributes of the clustered elements onto the real line, such that the ratio 
+of between-groups and within-group variance estimators is maximized. The projected data are then scored using a non-parametric analysis of variance test, and the 
+score’s conﬁdence is evaluated.
+
+[TODO: why we chose the former]
 
 \subsection{Biological Significance using Gene Ontology} \label{biosig_go}
 \input{appendices/appendix-B}

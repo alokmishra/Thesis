@@ -13,43 +13,10 @@ K &=& \mu K_{1}+(1-\mu)K_{2}
 \end{eqnarray}
 which represents a \textit{convex combination}\footnote{A convex combination is a linear combination of where all coefficients are non-negative and sum up to 1} of $K_{1}$ and $K_{2}$ with the shrinkage parameter $\mu$ ranging between 0 and 1, and controlling what fraction of each similarity matrix contributes towards the final matrix. The \textit{shrinkage} method is named so because depending on the $\mu$, we shrink the contribution of the original evidence. For example, if we are combining microarray data with \ac{PPI} data to improve the predictions based just on microarray data, then the contribution of microarray data is being shrunk from its original contribution (which is 1). Optimum $\mu$ values can be chosen after running these various weight combinations of datasets through the Spectral clustering algorithm and then optimizing for the best cluster quality using the Dunn or Davies-Bouldin index values. While this is reasonable from a practical viewpoint, its not very principled. That motivates us towards our next step which is to use the principle of maximum entropy (Section-\ref{kern_integration}) in order to merge the similarity matrices. As we will see in following sections, this allows us to merge two datasets when there is no evidence available regarding their individual importance. For example, when we have two noisy data sources e.g. microarray and \ac{PPI}, and no other evidence regarding their individual importance, we can combine them to get better inference using the principle of maximum entropy.
 
-As discussed in Section-\ref{kern_integration}, we need a more specialised version of the similarity matrix for maximum entropy integration. The extra requirement is that our similarity matrices should be positive semi-definite. There is a separate but similar branch of machine learning that operates only on such matrices and are known as \textit{kernel methods}. We describe them in Section-\ref{kern_methods}. Throughout this chapter, we have used similarity matrices, kernels and kernel matrices interchangeably to refer to \textit{positive semi-definite symmetric similarity matrices}.
-
-\section{Elementary Linear Algebra} \label{maxent:linalg}
-In this section we describe some of the basic principles of Linear Algebra. It is only a concise introduction for the purpose of explaining terminology used in this chapter. More details can be found in any standard text on the topic like \citet{Strang2006Linear, golub1996matrix}.
-\subsection{Vectors and matrices}
-In the context of linear algebra, a vector is a linearly ordered set of real numbers and is usually denoted by a lowercase boldface letter, e.g. $\mathbf{v}$. The numbers are the components of the vector. They are represented in a columnar form. The number of components determine the \textit{dimension} of the vector. We say that $\mathbf{v}$ is an $n$ dimensional vector, or a point in the $n$ dimensional real number space ($\mathbf{v} \in \mathbb{R}^{n}$).
-\textit{Transpose} of a vector is the row-wise representation of a column vector or \textit{vice versa}, and is denoted by a superscripted boldface lowercase letter, e.g. $\mathbf{{v}^{T}}$. 
-
-A \textit{matrix} is a rectangular array of numbers characterized by the number of rows and columns. It is usually denoted by a boldface capital letter, e.g. $\mathbf{A}$ and its elements by corresponding lowercase letter with subscripts for row and column numbers, e.g. $a_{ij}$. If $\mathbf{A}$ has m rows and n columns, we say that it is an element of the $m \times n$ dimensional space of real numbers ($\mathbf{A} \in \mathbb{R}^{m \times n}$). If $m=n$ then the matrix is called a \textit{square} matrix. The \textit{transpose} of a $m \times n$ matrix $\mathbf{A}$ is denoted by $\mathbf{A}^{T}$ and is a $n \times m$ matrix which is obtained by interchanging the rows and columns of $\mathbf{A}$. A matrix is known to be \textit{symmetric} if $\mathbf{A}=\mathbf{A}^{T}$ which requires that the matrix is square and $a_{ij}=a_{ji}$.
-
-The product of a matrix $\mathbf{A}$ and a vector $\mathbf{x}$, $\mathbf{Ax}$ is defined if $\mathbf{A} \in \mathbb{R}^{m \times n}$ and $\mathbf{x} \in \mathbb{R}^{n}$. In other words, this product is possible if the column dimension of $\mathbf{A}$ is same as the dimension of $\mathbf{x}$. The final result of this product is an $m$ dimensional vector. We can state this in words as: $m \times n$ dimensional matrix $\mathbf{A}$ transforms the n dimensional vector $\mathbf{x}$ into an m dimensional vector when multiplied to it.
-
-A matrix is \textit{diagonal} if all its off-diagonal elements are zero. If $\mathbf{D}$ is a square diagonal matrix it can be defined by the list of its diagonal elements, $\mathbf{D}=diag(d_{i})$. The \textit{unit matrix} is a special case of a square diagonal matrix where all the diagonal elements are 1. It is denoted by $\mathbf{I}$ or $\mathbf{I_{m}}$ where m is the dimension. Any multiplication by a unit matrix (pre or post) to a conformable (the dimensions are such that the multiplication is possible) matrix $\mathbf{A}$ results in $\mathbf{A}$.
-
-The \textit{column rank} of a matrix is the maximum number of linearly independent columns in that matrix. Similarly, the \textit{row rank} of a matrix is the maximum number of linearly independent rows in that matrix. Row and column ranks are always equal and is referred to simply as the \textit{rank} of the matrix. A matrix whose columns are linearly independent is said to have \textit{full column rank}. Similarly, a matrix whose rows are linearly independent is said to have \textit{full row rank}. The matrix is said to have \textit{full rank} if it has either full column rank or full row rank. If the rank of the matrix is less than the full rank then it is known as \textit{rank-deficient} matrix.
- 
-A square matrix with linearly independent columns is termed as \textit{non-singular}. If the columns are linearly dependent it is \textit{singular}. For every non-singular matrix $\mathbf{A}$ there exists an associated matrix $\mathbf{A}^{-1}$ known as its inverse or simply $\mathbf{A}$ \textit{inverse} such that
-\begin{displaymath}
-    \mathbf{A}^{-1}\mathbf{A} = \mathbf{I}
-\end{displaymath}
-Since an inverse exists for all non-singular matrices they are \textit{invertible}.
-
-\subsection{Eigenvalues and eigenvectors} \label{eigval_eigvec}
-For every square matrix $\mathbf{A}$, there exists at least one number $\lambda$ and an associated non-zero vector $\mathbf{u}$ such that 
-\begin{eqnarray}
-    \mathbf{Au} = \lambda \mathbf{u} \label{eqn:eigenvec_eigenval}
-\end{eqnarray}
-Thus, matrix $\mathbf{A}$ does not change the direction of $\mathbf{u}$. A value of $\lambda$ for which Equation-\ref{eqn:eigenvec_eigenval} holds true is known as the \textit{eigenvalue} of $\mathbf{A}$ and the corresponding vector is known as the \textit{eigenvector} of $\mathbf{A}$. Eigenvalues, in the general case, could also be complex numbers but symmetric matrices have real eigenvalues. The eigenvalues and eigenvectors of a matrix together are known as the \textit{eigensystem} of that matrix.
-
-The sum of the diagonal elements of a square matrix $\mathbf{A}$ is known as the \textit{trace} of $\mathbf{A}$. It is also equal to the sum of the eigenvalues.  
-\begin{displaymath}
-    trace(\mathbf{A}) = \sum_{i=1}^{m}a_{ii}=\sum_{i=1}^{m}\lambda_{i}(\mathbf{A}) 
-\end{displaymath}
-The product of the eigenvalues is equal to the \textit{determinant} of $\mathbf{A}$.
-\begin{displaymath}
-    det(\mathbf{A}) = \prod_{i=1}^{m}\lambda_{i}(\mathbf{A}) 
-\end{displaymath}
+As discussed in Section-\ref{kern_integration}, we need a more specialised version of the similarity matrix for maximum entropy integration. The extra requirement is that 
+our similarity matrices should be positive semi-definite. There is a separate but similar branch of machine learning that operates only on such matrices and are 
+known as \textit{kernel methods}. We describe them in Section-\ref{kern_methods}. Throughout this chapter, we have used similarity matrices, kernels and kernel 
+matrices interchangeably to refer to \textit{positive semi-definite symmetric similarity matrices}.
 
 \subsection{Spectral or eigen-decomposition}
 Spectral or eigen decomposition of a symmetric $n \times n$ matrix $\mathbf{A}$ is represented as

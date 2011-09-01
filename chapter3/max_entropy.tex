@@ -289,65 +289,66 @@ Cell-cycle \& TF-gene interactions (Yeastract) & 0.01 & 0.0001 \\
 \clearpage
 
 \section{Biological Validation of Results}
-\begin{table}[t]
+\begin{table}[p]
 \centering
 {\footnotesize
 \begin{tabular}{@{\extracolsep{\fill}}|p{0.5in}|p{0.40in}|p{0.50in}|p{0.40in}|p{0.40in}|p{0.40in}||p{0.40in}|p{0.50in}|p{0.40in}|p{0.40in}|p{0.40in}|}
 \hline
 
-Datasets & \multicolumn{5}{|c|}{across all terms} & \multicolumn{5}{|c|}{for top 50 terms}\\ \cline{2-11}
-       & Dataset A &  Dataset B & MaxEnt Integration & \% Gain for A & \% Gain for B & Dataset A &  Dataset B & MaxEnt Integration & \% Gain for A & \% Gain for B\\
+Datasets & & & \multicolumn{3}{|c|}{Semi-supervised integration} & \multicolumn{3}{|c|}{Maximum entropy integration}\\ \cline{2-9}
+       & Dataset A &  Dataset B & After integration & \% Gain for A & \% Gain for B & After Integration & \% Gain for A & \% Gain for B\\
 \hline
-Stress \& PPI & 6.781  &   10.763     & 8.164  &  20.398  &   -24.14       &  4.177  &  7.203   & 8.012  &  91.793 & 11.23     \\ \hline
-
-Stress \& ChIP-chip & 8.326  & 10.508  & 8.867  &  6.493   & -15.61  &  10.506 & 9.876  & 10.676 &  1.617  & 8.098 \\ \hline
-
-Stress \& Yeastract & 8.924  & 11.876  & 10.346 &  15.929  & -12.88  &  13.363 & 13.855 & 16.379 & 22.575  & 18.220 \\ \hline
+Stress \& ChIP-chip &  62.3   & 27.5  & 59.6  &        &   & 59.4   &   &  \\ \hline
+Stress \& PPI       &  62.3   & 29.2  & 66.5  &        &   & 75.1   &   &  \\ \hline
+Stress \& Yeastract &  62.3   & 38.0  & 94    &        &   & 109.0  &   &  \\ \hline
 
 \end{tabular}
 }
-\caption{Stress microarray dataset: Comparison of mean p-values of enriched GO terms before and after maximum entropy data integration}
-\label{tab:stress:maxent_mean_pvals}
+\caption{Stress microarray dataset: Comparison of Biological significance index before and after maximum entropy data integration}
+\label{tab:stress:maxent_biol_index}
+\end{table}
+
+\begin{table}[p]
+\centering
+{\footnotesize
+\begin{tabular}{@{\extracolsep{\fill}}|p{0.5in}|p{0.40in}|p{0.50in}|p{0.40in}|p{0.40in}|p{0.40in}||p{0.40in}|p{0.50in}|p{0.40in}|p{0.40in}|p{0.40in}|}
+\hline
+
+Datasets & & & \multicolumn{3}{|c|}{Semi-supervised integration} & \multicolumn{3}{|c|}{Maximum entropy integration}\\ \cline{2-9}
+       & Dataset A &  Dataset B & After integration & \% Gain for A & \% Gain for B & After Integration & \% Gain for A & \% Gain for B\\
+\hline
+Cell-cycle \& ChIP-chip &  39.1   & 27.5  & 39.7  &        &   & 48.2   &   &  \\ \hline
+Cell-cycle \& PPI       &  39.1   & 29.2  & 40.9  &        &   & 39.3   &   &  \\ \hline
+Cell-cycle \& Yeastract &  39.1   & 38.0  & 59.3  &        &   & 47.6   &   &  \\ \hline
+
+\end{tabular}
+}
+\caption{Cell-cycle microarray dataset: Comparison of Biological significance index before and after maximum entropy data integration}
+\label{tab:ccycle:maxent_biol_index}
 \end{table}
 
 We follow the same procedure that was followed in the previous chapter (refer Section-\ref{biosig_go}) for biological validation of the resulting clusters. We test each set of clusters obtained after spectral clustering for the enrichment of GO terms. This results in p-values of GO terms in each of the clusters of result. In order to compare two sets of clusters, e.g. before and after data integration, we compute the p-values of GO terms in each of the cluster sets and then report the mean values of negative log of all the p-values of enriched GO terms across all the clusters.
 
-The results of the integration of the stress microarray dataset with ChIP-chip, PPI and Yeastract are in Table-\ref{tab:stress:maxent_mean_pvals}. We have reported percentage gains in GO terms' enrichment before and after integration for each pair of dataset being integrated. Like previous chapter, we have reported the mean results for all the terms as well as top 50 most enriched terms. But, the results are not exactly comparable to the previous chapter. The crucial difference is that there we had used the full set of microarray genes, whereas here we are only using genes that are common across both the datasets which reduces the gene counts considerably as discussed in previous chapter. For each pair of dataset, the first one is referred to as A and the second as B. For example, in the first full row of Table-\ref{tab:stress:maxent_mean_pvals}, stress is referred to as A, while PPI is B. 
+The results of the integration of the stress microarray dataset with ChIP-chip, PPI and Yeastract are in Table-\ref{tab:stress:maxent_mean_pvals}. We have reported percentage 
+gains in GO terms' enrichment before and after integration for each pair of dataset being integrated. Like previous chapter, we have reported the mean results for 
+all the terms as well as top 50 most enriched terms. But, the results are not exactly comparable to the previous chapter. The crucial difference is that there we had used the 
+full set of microarray genes, whereas here we are only using genes that are common across both the datasets which reduces the gene counts considerably as discussed in 
+previous chapter. For each pair of dataset, the first one is referred to as A and the second as B. For example, in the first full 
+row of Table-\ref{tab:stress:maxent_mean_pvals}, stress is referred to as A, while PPI is B. 
 
-The results in Table-\ref{tab:stress:maxent_mean_pvals} clearly indicate that MaxEnt integration has resulted in improvements for the stress datasets with every other dataset. The top 50 term results only accentuate the values for PPI and Yeastract. However, when we observe if the non-microarray dataset had gained much from the integration, the results for all the terms indicate negative results while the top 50 terms indicate positive results. As observed in the last chapter, this could be because of the removal of the noisier terms when we only select the top 50 terms.
+The results in Table-\ref{tab:stress:maxent_mean_pvals} clearly indicate that MaxEnt integration has resulted in improvements for the stress datasets with every 
+other dataset. The top 50 term results only accentuate the values for PPI and Yeastract. However, when we observe if the non-microarray 
+dataset had gained much from the integration, the results for all the terms indicate negative results while the top 50 terms indicate positive results. 
+As observed in the last chapter, this could be because of the removal of the noisier terms when we only select the top 50 terms.
 
-\begin{table}[t]
-\centering
-{\footnotesize
-\begin{tabular}{@{\extracolsep{\fill}}|p{0.5in}|p{0.40in}|p{0.50in}|p{0.40in}|p{0.40in}|p{0.40in}||p{0.40in}|p{0.50in}|p{0.40in}|p{0.40in}|p{0.40in}|}
-\hline
+For the cell-cycle dataset, the results are very different. Here, the cell-cycle dataset does not show any improvement except with PPI (for top 50 terms). On, the other hand, 
+rest of the datasets have shown improvement when merged with the cell-cycle dataset. As we discussed earlier that this technique merges two datasets by taking their 
+dominant eigenvectors. In the case of stress dataset, both the datasets gained biological significance whereas now cell-cycle is always the loser. The PPI, Yeastract 
+are both curated datasets. Most of the curated datasets are taken from experiments that are conducted in non-stress environments to study the regular activities of genes. 
+Therefore, they are more similar to the cell-cycle dataset. We had observed this in the last chapter where cell-cycle dataset showed much better gains with 
+PPI and Yeastract constraints as compared to the stress dataset. Because of this similarity, the cell-cycle dataset has not gained much from the others. 
+In case of stress, they were very dissimilar and hence both gained information from each other which led to improvement in their scores.    
 
-Datasets & \multicolumn{5}{|c|}{across all terms} & \multicolumn{5}{|c|}{for top 50 terms}\\ \cline{2-11}
-       & Dataset A &  Dataset B & MaxEnt Integration & \% Gain for A & \% Gain for B & Dataset A &  Dataset B & MaxEnt Integration & \% Gain for A & \% Gain for B\\
-\hline
-Cell-Cycle \& PPI       & 6.651  & 6.151  & 6.588  &  -0.960 & 7.103  & 4.795 & 6.019  &  6.582 &  37.270  & 9.355 \\ \hline
- 
-Cell-Cycle \& ChIP-chip & 7.069  & 6.069  & 6.794  & -3.883  & 11.945 & 8.036 & 6.390  &  6.795 &  -15.44  & 6.346 \\ \hline
-
-Cell-Cycle \& Yeastract & 7.584  & 5.988  & 7.222  &  -4.776 & 20.615 & 10.059 & 6.894 & 9.298  & -7.570 & 34.869 \\ \hline	
-
-\end{tabular}
-}
-
-\caption{Cell-cycle microarray dataset: Comparison of mean p-values of enriched GO terms before and after maximum entropy data integration}
-\label{tab:ccycle:maxent_mean_pvals}
-\end{table}
-
-For the cell-cycle dataset, the results are very different. Here, the cell-cycle dataset does not show any improvement except with PPI (for top 50 terms). On, the other hand, rest of the datasets have shown improvement when merged with the cell-cycle dataset. As we discussed earlier that this technique merges two datasets by taking their dominant eigenvectors. In the case of stress dataset, both the datasets gained biological significance whereas now cell-cycle is always the loser. The PPI, Yeastract are both curated datasets. Most of the curated datasets are taken from experiments that are conducted in non-stress environments to study the regular activities of genes. Therefore, they are more similar to the cell-cycle dataset. We had observed this in the last chapter where cell-cycle dataset showed much better gains with PPI and Yeastract constraints as compared to the stress dataset. Because of this similarity, the cell-cycle dataset has not gained much from the others. In case of stress, they were very dissimilar and hence both gained information from each other which led to improvement in their scores.    
-\begin{figure}
-\begin{center}
-\includegraphics[scale=0.55]{chapter3/stress_ppi_maxent.eps}
-\end{center}    
-\caption{Comparison of biological significance before and after maximum entropy integration of stress microarray and PPI datasets}
-\label{fig:maxent_biol_valid}
-\end{figure}
-
-Figure-\ref{fig:maxent_biol_valid} shows the change in p-values of individual GO terms before and after the integration of PPI data with the stress microarray data, the integration that had shown maximum percentage gain. The x-axis indicates the GO term values before the integration (microarray only) while the y-axis is those of after integration (microarray + PPI data). If there was no effect of data integration then the values would have perfectly aligned on the diagonal. The further away they are from the diagonal (vertically) on either side of the diagonal, the more enriched they are on that side (below the diagonal for before integration and above the diagonal for after integration). For the stress dataset, we can clearly see in Figure-\ref{fig:maxent_biol_valid} that there are many more terms that are better enriched after the integration. 
 
 All our result data is available upon request. For the the best clustering gain results (top 50 terms) across both the datasets (maximum entropy integration of stress and PPI dataset), we have provided the best 5 enriched GO terms in each cluster in Table-\ref{appendix:maxent_stress_pval} as part of Appendix-\ref{appendix:go_enrichment_results}. 
 \section{Related Work and Discussion}

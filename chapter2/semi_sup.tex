@@ -734,7 +734,7 @@ Description & \multicolumn{2}{|c|}{Dunn’s index}  & \multicolumn{2}{|c|}{Davie
  & Mean & St. Dev & Mean & St. Dev\\
 \hline
 Stress-Chip & 0.0316 & 0.0040 & 3.7359 & 0.2339 \\
-Stress-PPI & 0.0367 & 0.0080 & 3.6463 & 0.0843 \\
+Stress-PPI & 0.0324 & 0.0071 & 3.6367 & 0.0431 \\
 Stress-YT & 0.0367 & 0.0080 & 3.6463 & 0.0843 \\
 
 \hline
@@ -821,21 +821,51 @@ score’s conﬁdence is evaluated.
 
 \begin{table}
 \centering
-\begin{tabular}{|l|l|l|}
+\begin{tabular}{|l|l|l|l|}
 \hline
-Description & Before integration & After integration\\
+Description & Before integration & After integration & \% Gain\\
 \hline
-Stress dataset with Chip-Chip dataset & 89.2 & 86.7 \\
-Stress dataset with PPI dataset & 89.2 & 95.2 \\
-Stress dataset with Yeastract dataset & 89.2 & 93.2 \\
-Cell-cycle dataset with Chip-Chip dataset & 52.2 & 44.8 \\
-Cell-cycle dataset with PPI dataset & 52.2 & 55.2 \\
-Cell-cycle dataset with Yeastract dataset & 52.2 & 64.8\\
+Stress with Chip-Chip dataset & 89.2 & 86.7 & -2.8\\
+Stress with PPI dataset & 89.2 & 95.2 & 6.72\\
+Stress with Yeastract dataset & 89.2 & 93.2 & 4.48\\
+\hline
+Cell-cycle with Chip-Chip dataset & 52.2 & 44.8 & -14.17\\
+Cell-cycle with PPI dataset & 52.2 & 55.2 & 5.74\\
+Cell-cycle with Yeastract dataset & 52.2 & 64.8 & 24.13\\
 \hline 
 \end{tabular}
 \caption{Biological Significance before and after semi-supervised integration}
-\label{tab:no_constraints}
+\label{tab:biol_significance}
 \end{table}
+
+\subsubsection{Results}
+
+We started with the full set of stress and cell-cycle datasets as discussed earlier. The reason we had chosen stress and cell-cycle datasets is because they represent two ends of the spectrum \citep{amos05integrative}. 
+For the Chip-Chip, PPI and Yeastract datasets, we took all the interactions that were between the common set of genes between the microarray and the interactions datasets. 
+The biological significance index values before and after semi-supervised clustering are in Table-\ref{tab:biol_significance}. 
+
+The different initial biological significance values for stress and cell-cycle datasets (89.2 and 52.2 respectively) are because of the nature of the data. Stress on the organism leads to extremely high level of activity 
+in the expression levels and many more genes are coordinating together which leads to higher significance values. Cell-cycle on the other hand is a routine activity and the 
+expression patterns of genes do not change so extremely leading to smaller significance values.
+
+We observe that the stress dataset when combined with Chip-chip constraints leads to 
+slightly worse biological significance (-2.8\%) after the combination. On the other hand, combination with PPI and Yeastract constraints lead to better significance values (6.72\% and 4.48\% respectively).  
+
+For the cell-cycle dataset too, combination with Chip-chip dataset leads to reduced biological significance (-14.17\%). When combined with both PPI and Yeastract constraints the biological significance 
+has gone up. Based on the results we could say that the Chip-chip dataset is probably the noisiest and does not bring much new information leading to reduced significance.
+  
+One of the reasons for this is, as indicated earlier, the integration could be meaningful if each of the datasets complement the other. If there are 
+a lot of conflicting values in the similarities of each of the datasets then the resulting matrix will have a lot of noise and this will be reflected in the final clusters. 
+We observe similar negative results for the Yeastract dataset. While PPI seems like a boundary case, the Yeastract data is definitely not complementary with the stress dataset, 
+hence negative gain across top 50 as well as all the terms. 
+
+PPI integration has results very similar to the stress with a small improvement (top 50 terms). On the other  hand, Yeastract integration has shown a much better 
+improvement in score in comaprison to stress (7.9\% vs -3.2\%) and is more compatible with the cell-cycle data. The reasons for this could be the same as described 
+about the DNA-binding constraints at different thresholds. 
+
+The goal of integration is to have more biologically relevant clusters from which hypotheses could be derived to be carried out and validated in wet labs. 
+All our result data is available upon request. For the the best clustering gain results (top 50 terms) across both the datasets (stress dataset at p-value of 0.0005), 
+we have provided the best 5 enriched GO terms in each cluster in Table-\ref{appendix:semisup_stress_pval} as part of Appendix-\ref{appendix:go_enrichment_results}. 
 
 \subsection{Qualitative Biological Significance (using Gene Ontology annotations)} \label{biosig_go}
 Now that we have results of quantitative biological significance before and after applying our algorithm, we would also like to qualitatively analyze the resulting clusters after 
@@ -868,9 +898,11 @@ We excluded all clusters that were having less than 3 genes or more than 500 gen
 \input{chapter2/ccycle_sup_go}
 A sample of terms and their P-values obtained can be seen in \ref{tab:stress_chip_0.0001}. 
 
-Genomica also outputs a visual indication of the GO annotations that are significantly enriched using a colour code which is very useful for analysis. The graphical view is a 
+Genomica also outputs a visual indication of the GO annotations that are significantly enriched using a colour code which is useful for analysis. The graphical view is a 
 matrix of the two collections - gene sets and GO annotations, where each colored entry indicates that the two collections have a statistically significant 
 overlap, and the intensity of each colored spot represents the fraction of genes in the overlap.
+
+
 
 \begin{figure}[p]
 \centering
@@ -965,6 +997,7 @@ After the stress dataset and its integration results we move on to the cell cycl
 \caption[]{Sections of the image showing significant enrichment in Cell-cycle dataset combined with Yeastract dataset. Full image available in the Appendix}
 \end{figure}
 
+\begin{comment}
 \section{Results}
 \begin{table}[t]
 \centering
@@ -993,28 +1026,6 @@ Yeastract & All (8644) &  8.101  &  7.325  &  -9.579 & 11.057  &  10.695  &  -3.
 \label{tab:stress:semisup_mean_pvals}
 \end{table}
 
-The results of mean p-values of all the GO terms' enrichment before and after integration for the stress dataset are shown in Table-\ref{tab:stress:semisup_mean_pvals}. 
-We have calculated the effect of integration of the DNA-binding dataset as we change the number and quality of constraints extracted from it (by changing the p-value threshold 
-below which an interaction is considered a constraint). For the PPI and Yeastract datasets, we took all the interactions that were between the common set of genes 
-between the microarray and the interactions datasets. 
-
-We calculated the mean p-values of enrichment for all the GO terms associated to the genes in individual clusters. But it is possible that the number of 
-clusters is not perfect and some clusters end up having terms that are not much enriched at all. To account for this, we also calculated the mean 
-enrichment of 50 highest enriched GO terms and then compared them before and after integration. Across all the terms, the percentage gain 
-shows the trend that we had seen in Figure-\ref{fig:bss_constraints} for algorithm validation. So, it independently validates that the highest quality 
-constraints are till p-value of 0.0005 and after that even though the number of constraints increases, their quality decreases. This is again in agreement with 
-the observations of the original experimenters of the DNA-binding dataset \citep{harbison04transcriptional}. One thing that is notably different from the results of 
-algorithm validation is that here we see some negative scores relative to the unsupervised one. This could most possibly be explained by the bias induced in the 
-BSS because of counting common parent TFs while the DNA-binding data constraints are also of similar nature. Across the top 50 most enriched terms, the 
-observations are similar though the results are more pronounced (percentage gain is better as compared to across all terms) in most cases. This is 
-ascribed to removal of lots of lowly enriched terms and the noise they were adding. Because of this, we consider the 50 terms enrichment score to be superior.
-
-PPI constraints do not seem to add much value when we see all the terms, but for the top 50 terms, it is improving the results by a small percentage (3.664\%). 
-One of the reasons for this is, as indicated earlier, the integration could be meaningful if each of the datasets complement the other. If there are 
-a lot of conflicting values in the similarities of each of the datasets then the resulting matrix will have a lot of noise and this will be reflected in the final clusters. 
-We observe similar negative results for the Yeastract dataset. While PPI seems like a boundary case, the Yeastract data is definitely not complementary with the stress dataset, 
-hence negative gain across top 50 as well as all the terms. 
-
 \begin{table}[t]
 \centering
 \scalebox{0.9}{
@@ -1040,34 +1051,9 @@ Yeastract & All (9717) &   7.167 &   7.392 &   3.134  & 9.411 &   10.155 &   7.9
 \caption{Cell-cycle microarray dataset: Comparison of mean p-values of enriched GO terms before and after supervision}
 \label{tab:ccycle:semisup_mean_pvals}
 \end{table}
-
-The results of average p-values of all the GO terms and top 50 terms before and after integration for the cell-cycle dataset are shown in 
-Table-\ref{tab:ccycle:semisup_mean_pvals}. If we observe the results of top 50 terms for integration with the DNA-binding dataset, all the integration results have 
-improved the score except one (at p=0.005). The results for all terms are not very different even though we observe a very small negative score for p-values 
-of 0.0005 and 0.001. The biggest improvements are shown at larger p-values. This is in contrast with the earlier (stress) results where the 
-p-values till 0.0005 had performed better, and the larger ones, poorly. 
-
-The reason we had chosen stress and cell-cycle datasets is because they represent two ends of the spectrum \citep{amos05integrative}. A possible explanation of 
-the above behaviour is that interactions at lower p-value are the prominent ones which are compatible with the stress dataset (which too has sharp variations) while the 
-higher p-value result in background interactions that are compatible with the nature of cell-cycle dataset (where there are little sharp variations).
-
-PPI integration has results very similar to the stress with a small improvement (top 50 terms). On the other  hand, Yeastract integration has shown a much better 
-improvement in score in comaprison to stress (7.9\% vs -3.2\%) and is more compatible with the cell-cycle data. The reasons for this could be the same as described 
-about the DNA-binding constraints at different thresholds. 
-
-The goal of integration is to have more biologically relevant clusters from which hypotheses could be derived to be carried out and validated in wet labs. 
-All our result data is available upon request. For the the best clustering gain results (top 50 terms) across both the datasets (stress dataset at p-value of 0.0005), 
-we have provided the best 5 enriched GO terms in each cluster in Table-\ref{appendix:semisup_stress_pval} as part of Appendix-\ref{appendix:go_enrichment_results}. 
+\end{comment}
 
 \section{Related Work and Discussion}
-\subsection{Post Viva Discussion Items}
-\subsubsection{GO terms based P-value validation}
-1. Was silhouettte method considered? Why was it rejected?
-2. Why did we choose Dunn and Davies Bouldin's index?
-3. Write a para on internal and external validation indices and justify our choice.
-
-\subsubsection{A section on mutual information based approaches to validation and why it is better than the rest}
-
 \subsection{Constrained clustering}
 The concept of applying prior knowledge in the form of constraints to clustering algorithms is not new. Initial \textit{supervised} clustering algorithms were modifications of traditional ones and ensured that the resulting clusters had to satisfy the applied constraints. One of the first papers in this area by \citet{bradley00constrained} proposed a constrained version of the famous \textit{k-means} \citep{MacQueen67kmeans} clustering algorithm by posing the problem in terms of minimum cost network flows. Their objective behind adding the constraints was to assign a certain minimum number of points to each cluster. \citet{tung2001constraint} have done a systematic study of various constrained clustering algorithms. \citet{basu2008constrained} is a recent book on constrained clustering.
 

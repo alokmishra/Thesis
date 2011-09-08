@@ -222,20 +222,44 @@ From the discussion of the preceding section it is clear that in order to calcul
 The principal idea here is that we keep the dominant eigenvalues, while getting rid of the smaller, and hence unreliable ones, and replacing it with better ones from the other dataset. 
 \section{Datasets and Methodology} \label{chap3:sec:materials}
 
-We have used the same datasets that was used in the previous chapter as discussed in Section-\ref{chap2:sec:materials}. They are the yeast microarray datasets \citep{gasch00genomicexpn,spellman98comprehensive}, DNA-binding dataset \citep{harbison04transcriptional}, PPI dataset (from MIPS Comprehensive Yeast Genome Database (CYGD)) \citep{Gueldener2006MPact} and the TF-gene interactions (YEASTRACT) \citep{Teixeira06yeastract}. The PPI, Yeastract and ChIP-chip datasets have full sets of genes while our microarray datasets have only a filtered set of genes, therefore, like the previous chapter, we first pre-process and find common genes between both datasets. After pre-processing, we compute the similarity matrices from both of them using parameters obtained by the parameter optimization procedure as discussed next. 
+We have used the same datasets that was used in the previous chapter as discussed in Section-\ref{chap2:sec:materials}. They are the yeast microarray 
+datasets \citep{gasch00genomicexpn,spellman98comprehensive}, DNA-binding dataset \citep{harbison04transcriptional}, 
+PPI dataset (from MIPS Comprehensive Yeast Genome Database (CYGD)) \citep{Gueldener2006MPact} and the TF-gene interactions (YEASTRACT) \citep{Teixeira06yeastract}. 
 
-For microarray datasets, we have used the previously used Dunn's index and Davies Bouldin's index. Like the previous chapter we have not used the constraints satisfaction ratio because we are not applying any constraints. Rather, we are merging two separate datasets. For the PPI, Yeastract and ChIP-chip datasets that are in the form of pairwise interactions, we have used the total within-cluster sum of square distances as we did not have access to original data vectors but only the similarity (or adjacency graph). For these datasets, we need to do the optimization of the parameter for computing the diffusion matrix. As shown in Equation-\ref{diffusion} we need to find the optimum value for $\beta$. To do this, we first compute diffused matrices for a range of $\beta$ values and then we do spectral clustering on each of these diffused matrices to find the best parameter, which is the one that yields the best cluster quality. This optimization is different from the microarray dataset ones because here we don't have the original data vectors because of the nature of graphical data where only links are specified. Because of this, we can't use distance based optimization techniques. So we have used a simpler and straightforward metric called \textit{withinss} in order to judge the cluster quality. For a clustering run of the algorithm, we compute this by finding the cumulative sum across all the clusters of sum of squared distance of all points in a cluster from its cluster centre.
+The PPI, Yeastract and ChIP-chip datasets have full sets of genes while our microarray datasets have only a filtered set of genes, therefore, like the previous chapter, 
+we first pre-process and find common genes between both datasets. After pre-processing, we compute the similarity matrices from both of them using parameters obtained by 
+the parameter optimization procedure as discussed next. 
+
+For microarray datasets, we have used the previously used Dunn's index and Davies Bouldin's index. Like the previous chapter we have not used the constraints satisfaction 
+ratio because we are not applying any constraints. Rather, we are merging two separate datasets. For the PPI, Yeastract and ChIP-chip datasets that are in the form 
+of pairwise interactions, we have used the total within-cluster sum of square distances as we did not have access to original data vectors but only 
+the similarity (or adjacency graph). For these datasets, we need to do the optimization of the parameter for computing the diffusion matrix. 
+As shown in Equation-\ref{diffusion} we need to find the optimum value for $\beta$. To do this, we first compute diffused matrices for a range of $\beta$ values 
+and then we do spectral clustering on each of these diffused matrices to find the best parameter, which is the one that yields the best cluster quality. This 
+optimization is different from the microarray dataset ones because here we don't have the original data vectors because of the nature of graphical data where only 
+links are specified. Because of this, we can't use distance based optimization techniques. So we have used a simpler and straightforward metric called \textit{withinss} in order 
+to judge the cluster quality. For a clustering run of the algorithm, we compute this by finding the cumulative sum across all the clusters of sum of squared 
+distance of all points in a cluster from its cluster centre.
 \begin{equation}
     \mathit{withinss}=\sum_{i=1}^{k}\sum_{x_{ij}\in \mathbf{C}_{i}}(x_{ij}-\bar{x}_{i})^2
 \end{equation}
 where $C_{1},\dots,C_{k}$ are the different clusters and $\bar{x}_{i}$ are the cluster centres. Since we do not have access to the data points, we compute the \textit{withinss} of the vectors on which k-means clustering is done for spectral clustering (refer Step-6 of Algorithm-\ref{alg:spectral_clustering}). A better clustering will have a lower $withinss$ value (hence more compact). 
  
-Once we have the similarity matrices from both datasets that are being integrated, we merge both of them using the maximum entropy technique as discussed in Algorithm-\ref{alg:max_ent_integration}. We then use spectral clustering on resulting similarity matrix to get our final clusters and then validate the biological significance of our results using the Gene Ontology.
+Once we have the similarity matrices from both datasets that are being integrated, we merge both of them using the maximum entropy technique as 
+discussed in Algorithm-\ref{alg:max_ent_integration}. We then use spectral clustering on resulting similarity matrix to get our final clusters and then validate 
+the biological significance of our results using the Gene Ontology annotations like the previous chapter.
 
 \subsection{Parameter optimisation results}\label{param_optimisation}
-For each pair of datasets, i.e., microarray and either of PPI, Yeastract and ChIP-chip datasets, the results of parameter optimization are in figures-\ref{fig:stress_ppi_opt} to \ref{fig:ccycle_tf_opt}. 
-\subsubsection{Stress and PPI datasets}
-As seen in Figure-\ref{fig:stress_ppi_opt}, for the microarray stress dataset, the Dunn's index has its maximum value at $\sigma=0.007$. The Davies Bouldin's index has the optimum region between 0.007 to 0.1 but the variance increases almost twice for Dunn's index after 0.01. So, we chose a consensus value of $\sigma=0.007$ which is the most optimum value for Dunn's index and falls in the optimum region for Davies Bouldin's index. For the PPI dataset, the optimum region seems to be after 5, when the value starts falling significantly. We chose $\beta=500$ as it has the smallest value.
+
+Like the previous chapter, we have used Dunn's and Davies Bouldin cluster quality indices to optimise the parameters. Since the datasets have not changed much after filtering of some of the genes that are not
+For each pair of datasets, i.e., microarray and either of PPI, Yeastract and ChIP-chip datasets, the results of parameter optimization are in 
+figures-\ref{fig:stress_ppi_opt} to \ref{fig:ccycle_tf_opt}.
+ 
+\subsubsection{Chip-Chip, PPI and Yeastract datasets}
+As seen in Figure-\ref{fig:stress_ppi_opt}, for the microarray stress dataset, the Dunn's index has its maximum value at $\sigma=0.007$. 
+The Davies Bouldin's index has the optimum region between 0.007 to 0.1 but the variance increases almost twice for Dunn's index after 0.01. So, 
+we chose a consensus value of $\sigma=0.007$ which is the most optimum value for Dunn's index and falls in the optimum region for Davies Bouldin's index. For the 
+PPI dataset, the optimum region seems to be after 5, when the value starts falling significantly. We chose $\beta=500$ as it has the smallest value.
 
 \begin{figure}[htp]
   \begin{center}
@@ -256,15 +280,85 @@ previous chapter.
 \begin{figure}[p]
 \centering
 \subfigure[Section of the image showing significant enrichment]{
-\includegraphics[bb=0 0 674 79, scale=0.5]{/home/alok/phd/post_viva/semisup/results/analysis/img_stress_only/1.eps}
-\label{fig:stress_only_enrich_1}
+\includegraphics[scale=0.5]{/home/alok/phd/post_viva/maxent/results/analysis/img_maxent_stress_chip/1.eps}
+\label{fig:stress_chip_enrich_1}
 }
 \subfigure[Section of the image showing significant enrichment]{
-\includegraphics[bb=0 0 775 967, scale=0.4]{/home/alok/phd/post_viva/semisup/results/analysis/img_stress_only/2.eps}
-\label{fig:stress_only_enrich_2}
+\includegraphics[scale=0.4]{/home/alok/phd/post_viva/maxent/results/analysis/img_maxent_stress_chip/2.eps}
+\label{fig:stress_chip_enrich_2}
 }
-\label{fig:stress_only_enrich}
-\caption[]{Sections of the image showing significant enrichment in Stress only dataset. Full image available in the Appendix}
+\label{fig:stress_chip_enrich}
+\caption[]{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from Chip-Chip dataset. Full image available in the Appendix}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[scale=0.5]{/home/alok/phd/post_viva/maxent/results/analysis/img_maxent_stress_ppi/1.eps}
+\label{fig:stress_ppi_enrich_1}
+}
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[scale=0.4]{/home/alok/phd/post_viva/maxent/results/analysis/img_maxent_stress_ppi/2.eps}
+\label{fig:stress_ppi_enrich_2}
+}
+\label{fig:stress_ppi_enrich}
+\caption[]{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from PPI dataset. Full image available in the Appendix}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[scale=0.5]{/home/alok/phd/post_viva/maxent/results/analysis/img_maxent_stress_yt/1.eps}
+\label{fig:stress_ppi_enrich_1}
+}
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[scale=0.4]{/home/alok/phd/post_viva/maxent/results/analysis/img_maxent_stress_yt/2.eps}
+\label{fig:stress_ppi_enrich_2}
+}
+\label{fig:stress_ppi_enrich}
+\caption[]{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from Yeastract dataset. Full image available in the Appendix}
+\end{figure}
+
+
+Now cell-cycle
+
+\begin{figure}[p]
+\centering
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[scale=0.5]{/home/alok/phd/post_viva/ec2machine/maxent/results/analysis/img_maxent_ccycle_ppi/1.eps}
+\label{fig:ccycle_ppi_enrich_1}
+}
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[scale=0.5]{/home/alok/phd/post_viva/ec2machine/maxent/results/analysis/img_maxent_ccycle_ppi/2.eps}
+\label{fig:ccycle_ppi_enrich_2}
+}
+\label{fig:ccycle_ppi_enrich}
+\caption[]{Sections of the image showing significant enrichment in Cell-cycle dataset combined with knowledge from PPI dataset. Full image available in the Appendix}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[scale=0.5]{/home/alok/phd/post_viva/ec2machine/maxent/results/analysis/img_maxent_ccycle_chip/1.eps}
+\label{fig:ccycle_chip_enrich_1}
+}
+\label{fig:ccycle_chip_enrich}
+\caption[]{Sections of the image showing significant enrichment in Cell-cycle dataset combined with knowledge from Chip-Chip dataset. Full image available in the Appendix}
+\end{figure}
+
+
+\begin{figure}[p]
+\centering
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[scale=0.5]{/home/alok/phd/post_viva/ec2machine/maxent/results/analysis/img_maxent_ccycle_yt/1.eps}
+\label{fig:ccycle_yt_enrich_1}
+}
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[scale=0.5]{/home/alok/phd/post_viva/ec2machine/maxent/results/analysis/img_maxent_ccycle_yt/2.eps}
+\label{fig:ccycle_yt_enrich_2}
+}
+\label{fig:ccycle_yt_enrich}
+\caption[]{Sections of the image showing significant enrichment in Cell-cycle dataset combined with Yeastract dataset. Full image available in the Appendix}
 \end{figure}
 
 

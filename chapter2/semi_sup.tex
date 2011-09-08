@@ -135,11 +135,23 @@ In both the datasets, for data imputation we use the R \textit{impute} package w
 For the experiments where we combined microarray with DNA-binding data, we needed to do other steps of pre-processing. We found the list of genes responsible for the TFs that were tested for binding. Then we ensured that our microarray dataset had those. The reasoning behind this is that some of them might be missing after the filtering step. In such a case, they were extracted from the original unfiltered dataset and incorporated in the final filtered one. The number of these is small compared to the total number of genes and we didn't want to loose any of them.
 
 \subsection{DNA-binding dataset}
-One of the datasets which we have used to guide the clustering process is the DNA-binding dataset on yeast \citep{harbison04transcriptional}. It was created using genome-wide location analysis techniques to determine the genomic occupancy of 203 DNA-binding transcriptional factors. In this dataset, the likelihood of a particular TF binding to the promoter region of another gene is reported in terms of a confidence value (p-value). A lower p-value indicates higher confidence. In order to extract binary constraints from this dataset, we need some threshold on these reported p-values of interactions. We investigated a range of p-value cut-offs, each corresponding to a certain set of constraints. This was to study the impact of \textit{number} and \textit{quality} of constraints on the biological significance of clustering. Since these are experimentally determined, we consider them as a more reliable evidence of genetic interaction. After extracting the constraints, we use them for guiding the clustering process. 
+One of the datasets which we have used to guide the clustering process is the DNA-binding dataset on yeast \citep{harbison04transcriptional}. It was created using genome-wide 
+location analysis techniques to determine the genomic occupancy of 203 DNA-binding transcriptional factors. In this dataset, the likelihood of a particular TF 
+binding to the promoter region of another gene is reported in terms of a confidence value (p-value). A lower p-value indicates higher confidence. In order to extract binary 
+constraints from this dataset, we need some threshold on these reported p-values of interactions. We investigated a range of p-value cut-offs, each corresponding to a 
+certain set of constraints. This was to study the impact of \textit{number} and \textit{quality} of constraints on the biological significance of clustering. 
+Since these are experimentally determined, we consider them as a more reliable evidence of genetic interaction. After extracting the constraints, we use them for 
+guiding the clustering process. 
 
-As stated, we used the p-value thresholds to convert the confidence value data into binary constraints. For example, if the p-value threshold is  0.001 then all values below this are considered as \textit{definitely bound} and hence assigned a value of 1. The rest are assigned 0 (not bound). A significant point to note is that these p-value cut-offs have a dual role. They determine the number of constraints as well as the quality of constraints. As the p-value cutoff is increased, the number of constraints increases, but a higher p-value also indicates lower confidence, hence the quality of the constraints falls. Table-\ref{tab:no_constraints} shows the number of constraints corresponding to various p-value cut-offs. Figure-\ref{fig:constraints_with_pval} shows these constraints graphically where we can see that the graph density is very high at p=0.001 compared to at p=0.0001. 
+As stated, we used the p-value thresholds to convert the confidence value data into binary constraints. For example, if the p-value threshold is  
+0.001 then all values below this are considered as \textit{definitely bound} and hence assigned a value of 1. The rest are assigned 0 (not bound). A significant point to 
+note is that these p-value cut-offs have a dual role. They determine the number of constraints as well as the quality of constraints. As the p-value cutoff is increased, 
+the number of constraints increases, but a higher p-value also indicates lower confidence, hence the quality of the constraints falls. Table-\ref{tab:no_constraints} shows 
+the number of constraints corresponding to various p-value cut-offs. Figure-\ref{fig:constraints_with_pval} shows these constraints graphically where we can see that the 
+graph density is very high at p=0.001 compared to at p=0.0001. 
 
-We also had to do some pre-processing with regards to the microarray dataset. We only selected those genes that are common to both the datasets. Because of this the number of constraints is further reduced as shown in the column - Common Genes of Table-\ref{tab:no_constraints}. This is the final set of constraints which we have used. Therefore, our constraints are transformed into a $m \times n $ matrix where $m$ is the number of genes and $n$ is the number of TFs. This constraints matrix is used to modify the similarity matrix that we obtain from the microarray data as discussed in Section-\ref{sec:sssc}.
+Our constraints are transformed into a $m \times n $ matrix where $m$ is the number of genes and $n$ is the number of TFs. This constraints matrix is used to modify 
+the similarity matrix that we obtain from the microarray data as discussed in Section-\ref{sec:sssc}.
 
 \begin{figure}[htp]
   \begin{center}
@@ -172,27 +184,16 @@ p-value & \multicolumn{3}{|c|}{Number of Constraints} \\ \cline{2-4}
 \end{table}
 
 \subsection{PPI dataset}
-Another source of constraints is the popular PPI dataset from MIPS Comprehensive Yeast Genome Database (CYGD) \citep{Gueldener2006MPact}. It has been called a gold standard because of its quality and comprehensiveness \citep{yu2004annotation}. This dataset has information related to the proximity of proteins in yeast based on more than 15600 protein-protein interaction records (9200 physical, 6400 genetic) which was compiled manually from the literature (3680 from single experiments) and published large-scale experiments. In addition to this, 268 manually extracted protein complexes as well as 783 complexes derived from large-scale experiments results in 87000 putative binary interactions. 
-
-The common gene count between the cell-cycle dataset and the PPI dataset is 1207 while the same between the stress dataset and the PPI dataset is 889. This is attributed to the smaller number of genes in the stress dataset. The final number of constraints are given in Table-\ref{tab:ppi_yeastract:no_constraints}.
-
-\begin{table}
-\centering
-\begin{tabular}{|c|c|c|c|}
-\hline
-Interactions Dataset & \multicolumn{3}{|c|}{Number of Constraints} \\ \cline{2-4}
-& All Genes & Common Genes (Stress) & Common Genes (Cell-cycle)\\
-\hline
-PPI          & 15446 & 442  & 1129 \\
-YEASTRACT    & 34471 & 8644 & 9717 \\
-\hline 
-\end{tabular}
-\caption{Number of constraints derived from PPI and Yeastract datasets}
-\label{tab:ppi_yeastract:no_constraints}
-\end{table}
+Another source of constraints is the popular PPI dataset from MIPS Comprehensive Yeast Genome Database (CYGD) \citep{Gueldener2006MPact}. It has been called a gold standard 
+because of its quality and comprehensiveness \citep{yu2004annotation}. This dataset has information related to the proximity of proteins in yeast based on more than 
+15446 protein-protein interaction records (9200 physical, 6400 genetic) which was compiled manually from the literature (3680 from single experiments) and published large-scale 
+experiments. In addition to this, 268 manually extracted protein complexes as well as 783 complexes derived from large-scale experiments results in 87000 putative 
+binary interactions. 
 
 \subsection{TF-gene interactions dataset} \label{yeastract-db}
-We also derived constrains from an independently curated database of known TF-gene interactions known as YEASTRACT(Yeast Search for Transcriptional Regulators And Consensus Tracking). YEASTRACT\footnote{interactions file created on 25/12/2008} \citep{Teixeira06yeastract} is a curated repository of more than 30990 regulatory associations between transcription factors and target genes in Saccharomyces cerevisiae, based on more than 1000 bibliographic references. In this database, the curators consider interaction to have occurred when there is change in the expression of the target gene owing to the deletion (or mutation) of the transcription factor-encoding gene. They also consider evidence based on TF binding to the promoter region of the target gene based on band-shift, footprinting or chromatin immunoprecipitation assays. They also describe potential associations but we have not considered them as we wanted to stick to known facts. 
+We also derived constrains from an independently curated database of known TF-gene interactions known as YEASTRACT(Yeast Search for Transcriptional Regulators And Consensus Tracking). 
+YEASTRACT\footnote{interactions file created on 25/12/2008} \citep{Teixeira06yeastract} is a curated repository of 34471 regulatory associations between transcription factors and 
+target genes in Saccharomyces cerevisiae, based on more than 1000 bibliographic references. In this database, the curators consider interaction to have occurred when there is change in the expression of the target gene owing to the deletion (or mutation) of the transcription factor-encoding gene. They also consider evidence based on TF binding to the promoter region of the target gene based on band-shift, footprinting or chromatin immunoprecipitation assays. They also describe potential associations but we have not considered them as we wanted to stick to known facts. 
 
 The common gene count between the cell-cycle dataset and YEASTRACT dataset is 1586 while the same between the stress dataset and the YEASTRACT dataset is 1198. Again this is attributed to the smaller number of genes in the stress dataset. The final number of constraints are given in Table-\ref{tab:ppi_yeastract:no_constraints}.
 
@@ -849,23 +850,15 @@ in the expression levels and many more genes are coordinating together which lea
 expression patterns of genes do not change so extremely leading to smaller significance values.
 
 We observe that the stress dataset when combined with Chip-chip constraints leads to 
-slightly worse biological significance (-2.8\%) after the combination. On the other hand, combination with PPI and Yeastract constraints lead to better significance values (6.72\% and 4.48\% respectively).  
-
-For the cell-cycle dataset too, combination with Chip-chip dataset leads to reduced biological significance (-14.17\%). When combined with both PPI and Yeastract constraints the biological significance 
-has gone up. Based on the results we could say that the Chip-chip dataset is probably the noisiest and does not bring much new information leading to reduced significance.
+slightly worse biological significance (-2.8\%) after the combination. On the other hand, combination with PPI and Yeastract constraints lead to better significance values (6.72\% and 4.48\% respectively). For 
+the cell-cycle dataset too, combination with Chip-chip dataset leads to reduced biological significance (-14.17\%). When combined with both PPI and Yeastract constraints the biological significance 
+has gone up. Based on the results we could say that the Chip-chip dataset is probably the noisiest and does not bring much new information leading to reduced significance for the original datasets. 
+One of the reasons for this is that integration could be meaningful if each of the datasets complement the other. If there are 
+a lot of conflicting information in each of the datasets then the resulting matrix will have a lot of noise and this will be reflected in the final clusters. We know that Chip-Chip and PPI are uncurated datasets i.e. the information there is derived from experiments which always has the possibility of inducing noise. On the other hand Yeastract 
+dataset is a manually curated dataset. That is the reason we see a high improvement when combined with it for both stress and cell-cycle datasets. 
   
-One of the reasons for this is, as indicated earlier, the integration could be meaningful if each of the datasets complement the other. If there are 
-a lot of conflicting values in the similarities of each of the datasets then the resulting matrix will have a lot of noise and this will be reflected in the final clusters. 
-We observe similar negative results for the Yeastract dataset. While PPI seems like a boundary case, the Yeastract data is definitely not complementary with the stress dataset, 
-hence negative gain across top 50 as well as all the terms. 
-
-PPI integration has results very similar to the stress with a small improvement (top 50 terms). On the other  hand, Yeastract integration has shown a much better 
-improvement in score in comaprison to stress (7.9\% vs -3.2\%) and is more compatible with the cell-cycle data. The reasons for this could be the same as described 
-about the DNA-binding constraints at different thresholds. 
-
 The goal of integration is to have more biologically relevant clusters from which hypotheses could be derived to be carried out and validated in wet labs. 
-All our result data is available upon request. For the the best clustering gain results (top 50 terms) across both the datasets (stress dataset at p-value of 0.0005), 
-we have provided the best 5 enriched GO terms in each cluster in Table-\ref{appendix:semisup_stress_pval} as part of Appendix-\ref{appendix:go_enrichment_results}. 
+All our result data is available upon request. 
 
 \subsection{Qualitative Biological Significance (using Gene Ontology annotations)} \label{biosig_go}
 Now that we have results of quantitative biological significance before and after applying our algorithm, we would also like to qualitatively analyze the resulting clusters after 
@@ -900,11 +893,14 @@ A sample of terms and their P-values obtained can be seen in \ref{tab:stress_chi
 
 Genomica also outputs a visual indication of the GO annotations that are significantly enriched using a colour code which is useful for analysis. The graphical view is a 
 matrix of the two collections - gene sets and GO annotations, where each colored entry indicates that the two collections have a statistically significant 
-overlap, and the intensity of each colored spot represents the fraction of genes in the overlap.
+overlap, and the intensity of each colored spot represents the fraction of genes in the overlap. 
 
+We used Genomica to output images that represent the GO term enrichment before and after the semi-supervised clustering. 
+The images in Figures-\ref{fig:stress_only_enrich} to \ref{fig:stress_ppi_enrich} are stress related while Figures-\ref{fig:ccycle_only_enrich} to \ref{fig:ccycle_yt_enrich} are cell-cycle
+ related. The original images from which various snapshots have been incorporated in Figures-\ref{fig:stress_only_enrich} to \ref{fig:ccycle_yt_enrich} are available in 
+Appendix-\ref{appendix:go_enrichment}. 
 
-
-\begin{figure}[p]
+\begin{figure}[ph]
 \centering
 \subfigure[Section of the image showing significant enrichment]{
 \includegraphics[bb=0 0 674 79, scale=0.5]{/home/alok/phd/post_viva/semisup/results/analysis/img_stress_only/1.eps}
@@ -916,6 +912,20 @@ overlap, and the intensity of each colored spot represents the fraction of genes
 }
 \label{fig:stress_only_enrich}
 \caption[]{Sections of the image showing significant enrichment in Stress only dataset. Full image available in the Appendix}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[scale=0.5]{/home/alok/phd/post_viva/semisup/results/analysis/img_stress_chip/1.eps}
+\label{fig:stress_chip_enrich_1}
+}
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[scale=0.4]{/home/alok/phd/post_viva/semisup/results/analysis/img_stress_chip/2.eps}
+\label{fig:stress_chip_enrich_2}
+}
+\label{fig:stress_chip_enrich}
+\caption[]{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from Chip-Chip dataset. Full image available in the Appendix}
 \end{figure}
 
 \begin{figure}[p]
@@ -935,18 +945,32 @@ overlap, and the intensity of each colored spot represents the fraction of genes
 \begin{figure}[p]
 \centering
 \subfigure[Section of the image showing significant enrichment]{
-\includegraphics[scale=0.5]{/home/alok/phd/post_viva/semisup/results/analysis/img_stress_chip/1.eps}
-\label{fig:stress_chip_enrich_1}
+\includegraphics[scale=0.5]{/home/alok/phd/post_viva/semisup/results/analysis/img_stress_yt/1.eps}
+\label{fig:stress_ppi_enrich_1}
 }
 \subfigure[Section of the image showing significant enrichment]{
-\includegraphics[scale=0.4]{/home/alok/phd/post_viva/semisup/results/analysis/img_stress_chip/2.eps}
-\label{fig:stress_chip_enrich_2}
+\includegraphics[scale=0.4]{/home/alok/phd/post_viva/semisup/results/analysis/img_stress_yt/2.eps}
+\label{fig:stress_ppi_enrich_2}
 }
-\label{fig:stress_chip_enrich}
-\caption[]{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from Chip-Chip dataset. Full image available in the Appendix}
+\label{fig:stress_ppi_enrich}
+\caption[]{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from Yeastract dataset. Full image available in the Appendix}
 \end{figure}
 
-After the stress dataset and its integration results we move on to the cell cycle dataset.
+\subsubsection{Stress vs Stress and PPI}
+
+Biological processes like RNA metabolism, RNA binding, rRNA processing, RNA processing, 35S primary transcription, nucleic acid binding, DNA metabolic process are common 
+significant enrichments observed in the both the datasets. When combined with PPI dataset, it also shows significant enrichment for processes like oxidoreductase activity, 
+transcription from RNA polymerase II promoter, transcription, regulation of transcription, regulation of metabolic process, developmental process, cell cycle phase, 
+mitotic cell cycle, biological regulation, regulation of cellular process and chromosome organization and biogenesis when compared to Stress dataset alone. These genes associated to these
+biological processes could be studied further to find relationships among them.
+
+\subsubsection{Stress vs Stress and Chip-Chip}
+
+Apart from processes like RNA processing, RNA metabolic process, ribosome biogenesis, macromolecule biosynthetic process and translation which are common enrichment observed 
+in the two data sets, Stress dataset when combined with Chip-Chip dataset also shows significant enrichment for processes like biosynthetic process, cellular localization, 
+hydrolase activity, amine metabolic process, amine biosynthetic process, chromosome organization and biogenesis and regulation of cellular process.
+
+\subsubsection{Stress vs Stress and Yeastract}
 
 \begin{figure}[p]
 \centering
@@ -976,11 +1000,11 @@ After the stress dataset and its integration results we move on to the cell cycl
 \centering
 \subfigure[Section of the image showing significant enrichment]{
 \includegraphics[scale=0.5]{/home/alok/phd/post_viva/ec2machine/semisup/results/analysis/ccycle_chip/1.eps}
-\label{fig:ccycle_ppi_enrich_1}
+\label{fig:ccycle_chip_enrich_1}
 }
 \subfigure[Section of the image showing significant enrichment]{
 \includegraphics[scale=0.5]{/home/alok/phd/post_viva/ec2machine/semisup/results/analysis/ccycle_chip/2.eps}
-\label{fig:ccycle_ppi_enrich_2}
+\label{fig:ccycle_chip_enrich_2}
 }
 \label{fig:ccycle_chip_enrich}
 \caption[]{Sections of the image showing significant enrichment in Cell-cycle dataset combined with knowledge from Chip-Chip dataset. Full image available in the Appendix}
@@ -996,6 +1020,26 @@ After the stress dataset and its integration results we move on to the cell cycl
 \label{fig:ccycle_yt_enrich}
 \caption[]{Sections of the image showing significant enrichment in Cell-cycle dataset combined with Yeastract dataset. Full image available in the Appendix}
 \end{figure}
+
+\subsubsection{Cell-Cycle vs Cell-Cycle and Chip-Chip}
+
+DNA metabolic process, translation, macromolecule biosynthetic process and biosynthetic process are found to be common to the Cell-Cycle dataset before and after combination with the 
+Chip-Chip dataset. After combination we see significant enrichment for response to stress, response to stimulus and regulation of transcription from polymerase II when compared 
+to Cell-Cycle data set alone.
+
+\subsubsection{Cell-Cycle Vs Cell-Cycle and PPI}
+
+DNA metabolic process, RNA processing, rRNA processing, RNA metabolic process, macromolecule biosynthetic process, biosynthetic process and translation are 
+some of the common enriched processes observed in both the data sets. Besides these, Cell-Cycle when combined with PPI dataset also showed significant enrichment for 
+oxidoreuctase activity, response to stress, cell-cycle, chromosome organization and biogenesis and protein binding when compared to Cell Cycle data set alone. We observe that even though
+cell-cycle processes were not accentuated earlier, after combination with the PPI dataset, it shows up prominently. 
+
+\subsubsection{Cell-Cycle vs Cell-Cycle and Yeastract}
+
+RNA binding, 35S primary transcription process, RNA processing, rRNA processing, RNA metabolic process, macromolecule biosynthetic process, 
+translation and biosynthetic process are the common significant enrichment sites observed in the Cell-Cycle dataset both before and after combination with the Yeastract dataset. 
+Cell-Cycle dataset when combined with the YeasTract dataset also showed enrichment significantly for RNA modification, response to stimulus, mitotic cell cycle 
+and DNA metabolic process when compared to Cell Cycle data set alone. 
 
 \begin{comment}
 \section{Results}

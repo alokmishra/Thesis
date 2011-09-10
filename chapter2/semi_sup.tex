@@ -759,7 +759,7 @@ Now that we are confident of clustering quality as well as semi-supervised clust
 we analyse the biological significance of combinations. For this, we need to observe the results of combinations of original datasets 
 and not the perturbed versions. 
 
-\section{Biological Significance Validation}
+\section{Biological Significance Analysis}
 Evaluation of the results of our clustering algorithm requires careful consideration since there are no gold standards against which performance can be measured. 
 The two prominent types of cluster validation measures are \textit{internal} and \textit{external} validation indices. As indicated earlier, internal indices take a dataset and 
 the resulting clustering and use information fully intrinsic to the data itself to assess the quality of clustering while external validation indices use information independent 
@@ -820,6 +820,8 @@ score’s conﬁdence is evaluated.
 
 [TODO: why we chose the former]
 
+
+\subsubsection{Results}
 \begin{table}
 \centering
 \begin{tabular}{|l|l|l|l|}
@@ -838,8 +840,6 @@ Cell-cycle with Yeastract dataset & 52.2 & 64.8 & 24.13\\
 \caption{Biological Significance before and after semi-supervised integration}
 \label{tab:biol_significance}
 \end{table}
-
-\subsubsection{Results}
 
 We started with the full set of stress and cell-cycle datasets as discussed earlier. The reason we had chosen stress and cell-cycle datasets is because they represent two ends of the spectrum \citep{amos05integrative}. 
 For the Chip-Chip, PPI and Yeastract datasets, we took all the interactions that were between the common set of genes between the microarray and the interactions datasets. 
@@ -860,7 +860,7 @@ dataset is a manually curated dataset. That is the reason we see a high improvem
 The goal of integration is to have more biologically relevant clusters from which hypotheses could be derived to be carried out and validated in wet labs. 
 All our result data is available upon request. 
 
-\subsection{Qualitative Biological Significance (using Gene Ontology annotations)} \label{biosig_go}
+\subsection{Qualitative Biological Significance (using Gene Ontology annotations)} \label{semisup_biosig_go}
 Now that we have results of quantitative biological significance before and after applying our algorithm, we would also like to qualitatively analyze the resulting clusters after 
 applying our algorithm. We would like to identify the biological processes represented by the genes in each cluster. For this, we use Genomica's gene set enrichment module available online (\url{http://genie.weizmann.ac.il/genomica_web/enrichment/gene_sets.jsp}). It allows us to compute 
 p-value of a \textit{HyperGeometric} distribution to find the enrichment of individual genes in cluster as detailed below.

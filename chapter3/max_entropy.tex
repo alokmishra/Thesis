@@ -347,26 +347,27 @@ Cell-cycle \& Yeastract &  39.1   & 38.0  & 59.3  &   51.66\%    &  35.94\%  & 4
 \label{tab:ccycle:maxent_biol_index}
 \end{table}
 
-We follow the same procedure that was followed in the previous chapter (refer Section-\ref{biosig_go}) for biological validation of the resulting clusters. We test each set of clusters obtained after spectral clustering for the enrichment of GO terms. This results in p-values of GO terms in each of the clusters of result. In order to compare two sets of clusters, e.g. before and after data integration, we compute the p-values of GO terms in each of the cluster sets and then report the mean values of negative log of all the p-values of enriched GO terms across all the clusters.
+We follow the same procedure that was followed in the previous chapter (refer Section-\ref{num_biosig_mi}) for biological validation of the resulting clusters using the technique based on 
+mutual information by \citet{Gibons2002Judging}. The results of the integration of the stress microarray dataset with ChIP-chip, PPI and Yeastract are in 
+Table-\ref{tab:stress:maxent_biol_index}. We have reported percentage gains in index values before and after integration for each pair of dataset being integrated. In order to compare our 
+results with the semi-supervised technique, we also reran the semi-supervised experiments on the filtered (common) gene sets. For each pair of dataset, the first one is referred 
+to as A and the second as B. For example, in the first full row of Table-\ref{tab:stress:maxent_biol_index}, stress dataset is referred to as A, while Chip-Chip dataset is called B. 
 
-The results of the integration of the stress microarray dataset with ChIP-chip, PPI and Yeastract are in Table-\ref{tab:stress:maxent_mean_pvals}. We have reported percentage 
-gains in GO terms' enrichment before and after integration for each pair of dataset being integrated. Like previous chapter, we have reported the mean results for 
-all the terms as well as top 50 most enriched terms. But, the results are not exactly comparable to the previous chapter. The crucial difference is that there we had used the 
-full set of microarray genes, whereas here we are only using genes that are common across both the datasets which reduces the gene counts considerably as discussed in 
-previous chapter. For each pair of dataset, the first one is referred to as A and the second as B. For example, in the first full 
-row of Table-\ref{tab:stress:maxent_mean_pvals}, stress is referred to as A, while PPI is B. 
+The results in Table-\ref{tab:stress:maxent_biol_index} clearly indicate that both our data integration techniques helps improve the quality of resulting clustering biologically. 
+Both datasets A and B have improved biological significance after integration except in one scenario where Chip-Chip is integrated with Stress dataset. MaxEnt 
+integration has resulted in improvements for the stress datasets with every other dataset except the Chip-Chip dataset. We also observe that the MaxEnt technique has outperformed 
+the semi-supervised one except the Chip-Chip dataset combination where the semi-supervised technique shows a small improvement than the MaxEnt. 
+Also, more than the stress datasets, the improvement in B datasets i.e. the Chip-Chip, PPI and Yeastract datasets, when combined, is better. 
 
-The results in Table-\ref{tab:stress:maxent_mean_pvals} clearly indicate that MaxEnt integration has resulted in improvements for the stress datasets with every 
-other dataset. The top 50 term results only accentuate the values for PPI and Yeastract. However, when we observe if the non-microarray 
-dataset had gained much from the integration, the results for all the terms indicate negative results while the top 50 terms indicate positive results. 
-As observed in the last chapter, this could be because of the removal of the noisier terms when we only select the top 50 terms.
-
-For the cell-cycle dataset, the results are very different. Here, the cell-cycle dataset does not show any improvement except with PPI (for top 50 terms). On, the other hand, 
-rest of the datasets have shown improvement when merged with the cell-cycle dataset. As we discussed earlier that this technique merges two datasets by taking their 
-dominant eigenvectors. In the case of stress dataset, both the datasets gained biological significance whereas now cell-cycle is always the loser. The PPI, Yeastract 
+For the cell-cycle dataset, as shown in Table-\ref{tab:ccycle:maxent_biol_index}, the results are somewhat different. Here, too both the datasets, A and B, have improved biological 
+significance after integration. MaxEnt technique has resulted in improved biological significance
+after combination in all the cases. However, the results for MaxEnt are not better than the semi-supervised one. While for stress dataset, the Chip-Chip dataset had performed 
+better than the MaxEnt one, for the cell-cycle dataset, it's the opposite. MaxEnt is better than the semi-supervised one for the Chip-Chip dataset combination. 
+For PPI and Yeastract combinations, the semi-supervised is better.
+ 
+As we discussed earlier that this technique merges two datasets by taking their dominant eigenvectors. In the case of stress dataset, both the datasets gained biological significance whereas now cell-cycle is always the loser. The PPI, Yeastract 
 are both curated datasets. Most of the curated datasets are taken from experiments that are conducted in non-stress environments to study the regular activities of genes. 
-Therefore, they are more similar to the cell-cycle dataset. We had observed this in the last chapter where cell-cycle dataset showed much better gains with 
-PPI and Yeastract constraints as compared to the stress dataset. Because of this similarity, the cell-cycle dataset has not gained much from the others. 
+Therefore, they are more similar to the cell-cycle dataset. Because of this similarity, the cell-cycle dataset has not gained much from the others. 
 In case of stress, they were very dissimilar and hence both gained information from each other which led to improvement in their scores.    
 
 \subsection{Qualitative Biological Significance (using Gene Ontology annotations)} \label{semisup_biosig_go}
@@ -385,7 +386,7 @@ previous chapter.
 \label{fig:stress_chip_enrich_2}
 }
 \label{fig:stress_chip_enrich}
-\caption[]{Sections of the image showing significant enrichment in Stress dataset combined with Chip-Chip dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Stress dataset combined with Chip-Chip dataset. Full image available in the Appendix}
 \end{figure}
 
 \begin{figure}[p]
@@ -399,7 +400,7 @@ previous chapter.
 \label{fig:stress_ppi_enrich_2}
 }
 \label{fig:stress_ppi_enrich}
-\caption[]{Sections of the image showing significant enrichment in Stress dataset combined with PPI dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Stress dataset combined with PPI dataset. Full image available in the Appendix}
 \end{figure}
 
 \begin{figure}[p]
@@ -413,7 +414,7 @@ previous chapter.
 \label{fig:stress_ppi_enrich_2}
 }
 \label{fig:stress_ppi_enrich}
-\caption[]{Sections of the image showing significant enrichment in Stress dataset combined with Yeastract dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Stress dataset combined with Yeastract dataset. Full image available in the Appendix}
 \end{figure}
 
 
@@ -424,7 +425,7 @@ previous chapter.
 \label{fig:ccycle_chip_enrich_1}
 }
 \label{fig:ccycle_chip_enrich}
-\caption[]{Sections of the image showing significant enrichment in Cell-cycle dataset combined with Chip-Chip dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with Chip-Chip dataset. Full image available in the Appendix}
 \end{figure}
 
 \begin{figure}[p]
@@ -438,7 +439,7 @@ previous chapter.
 \label{fig:ccycle_ppi_enrich_2}
 }
 \label{fig:ccycle_ppi_enrich}
-\caption[]{Sections of the image showing significant enrichment in Cell-cycle dataset combined with PPI dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with PPI dataset. Full image available in the Appendix}
 \end{figure}
 
 \begin{figure}[p]
@@ -452,37 +453,152 @@ previous chapter.
 \label{fig:ccycle_yt_enrich_2}
 }
 \label{fig:ccycle_yt_enrich}
-\caption[]{Sections of the image showing significant enrichment in Cell-cycle dataset combined with Yeastract dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with Yeastract dataset. Full image available in the Appendix}
 \end{figure}
 
-All our result data is available upon request. For the the best clustering gain results (top 50 terms) across both the datasets (maximum entropy integration of stress and PPI dataset), we have provided the best 5 enriched GO terms in each cluster in Table-\ref{appendix:maxent_stress_pval} as part of Appendix-\ref{appendix:go_enrichment_results}. 
+
+\subsubsection{Stress vs Stress and Chip-Chip}
+Nucleic acid binding, ribosome biogenesis  and assembly, macromolecule biosynthetic process, translation and biosynthetic process are the 
+few common significant enrichment observed in both the datasets. Processes like mitotic cell cycle, regulation of cell cycle, nucleotide biosynthetic process, 
+ribonucleotide metabolic process, oxidoreductase activity, response to pheromone, conjugation, cell division, reproduction, organic metabolic process, 
+amine metabolic process, and amine biosynthetic process were the significant enrichment sites observed in Stress Chip Chip dataset as compared to Stress.
+
+\subsubsection{Stress vs Stress and PPI}
+Protein RNA complex assembly, macromolecule complex assembly, nucleic acid binding, DNA metabolic process, rRNA processing, RNA processing, 
+ribosome biogenesis and assembly and RNA metabolic process are the common enrichment. Whereas, oxidoreductase activity, carbohydrate metabolic process, 
+transcription from RNA polymerase II promoter, transcription regulator activity, response to stimulus, response to stress, protein binding, mitotic cell 
+cycle, cell cycle, M phase, cell cycle phase, developmental process, cell development, chromosome organization and biogenesis, biological regulation, 
+regulation of cellular process and transcription are processes which were observed as highly significant enrichment in the Stress PPI dataset.
+
+\subsubsection{Stress vs Stress and Yeastract}
+Macromolecule biosynthetic process, translation. R RNA processing, RNA processing, RNA metabolic process, ribosome biogenesis and assembly, 
+protein RNA complex assembly, ribosome  assembly, 35S primary transcript processing, nucleic acid binding, RNA binding, processing of 20S pre-rRNA and 
+DNA metabolic process are the common enriched zones in both the sets. Processes like cellular localization, transcription, cell development, macromolecule complex 
+assembly, ribosomal large subunit biogenesis and assembly, ribosomal large subunit aseembly and maintenance, sno RNA binding, carbohydrate 
+metabolic process, chromosome organization and biogenesis, DNA packaging, regulation of cellular process, biological regulation, response to stimulus, 
+response to stress, developmental process, amine metabolic process, generation of precursor metabolites and energy, telomere maintenance, 
+oxidoreductase activity and organic acid metabolic process  are the many significant enrichment observed only in the Stress YT dataset when 
+compared to Stress dataset.
+
+\subsubsection{Cell-Cycle vs Cell-Cycle and Chip-Chip}
+Translation, macromolecule biosynthetic process and biosynthetic process are the only three common significant enrichment observed 
+in both the datasets. Whereas, ribosome biogenesis and assembly, cell cycle, cell cycle phase, mitotic cell cycle, regulation of 
+cell cycle, cell wall organization and biogenesis, cell wall division, reproduction, conjugation, response to pheromone, organic 
+acid metabolic process, amine metabolic process and response to stimulus are the other significant enrichment 
+sites observed in the Cell Cycle Chip Chip dataset.
+
+\subsubsection{Cell-Cycle vs Cell-Cycle and PPI}
+DNA metabolic process, macromolecule biosynthetic process, biosynthetic process, translation, RNA metabolic process, rRNA processing, 
+RNA processing are few common enrichment in both the datasets. However, response to DNA damage stimulus, cell cycle, mitotic cell cycle, 
+cell cycle phase, M phase, biological regulation, regulation of cellular process, developmental process, regulation of transcription, 
+regulation of metabolic process, transcription, cellular localization, cell development, response to stimulus, response to 
+stress and ribosome biogenesis assembly are processes which showed significant enrichment in the Cell Cycle PPI dataset.
+
+\subsubsection{Cell-Cycle vs Cell-Cycle and Yeastract}
+Macromolecule biosynthetic process, translation, biosynthetic process, RNA metabolic process and DNA metabolic process are common, 
+whereas, response to stimulus, cell cycle, ribosome biogenesis and assembly and generation of precursor metabolites and energy are the other 
+significantly enriched processes observed only in the Cell Cycle Yeastract dataset.
+
+The goal of integration is to have more biologically relevant clusters from which hypotheses could be derived to be carried out and validated in wet labs. All our result data is available upon request. 
+
 \section{Related Work and Discussion}
 
-Combining evidence from multiple biological datasets is not a new phenomenon. Earlier efforts in this direction related to clustering were classified under co-clustering. In this technique, the datasets are combined by assigning equal or varying weights to each dataset. For distance based clustering techniques, individual distances derived from each datasets are merged in order to come up with a new one which is then used for clustering. \citet{Hanisch2002Coclustering} proposed a distance metric that combines information from expression data and biological networks and uses it for clustering genes. They define a graph distance function on a metabolic network derived from MIPS \citep{Gueldener2006MPact} and combine it with a correlation-based distance function for microarray gene expression measurements. They assigned equal weights to both the sources and then used the resulting distance for hierarchical clustering. They show that their technique was able to find biologically meaningful clusters. \citet{huang2006incorporating} developed a similar algorithm in which instead of combining the two information sources with equal weights, they used a \textit{shrinkage} approach with the genes belonging to the same functional classes assigned zero distance (maximal similarity) and the rest of the genes using the distance calculated from the microarray data. This is then used for K-medoids clustering on simulated data as well as real one for gene function prediction. \citet{bramier2007coclustering} proposed co-clustering based on a combined distance metric from microarray gene expression data and Gene Ontology terms for \ac{SOM}. Apart from distance based clustering, various researchers have combined datasets using model based clustering as well \citep{pan06incorporating}.
+Combining evidence from multiple biological datasets is not a new phenomenon. Earlier efforts in this direction 
+related to clustering were classified under co-clustering. In this technique, the datasets are combined by assigning equal 
+or varying weights to each dataset. For distance based clustering techniques, individual distances derived from each datasets 
+are merged in order to come up with a new one which is then used for clustering. \citet{Hanisch2002Coclustering} 
+proposed a distance metric that combines information from expression data and biological networks and uses it for clustering 
+genes. They define a graph distance function on a metabolic network derived from MIPS \citep{Gueldener2006MPact} 
+and combine it with a correlation-based distance function for microarray gene expression measurements. They assigned 
+equal weights to both the sources and then used the resulting distance for hierarchical clustering. They show that their technique was 
+able to find biologically meaningful clusters. \citet{huang2006incorporating} developed a similar algorithm in which 
+instead of combining the two information sources with equal weights, they used a \textit{shrinkage} approach with the 
+genes belonging to the same functional classes assigned zero distance (maximal similarity) and the rest of the genes using the distance 
+calculated from the microarray data. This is then used for K-medoids clustering on simulated data as well as real one for gene function 
+prediction. \citet{bramier2007coclustering} proposed co-clustering based on a combined distance metric from microarray 
+gene expression data and Gene Ontology terms for \ac{SOM}. Apart from distance based clustering, various researchers have combined datasets 
+using model based clustering as well \citep{pan06incorporating}.
 
-Kernel integration has been used in the field of supervised learning in order to combine kernels from different datasets. \citet{Holloway2006MachineLearning} used it for predicting the TF binding locations on DNA. They have used 18 different datasets - both sequence and non-sequence (expression, GO) and calculated kernels from them. The goal was to combine the kernels and then use the final combination in \ac{SVM} for classification. They have used each kernel individually and calculated the \textit{F statistic} (a widely used measure for performance of a classifier). In order to combine the kernels, these F values were used as weights for each of the kernel. One of the drawbacks is that the F-statistic does not take into account the relationship of the variables but only a macro view of the performace of the whole kernel encoding. They reported that combining all datasets resulted in 73\% coverage of known interactions. 
+Kernel integration has been used in the field of supervised learning in order to combine kernels from different datasets. 
+\citet{Holloway2006MachineLearning} used it for predicting the TF binding locations on DNA. They have used 18 different 
+datasets - both sequence and non-sequence (expression, GO) and calculated kernels from them. The goal was to combine the kernels and then 
+use the final combination in \ac{SVM} for classification. They have used each kernel individually and calculated the \textit{F statistic} 
+(a widely used measure for performance of a classifier). In order to combine the kernels, these F values were used as weights 
+for each of the kernel. One of the drawbacks is that the F-statistic does not take into account the relationship of the variables but 
+only a macro view of the performace of the whole kernel encoding. They reported that combining all datasets resulted in 73\% coverage 
+of known interactions. 
 
-A more mathematically sound approach to kernel integration was developed by \citet{lanck04kerneldatafusion}. They have formulated the optimization problem as a convex optimization problem and then used \ac{SDP} to solve it. The technique is both statistically sound and computationally efficient. They used this technique in order to classify different classes of proteins (membrane vs ribosomal) using kernels derived from protein sequence, microarray expression and protein-protein interaction data. They have reported an improvement in the classification results when the kernels are combined as compared to individual kernels. The biggest drawback of such techniques is that the weights that are assigned to each dataset do not take into account the correlation between different variables across datasets and assigns one common weight for the whole dataset. Our technique tries to solve it by picking only the highest eigenvectors.
+A more mathematically sound approach to kernel integration was developed by \citet{lanck04kerneldatafusion}. They have formulated the optimization 
+problem as a convex optimization problem and then used \ac{SDP} to solve it. The technique is both statistically sound and computationally efficient. 
+They used this technique in order to classify different classes of proteins (membrane vs ribosomal) using kernels derived from protein 
+sequence, microarray expression and protein-protein interaction data. They have reported an improvement in the classification results when 
+the kernels are combined as compared to individual kernels. The biggest drawback of such techniques is that the weights that are assigned to each 
+dataset do not take into account the correlation between different variables across datasets and assigns one common weight for the 
+whole dataset. Our technique tries to solve it by picking only the highest eigenvectors.
 
-\citet{lewis06svm} did an investigation of weighted and unweighted kernel combination in classifying GO terms associated with protein sequences using SVM. They came to the interesting conclusion that for this particular task, unweighted combination of kernels is better than weighted ones. In order to compute the weights they too have used the SDP technique. \citet{Liang2008Adaptive} developed a technique to learn an optimal diffusion kernel as a convex combination of many kernels constructed from biological networks and then used the optimal kernel for protein function prediction. They report superior performance for the combined kernel in comparison to individual kernels. 
+\citet{lewis06svm} did an investigation of weighted and unweighted kernel combination in classifying GO terms associated with protein 
+sequences using SVM. They came to the interesting conclusion that for this particular task, unweighted combination of kernels 
+is better than weighted ones. In order to compute the weights they too have used the SDP technique. \citet{Liang2008Adaptive} 
+developed a technique to learn an optimal diffusion kernel as a convex combination of many kernels constructed from biological networks 
+and then used the optimal kernel for protein function prediction. They report superior performance for the combined kernel 
+in comparison to individual kernels. 
 
-Most of the above kernel combination techniques are based on \textit{supervised learning} and the individual kernel weights are optimized using some training data. But Kernel integration in an unsupervised setting (when training data is unavailable) is hard because we have no way to compute the individual weights. 
+Most of the above kernel combination techniques are based on \textit{supervised learning} and the individual kernel weights are 
+optimized using some training data. But Kernel integration in an unsupervised setting (when training data is unavailable) is hard 
+because we have no way to compute the individual weights. 
 
-\citet{Tsuda2004Learning} used a very different approach to guess a kernel matrix from incomplete data. The underlying approach is that some values in the matrix are known and they try to fill in the rest so that the resulting matrix has maximum possible entropy. They used this to compute kernels from PPI data and metabolic network and used these for the classification task and report that the maximum entropy kernel beats the diffusion kernel in classification accuracy. \citet{fujibuchi2007classification} have used the maximum entropy devised by \citet{Tsuda2004Learning} and applied it on three microarray datasets (heterogeneous kidney carcinoma, noise introduced leukemia and hetergenous oral cavity carcinoma metastasis) for the purpose of evaluating its classification performance as compared to single kernels (linear, polynomial and rbf). They report better overall performance for the maximum entropy kernel compared to others in classification performance.  
+\citet{Tsuda2004Learning} used a very different approach to guess a kernel matrix from incomplete data. The underlying approach is that some 
+values in the matrix are known and they try to fill in the rest so that the resulting matrix has maximum possible entropy. 
+They used this to compute kernels from PPI data and metabolic network and used these for the classification task and report that 
+the maximum entropy kernel beats the diffusion kernel in classification accuracy. \citet{fujibuchi2007classification} have used the maximum 
+entropy devised by \citet{Tsuda2004Learning} and applied it on three microarray datasets (heterogeneous kidney carcinoma, noise introduced 
+leukemia and hetergenous oral cavity carcinoma metastasis) for the purpose of evaluating its classification performance as compared to 
+single kernels (linear, polynomial and rbf). They report better overall performance for the maximum entropy kernel compared 
+to others in classification performance.  
 
-In practise, the principle of maximum entropy is useful when applied to verifiable information. A piece of information is verifiable if it can be determined whether a given distribution is consistent with it. Given this information, the maximum entropy procedure consists of seeking the probability distribution which maximizes information entropy, subject to the constraints of the information. This constrained optimization problem is typically solved using the method of Lagrange multipliers. Both these approaches to kernel approximation \citep{Tsuda2004Learning, fujibuchi2007classification} using maximum entropy is based on maximising the entropy subject to certain constraints. However, this is very different from our approach where we do not treat it as a entropy maximisation subject to certain constraints. We try to assume a distribution with maximum entropy as the ideal distribution when no other information is available in order to combine the similarity matrices. So, when we have multiple sets of evidence, e.g. PPI and microarray data, we try to combine them through their similarity matrices such that the resulting distribution (of the combined similarity matrix) has the maximum entropy.
+In practise, the principle of maximum entropy is useful when applied to verifiable information. A piece of information is verifiable if it can 
+be determined whether a given distribution is consistent with it. Given this information, the maximum entropy procedure consists 
+of seeking the probability distribution which maximizes information entropy, subject to the constraints of the information. This constrained 
+optimization problem is typically solved using the method of Lagrange multipliers. Both these approaches to kernel approximation 
+\citep{Tsuda2004Learning, fujibuchi2007classification} using maximum entropy is based on maximising the entropy subject to certain 
+constraints. However, this is very different from our approach where we do not treat it as a entropy maximisation subject to certain constraints. 
+We try to assume a distribution with maximum entropy as the ideal distribution when no other information is available in order to combine the 
+similarity matrices. So, when we have multiple sets of evidence, e.g. PPI and microarray data, we try to combine them through their similarity 
+matrices such that the resulting distribution (of the combined similarity matrix) has the maximum entropy.
 
-The ideal scenario of its use is where one of the datasets is a very noisy sample while the other one is a \textit{compendium} or reference dataset collected over time from various sources. The compendium acts as an average of all known observations, which when combined using this technique with the sample, fills in the eigenvalues about which the sample dataset is most \textit{confused} about. So, the sample dataset gets to keep all its prominent eigenvalues while borrowing ones from the compendium about which it is not so confident. 
+The ideal scenario of its use is where one of the datasets is a very noisy sample while the other one is a \textit{compendium} or 
+reference dataset collected over time from various sources. The compendium acts as an average of all known observations, which when 
+combined using this technique with the sample, fills in the eigenvalues about which the sample dataset is most \textit{confused} about. 
+So, the sample dataset gets to keep all its prominent eigenvalues while borrowing ones from the compendium about which it is not so confident. 
 
 
 \section{Conclusion}
 
-We have proposed a technique to integrate two diverse datasets where one is available in the form of vectorial data while the other is available in the form of a graph. The core idea is based on work done by \citet{thomaz2004covariance}. While they had used it to combine covariance matrices where one of them is singular, we have extended its use to general kernel combination after observing the similarities between the properties of a covariance matrix and a similarity matrix obtained using a kernel function. 
+We have proposed a technique to integrate two diverse datasets where one is available in the form of vectorial data while the 
+other is available in the form of a graph. The core idea is based on work done by \citet{thomaz2004covariance}. While they had 
+used it to combine covariance matrices where one of them is singular, we have extended its use to general kernel combination after 
+observing the similarities between the properties of a covariance matrix and a similarity matrix obtained using a kernel function. 
 
-Integrating such diverse datasets is not possible unless we resort to some kind of normalization. We have used similarity functions to compute similarity matrices for these datasets as the \textit{normalization} step. We have used the same techniques that we used in the previous chapter in order to compute the similarity function parameters.
+Integrating such diverse datasets is not possible unless we resort to some kind of normalization. We have used similarity functions 
+to compute similarity matrices for these datasets as the \textit{normalization} step. We have used the same techniques that we used 
+in the previous chapter in order to compute the similarity function parameters.
  
-While in the supervised setting we have an objective function that we can use to optimize the contribution of each of the similarity functions, in an unsupervised setting there is no such facility. Hence, most previous works have used ad-hoc techniques in order to integrate different datasets. We argue that under such a setting when no further evidence is available to assign weights to individual datasets then the \textit{principle of maximum entropy} is the most natural and valid choice. Apart from conceptual elegance, other benefits of this technique are that no time consuming optimization is required to search for contributions of each dataset and fairly simple and intuitive linear algebra computations are needed. Since our technique is quite generic, in future, our work can be extended to integrating other sources of data, for example  the similarity between the promoter sequences of genes.  
+While in the supervised setting we have an objective function that we can use to optimize the contribution of each of 
+the similarity functions, in an unsupervised setting there is no such facility. Hence, most previous works have 
+used ad-hoc techniques in order to integrate different datasets. We argue that under such a setting when no further 
+evidence is available to assign weights to individual datasets then the \textit{principle of maximum entropy} 
+is the most natural and valid choice. Apart from conceptual elegance, other benefits of this technique are 
+that no time consuming optimization is required to search for contributions of each dataset and fairly simple and 
+intuitive linear algebra computations are needed. Since our technique is quite generic, in future, our work 
+can be extended to integrating other sources of data, for example  the similarity between the promoter sequences of genes.  
 
-One of the key shortcomings for the biological validation of our results is that it is not possible to get datasets that were generated on the same strains under similar experimental conditions. Both our datasets were compiled by independent researchers. When datasets that are generated under similar conditions start becoming available we would be more confident in assessing the biological significance of the results.
+One of the key shortcomings for the biological validation of our results is that it is not possible to get datasets 
+that were generated on the same strains under similar experimental conditions. Both our datasets were compiled by 
+independent researchers. When datasets that are generated under similar conditions start becoming available we 
+would be more confident in assessing the biological significance of the results.
 
-There is no gold-standard for validating the clusters and there are no reference datasets on which we can compare the results with other techniques. Gene ontology while being one of the more informative sources of validation is still an indirect validation technique. Also, there is a fundamental limitation of the underlying experimental techniques, since microarrays themselves do not represent a single time point, but rather the integration of gene activity over a time period. 
+There is no gold-standard for validating the clusters and there are no reference datasets on which we can compare 
+the results with other techniques. Gene ontology while being one of the more informative sources of validation is 
+still an indirect validation technique. Also, there is a fundamental limitation of the underlying experimental 
+techniques, since microarrays themselves do not represent a single time point, but rather the integration of 
+gene activity over a time period. 

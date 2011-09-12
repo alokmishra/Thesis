@@ -813,7 +813,6 @@ Clusters to which genes were randomly assigned were chosen to be as nearly unifo
 to random may derive from producing nonuniform cluster size distributions. Uniform cluster sizes yield the highest value of $H_{C}$, which allows for the highest 
 possible $MI(C,X)$ for some variable $X$ of unknown entropy $H(X)$, because $0 \leq MI(C,X) \leq min(H_{C},H(X))$.
 
-
 \citet{gatviks03scoring} devised a method that is based on projecting vectors of biological attributes of the clustered elements onto the real line, such that the ratio 
 of between-groups and within-group variance estimators is maximized. The projected data are then scored using a non-parametric analysis of variance test, and the 
 score’s conﬁdence is evaluated.
@@ -857,8 +856,7 @@ One of the reasons for this is that integration could be meaningful if each of t
 a lot of conflicting information in each of the datasets then the resulting matrix will have a lot of noise and this will be reflected in the final clusters. We know that Chip-Chip and PPI are uncurated datasets i.e. the information there is derived from experiments which always has the possibility of inducing noise. On the other hand Yeastract 
 dataset is a manually curated dataset. That is the reason we see a high improvement when combined with it for both stress and cell-cycle datasets. 
   
-The goal of integration is to have more biologically relevant clusters from which hypotheses could be derived to be carried out and validated in wet labs. 
-All our result data is available upon request. 
+The goal of integration is to have more biologically relevant clusters from which hypotheses could be derived to be carried out and validated in wet labs. All our result data is available upon request. 
 
 \subsection{Qualitative Biological Significance (using Gene Ontology annotations)} \label{semisup_biosig_go}
 Now that we have results of quantitative biological significance before and after applying our algorithm, we would also like to qualitatively analyze the resulting clusters after 
@@ -911,7 +909,7 @@ Appendix-\ref{appendix:go_enrichment}.
 \label{fig:stress_only_enrich_2}
 }
 \label{fig:stress_only_enrich}
-\caption[]{Sections of the image showing significant enrichment in Stress only dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Stress only dataset. Full image available in the Appendix}
 \end{figure}
 
 \begin{figure}[p]
@@ -925,7 +923,7 @@ Appendix-\ref{appendix:go_enrichment}.
 \label{fig:stress_chip_enrich_2}
 }
 \label{fig:stress_chip_enrich}
-\caption[]{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from Chip-Chip dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from Chip-Chip dataset. Full image available in the Appendix}
 \end{figure}
 
 \begin{figure}[p]
@@ -939,7 +937,7 @@ Appendix-\ref{appendix:go_enrichment}.
 \label{fig:stress_ppi_enrich_2}
 }
 \label{fig:stress_ppi_enrich}
-\caption[]{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from PPI dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from PPI dataset. Full image available in the Appendix}
 \end{figure}
 
 \begin{figure}[p]
@@ -953,7 +951,7 @@ Appendix-\ref{appendix:go_enrichment}.
 \label{fig:stress_ppi_enrich_2}
 }
 \label{fig:stress_ppi_enrich}
-\caption[]{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from Yeastract dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from Yeastract dataset. Full image available in the Appendix}
 \end{figure}
 
 \subsubsection{Stress vs Stress and PPI}
@@ -972,6 +970,15 @@ hydrolase activity, amine metabolic process, amine biosynthetic process, chromos
 
 \subsubsection{Stress vs Stress and Yeastract}
 
+Translation, macromolecule biosynthetic process, biosynthetic process, 35S primary transcript processing, ribosomal biogenesis and assembly, RNA binding, DNA metabolic process, 
+nucleic acid bing, rRNAprocessing, RNA processing and RNA metabolic process are few of the common enriched processes observed between Stress and Stress Yeastract. 
+However, processes like response to stress, transcription factor activity, positive regulation of transcription, positive regulation of biological process, 
+RNA polymerase II transcription factor activity, response to chemical stimulus, regulation of transcription from RNA polymerase II promoter, 
+DNA binding, response to stimulus, cellular localization, chromosome organization and biogenesis, mitotic cell cycle, cell cycle, cell cycle phase, 
+telomere maintenance, amine metabolic process, orgnic acid metabolic process, oxidoreductase activity, regulation of metabolic process, regulation of trascription. 
+Trascription, regulation of cellular process, transcription of regulator activity and biological regulation are the other significant enrichment observed only 
+in Stress Yeastract as compared to Stress dataset.
+
 \begin{figure}[p]
 \centering
 \subfigure[Section of the image showing significant enrichment]{
@@ -979,7 +986,7 @@ hydrolase activity, amine metabolic process, amine biosynthetic process, chromos
 \label{fig:ccycle_only_enrich_1}
 }
 \label{fig:ccycle_only_enrich}
-\caption[]{Sections of the image showing significant enrichment in Cell-cycle dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Cell-cycle dataset. Full image available in the Appendix}
 \end{figure}
 
 \begin{figure}[p]
@@ -993,7 +1000,7 @@ hydrolase activity, amine metabolic process, amine biosynthetic process, chromos
 \label{fig:ccycle_ppi_enrich_2}
 }
 \label{fig:ccycle_ppi_enrich}
-\caption[]{Sections of the image showing significant enrichment in Cell-cycle dataset combined with knowledge from PPI dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with knowledge from PPI dataset. Full image available in the Appendix}
 \end{figure}
 
 \begin{figure}[p]
@@ -1007,7 +1014,7 @@ hydrolase activity, amine metabolic process, amine biosynthetic process, chromos
 \label{fig:ccycle_chip_enrich_2}
 }
 \label{fig:ccycle_chip_enrich}
-\caption[]{Sections of the image showing significant enrichment in Cell-cycle dataset combined with knowledge from Chip-Chip dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with knowledge from Chip-Chip dataset. Full image available in the Appendix}
 \end{figure}
 
 
@@ -1018,7 +1025,7 @@ hydrolase activity, amine metabolic process, amine biosynthetic process, chromos
 \label{fig:ccycle_yt_enrich_1}
 }
 \label{fig:ccycle_yt_enrich}
-\caption[]{Sections of the image showing significant enrichment in Cell-cycle dataset combined with Yeastract dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with Yeastract dataset. Full image available in the Appendix}
 \end{figure}
 
 \subsubsection{Cell-Cycle vs Cell-Cycle and Chip-Chip}

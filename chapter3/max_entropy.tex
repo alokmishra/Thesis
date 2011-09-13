@@ -138,7 +138,8 @@ where E is the expected value and I(X) is the \textit{information} content or \t
 
 where b denotes the base of the logarithm. The unit of entropy is the \textit{bit} or \textit{nat} for bases 2 and e respectively. If any of the probabilities vanish ($p(x_i) = 0$ for any $i$, we use the fact that $\lim_{p\to0}p\log p = 0$ and hence the value for that particular $i$ is zero. 
 
-\textit{Differential entropy} also known as continuous entropy tries to extend the idea of Shannon entropy which is restricted to random variables taking discrete values to continuous probability distributions, e.g. Gaussian distribution. Another widely used measure of entropy for the continuous case is the \textit{relative entropy} of a distribution also popularly known as the KL divergence (refer Section-\ref{kl-divergence}). We will later maximize the differential entropy associated with a Gaussian distribution in order to merge similarity matrices (refer Section-\ref{kern_integration}). 
+\textit{Differential entropy} also known as continuous entropy tries to extend the idea of Shannon entropy which is restricted to random variables taking discrete values to continuous probability distributions, e.g. Gaussian distribution. Another widely used measure of entropy for the continuous case is the \textit{relative entropy} of a distribution also popularly known as the KL divergence (refer Section-\ref{kl-divergence}). We will later maximize the differential entropy associated with a 
+Gaussian distribution in order to merge similarity matrices (refer Section-\ref{kern_integration}). 
 
 
 \subsection{Principle of maximum entropy} \label{maxent_principle}
@@ -167,7 +168,8 @@ where $\lvert\Sigma\rvert$ is the determinant of the covariance matrix $\Sigma$,
 H(p(\mathbf{x})) &=& -\int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} \dots \int_{-\infty}^{+\infty}p(\mathbf{x})ln (p(\mathbf{x})) d\mathbf{x} \\
 &=& \frac{1}{2}(n+n ln(2\pi)+ln|\Sigma|) \label{diff_entropy_gauss}
 \end{eqnarray}
-In order to maximize $H(p(\mathbf{x}))$ we can ignore the first two terms ($n$ and $n ln(2\pi)$) in maximizing equation-\ref{diff_entropy_gauss} as they are constants. So, it becomes a problem of maximizing the $ln|\Sigma|$ term. We know that the determinant of a symmetric matrix is equal to the the product of its eigenvalues (refer Section-\ref{eigval_eigvec}), i.e.,
+In order to maximize $H(p(\mathbf{x}))$ we can ignore the first two terms ($n$ and $n ln(2\pi)$) in maximizing equation-\ref{diff_entropy_gauss} as they are constants. So, it becomes a problem of maximizing the $ln|\Sigma|$ term. 
+We know that the determinant of a symmetric matrix is equal to the the product of its eigenvalues, i.e.,
 \[
 |\Sigma|=\prod_{i=1}^{k}\lambda_{i}
 \]
@@ -242,7 +244,7 @@ While in the previous chapter, we used full set of genes from the microarray dat
 the full set of genes. This is because now we are combining two matrices which must be similar in size. Therefore, We first pre-process and find common genes between 
 pairs of datasets that are being combined. In the previous chapter, after removing the NORFs, the stress dataset had 6251 genes and cell-cycle dataset had 6257 genes. 
 They had 156 and 60 experiment counts respectively. The counts get changed after finding common sets of genes among dataset apirs. The final number of common genes when pairing 
-microarray datasets with Chip-chip, PPI and Yeastract datasets are   
+microarray datasets with ChIP-chip, PPI and Yeastract datasets are   
  
 \begin{table}
 \centering
@@ -250,11 +252,11 @@ microarray datasets with Chip-chip, PPI and Yeastract datasets are
 \hline
 Dataset Pair & Number of genes \\ 
 \hline
-Stress and Chip-chip & 2346 \\
+Stress and ChIP-chip & 2346 \\
 Stress and PPI       & 4508 \\
 Stress and Yeastract  & 5654 \\
 \hline 
-Cell-cycle and Chip-chip & 2346\\
+Cell-cycle and ChIP-chip & 2346\\
 Cell-cycle and PPI       & 4508\\
 Cell-cycle and Yeastract  & 5654\\
 \hline
@@ -285,7 +287,7 @@ the biological significance of our results using the Gene Ontology annotations l
 \subsection{Parameter optimisation results}\label{param_optimisation}
 
 \subsubsection{Chip-Chip, PPI and Yeastract datasets}
-As seen in Figure-\ref{fig:chip_withinss}, for the Chip-chip dataset, the optimum value (smallest vwithinss value implies tightest clustering) is at $\beta=10$ where the total 
+As seen in Figure-\ref{fig:chip_withinss}, for the ChIP-chip dataset, the optimum value (smallest vwithinss value implies tightest clustering) is at $\beta=10$ where the total 
 withinss falls significantly. It also has one of the smallest standard deviation at that point. For the PPI dataset, as seen in Figure-\ref{fig:ppi_withinss}, the optimum 
 value again is at $\beta=10$ where it has the smallest withinss value. Even though the standard deviation is not the lowest, yet we choose is because of the smallest value.
 Figure-\ref{fig:yt_withinss} for the Yeastract dataset, has a optimum range between $\beta=5$ and $\beta=10$, where the optimum value is at $\beta=5$ while the combination of small value and small standard deviation 
@@ -293,14 +295,14 @@ is at $\beta=10$. We chose $\beta=5$ because of the smallest withinss value.
 
 \begin{figure}[htp]
   \begin{center}
-    \subfigure[Chip-chip $\beta$ optimization using total within-cluster sum of square distances]
+    \subfigure[ChIP-chip $\beta$ optimization using total within-cluster sum of square distances]
             {\label{fig:chip_withinss}\includegraphics[scale=0.7]{/home/alok/phd/post_viva/maxent/results/sigmaopt/plots/chip_withinss.eps}}
     \subfigure[PPI $\beta$ optimization using total within-cluster sum of square distances]
             {\label{fig:ppi_withinss}\includegraphics[scale=0.7]{/home/alok/phd/post_viva/maxent/results/sigmaopt/plots/ppi_withinss.eps}} \\
     \subfigure[Yeastract $\beta$ optimization using total within-cluster sum of square distances]
             {\label{fig:yt_withinss}\includegraphics[scale=0.7]{/home/alok/phd/post_viva/maxent/results/sigmaopt/plots/yt_withinss.eps}}
   \end{center}
-  \caption{Chip-chip, PPI and Yeastract datasets: Beta optimization}
+  \caption{ChIP-chip, PPI and Yeastract datasets: Beta optimization}
   \label{fig:chip_ppi_yt_opt}
 \end{figure}
 
@@ -417,6 +419,28 @@ previous chapter.
 \caption{Sections of the image showing significant enrichment in Stress dataset combined with Yeastract dataset. Full image available in the Appendix}
 \end{figure}
 
+\subsubsection{Stress vs Stress and Chip-Chip}
+Nucleic acid binding, ribosome biogenesis  and assembly, macromolecule biosynthetic process, translation and biosynthetic process are the 
+few common significant enrichment observed in both the datasets. Processes like mitotic cell cycle, regulation of cell cycle, nucleotide biosynthetic process, 
+ribonucleotide metabolic process, oxidoreductase activity, response to pheromone, conjugation, cell division, reproduction, organic metabolic process, 
+amine metabolic process, and amine biosynthetic process were the significant enrichment sites observed in Stress Chip Chip dataset as compared to Stress.
+
+\subsubsection{Stress vs Stress and PPI}
+Protein RNA complex assembly, macromolecule complex assembly, nucleic acid binding, DNA metabolic process, rRNA processing, RNA processing, 
+ribosome biogenesis and assembly and RNA metabolic process are the common enrichment. Whereas, oxidoreductase activity, carbohydrate metabolic process, 
+transcription from RNA polymerase II promoter, transcription regulator activity, response to stimulus, response to stress, protein binding, mitotic cell 
+cycle, cell cycle, M phase, cell cycle phase, developmental process, cell development, chromosome organization and biogenesis, biological regulation, 
+regulation of cellular process and transcription are processes which were observed as highly significant enrichment in the Stress PPI dataset.
+
+\subsubsection{Stress vs Stress and Yeastract}
+Macromolecule biosynthetic process, translation. R RNA processing, RNA processing, RNA metabolic process, ribosome biogenesis and assembly, 
+protein RNA complex assembly, ribosome  assembly, 35S primary transcript processing, nucleic acid binding, RNA binding, processing of 20S pre-rRNA and 
+DNA metabolic process are the common enriched zones in both the sets. Processes like cellular localization, transcription, cell development, macromolecule complex 
+assembly, ribosomal large subunit biogenesis and assembly, ribosomal large subunit aseembly and maintenance, sno RNA binding, carbohydrate 
+metabolic process, chromosome organization and biogenesis, DNA packaging, regulation of cellular process, biological regulation, response to stimulus, 
+response to stress, developmental process, amine metabolic process, generation of precursor metabolites and energy, telomere maintenance, 
+oxidoreductase activity and organic acid metabolic process  are the many significant enrichment observed only in the Stress YT dataset when 
+compared to Stress dataset.
 
 \begin{figure}[p]
 \centering
@@ -457,28 +481,6 @@ previous chapter.
 \end{figure}
 
 
-\subsubsection{Stress vs Stress and Chip-Chip}
-Nucleic acid binding, ribosome biogenesis  and assembly, macromolecule biosynthetic process, translation and biosynthetic process are the 
-few common significant enrichment observed in both the datasets. Processes like mitotic cell cycle, regulation of cell cycle, nucleotide biosynthetic process, 
-ribonucleotide metabolic process, oxidoreductase activity, response to pheromone, conjugation, cell division, reproduction, organic metabolic process, 
-amine metabolic process, and amine biosynthetic process were the significant enrichment sites observed in Stress Chip Chip dataset as compared to Stress.
-
-\subsubsection{Stress vs Stress and PPI}
-Protein RNA complex assembly, macromolecule complex assembly, nucleic acid binding, DNA metabolic process, rRNA processing, RNA processing, 
-ribosome biogenesis and assembly and RNA metabolic process are the common enrichment. Whereas, oxidoreductase activity, carbohydrate metabolic process, 
-transcription from RNA polymerase II promoter, transcription regulator activity, response to stimulus, response to stress, protein binding, mitotic cell 
-cycle, cell cycle, M phase, cell cycle phase, developmental process, cell development, chromosome organization and biogenesis, biological regulation, 
-regulation of cellular process and transcription are processes which were observed as highly significant enrichment in the Stress PPI dataset.
-
-\subsubsection{Stress vs Stress and Yeastract}
-Macromolecule biosynthetic process, translation. R RNA processing, RNA processing, RNA metabolic process, ribosome biogenesis and assembly, 
-protein RNA complex assembly, ribosome  assembly, 35S primary transcript processing, nucleic acid binding, RNA binding, processing of 20S pre-rRNA and 
-DNA metabolic process are the common enriched zones in both the sets. Processes like cellular localization, transcription, cell development, macromolecule complex 
-assembly, ribosomal large subunit biogenesis and assembly, ribosomal large subunit aseembly and maintenance, sno RNA binding, carbohydrate 
-metabolic process, chromosome organization and biogenesis, DNA packaging, regulation of cellular process, biological regulation, response to stimulus, 
-response to stress, developmental process, amine metabolic process, generation of precursor metabolites and energy, telomere maintenance, 
-oxidoreductase activity and organic acid metabolic process  are the many significant enrichment observed only in the Stress YT dataset when 
-compared to Stress dataset.
 
 \subsubsection{Cell-Cycle vs Cell-Cycle and Chip-Chip}
 Translation, macromolecule biosynthetic process and biosynthetic process are the only three common significant enrichment observed 

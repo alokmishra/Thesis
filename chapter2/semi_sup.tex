@@ -8,7 +8,7 @@ In our novel formulation, named \acfi{SSSC}, supervision (prior knowledge) is pr
 \section{Spectral Clustering}
 The goal of any clustering is to partition a set of points into disjoint sets where the points within a partition are as similar as possible while points within different partitions are as dissimilar as possible. In this section, we discuss how spectral clustering achieves this objective. 
 \subsection{Graph notations}
-Given a set of data points, we can compute similarities between them using a suitable \textit{similarity function}. Given these similarities between the data points, a dataset can be respresented as a \textit{graph} which is a set of \textit{vertices} and \textit{edges} connecting vertices \textit{(V,E)}. The vertices \textit{(V)} represent the data points while the edges \textit{(E)} represent the links between the data points. Usually a certain threshold of similarity value is chosen above which the edges are linked between data points. For \textit{weighted} graphs the edges also have the similarity values as \textit{weights}. Once we have this undirected weighted graph, the goal of a clustering algorithm is to partition it such that edge weights between the points \textit{within} a partition are high while the edge weights between points of \textit{different} partitions are low. We begin with some definitions.
+Given a set of data points, we can compute similarities between them using a suitable \textit{similarity function}. Given these similarities between the data points, a dataset can be represented as a \textit{graph} which is a set of \textit{vertices} and \textit{edges} connecting vertices \textit{(V,E)}. The vertices \textit{(V)} represent the data points while the edges \textit{(E)} represent the links between the data points. Usually a certain threshold of similarity value is chosen above which the edges are linked between data points. For \textit{weighted} graphs the edges also have the similarity values as \textit{weights}. Once we have this undirected weighted graph, the goal of a clustering algorithm is to partition it such that edge weights between the points \textit{within} a partition are high while the edge weights between points of \textit{different} partitions are low. We begin with some definitions.
 
 Let $G = (V,E)$ be an \textit{undirected weighted} graph with vertices $V = {v_{1},\dots,v_{n}}$, edges $E= {e_{1},\dots,e_{n}}$ and each edge $e_{ij}$ between vertex $i$ and $j$  has a non-negative weight $w_{ij}$. The weights matrix $W = (w_{ij})_{i,j=1,\dots,n}$ is also known as the \textit{adjacency matrix} of this graph. For non existing edges, $w_{ij}=0$. The graph is assumed to have no self-edges, i.e., $w_{ii}=0$. In order to understand spectral clustering we need some more definitions for this graph.
 
@@ -194,8 +194,6 @@ binary interactions.
 We also derived constrains from an independently curated database of known TF-gene interactions known as YEASTRACT(Yeast Search for Transcriptional Regulators And Consensus Tracking). 
 YEASTRACT\footnote{interactions file created on 25/12/2008} \citep{Teixeira06yeastract} is a curated repository of 34471 regulatory associations between transcription factors and 
 target genes in Saccharomyces cerevisiae, based on more than 1000 bibliographic references. In this database, the curators consider interaction to have occurred when there is change in the expression of the target gene owing to the deletion (or mutation) of the transcription factor-encoding gene. They also consider evidence based on TF binding to the promoter region of the target gene based on band-shift, footprinting or chromatin immunoprecipitation assays. They also describe potential associations but we have not considered them as we wanted to stick to known facts. 
-
-The common gene count between the cell-cycle dataset and YEASTRACT dataset is 1586 while the same between the stress dataset and the YEASTRACT dataset is 1198. Again this is attributed to the smaller number of genes in the stress dataset. The final number of constraints are given in Table-\ref{tab:ppi_yeastract:no_constraints}.
 
 \subsection{Semi-supervised spectral clustering} \label{sec:sssc}
 We propose a semi supervised form of the spectral clustering method, which is detailed in Algorithm-\ref{alg:semi_sup_spectral_clustering} and shown in Figure-\ref{fig:semi_sup_spectral_clustering}. We are clustering microarray data, hence the genes can be considered the variables and their pairwise similarity values are calculated using a Gaussian affinity function. We have chosen this similarity function because it naturally encodes the local neighbourhood property and its value falls rapidly as the pairwise dissimilarity increases. Once we have this similarity matrix, we use the constraints derived from our secondary datasets to modify it. Since our constraints already encode our belief about potential interactions, we set each value in the similarity matrix to 1 (maximum similarity) if there is a 1 in the corresponding constraints matrix. All other values are left unchanged as we have no information regarding them. The idea behind changing the values to represent maximum similarity is to give the algorithm the maximum incentive to keep them in the same cluster. The resulting matrix is the final similarity matrix that we use for spectral clustering (Steps 3-7). We have used the algorithm suggested by \citet{ng2001onspectral}. The implementation was done in R using readily available libraries for linear algebra. 
@@ -522,14 +520,14 @@ Now that we have seen that the algorithm really works and has been validated usi
 The datasets that we have, represent experiments done under particular conditions. If we base our results just on those datasets, the results that we obtain could be purely by chance because of the characteristics of those particular data-sets and it would be dangerous to draw conclusions based on those data-sets alone. 
 Therefore, we have perturbed the datasets and report the mean and variance of results in order to justify that the results are not random. We begin by showing that spectral clustering results are immune to minor perturbations of data and the resulting clusters are not too different from each other. 
 We start with the full stress and cell-cycle data-sets from SMD as discussed earlier. We created ten perturbed data-sets from each of stress and cell-cycle datasets after 
-subsampling (drawing 90\% of the genes randomly). The exact procedure is outlined below
+sub-sampling (drawing 90\% of the genes randomly). The exact procedure is outlined below
 
 \begin{enumerate}
   
 \item We got the full stress and cell-cycle data-sets. The stress dataset had 6361 genes while cell-cycle dataset had 6353 genes including NORFs. Since not much is known about the function of NORFs , so we removed all the NORF from the data-sets. 
 That left us with 6251 genes in the stress data-set and 6257 genes in the cell-cycle data-sets. They had 156 and 60 experiment counts respectively.
  
-\item We created ten perturbed data-sets from each of stress and cell-cycle datasets after subsampling (drawing 90\% of the genes randomly).
+\item We created ten perturbed data-sets from each of stress and cell-cycle datasets after sub-sampling (drawing 90\% of the genes randomly).
 
 \item In order to compute the similarity matrix from the stress and cell-cycle datasets, we need to find the most optimum sigma. In order to do this we compute the Dunn’s index and Davies Bouldin’s index for each of the datasets. The same sigma is used for all the perturbed datasets because sigma should not change significantly for a data-set because of perturbation.
 
@@ -558,7 +556,7 @@ Serial No. & Dunn’s index  & Davies Bouldin’s index\\
 11 & 	0.03952356 & 3.168467 \\
 \hline 
 \end{tabular}
-\caption{Dunn's and Davies Bouldin's values for pertubed Stress dataset. Indicates that algorithm itself results in consistent cluster quality.}
+\caption{Dunn's and Davies Bouldin's values for perturbed Stress dataset. Indicates that algorithm itself results in consistent cluster quality.}
 \label{tab:stress_only_perturb}
 \end{table}
 
@@ -581,7 +579,7 @@ Serial No. & Dunn’s index  & Davies Bouldin’s index\\
 11 & 0.02926203 & 3.00763 \\
 \hline 
 \end{tabular}
-\caption{Dunn's and Davies Bouldin's values for pertubed Cell-Cycle dataset. Indicates that algorithm itself results in consistent cluster quality.}
+\caption{Dunn's and Davies Bouldin's values for perturbed Cell-Cycle dataset. Indicates that algorithm itself results in consistent cluster quality.}
 \label{tab:cellcycle_only_perturb}
 \end{table}
 
@@ -597,16 +595,16 @@ Stress only  & 0.0400 & 0.0087 & 3.1840 & 0.0341 \\
 Cell cycle only & 0.0316 & 0.0113 & 3.0136 & 0.0693 \\
 \hline 
 \end{tabular}
-\caption{Summary of mean and variance of individual datasets. This shows that our results are not random and small pertubations in data doesn’t change the results.}
+\caption{Summary of mean and variance of individual datasets. This shows that our results are not random and small perturbations in data doesn’t change the results.}
 \label{tab:stress_ccycle_perturb}
 \end{table}
 
 As we can see in the mean and standard deviation values in Table-\ref{tab:stress_ccycle_perturb}, that the spectral clustering algorithm itself is quite stable with perturbations of 
 data and the resulting cluster qualities are not widely varying. We can see that the results of cell cycle dataset are having more variance in comparison to the stress dataset. This is seen in results of both Dunn's and Davies Bouldin's indices.
 
-Next we do a similar analysis of our proposed semi-supervised spectral clustering algoritm and demonstrate that it too does not produce results randomly and are consistent across sub-sampled datasets. . In semi-supervised clustering, we are applying constraints in order to improve the quality 
-of clustering. In order to justify that our results are not by accident, we need to sub-sample the data-sets as well as the contraints and then apply the sampled constraints. After this we need to compute the 
-variance of cluster stability. We create ten constraints data-sets from each constraints dataset by subsampling (drawing 90\% of the genes randomly). Then we combine pairs of perturbed micro-array and constraints data-sets, 
+Next we do a similar analysis of our proposed semi-supervised spectral clustering algorithm and demonstrate that it too does not produce results randomly and are consistent across sub-sampled datasets. . In semi-supervised clustering, we are applying constraints in order to improve the quality 
+of clustering. In order to justify that our results are not by accident, we need to sub-sample the data-sets as well as the constraints and then apply the sampled constraints. After this we need to compute the 
+variance of cluster stability. We create ten constraints data-sets from each constraints dataset by sub-sampling (drawing 90\% of the genes randomly). Then we combine pairs of perturbed micro-array and constraints data-sets, 
 cluster and then report its Dunn’s and Davies Bouldin's clustering quality indices. We repeat this for all pairs. To reiterate, this is to demonstrate that our results are not 
 random and that they are statistically valid.
 
@@ -739,12 +737,12 @@ Stress-PPI & 0.0324 & 0.0071 & 3.6367 & 0.0431 \\
 Stress-YT & 0.0367 & 0.0080 & 3.6463 & 0.0843 \\
 
 \hline
-CCycle-Chip & 0.0325 & 0.0074 & 3.4603 & 0.0992 \\
-CCycle-PPI & 0.0322 & 0.0076 & 3.5236 & 0.1406 \\
-CCycle-YT & 0.0282 & 0.0015 & 4.2709 & 0.1820 \\
+Cell-cycle-Chip & 0.0325 & 0.0074 & 3.4603 & 0.0992 \\
+Cell-cycle-PPI & 0.0322 & 0.0076 & 3.5236 & 0.1406 \\
+Cell-cycle-YT & 0.0282 & 0.0015 & 4.2709 & 0.1820 \\
 \hline 
 \end{tabular}
-\caption{Mean and variance of all combined datasets. This shows that the results of semi-supervised clustering are not random and small pertubations in data doesn’t change the results wildly.}
+\caption{Mean and variance of all combined datasets. This shows that the results of semi-supervised clustering are not random and small perturbations in data doesn’t change the results wildly.}
 \label{tab:mean_stdev_combined_perturbed}
 \end{table}
 
@@ -848,10 +846,10 @@ The different initial biological significance values for stress and cell-cycle d
 in the expression levels and many more genes are coordinating together which leads to higher significance values. Cell-cycle on the other hand is a routine activity and the 
 expression patterns of genes do not change so extremely leading to smaller significance values.
 
-We observe that the stress dataset when combined with Chip-chip constraints leads to 
+We observe that the stress dataset when combined with ChIP-chip constraints leads to 
 slightly worse biological significance (-2.8\%) after the combination. On the other hand, combination with PPI and Yeastract constraints lead to better significance values (6.72\% and 4.48\% respectively). For 
-the cell-cycle dataset too, combination with Chip-chip dataset leads to reduced biological significance (-14.17\%). When combined with both PPI and Yeastract constraints the biological significance 
-has gone up. Based on the results we could say that the Chip-chip dataset is probably the noisiest and does not bring much new information leading to reduced significance for the original datasets. 
+the cell-cycle dataset too, combination with ChIP-chip dataset leads to reduced biological significance (-14.17\%). When combined with both PPI and Yeastract constraints the biological significance 
+has gone up. Based on the results we could say that the ChIP-chip dataset is probably the noisiest and does not bring much new information leading to reduced significance for the original datasets. 
 One of the reasons for this is that integration could be meaningful if each of the datasets complement the other. If there are 
 a lot of conflicting information in each of the datasets then the resulting matrix will have a lot of noise and this will be reflected in the final clusters. We know that Chip-Chip and PPI are uncurated datasets i.e. the information there is derived from experiments which always has the possibility of inducing noise. On the other hand Yeastract 
 dataset is a manually curated dataset. That is the reason we see a high improvement when combined with it for both stress and cell-cycle datasets. 
@@ -881,7 +879,7 @@ as the probability that $n$ randomly chosen genes will have $k$ or more annotati
 P(X \geq k) = \sum_{i=k}^{n} \frac{\binom{K}{i} \binom{N-K}{n-i}}{\binom {N}{n}}
 \]
  
-Here, the total number of genes is $N$ of which $K$ are known to be of the particular annotation type that we are interested in. The cluster that we test for overrepresentation has $n$ genes.
+Here, the total number of genes is $N$ of which $K$ are known to be of the particular annotation type that we are interested in. The cluster that we test for over-representation has $n$ genes.
 
 In all our computations, we have only used GO terms that were associated with at least three genes in any cluster. Also, we have only used those terms that had p-value less than 0.01. 
 We excluded all clusters that were having less than 3 genes or more than 500 genes in them considering them trivial clusters. In order to correct for multiple hypothesis, we have used the False Discovery Rate with 0.05 threshold.  
@@ -895,8 +893,7 @@ overlap, and the intensity of each colored spot represents the fraction of genes
 
 We used Genomica to output images that represent the GO term enrichment before and after the semi-supervised clustering. 
 The images in Figures-\ref{fig:stress_only_enrich} to \ref{fig:stress_ppi_enrich} are stress related while Figures-\ref{fig:ccycle_only_enrich} to \ref{fig:ccycle_yt_enrich} are cell-cycle
- related. The original images from which various snapshots have been incorporated in Figures-\ref{fig:stress_only_enrich} to \ref{fig:ccycle_yt_enrich} are available in 
-Appendix-\ref{appendix:go_enrichment}. 
+ related.
 
 \begin{figure}[ph]
 \centering
@@ -909,7 +906,7 @@ Appendix-\ref{appendix:go_enrichment}.
 \label{fig:stress_only_enrich_2}
 }
 \label{fig:stress_only_enrich}
-\caption{Sections of the image showing significant enrichment in Stress only dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Stress only dataset. }
 \end{figure}
 
 \begin{figure}[p]
@@ -923,7 +920,7 @@ Appendix-\ref{appendix:go_enrichment}.
 \label{fig:stress_chip_enrich_2}
 }
 \label{fig:stress_chip_enrich}
-\caption{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from Chip-Chip dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from Chip-Chip dataset. }
 \end{figure}
 
 \begin{figure}[p]
@@ -937,7 +934,7 @@ Appendix-\ref{appendix:go_enrichment}.
 \label{fig:stress_ppi_enrich_2}
 }
 \label{fig:stress_ppi_enrich}
-\caption{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from PPI dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from PPI dataset. }
 \end{figure}
 
 \begin{figure}[p]
@@ -951,7 +948,7 @@ Appendix-\ref{appendix:go_enrichment}.
 \label{fig:stress_ppi_enrich_2}
 }
 \label{fig:stress_ppi_enrich}
-\caption{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from Yeastract dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from Yeastract dataset. }
 \end{figure}
 
 \subsubsection{Stress vs Stress and PPI}
@@ -971,12 +968,12 @@ hydrolase activity, amine metabolic process, amine biosynthetic process, chromos
 \subsubsection{Stress vs Stress and Yeastract}
 
 Translation, macromolecule biosynthetic process, biosynthetic process, 35S primary transcript processing, ribosomal biogenesis and assembly, RNA binding, DNA metabolic process, 
-nucleic acid bing, rRNAprocessing, RNA processing and RNA metabolic process are few of the common enriched processes observed between Stress and Stress Yeastract. 
+nucleic acid bing, rRNA processing, RNA processing and RNA metabolic process are few of the common enriched processes observed between Stress and Stress Yeastract. 
 However, processes like response to stress, transcription factor activity, positive regulation of transcription, positive regulation of biological process, 
 RNA polymerase II transcription factor activity, response to chemical stimulus, regulation of transcription from RNA polymerase II promoter, 
 DNA binding, response to stimulus, cellular localization, chromosome organization and biogenesis, mitotic cell cycle, cell cycle, cell cycle phase, 
-telomere maintenance, amine metabolic process, orgnic acid metabolic process, oxidoreductase activity, regulation of metabolic process, regulation of trascription. 
-Trascription, regulation of cellular process, transcription of regulator activity and biological regulation are the other significant enrichment observed only 
+telomere maintenance, amine metabolic process, organic acid metabolic process, oxidoreductase activity, regulation of metabolic process, regulation of transcription. 
+Transcription, regulation of cellular process, transcription of regulator activity and biological regulation are the other significant enrichment observed only 
 in Stress Yeastract as compared to Stress dataset.
 
 \begin{figure}[p]
@@ -986,7 +983,7 @@ in Stress Yeastract as compared to Stress dataset.
 \label{fig:ccycle_only_enrich_1}
 }
 \label{fig:ccycle_only_enrich}
-\caption{Sections of the image showing significant enrichment in Cell-cycle dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Cell-cycle dataset. }
 \end{figure}
 
 \begin{figure}[p]
@@ -1000,7 +997,7 @@ in Stress Yeastract as compared to Stress dataset.
 \label{fig:ccycle_ppi_enrich_2}
 }
 \label{fig:ccycle_ppi_enrich}
-\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with knowledge from PPI dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with knowledge from PPI dataset. }
 \end{figure}
 
 \begin{figure}[p]
@@ -1014,7 +1011,7 @@ in Stress Yeastract as compared to Stress dataset.
 \label{fig:ccycle_chip_enrich_2}
 }
 \label{fig:ccycle_chip_enrich}
-\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with knowledge from Chip-Chip dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with knowledge from Chip-Chip dataset. }
 \end{figure}
 
 
@@ -1025,7 +1022,7 @@ in Stress Yeastract as compared to Stress dataset.
 \label{fig:ccycle_yt_enrich_1}
 }
 \label{fig:ccycle_yt_enrich}
-\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with Yeastract dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with Yeastract dataset. }
 \end{figure}
 
 \subsubsection{Cell-Cycle vs Cell-Cycle and Chip-Chip}
@@ -1045,7 +1042,7 @@ cell-cycle processes were not accentuated earlier, after combination with the PP
 
 RNA binding, 35S primary transcription process, RNA processing, rRNA processing, RNA metabolic process, macromolecule biosynthetic process, 
 translation and biosynthetic process are the common significant enrichment sites observed in the Cell-Cycle dataset both before and after combination with the Yeastract dataset. 
-Cell-Cycle dataset when combined with the YeasTract dataset also showed enrichment significantly for RNA modification, response to stimulus, mitotic cell cycle 
+Cell-Cycle dataset when combined with the Yeastract dataset also showed enrichment significantly for RNA modification, response to stimulus, mitotic cell cycle 
 and DNA metabolic process when compared to Cell Cycle data set alone. 
 
 \begin{comment}

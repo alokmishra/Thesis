@@ -1,6 +1,3 @@
-% Add a section on Implementation Issues, choice of libraries, language etc
-% compare normalized vs non-normalized combination of kernels
-% maybe compare our own validation technique, p-value graph, pvalue avg
 \begin{quote} ``But since the affairs of men rest still incertain, Let's reason with the worst that may befall.'' - \textit{William Shakespeare (Julius Caesar)}\end{quote} 
 \section{Introduction}
 As we saw in the previous chapters, each of the current datasets, e.g. microarrays, DNA-binding, protein-protein interaction and sequence datasets, provide a partial 
@@ -23,7 +20,17 @@ is the \textit{shrinkage} method. When there are two similarity matrices $K_{1} 
 \begin{eqnarray}
 K &=& \mu K_{1}+(1-\mu)K_{2}
 \end{eqnarray}
-which represents a \textit{convex combination}\footnote{A convex combination is a linear combination of where all coefficients are non-negative and sum up to 1} of $K_{1}$ and $K_{2}$ with the shrinkage parameter $\mu$ ranging between 0 and 1, and controlling what fraction of each similarity matrix contributes towards the final matrix. The \textit{shrinkage} method is named so because depending on the $\mu$, we shrink the contribution of the original evidence. For example, if we are combining microarray data with \ac{PPI} data to improve the predictions based just on microarray data, then the contribution of microarray data is being shrunk from its original contribution (which is 1). Optimum $\mu$ values can be chosen after running these various weight combinations of datasets through the Spectral clustering algorithm and then optimizing for the best cluster quality using the Dunn or Davies-Bouldin index values. While this is reasonable from a practical viewpoint, its not very principled. That motivates us towards our next step which is to use the principle of maximum entropy (Section-\ref{kern_integration}) in order to merge the similarity matrices. As we will see in following sections, this allows us to merge two datasets when there is no evidence available regarding their individual importance. For example, when we have two noisy data sources e.g. microarray and \ac{PPI}, and no other evidence regarding their individual importance, we can combine them to get better inference using the principle of maximum entropy.
+which represents a \textit{convex combination}\footnote{A convex combination is a linear combination of where all coefficients are non-negative and sum up to 1} 
+of $K_{1}$ and $K_{2}$ with the shrinkage parameter $\mu$ ranging between 0 and 1, and controlling what fraction of each similarity matrix contributes 
+towards the final matrix. The \textit{shrinkage} method is named so because depending on the $\mu$, we shrink the 
+contribution of the original evidence. For example, if we are combining microarray data with \ac{PPI} data to improve the predictions based just on 
+microarray data, then the contribution of microarray data is being shrunk from its original contribution (which is 1). Optimum $\mu$ values can be chosen after 
+running these various weight combinations of datasets through the Spectral clustering algorithm and then optimizing for the best cluster quality using the Dunn's 
+or Davies-Bouldin's index values. While this is reasonable from a practical viewpoint, its not very principled. That motivates us towards our next step which is to use 
+the principle of maximum entropy (Section-\ref{kern_integration}) in order to merge the similarity matrices. As we will see in following sections, this allows 
+us to merge two datasets when there is no evidence available regarding their individual importance. For example, when we have two noisy data sources e.g. 
+microarray and \ac{PPI}, and no other evidence regarding their individual importance, we can combine them to get better inference using the principle 
+of maximum entropy.
 
 As discussed in Section-\ref{kern_integration}, we need a more specialised version of the similarity matrix for maximum entropy integration. The extra requirement is that 
 our similarity matrices should be positive semi-definite. There is a separate but similar branch of machine learning that operates only on such matrices and are 
@@ -243,7 +250,7 @@ PPI dataset (from MIPS Comprehensive Yeast Genome Database (CYGD)) \citep{Guelde
 While in the previous chapter, we used full set of genes from the microarray datasets and applied available constraints on them, in this chapter we are unable to use 
 the full set of genes. This is because now we are combining two matrices which must be similar in size. Therefore, We first pre-process and find common genes between 
 pairs of datasets that are being combined. In the previous chapter, after removing the NORFs, the stress dataset had 6251 genes and cell-cycle dataset had 6257 genes. 
-They had 156 and 60 experiment counts respectively. The counts get changed after finding common sets of genes among dataset apirs. The final number of common genes when pairing 
+They had 156 and 60 experiment counts respectively. The counts get changed after finding common sets of genes among dataset pairs. The final number of common genes when pairing 
 microarray datasets with ChIP-chip, PPI and Yeastract datasets are   
  
 \begin{table}
@@ -287,7 +294,7 @@ the biological significance of our results using the Gene Ontology annotations l
 \subsection{Parameter optimisation results}\label{param_optimisation}
 
 \subsubsection{Chip-Chip, PPI and Yeastract datasets}
-As seen in Figure-\ref{fig:chip_withinss}, for the ChIP-chip dataset, the optimum value (smallest vwithinss value implies tightest clustering) is at $\beta=10$ where the total 
+As seen in Figure-\ref{fig:chip_withinss}, for the ChIP-chip dataset, the optimum value (smallest withinss value implies tightest clustering) is at $\beta=10$ where the total 
 withinss falls significantly. It also has one of the smallest standard deviation at that point. For the PPI dataset, as seen in Figure-\ref{fig:ppi_withinss}, the optimum 
 value again is at $\beta=10$ where it has the smallest withinss value. Even though the standard deviation is not the lowest, yet we choose is because of the smallest value.
 Figure-\ref{fig:yt_withinss} for the Yeastract dataset, has a optimum range between $\beta=5$ and $\beta=10$, where the optimum value is at $\beta=5$ while the combination of small value and small standard deviation 
@@ -388,7 +395,7 @@ previous chapter.
 \label{fig:stress_chip_enrich_2}
 }
 \label{fig:stress_chip_enrich}
-\caption{Sections of the image showing significant enrichment in Stress dataset combined with Chip-Chip dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Stress dataset combined with Chip-Chip dataset.}
 \end{figure}
 
 \begin{figure}[p]
@@ -402,7 +409,7 @@ previous chapter.
 \label{fig:stress_ppi_enrich_2}
 }
 \label{fig:stress_ppi_enrich}
-\caption{Sections of the image showing significant enrichment in Stress dataset combined with PPI dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Stress dataset combined with PPI dataset.}
 \end{figure}
 
 \begin{figure}[p]
@@ -416,7 +423,7 @@ previous chapter.
 \label{fig:stress_ppi_enrich_2}
 }
 \label{fig:stress_ppi_enrich}
-\caption{Sections of the image showing significant enrichment in Stress dataset combined with Yeastract dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Stress dataset combined with Yeastract dataset.}
 \end{figure}
 
 \subsubsection{Stress vs Stress and Chip-Chip}
@@ -436,7 +443,7 @@ regulation of cellular process and transcription are processes which were observ
 Macromolecule biosynthetic process, translation. R RNA processing, RNA processing, RNA metabolic process, ribosome biogenesis and assembly, 
 protein RNA complex assembly, ribosome  assembly, 35S primary transcript processing, nucleic acid binding, RNA binding, processing of 20S pre-rRNA and 
 DNA metabolic process are the common enriched zones in both the sets. Processes like cellular localization, transcription, cell development, macromolecule complex 
-assembly, ribosomal large subunit biogenesis and assembly, ribosomal large subunit aseembly and maintenance, sno RNA binding, carbohydrate 
+assembly, ribosomal large subunit biogenesis and assembly, ribosomal large subunit assembly and maintenance, sno RNA binding, carbohydrate 
 metabolic process, chromosome organization and biogenesis, DNA packaging, regulation of cellular process, biological regulation, response to stimulus, 
 response to stress, developmental process, amine metabolic process, generation of precursor metabolites and energy, telomere maintenance, 
 oxidoreductase activity and organic acid metabolic process  are the many significant enrichment observed only in the Stress YT dataset when 
@@ -449,7 +456,7 @@ compared to Stress dataset.
 \label{fig:ccycle_chip_enrich_1}
 }
 \label{fig:ccycle_chip_enrich}
-\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with Chip-Chip dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with Chip-Chip dataset.}
 \end{figure}
 
 \begin{figure}[p]
@@ -463,7 +470,7 @@ compared to Stress dataset.
 \label{fig:ccycle_ppi_enrich_2}
 }
 \label{fig:ccycle_ppi_enrich}
-\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with PPI dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with PPI dataset.}
 \end{figure}
 
 \begin{figure}[p]
@@ -477,10 +484,8 @@ compared to Stress dataset.
 \label{fig:ccycle_yt_enrich_2}
 }
 \label{fig:ccycle_yt_enrich}
-\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with Yeastract dataset. Full image available in the Appendix}
+\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with Yeastract dataset.}
 \end{figure}
-
-
 
 \subsubsection{Cell-Cycle vs Cell-Cycle and Chip-Chip}
 Translation, macromolecule biosynthetic process and biosynthetic process are the only three common significant enrichment observed 
@@ -527,7 +532,7 @@ datasets - both sequence and non-sequence (expression, GO) and calculated kernel
 use the final combination in \ac{SVM} for classification. They have used each kernel individually and calculated the \textit{F statistic} 
 (a widely used measure for performance of a classifier). In order to combine the kernels, these F values were used as weights 
 for each of the kernel. One of the drawbacks is that the F-statistic does not take into account the relationship of the variables but 
-only a macro view of the performace of the whole kernel encoding. They reported that combining all datasets resulted in 73\% coverage 
+only a macro view of the performance of the whole kernel encoding. They reported that combining all datasets resulted in 73\% coverage 
 of known interactions. 
 
 A more mathematically sound approach to kernel integration was developed by \citet{lanck04kerneldatafusion}. They have formulated the optimization 
@@ -554,7 +559,7 @@ values in the matrix are known and they try to fill in the rest so that the resu
 They used this to compute kernels from PPI data and metabolic network and used these for the classification task and report that 
 the maximum entropy kernel beats the diffusion kernel in classification accuracy. \citet{fujibuchi2007classification} have used the maximum 
 entropy devised by \citet{Tsuda2004Learning} and applied it on three microarray datasets (heterogeneous kidney carcinoma, noise introduced 
-leukemia and hetergenous oral cavity carcinoma metastasis) for the purpose of evaluating its classification performance as compared to 
+leukemia and heterogeneous oral cavity carcinoma metastasis) for the purpose of evaluating its classification performance as compared to 
 single kernels (linear, polynomial and rbf). They report better overall performance for the maximum entropy kernel compared 
 to others in classification performance.  
 

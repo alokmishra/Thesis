@@ -531,7 +531,7 @@ That left us with 6251 genes in the stress data-set and 6257 genes in the cell-c
 
 \item In order to compute the similarity matrix from the stress and cell-cycle datasets, we need to find the most optimum sigma. In order to do this we compute the Dunn’s index and Davies Bouldin’s index for each of the datasets. The same sigma is used for all the perturbed datasets because sigma should not change significantly for a data-set because of perturbation.
 
-\item Once we have the sigma values, we cluster all the original and perturbed datasets and  compute the Dunn and DB’s index for the resulting clusters. 
+\item Once we have the sigma values, we cluster all the original and perturbed datasets and compute the Dunn's and Davies Bouldin’s index for the resulting clusters. 
 Then we report the mean and standard deviation of the indices. 
 
 \item The goal is to show the cluster quality consistency with perturbation in data. 
@@ -746,7 +746,7 @@ Cell-cycle-YT & 0.0282 & 0.0015 & 4.2709 & 0.1820 \\
 \label{tab:mean_stdev_combined_perturbed}
 \end{table}
 
-Tables - \ref{tab:stress_chip_perturbed} to \ref{tab:ccycle_yt_perturbed} show the cluster quality results of individual combinations of datasets. We have compiled the mean 
+Tables-\ref{tab:stress_chip_perturbed} to \ref{tab:ccycle_yt_perturbed} show the cluster quality results of individual combinations of datasets. We have compiled the mean 
 and standard deviation values of these individual results in Table-\ref{tab:mean_stdev_combined_perturbed}. 
 
 We observe that the results of semi-supervised clustering are stable with perturbations in both the datasets. For the stress dataset the variability in results is even lower than

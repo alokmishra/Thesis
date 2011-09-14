@@ -438,45 +438,45 @@ Dispersion was computed by taking the cumulative sum of within-cluster sum of sq
 
 \subsubsection{Stress dataset}
 
-\begin{figure}[tp]
+\begin{figure}[p]
  \centering
  \includegraphics[scale=1.0]{/home/alok/phd/post_viva/semisup/results/plots/stress_dunn.eps}
  \caption{Stress dataset: Sigma optimization using Dunn's Index}
  \label{fig:stress_sigma_opt_dunn}
 \end{figure}
 
-The results for the Dunn's index based sigma optimisation for the stress dataset is shown in Figure-\ref{fig:stress_sigma_opt_dunn} which shows the mean values along with standard deviation error bars. 
-The x-axis uses a log-scale because of the spread of the data.  For Dunn's index, where higher values are better, the plot has the optimal region between 0.003 and 0.005 where the values are high and the standard deviations are low.
-The maximum value (best clustering) at $\sigma=0.005$. It is worthwhile to note that the best quality clustering also has a very low standard deviation.
-
-\begin{figure}[tp]
+\begin{figure}[p]
  \centering
  \includegraphics[scale=1.0]{/home/alok/phd/post_viva/semisup/results/plots/stress_davies.eps}
  \caption{Stress dataset: Sigma optimization using Davies Bouldin's Index}
  \label{fig:stress_sigma_opt_dav}
 \end{figure}
 
+The results for the Dunn's index based sigma optimisation for the stress dataset is shown in Figure-\ref{fig:stress_sigma_opt_dunn} which shows the mean values along with standard deviation error bars. 
+The x-axis uses a log-scale because of the spread of the data.  For Dunn's index, where higher values are better, the plot has the optimal region between 0.003 and 0.005 where the values are high and the standard deviations are low.
+The maximum value (best clustering) at $\sigma=0.005$. It is worthwhile to note that the best quality clustering also has a very low standard deviation.
+
 As seen in Figure-\ref{fig:stress_sigma_opt_dav}, the Davies-Bouldin's index, where lower values indicate better clustering, has its optimal region between 0.003 and 0.03. It has its minimum value (best clustering) at $\sigma=0.01$. However, the standard deviation is unacceptably high.
 Considering that the next best value is $\sigma=0.005$ and it also has low standard deviation as well as it is in agreement with the Dunn's index values we choose this as the optimal sigma value for this dataset for further computations.  
 
 \subsubsection{Cell-cycle dataset}
 
-\begin{figure}[tp]
+\begin{figure}[p]
  \centering
  \includegraphics[scale=1.0]{/home/alok/phd/post_viva/semisup/results/plots/ccycle_dunn.eps}
  \caption{Cell-cycle dataset: Sigma optimization using Dunn's Index}
  \label{fig:ccycle_sigma_opt_dunn}
 \end{figure}
 
-The result for Dunn's index based optimisation for the cell-cycle dataset is shown in Figure-\ref{fig:ccycle_sigma_opt_dunn} which shows the mean values along with standard deviation error bars. 
-The x-axis uses a log-scale because of the spread of the data.  Dunn's index has its maximum value (best clustering) at $\sigma=0.03$ and has a very low standard deviation there. 
-
-\begin{figure}[tp]
+\begin{figure}[p]
  \centering
  \includegraphics[scale=1.0]{/home/alok/phd/post_viva/semisup/results/plots/ccycle_davies.eps}
  \caption{Cell-cycle dataset: Sigma optimization using Davies Bouldin's Index}
  \label{fig:ccycle_sigma_opt_dav}
 \end{figure}
+
+The result for Dunn's index based optimisation for the cell-cycle dataset is shown in Figure-\ref{fig:ccycle_sigma_opt_dunn} which shows the mean values along with standard deviation error bars. 
+The x-axis uses a log-scale because of the spread of the data.  Dunn's index has its maximum value (best clustering) at $\sigma=0.03$ and has a very low standard deviation there. 
 
 As seen in Figure-\ref{fig:ccycle_sigma_opt_dav}, the Davies-Bouldin's index has its minimum value (best clustering) at $\sigma=0.05$ and the optimal region between 0.01 to 0.7. However, the standard deviation there is higher in comparison to at $\sigma=0.03$. 
 Based on the consensus of both, we have used $\sigma=0.03$ value for all our further analysis for this dataset (cell-cycle). 

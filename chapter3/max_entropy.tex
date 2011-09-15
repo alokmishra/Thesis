@@ -251,7 +251,7 @@ While in the previous chapter, we used full set of genes from the microarray dat
 the full set of genes. This is because now we are combining two matrices which must be similar in size. Therefore, We first pre-process and find common genes between 
 pairs of datasets that are being combined. In the previous chapter, after removing the NORFs, the stress dataset had 6251 genes and cell-cycle dataset had 6257 genes. 
 They had 156 and 60 experiment counts respectively. The counts get changed after finding common sets of genes among dataset pairs. The final number of common genes when pairing 
-microarray datasets with ChIP-chip, PPI and Yeastract datasets are   
+microarray datasets with ChIP-chip, PPI and Yeastract datasets are shown in Table-\ref{tab:datasetpair_commongenes}.  
  
 \begin{table}
 \centering
@@ -269,7 +269,7 @@ Cell-cycle and Yeastract  & 5654\\
 \hline
 \end{tabular}
 \caption{Number of genes considered for individual dataset pairs}
-\label{tab:no_constraints}
+\label{tab:datasetpair_commongenes}
 \end{table}
 
 After pre-processing, for the microarray datasets, we compute the similarity matrices from both of them using parameters obtained by 
@@ -303,11 +303,11 @@ is at $\beta=10$. We chose $\beta=5$ because of the smallest withinss value.
 \begin{figure}[htp]
   \begin{center}
     \subfigure[ChIP-chip $\beta$ optimization using total within-cluster sum of square distances]
-            {\label{fig:chip_withinss}\includegraphics[scale=0.7]{/home/alok/phd/post_viva/maxent/results/sigmaopt/plots/chip_withinss.eps}}
+            {\label{fig:chip_withinss}\includegraphics[scale=0.7]{images_only/maxent/results/sigmaopt/plots/chip_withinss.eps}}
     \subfigure[PPI $\beta$ optimization using total within-cluster sum of square distances]
-            {\label{fig:ppi_withinss}\includegraphics[scale=0.7]{/home/alok/phd/post_viva/maxent/results/sigmaopt/plots/ppi_withinss.eps}} \\
+            {\label{fig:ppi_withinss}\includegraphics[scale=0.7]{images_only/maxent/results/sigmaopt/plots/ppi_withinss.eps}} \\
     \subfigure[Yeastract $\beta$ optimization using total within-cluster sum of square distances]
-            {\label{fig:yt_withinss}\includegraphics[scale=0.7]{/home/alok/phd/post_viva/maxent/results/sigmaopt/plots/yt_withinss.eps}}
+            {\label{fig:yt_withinss}\includegraphics[scale=0.7]{images_only/maxent/results/sigmaopt/plots/yt_withinss.eps}}
   \end{center}
   \caption{ChIP-chip, PPI and Yeastract datasets: Beta optimization}
   \label{fig:chip_ppi_yt_opt}
@@ -315,7 +315,7 @@ is at $\beta=10$. We chose $\beta=5$ because of the smallest withinss value.
 
 \section{Biological Significance Analysis}
 
-\subsection{Numerical Biological Significance comparison (using mutual information)} \label{num_biosig_mi}
+\subsection{Numerical Biological Significance comparison (using mutual information)} \label{maxent:num_biosig_mi}
 \subsubsection{Results}
 
 \begin{table}[p]
@@ -356,7 +356,7 @@ Cell-cycle \& Yeastract &  39.1   & 38.0  & 59.3  &   51.66\%    &  35.94\%  & 4
 \label{tab:ccycle:maxent_biol_index}
 \end{table}
 
-We follow the same procedure that was followed in the previous chapter (refer Section-\ref{num_biosig_mi}) for biological validation of the resulting clusters using the technique based on 
+We follow the same procedure that was followed in the previous chapter (refer Section-\ref{semisup:num_biosig_mi}) for biological validation of the resulting clusters using the technique based on 
 mutual information by \citet{Gibons2002Judging}. The results of the integration of the stress microarray dataset with ChIP-chip, PPI and Yeastract are in 
 Table-\ref{tab:stress:maxent_biol_index}. We have reported percentage gains in index values before and after integration for each pair of dataset being integrated. In order to compare our 
 results with the semi-supervised technique, we also reran the semi-supervised experiments on the filtered (common) gene sets. For each pair of dataset, the first one is referred 
@@ -379,7 +379,7 @@ are both curated datasets. Most of the curated datasets are taken from experimen
 Therefore, they are more similar to the cell-cycle dataset. Because of this similarity, the cell-cycle dataset has not gained much from the others. 
 In case of stress, they were very dissimilar and hence both gained information from each other which led to improvement in their scores.    
 
-\subsection{Qualitative Biological Significance (using Gene Ontology annotations)} \label{semisup_biosig_go}
+\subsection{Qualitative Biological Significance (using Gene Ontology annotations)} \label{maxent_biosig_go}
 
 We put the final clusters of genes (before and after combination) through Genomica which is a tool to analyze the characteristics of resulting clustering using Gene Ontology and has been detailed in the 
 previous chapter.
@@ -387,42 +387,42 @@ previous chapter.
 \begin{figure}[p]
 \centering
 \subfigure[Section of the image showing significant enrichment]{
-\includegraphics[scale=0.5]{/home/alok/phd/post_viva/maxent/results/analysis/img_maxent_stress_chip/1.eps}
-\label{fig:stress_chip_enrich_1}
+\includegraphics[scale=0.5]{images_only/maxent/results/analysis/img_maxent_stress_chip/1.eps}
+\label{fig:maxent_stress_chip_enrich_1}
 }
 \subfigure[Section of the image showing significant enrichment]{
-\includegraphics[scale=0.4]{/home/alok/phd/post_viva/maxent/results/analysis/img_maxent_stress_chip/2.eps}
-\label{fig:stress_chip_enrich_2}
+\includegraphics[scale=0.4]{images_only/maxent/results/analysis/img_maxent_stress_chip/2.eps}
+\label{fig:maxent_stress_chip_enrich_2}
 }
-\label{fig:stress_chip_enrich}
+\label{fig:maxent_stress_chip_enrich}
 \caption{Sections of the image showing significant enrichment in Stress dataset combined with Chip-Chip dataset.}
 \end{figure}
 
 \begin{figure}[p]
 \centering
 \subfigure[Section of the image showing significant enrichment]{
-\includegraphics[scale=0.5]{/home/alok/phd/post_viva/maxent/results/analysis/img_maxent_stress_ppi/1.eps}
-\label{fig:stress_ppi_enrich_1}
+\includegraphics[scale=0.5]{images_only/maxent/results/analysis/img_maxent_stress_ppi/1.eps}
+\label{fig:maxent_stress_ppi_enrich_1}
 }
 \subfigure[Section of the image showing significant enrichment]{
-\includegraphics[scale=0.4]{/home/alok/phd/post_viva/maxent/results/analysis/img_maxent_stress_ppi/2.eps}
-\label{fig:stress_ppi_enrich_2}
+\includegraphics[scale=0.4]{images_only/maxent/results/analysis/img_maxent_stress_ppi/2.eps}
+\label{fig:maxent_stress_ppi_enrich_2}
 }
-\label{fig:stress_ppi_enrich}
+\label{fig:maxent_stress_ppi_enrich}
 \caption{Sections of the image showing significant enrichment in Stress dataset combined with PPI dataset.}
 \end{figure}
 
 \begin{figure}[p]
 \centering
 \subfigure[Section of the image showing significant enrichment]{
-\includegraphics[scale=0.5]{/home/alok/phd/post_viva/maxent/results/analysis/img_maxent_stress_yt/1.eps}
-\label{fig:stress_ppi_enrich_1}
+\includegraphics[scale=0.5]{images_only/maxent/results/analysis/img_maxent_stress_yt/1.eps}
+\label{fig:maxent_stress_yt_enrich_1}
 }
 \subfigure[Section of the image showing significant enrichment]{
-\includegraphics[scale=0.4]{/home/alok/phd/post_viva/maxent/results/analysis/img_maxent_stress_yt/2.eps}
-\label{fig:stress_ppi_enrich_2}
+\includegraphics[scale=0.4]{images_only/maxent/results/analysis/img_maxent_stress_yt/2.eps}
+\label{fig:maxent_stress_yt_enrich_2}
 }
-\label{fig:stress_ppi_enrich}
+\label{fig:maxent_stress_yt_enrich}
 \caption{Sections of the image showing significant enrichment in Stress dataset combined with Yeastract dataset.}
 \end{figure}
 
@@ -452,38 +452,38 @@ compared to Stress dataset.
 \begin{figure}[p]
 \centering
 \subfigure[Section of the image showing significant enrichment]{
-\includegraphics[scale=0.5]{/home/alok/phd/post_viva/ec2machine/maxent/results/analysis/img_maxent_ccycle_chip/1.eps}
-\label{fig:ccycle_chip_enrich_1}
+\includegraphics[scale=0.5]{images_only/ec2machine/maxent/results/analysis/img_maxent_ccycle_chip/1.eps}
+\label{fig:maxent_ccycle_chip_enrich_1}
 }
-\label{fig:ccycle_chip_enrich}
+\label{fig:maxent_ccycle_chip_enrich}
 \caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with Chip-Chip dataset.}
 \end{figure}
 
 \begin{figure}[p]
 \centering
 \subfigure[Section of the image showing significant enrichment]{
-\includegraphics[scale=0.5]{/home/alok/phd/post_viva/ec2machine/maxent/results/analysis/img_maxent_ccycle_ppi/1.eps}
-\label{fig:ccycle_ppi_enrich_1}
+\includegraphics[scale=0.5]{images_only/ec2machine/maxent/results/analysis/img_maxent_ccycle_ppi/1.eps}
+\label{fig:maxent_ccycle_ppi_enrich_1}
 }
 \subfigure[Section of the image showing significant enrichment]{
-\includegraphics[scale=0.5]{/home/alok/phd/post_viva/ec2machine/maxent/results/analysis/img_maxent_ccycle_ppi/2.eps}
-\label{fig:ccycle_ppi_enrich_2}
+\includegraphics[scale=0.5]{images_only/ec2machine/maxent/results/analysis/img_maxent_ccycle_ppi/2.eps}
+\label{fig:maxent_ccycle_ppi_enrich_2}
 }
-\label{fig:ccycle_ppi_enrich}
+\label{fig:maxent_ccycle_ppi_enrich}
 \caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with PPI dataset.}
 \end{figure}
 
 \begin{figure}[p]
 \centering
 \subfigure[Section of the image showing significant enrichment]{
-\includegraphics[scale=0.5]{/home/alok/phd/post_viva/ec2machine/maxent/results/analysis/img_maxent_ccycle_yt/1.eps}
-\label{fig:ccycle_yt_enrich_1}
+\includegraphics[scale=0.5]{images_only/ec2machine/maxent/results/analysis/img_maxent_ccycle_yt/1.eps}
+\label{fig:maxent_ccycle_yt_enrich_1}
 }
 \subfigure[Section of the image showing significant enrichment]{
-\includegraphics[scale=0.5]{/home/alok/phd/post_viva/ec2machine/maxent/results/analysis/img_maxent_ccycle_yt/2.eps}
-\label{fig:ccycle_yt_enrich_2}
+\includegraphics[scale=0.5]{images_only/ec2machine/maxent/results/analysis/img_maxent_ccycle_yt/2.eps}
+\label{fig:maxent_ccycle_yt_enrich_2}
 }
-\label{fig:ccycle_yt_enrich}
+\label{fig:maxent_ccycle_yt_enrich}
 \caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with Yeastract dataset.}
 \end{figure}
 

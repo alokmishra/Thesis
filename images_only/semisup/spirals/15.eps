@@ -1,0 +1,513 @@
+%!PS-Adobe-3.0
+%%DocumentNeededResources: font Helvetica
+%%+ font Helvetica-Bold
+%%+ font Helvetica-Oblique
+%%+ font Helvetica-BoldOblique
+%%+ font Symbol
+%%DocumentMedia: special 720 720 0 () ()
+%%Title: R Graphics Output
+%%Creator: R Software
+%%Pages: (atend)
+%%BoundingBox: 0 0 720 720
+%%EndComments
+%%BeginProlog
+/bp  { gs gs } def
+% begin .ps.prolog
+/gs  { gsave } def
+/gr  { grestore } def
+/ep  { showpage gr gr } def
+/m   { moveto } def
+/l  { rlineto } def
+/np  { newpath } def
+/cp  { closepath } def
+/f   { fill } def
+/o   { stroke } def
+/c   { newpath 0 360 arc } def
+/r   { 4 2 roll moveto 1 copy 3 -1 roll exch 0 exch rlineto 0 rlineto -1 mul 0 exch rlineto closepath } def
+/p1  { stroke } def
+/p2  { gsave bg fill grestore newpath } def
+/p3  { gsave bg fill grestore stroke } def
+/t   { 6 -2 roll moveto gsave rotate
+       ps mul neg 0 2 1 roll rmoveto
+       1 index stringwidth pop
+       mul neg 0 rmoveto show grestore } def
+/cl  { grestore gsave newpath 3 index 3 index moveto 1 index
+       4 -1 roll lineto  exch 1 index lineto lineto
+       closepath clip newpath } def
+/rgb { setrgbcolor } def
+/s   { scalefont setfont } def
+% end   .ps.prolog
+%%IncludeResource: font Helvetica
+/Helvetica findfont
+dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse} forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+  end
+/Font1 exch definefont pop
+%%IncludeResource: font Helvetica-Bold
+/Helvetica-Bold findfont
+dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse} forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+  end
+/Font2 exch definefont pop
+%%IncludeResource: font Helvetica-Oblique
+/Helvetica-Oblique findfont
+dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse} forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+  end
+/Font3 exch definefont pop
+%%IncludeResource: font Helvetica-BoldOblique
+/Helvetica-BoldOblique findfont
+dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse} forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+  end
+/Font4 exch definefont pop
+%%IncludeResource: font Symbol
+/Symbol findfont
+dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse} forall
+  currentdict
+  end
+/Font5 exch definefont pop
+%%EndProlog
+%%Page: 1 1
+bp
+59.04 73.44 689.76 660.96 cl
+/bg { 1 0 0 rgb } def
+1 0 0 rgb
+0.75 setlinewidth
+[] 0 setdash
+1 setlinecap
+1 setlinejoin
+10.00 setmiterlimit
+554.72 148.04 2.70 c p3
+0 setgray
+320.64 295.75 2.70 c p1
+1 0 0 rgb
+459.70 365.53 2.70 c p3
+434.49 377.64 2.70 c p3
+195.00 441.96 2.70 c p3
+467.46 375.58 2.70 c p3
+455.45 383.03 2.70 c p3
+459.37 388.22 2.70 c p3
+0 setgray
+341.44 272.20 2.70 c p1
+1 0 0 rgb
+453.90 393.71 2.70 c p3
+456.49 399.37 2.70 c p3
+218.65 487.43 2.70 c p3
+0 setgray
+253.30 164.03 2.70 c p1
+1 0 0 rgb
+461.47 405.99 2.70 c p3
+451.89 409.96 2.70 c p3
+530.53 418.00 2.70 c p3
+226.38 497.62 2.70 c p3
+516.72 396.85 2.70 c p3
+517.08 406.18 2.70 c p3
+0 setgray
+366.43 263.57 2.70 c p1
+1 0 0 rgb
+448.96 414.94 2.70 c p3
+452.54 422.41 2.70 c p3
+304.18 525.18 2.70 c p3
+439.79 423.05 2.70 c p3
+440.51 429.64 2.70 c p3
+433.38 431.78 2.70 c p3
+435.33 440.09 2.70 c p3
+0 setgray
+301.65 369.97 2.70 c p1
+1 0 0 rgb
+599.16 203.62 2.70 c p3
+154.89 369.19 2.70 c p3
+433.00 445.95 2.70 c p3
+0 setgray
+378.65 108.03 2.70 c p1
+1 0 0 rgb
+444.81 466.36 2.70 c p3
+420.81 450.72 2.70 c p3
+174.39 380.47 2.70 c p3
+416.35 454.63 2.70 c p3
+0 setgray
+441.19 245.00 2.70 c p1
+1 0 0 rgb
+414.63 462.84 2.70 c p3
+0 setgray
+520.00 339.98 2.70 c p1
+467.86 268.98 2.70 c p1
+1 0 0 rgb
+404.88 458.83 2.70 c p3
+400.93 464.27 2.70 c p3
+405.90 492.29 2.70 c p3
+391.50 475.17 2.70 c p3
+197.87 470.94 2.70 c p3
+0 setgray
+348.13 270.61 2.70 c p1
+1 0 0 rgb
+264.74 529.57 2.70 c p3
+0 setgray
+511.86 116.15 2.70 c p1
+1 0 0 rgb
+332.57 552.09 2.70 c p3
+383.45 471.37 2.70 c p3
+0 setgray
+392.50 253.51 2.70 c p1
+1 0 0 rgb
+378.91 481.34 2.70 c p3
+661.29 250.93 2.70 c p3
+579.06 199.22 2.70 c p3
+372.35 485.64 2.70 c p3
+364.86 484.31 2.70 c p3
+357.66 493.24 2.70 c p3
+0 setgray
+359.74 264.58 2.70 c p1
+1 0 0 rgb
+401.04 550.51 2.70 c p3
+0 setgray
+530.76 356.99 2.70 c p1
+1 0 0 rgb
+524.10 461.09 2.70 c p3
+444.32 537.47 2.70 c p3
+350.56 476.24 2.70 c p3
+341.82 491.22 2.70 c p3
+0 setgray
+298.71 337.25 2.70 c p1
+1 0 0 rgb
+335.07 483.22 2.70 c p3
+169.04 395.40 2.70 c p3
+0 setgray
+207.92 221.59 2.70 c p1
+1 0 0 rgb
+508.84 465.52 2.70 c p3
+329.77 472.44 2.70 c p3
+318.10 485.47 2.70 c p3
+0 setgray
+182.36 240.43 2.70 c p1
+1 0 0 rgb
+309.10 485.65 2.70 c p3
+308.94 465.37 2.70 c p3
+294.01 477.08 2.70 c p3
+0 setgray
+347.02 111.59 2.70 c p1
+1 0 0 rgb
+510.66 433.78 2.70 c p3
+0 setgray
+379.28 259.91 2.70 c p1
+1 0 0 rgb
+618.09 253.76 2.70 c p3
+294.13 460.34 2.70 c p3
+254.45 522.68 2.70 c p3
+280.02 466.31 2.70 c p3
+494.59 494.47 2.70 c p3
+279.02 453.50 2.70 c p3
+482.03 513.02 2.70 c p3
+653.26 275.88 2.70 c p3
+0 setgray
+537.76 142.27 2.70 c p1
+156.51 354.50 2.70 c p1
+492.26 315.22 2.70 c p1
+490.86 122.65 2.70 c p1
+1 0 0 rgb
+269.13 451.75 2.70 c p3
+626.30 227.66 2.70 c p3
+0 setgray
+322.47 289.31 2.70 c p1
+1 0 0 rgb
+272.72 436.21 2.70 c p3
+272.94 425.50 2.70 c p3
+268.58 419.07 2.70 c p3
+0 setgray
+502.90 328.11 2.70 c p1
+1 0 0 rgb
+251.38 420.53 2.70 c p3
+244.56 414.00 2.70 c p3
+236.35 407.56 2.70 c p3
+241.94 395.10 2.70 c p3
+0 setgray
+414.59 253.25 2.70 c p1
+340.78 291.02 2.70 c p1
+365.63 128.37 2.70 c p1
+1 0 0 rgb
+241.87 385.57 2.70 c p3
+224.42 380.34 2.70 c p3
+0 setgray
+319.30 330.31 2.70 c p1
+1 0 0 rgb
+213.42 371.82 2.70 c p3
+219.80 360.26 2.70 c p3
+242.92 349.08 2.70 c p3
+0 setgray
+459.06 113.42 2.70 c p1
+1 0 0 rgb
+230.36 339.62 2.70 c p3
+0 setgray
+472.16 312.27 2.70 c p1
+311.11 296.63 2.70 c p1
+447.58 252.77 2.70 c p1
+425.88 118.14 2.70 c p1
+1 0 0 rgb
+246.79 331.34 2.70 c p3
+243.57 321.70 2.70 c p3
+0 setgray
+311.26 348.13 2.70 c p1
+375.06 269.94 2.70 c p1
+1 0 0 rgb
+230.27 308.92 2.70 c p3
+0 setgray
+406.01 274.56 2.70 c p1
+331.67 270.16 2.70 c p1
+1 0 0 rgb
+656.14 294.74 2.70 c p3
+240.74 301.23 2.70 c p3
+0 setgray
+481.55 279.34 2.70 c p1
+1 0 0 rgb
+246.74 292.84 2.70 c p3
+202.86 483.98 2.70 c p3
+0 setgray
+411.00 98.52 2.70 c p1
+304.76 343.18 2.70 c p1
+510.25 313.60 2.70 c p1
+308.31 333.03 2.70 c p1
+1 0 0 rgb
+244.83 281.11 2.70 c p3
+245.13 269.52 2.70 c p3
+256.08 263.76 2.70 c p3
+257.96 252.35 2.70 c p3
+275.91 253.31 2.70 c p3
+0 setgray
+151.59 309.65 2.70 c p1
+1 0 0 rgb
+187.39 461.75 2.70 c p3
+666.40 349.71 2.70 c p3
+283.69 247.16 2.70 c p3
+287.79 237.26 2.70 c p3
+273.47 539.87 2.70 c p3
+282.13 214.49 2.70 c p3
+0 setgray
+303.67 130.03 2.70 c p1
+452.60 262.25 2.70 c p1
+1 0 0 rgb
+355.64 556.80 2.70 c p3
+298.53 217.68 2.70 c p3
+300.06 199.97 2.70 c p3
+315.01 203.14 2.70 c p3
+0 setgray
+399.84 260.25 2.70 c p1
+1 0 0 rgb
+321.71 191.34 2.70 c p3
+337.81 200.77 2.70 c p3
+345.13 188.55 2.70 c p3
+356.30 186.53 2.70 c p3
+367.01 182.18 2.70 c p3
+377.91 176.42 2.70 c p3
+0 setgray
+163.29 248.43 2.70 c p1
+1 0 0 rgb
+367.30 557.13 2.70 c p3
+181.24 405.88 2.70 c p3
+0 setgray
+238.18 169.37 2.70 c p1
+1 0 0 rgb
+389.42 170.45 2.70 c p3
+0 setgray
+203.50 199.80 2.70 c p1
+1 0 0 rgb
+401.65 170.39 2.70 c p3
+0 setgray
+165.86 297.18 2.70 c p1
+1 0 0 rgb
+504.97 441.86 2.70 c p3
+498.48 483.88 2.70 c p3
+412.67 191.37 2.70 c p3
+0 setgray
+338.39 296.29 2.70 c p1
+259.96 146.94 2.70 c p1
+1 0 0 rgb
+377.41 544.52 2.70 c p3
+0 setgray
+331.89 116.31 2.70 c p1
+1 0 0 rgb
+425.10 181.66 2.70 c p3
+172.94 438.10 2.70 c p3
+437.05 182.52 2.70 c p3
+0 setgray
+476.73 111.68 2.70 c p1
+384.19 245.90 2.70 c p1
+518.26 330.50 2.70 c p1
+1 0 0 rgb
+450.07 180.29 2.70 c p3
+465.86 171.98 2.70 c p3
+0 setgray
+443.07 109.72 2.70 c p1
+301.13 319.60 2.70 c p1
+1 0 0 rgb
+447.55 521.44 2.70 c p3
+466.37 207.35 2.70 c p3
+482.24 200.36 2.70 c p3
+482.49 225.73 2.70 c p3
+0 setgray
+451.98 280.66 2.70 c p1
+1 0 0 rgb
+662.07 312.40 2.70 c p3
+504.49 211.53 2.70 c p3
+511.35 223.68 2.70 c p3
+516.74 236.66 2.70 c p3
+537.87 231.77 2.70 c p3
+554.50 234.44 2.70 c p3
+553.29 253.80 2.70 c p3
+548.85 273.58 2.70 c p3
+564.76 278.34 2.70 c p3
+0 setgray
+319.98 314.99 2.70 c p1
+1 0 0 rgb
+566.63 188.38 2.70 c p3
+280.84 555.21 2.70 c p3
+0 setgray
+470.10 280.49 2.70 c p1
+1 0 0 rgb
+578.81 285.87 2.70 c p3
+525.17 377.78 2.70 c p3
+574.07 303.52 2.70 c p3
+580.56 315.32 2.70 c p3
+0 setgray
+484.19 311.46 2.70 c p1
+1 0 0 rgb
+594.14 325.27 2.70 c p3
+0 setgray
+495.66 277.08 2.70 c p1
+1 0 0 rgb
+583.08 342.70 2.70 c p3
+590.45 355.04 2.70 c p3
+604.15 367.46 2.70 c p3
+595.01 382.59 2.70 c p3
+599.63 396.84 2.70 c p3
+0 setgray
+316.41 307.00 2.70 c p1
+1 0 0 rgb
+599.91 411.45 2.70 c p3
+343.47 563.66 2.70 c p3
+595.35 425.60 2.70 c p3
+0 setgray
+304.36 363.84 2.70 c p1
+1 0 0 rgb
+600.61 441.69 2.70 c p3
+0 setgray
+417.74 278.54 2.70 c p1
+430.05 254.09 2.70 c p1
+229.29 182.09 2.70 c p1
+1 0 0 rgb
+584.96 452.94 2.70 c p3
+579.67 466.37 2.70 c p3
+586.35 485.06 2.70 c p3
+572.53 495.17 2.70 c p3
+388.38 544.51 2.70 c p3
+0 setgray
+289.22 135.52 2.70 c p1
+194.29 230.07 2.70 c p1
+1 0 0 rgb
+560.60 505.33 2.70 c p3
+0 setgray
+307.90 95.20 2.70 c p1
+1 0 0 rgb
+235.69 506.09 2.70 c p3
+557.61 520.97 2.70 c p3
+556.40 539.12 2.70 c p3
+527.27 533.89 2.70 c p3
+529.36 556.15 2.70 c p3
+528.36 578.24 2.70 c p3
+0 setgray
+176.56 327.07 2.70 c p1
+1 0 0 rgb
+518.77 387.63 2.70 c p3
+511.86 583.24 2.70 c p3
+497.26 589.82 2.70 c p3
+479.96 591.10 2.70 c p3
+468.72 602.65 2.70 c p3
+516.37 425.38 2.70 c p3
+0 setgray
+320.63 355.77 2.70 c p1
+279.64 149.76 2.70 c p1
+1 0 0 rgb
+457.99 617.27 2.70 c p3
+438.73 611.01 2.70 c p3
+423.03 612.08 2.70 c p3
+409.72 622.69 2.70 c p3
+395.80 635.96 2.70 c p3
+379.55 639.20 2.70 c p3
+309.08 549.22 2.70 c p3
+508.45 477.65 2.70 c p3
+362.60 627.18 2.70 c p3
+347.13 614.12 2.70 c p3
+431.54 536.80 2.70 c p3
+0 setgray
+218.47 192.53 2.70 c p1
+1 0 0 rgb
+457.96 518.06 2.70 c p3
+429.69 562.25 2.70 c p3
+0 setgray
+174.83 284.63 2.70 c p1
+1 0 0 rgb
+321.40 548.17 2.70 c p3
+528.98 367.46 2.70 c p3
+331.25 620.38 2.70 c p3
+313.75 630.03 2.70 c p3
+298.50 622.18 2.70 c p3
+280.40 625.68 2.70 c p3
+619.84 209.72 2.70 c p3
+268.57 608.19 2.70 c p3
+473.12 519.87 2.70 c p3
+253.59 601.63 2.70 c p3
+0 setgray
+161.83 340.09 2.70 c p1
+306.16 315.00 2.70 c p1
+1 0 0 rgb
+238.19 595.66 2.70 c p3
+220.60 592.73 2.70 c p3
+209.83 578.00 2.70 c p3
+171.59 423.51 2.70 c p3
+195.57 568.83 2.70 c p3
+413.13 551.34 2.70 c p3
+0 setgray
+352.59 264.99 2.70 c p1
+1 0 0 rgb
+663.35 331.30 2.70 c p3
+569.69 157.62 2.70 c p3
+180.17 560.47 2.70 c p3
+171.84 544.06 2.70 c p3
+0 setgray
+512.98 352.01 2.70 c p1
+1 0 0 rgb
+159.00 532.44 2.70 c p3
+475.81 491.77 2.70 c p3
+141.78 523.73 2.70 c p3
+129.81 509.98 2.70 c p3
+126.08 490.86 2.70 c p3
+0 setgray
+170.15 267.76 2.70 c p1
+1 0 0 rgb
+118.76 474.33 2.70 c p3
+0 setgray
+307.09 353.25 2.70 c p1
+1 0 0 rgb
+106.28 459.99 2.70 c p3
+97.81 443.28 2.70 c p3
+0 setgray
+516.93 145.48 2.70 c p1
+394.53 103.76 2.70 c p1
+1 0 0 rgb
+84.32 427.54 2.70 c p3
+82.40 408.02 2.70 c p3
+83.26 388.26 2.70 c p3
+245.11 514.31 2.70 c p3
+ep
+%%Trailer
+%%Pages: 1
+%%EOF

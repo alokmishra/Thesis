@@ -283,7 +283,7 @@ links are specified. Because of this, we can't use distance based optimization t
 to judge the cluster quality. For a clustering run of the algorithm, we compute this by finding the cumulative sum across all the clusters of sum of squared 
 distance of all points in a cluster from its cluster centre.
 \begin{equation}
-    \mathit{withinss}=\sum_{i=1}^{k}\sum_{x_{ij}\in \mathbf{C}_{i}}(x_{ij}-\bar{x}_{i})^2
+    \mathit{withinss}=\sum_{i=1}^{k}\sum_{x_{ij}\in \mathbf{C}_{i}}(x_{ij}-\bar{x}_{i})^2   \label{maxent:eqn:withinss}
 \end{equation}
 where $C_{1},\dots,C_{k}$ are the different clusters and $\bar{x}_{i}$ are the cluster centres. Since we do not have access to the data points, we compute the \textit{withinss} of the vectors on which k-means clustering is done for spectral clustering (refer Step-6 of Algorithm-\ref{alg:spectral_clustering}). A better clustering will have a lower $withinss$ value (hence more compact). 
  

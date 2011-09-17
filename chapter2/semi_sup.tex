@@ -295,23 +295,23 @@ The semi-supervised problem can be stated as - there is a real distribution of d
 We want to recover a clustering as close to the ideal one based on observing some noisy datasets and some facts (acting as constraints in our setup) that are known to us. Before we start work on real datasets 
 we are going to show that semi-supervised clustering indeed is able to leverage external information in the form of pairwise constraints in order to better the clustering results. 
 
-In order to do this, we take a toy dataset (spirals dataset) that has non-linear patterns as seen in Figure-\ref{fig:spirals_original}. This data-set consists of two concentric clusters and was chosen because this is a specially 
+In order to do this, we take a toy dataset with non-linear patterns (points belonging to two classes are present in the form of two spirals) as seen in Figure-\ref{fig:spirals_original}. This data-set consists of two concentric clusters (300 points belonging to two classes) and was chosen because this is a specially 
 hard problem on which many most traditional clustering algorithms fail. It also shows the effectiveness of spectral clustering in finding non-linear clusters which is not possible with 
-traditional clustering algorithms. To represent the known facts or constraints, we extract some random constraints from it. Then to represent the noisy dataset, we add random noise 
-to it. After this we study if the addition of progressively increasing quantities of the constraints improves the cluster quality of the noisy dataset.
-We have used five-fold cross validation to study the effectiveness of our algorithm. So, in every run of the experiment 80\% of the data acts as training data 
+traditional clustering algorithms. To represent the known facts or constraints, we extract some random constraints from it. Then to represent a noisy dataset, we skew the $\sigma$ with which pairwise similarities are computed from its optimum value to some random non-optimum value. After this, we study if the addition of progressively increasing quantities of the known relationships (constraints) improves the cluster quality of the noisy dataset.
+We have used five-fold validation to study the effectiveness of our algorithm. So, in every run of the experiment 80\% of the data acts as training data 
 while remaining 20\% is test data. The exact steps are detailed below 
 
 \begin{enumerate}
- \item Take the spirals dataset which has two classes visually represented as red and black points as see. Keep one copy as the original dataset and then generate a noisy version of it by randomly 
-adding noise to it. The results of clustering of original and noisy dataset are shown in Figures-\ref{fig:spirals_original} and \ref{fig:spirals_no_constraints} respectively.
- \item From the original dataset, according to 5-fold cross validation procedure, take 4 parts as the training set and the remaining one as the test set.
- \item Draw \textit{5} number of contraints from the training set randomly. This is done by separating the points within the test set into two classes and then randomly picking pairs - half from each class.
- \item Apply these pairwise constraints to the noisy dataset and then cluster it using spectral clustering.
- \item Check the cluster assignments of the test data points to compute how similar the resulting cluster is to the original clustering.
- \item Repeat this process 5 times for 5-fold cross validation.
+ \item Take the spirals dataset which has two classes visually represented as red and black points as seen in Figure-\ref{fig:spirals_original}. We compute the optimal $\sigma$ with which to compute pairwise similarities by finding the least cumulative sum across all the clusters of sum of squared 
+distance of all points in a cluster from its cluster centre as shown in Equation:\ref{maxent:eqn:withinss}. With this optimal $\sigma$ we compute the similarity matrix. We also generate a noisy version of it by changing the $\sigma$ to a random non-optimal value with which pairwise similarities are computed. The results of clustering with optimal and non-optimal $\sigma$ values are shown in Figures-\ref{fig:spirals_original} and \ref{fig:spirals_no_constraints} respectively.
+ \item From the original dataset, we generate all possible pairs between all the points in each of the two classes respectively. Out of all these pairs, according to 5-fold cross validation procedure, take 4 parts as the training set and the remaining one as the testing set.
+ \item Draw \textit{5} pairs of constraints from the training set randomly.
+ \item Apply these pairwise constraints to the non-optimal similarity matrix, i.e., set the pairwise similarity of these data points to 1. Cluster it using spectral clustering.
+ \item Compute the similarity between the resulting cluster and the original clustering using modified Rand's index (discussed in Chapter-3).
+ \item Repeat this process 10 times by randomly drawing constraints from the training set.
  \item Increase the number of constraints used in Step-3 by 5 and repeat the whole process till perfect clustering is obtained all the time.
-\end{enumerate}
+ \item Repeat this process 5 times for 5-fold cross validation.
+ \end{enumerate}
 
 
 \begin{figure}[p]
@@ -349,37 +349,39 @@ adding noise to it. The results of clustering of original and noisy dataset are 
 \label{fig:spirals_50_constraints}
 }
 \label{fig:spirals_visual}
-\caption[Visual indication of Spirals dataset clustering quality improvement with increasing number of known constraints]{}
+\caption{Visual indication of Spirals dataset clustering quality improvement with increasing number of known constraints}
 \end{figure}
 
 
 \begin{figure}[p]
 \centering
-\subfigure[Cross Validation Run-1]{
+\subfigure[Run-1]{
 \includegraphics[bb=50 50 410 302,scale=0.5]{images_only/semisup/spirals/cv_fold1.eps}
 \label{fig:spirals_cv_fold1}
 }
-\subfigure[Cross Validation Run-2]{
+\subfigure[Run-2]{
 \includegraphics[bb=50 50 410 302,scale=0.5]{images_only/semisup/spirals/cv_fold2.eps}
 \label{fig:spirals_cv_fold2}
 }
-\subfigure[Cross Validation Run-3]{
+\subfigure[Run-3]{
 \includegraphics[bb=50 50 410 302,scale=0.5]{images_only/semisup/spirals/cv_fold3.eps}
 \label{fig:spirals_cv_fold3}
 }
-\subfigure[Cross Validation Run-4]{
+\subfigure[Run-4]{
 \includegraphics[bb=50 50 410 302,scale=0.5]{images_only/semisup/spirals/cv_fold4.eps}
 \label{fig:spirals_cv_fold4}
 }
-\subfigure[Cross Validation Run-5]{
+\subfigure[Run-5]{
 \includegraphics[bb=50 50 410 302,scale=0.5]{images_only/semisup/spirals/cv_fold5.eps}
 \label{fig:spirals_cv_fold5}
 }
 \label{fig:spirals_cv}
-\caption[Spirals dataset clustering quality improvement with increasing number of known constraints]{}
+\caption{Various runs showing clustering quality improvement with increasing number of known constraints}
 \end{figure}
 
-Goal of semi-supervised clustering is to use external knowledge in the form of known pairwise relations between variables in order to improve the quality of clustering. We have shown that applying more constraints indeed lead to better clustering.
+In Figure-\ref{fig:spirals_visual} we observe the results of one of the runs where increasing number of constraints are being applied. We see that the quality of clustering improves as the number of known constraints increase. We also observe that with a relatively small number of constraints ($50$), we are able to retrieve the original clustering.  
+
+In Figure-\ref\label{fig:spirals_cv}, we see that in all the runs, clustering quality improves quickly as the number of known constraints are applied. The cluster similarity (to the original cluster) improves quickly with reducing standard deviation as the number of constraints increases. Goal of semi-supervised clustering is to use external knowledge in the form of known pairwise relations between variables in order to improve the quality of clustering. We have shown that applying more constraints indeed lead to better clustering.
 
 \subsection{Parameter optimization} \label{chap2:sec:param_opt}
 For any clustering algorithm, the most important decisions are the choice of the number of clusters and the free parameters. In our case, the similarity among gene pairs is calculated using a Gaussian similarity function and the only free parameter is the width of the Gaussian, $\sigma$. For any unsupervised task of an exploratory nature, the \textit{correct} number of clusters is data dependent. We chose to use 50 clusters in our experiments, based on earlier justifications by \citet{ihmels02revealing} and \citet{segal03module} which showed that the Saccharomyces Cerevisiae genome contains approximately 50 sets of functionally related genes. Both the authors have shown statistically that this number provides a better fit to the underlying data distribution, compared to a higher or lower numbers of modules.
@@ -426,15 +428,13 @@ A large $b(i)$ implies that $i$ is badly matched to its neighbouring cluster. Th
 negative one, then by the same logic we see that $i$ would be more appropriate if it was clustered in its neighbouring cluster. The average $s(i)$ of a cluster is a measure of how tightly grouped all the 
 data in the cluster are. Thus the average $s(i)$ of the entire dataset is a measure of how appropriately the data has been clustered. 
 
-We chose Dunn's Index \citep{Dunn1974wellseparated}. 
-The underlying logic of using this to choose $\sigma$ is to search for a value which results in the best quality clusters. 
+We chose to use Dunn's Index and Davies Bouldin's index in our studies to find the optimum value of $\sigma$.  The underlying logic of using this to choose $\sigma$ is to search for a value which results in the best quality clusters. 
 We carried out this $\sigma$ optimization without using the supervision step, clustering only the microarray dataset because our objective is to study the impact of supervision. 
 If we incorporate it prior to optimization then the constraints will impact the original similarity matrix.
 
 We ran the spectral algorithm for a range of $\sigma$ values. The range of $\sigma$ values was determined as both the upper and lower extremes beyond which all the points 
 resulted in a trivial clustering (single cluster).  For each $\sigma$ value, we did 10 runs as spectral clustering depends on k-means which has random starting points. 
-We also repeated the k-means algorithm twenty five times, each run being initialised randomly, and chose the best clustering with the minimum total \textit{dispersion}. 
-Dispersion was computed by taking the cumulative sum of within-cluster sum of squared distances (from each point to the centre) across all the clusters of a clustering run.  
+We also repeated the k-means algorithm twenty five times, each run being initialised randomly, and chose the best clustering with the minimum total \textit{dispersion}. Dispersion was computed by taking the cumulative sum of within-cluster sum of squared distances (from each point to the centre) across all the clusters of a clustering run.  
 
 \subsubsection{Stress dataset}
 
@@ -518,13 +518,11 @@ Now that we have seen that the algorithm really works and has been validated usi
 
 \section{Statistical validation of results}
 The datasets that we have, represent experiments done under particular conditions. If we base our results just on those datasets, the results that we obtain could be purely by chance because of the characteristics of those particular data-sets and it would be dangerous to draw conclusions based on those data-sets alone. 
-Therefore, we have perturbed the datasets and report the mean and variance of results in order to justify that the results are not random. We begin by showing that spectral clustering results are immune to minor perturbations of data and the resulting clusters are not too different from each other. 
-We start with the full stress and cell-cycle data-sets from SMD as discussed earlier. We created ten perturbed data-sets from each of stress and cell-cycle datasets after 
-sub-sampling (drawing 90\% of the genes randomly). The exact procedure is outlined below
+Therefore, we have perturbed the datasets and report the mean and variance of results in order to justify that the results are not random. We begin by showing that spectral clustering results are immune to minor perturbations of data and the resulting clusters are not widely different from each other. The exact procedure is outlined as follows
 
 \begin{enumerate}
   
-\item We got the full stress and cell-cycle data-sets. The stress dataset had 6361 genes while cell-cycle dataset had 6353 genes including NORFs. Since not much is known about the function of NORFs , so we removed all the NORF from the data-sets. 
+\item We got the full stress and cell-cycle data-sets. The stress dataset had 6361 genes while cell-cycle dataset had 6353 genes including NORFs. Since not much is known about the function of non-annotated open reading frames NORFs, so we removed all the NORFs from the data-sets. 
 That left us with 6251 genes in the stress data-set and 6257 genes in the cell-cycle data-sets. They had 156 and 60 experiment counts respectively.
  
 \item We created ten perturbed data-sets from each of stress and cell-cycle datasets after sub-sampling (drawing 90\% of the genes randomly).
@@ -533,8 +531,6 @@ That left us with 6251 genes in the stress data-set and 6257 genes in the cell-c
 
 \item Once we have the sigma values, we cluster all the original and perturbed datasets and compute the Dunn's and Davies Bouldin’s index for the resulting clusters. 
 Then we report the mean and standard deviation of the indices. 
-
-\item The goal is to show the cluster quality consistency with perturbation in data. 
 \end{enumerate}
 
 \begin{table}
@@ -602,7 +598,7 @@ Cell cycle only & 0.0316 & 0.0113 & 3.0136 & 0.0693 \\
 As we can see in the mean and standard deviation values in Table-\ref{tab:stress_ccycle_perturb}, that the spectral clustering algorithm itself is quite stable with perturbations of 
 data and the resulting cluster qualities are not widely varying. We can see that the results of cell cycle dataset are having more variance in comparison to the stress dataset. This is seen in results of both Dunn's and Davies Bouldin's indices.
 
-Next we do a similar analysis of our proposed semi-supervised spectral clustering algorithm and demonstrate that it too does not produce results randomly and are consistent across sub-sampled datasets. . In semi-supervised clustering, we are applying constraints in order to improve the quality 
+Next we do a similar analysis of our proposed semi-supervised spectral clustering algorithm and demonstrate that it too does not produce results randomly and are consistent across sub-sampled datasets. In semi-supervised clustering, we are applying constraints in order to improve the quality 
 of clustering. In order to justify that our results are not by accident, we need to sub-sample the data-sets as well as the constraints and then apply the sampled constraints. After this we need to compute the 
 variance of cluster stability. We create ten constraints data-sets from each constraints dataset by sub-sampling (drawing 90\% of the genes randomly). Then we combine pairs of perturbed micro-array and constraints data-sets, 
 cluster and then report its Dunn’s and Davies Bouldin's clustering quality indices. We repeat this for all pairs. To reiterate, this is to demonstrate that our results are not 

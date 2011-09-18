@@ -811,7 +811,8 @@ possible $MI(C,X)$ for some variable $X$ of unknown entropy $H(X)$, because $0 \
 of between-groups and within-group variance estimators is maximized. The projected data are then scored using a non-parametric analysis of variance test, and the 
 score's conﬁdence is evaluated.
 
-[TODO: why we chose the former]
+Even though both the techniques use non-parametric techniques, we chose the former because \citet{gatviks03scoring} have indicated that their technique is sensitive to small perturbations in 
+the clustering solution.  
 
 
 \subsubsection{Results}
@@ -1129,9 +1130,19 @@ This is a related and overlapping technique where two or more sources of data ar
 
 \section{Conclusion}
 
-We have proposed a technique to integrate diverse datasets where one is acting as a source of supervision on the clustering of the other. As part of this, we have investigated two methods for determining the best Gaussian kernel to obtain the affinity matrix from the data. We also propose a new external method to optimise the kernel using constraints themselves. Further, we have introduced a validation method which scores the resulting gene clusters by reference to a third type of data. By replicating the trend available in the DNA-binding data, our results independently demonstrated that the information available in it has been successfully incorporated in the combined matrix. 
+We have proposed a technique to integrate diverse datasets where one is acting as a source of supervision on the clustering of the other. 
+As part of this, we have investigated whether constraints are useful at all in order to retrive the original clustering from a noisy version of the original dataset. We also investigated 
+two methods for determining the best Gaussian kernel to obtain the affinity matrix from the data. Further, we have used a validation method which scores the resulting gene clusters 
+by reference to a third type of data (Gene Ontology). Our results indicate that semi-supervised spectral clustering leads to improved biological significance if the datasets from 
+which known facts are extracted is not widely varying from the datasets on which they are applied.  
 
-Since our technique is quite generic, in future, our work can be extended by using other sources as prior knowledge, for example the similarity between the promoter sequences of genes. In this chapter, we imposed an arbitrary cutoff on the binding data and thus converted indeterminate knowledge into definite knowledge. In the next chapter, we propose a technique where instead of creating definite constraints, we extract similarities from graphs of interactions and then integrate the datasets. It is based on the principle of maximizing the entropy of the resulting matrix. 
+Since our technique is quite generic, in future, our work can be extended by using other sources as prior knowledge, for example the similarity between 
+the promoter sequences of genes. In the next chapter, we propose a technique where instead of creating definite constraints, we extract similarities from graphs of interactions and 
+then integrate the datasets. It is based on the principle of maximizing the entropy of the resulting matrix. 
 
-One of the shortcomings of this research is that it is known that gene regulation is a very condition specific activity and hence the expression values that we observe are a result of regulation happening at one particular time. However, the datasets that we have used are from different conditions. The microarray datasets as well as the DNA-binding, PPI and Yeastract datasets were not experimentally observed at the same time or even by the same researchers. This is also a fundamental limitation of the underlying experimental techniques, since microarrays themselves do not represent a single time point, but rather the integration of gene activity over a time period. Moreover, knowledge about gene modules is not complete and this hinders the validation process. 
+One of the shortcomings of this research is that it is known that gene regulation is a very condition specific activity and hence the expression values that 
+we observe are a result of regulation happening at one particular time. However, the datasets that we have used are from different conditions. 
+The microarray datasets as well as the DNA-binding, PPI and Yeastract datasets were not experimentally observed at the same time or even by the same researchers. 
+This is also a fundamental limitation of the underlying experimental techniques, since microarrays themselves do not represent a single time point, 
+but rather the integration of gene activity over a time period. Moreover, knowledge about gene modules is not complete and this hinders the validation process. 
 

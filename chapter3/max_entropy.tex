@@ -374,7 +374,7 @@ after combination in all the cases. However, the results for MaxEnt are not bett
 better than the MaxEnt one, for the cell-cycle dataset, it's the opposite. MaxEnt is better than the semi-supervised one for the ChIP-chip dataset combination. 
 For PPI and Yeastract combinations, the semi-supervised is better.
  
-As we discussed earlier that this technique merges two datasets by taking their dominant eigenvectors. In the case of stress dataset, both the datasets gained biological significance whereas now cell-cycle is always the loser. The PPI, Yeastract 
+As we discussed earlier that this technique merges two datasets by taking their dominant eigenvectors. The PPI and Yeastract 
 are both curated datasets. Most of the curated datasets are taken from experiments that are conducted in non-stress environments to study the regular activities of genes. 
 Therefore, they are more similar to the cell-cycle dataset. Because of this similarity, the cell-cycle dataset has not gained much from the others. 
 In case of stress, they were very dissimilar and hence both gained information from each other which led to improvement in their scores.    
@@ -585,7 +585,8 @@ So, the sample dataset gets to keep all its prominent eigenvalues while borrowin
 We have proposed a technique to integrate two diverse datasets where one is available in the form of vectorial data while the 
 other is available in the form of a graph. The core idea is based on work done by \citet{thomaz2004covariance}. While they had 
 used it to combine covariance matrices where one of them is singular, we have extended its use to general kernel combination after 
-observing the similarities between the properties of a covariance matrix and a similarity matrix obtained using a kernel function. 
+observing the similarities between the properties of a covariance matrix and a similarity matrix obtained using a kernel function. Our 
+results indicate that the proposed technique leads to better biological significance of resulting clusters in most circumstances.
 
 Integrating such diverse datasets is not possible unless we resort to some kind of normalization. We have used similarity functions 
 to compute similarity matrices for these datasets as the \textit{normalization} step. We have used the same techniques that we used 

@@ -381,7 +381,7 @@ distance of all points in a cluster from its cluster centre as shown in Equation
 
 In Figure-\ref{fig:spirals_visual} we observe the results of one of the runs where increasing number of constraints are being applied. We see that the quality of clustering improves as the number of known constraints increase. We also observe that with a relatively small number of constraints ($50$), we are able to retrieve the original clustering.  
 
-In Figure-\ref\label{fig:spirals_cv}, we see that in all the runs, clustering quality improves quickly as the number of known constraints are applied. The cluster similarity (to the original cluster) improves quickly with reducing standard deviation as the number of constraints increases. Goal of semi-supervised clustering is to use external knowledge in the form of known pairwise relations between variables in order to improve the quality of clustering. We have shown that applying more constraints indeed lead to better clustering.
+In Figure-\ref{fig:spirals_cv}, we see that in all the runs, clustering quality improves quickly as the number of known constraints are applied. The cluster similarity (to the original cluster) improves quickly with reducing standard deviation as the number of constraints increases. Goal of semi-supervised clustering is to use external knowledge in the form of known pairwise relations between variables in order to improve the quality of clustering. We have shown that applying more constraints indeed lead to better clustering.
 
 \subsection{Parameter optimization} \label{chap2:sec:param_opt}
 For any clustering algorithm, the most important decisions are the choice of the number of clusters and the free parameters. In our case, the similarity among gene pairs is calculated using a Gaussian similarity function and the only free parameter is the width of the Gaussian, $\sigma$. For any unsupervised task of an exploratory nature, the \textit{correct} number of clusters is data dependent. We chose to use 50 clusters in our experiments, based on earlier justifications by \citet{ihmels02revealing} and \citet{segal03module} which showed that the Saccharomyces Cerevisiae genome contains approximately 50 sets of functionally related genes. Both the authors have shown statistically that this number provides a better fit to the underlying data distribution, compared to a higher or lower numbers of modules.
@@ -527,9 +527,9 @@ That left us with 6251 genes in the stress data-set and 6257 genes in the cell-c
  
 \item We created ten perturbed data-sets from each of stress and cell-cycle datasets after sub-sampling (drawing 90\% of the genes randomly).
 
-\item In order to compute the similarity matrix from the stress and cell-cycle datasets, we need to find the most optimum sigma. In order to do this we compute the Dunn’s index and Davies Bouldin’s index for each of the datasets. The same sigma is used for all the perturbed datasets because sigma should not change significantly for a data-set because of perturbation.
+\item In order to compute the similarity matrix from the stress and cell-cycle datasets, we need to find the most optimum sigma. In order to do this we compute the Dunn's index and Davies Bouldin's index for each of the datasets. The same sigma is used for all the perturbed datasets because sigma should not change significantly for a data-set because of perturbation.
 
-\item Once we have the sigma values, we cluster all the original and perturbed datasets and compute the Dunn's and Davies Bouldin’s index for the resulting clusters. 
+\item Once we have the sigma values, we cluster all the original and perturbed datasets and compute the Dunn's and Davies Bouldin's index for the resulting clusters. 
 Then we report the mean and standard deviation of the indices. 
 \end{enumerate}
 
@@ -537,7 +537,7 @@ Then we report the mean and standard deviation of the indices.
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
-Serial No. & Dunn’s index  & Davies Bouldin’s index\\
+Serial No. & Dunn's index  & Davies Bouldin's index\\
 \hline 
 1 & 0.04398243 & 3.188676 \\
 2 & 0.04306639 & 3.231177 \\
@@ -560,7 +560,7 @@ Serial No. & Dunn’s index  & Davies Bouldin’s index\\
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
-Serial No. & Dunn’s index  & Davies Bouldin’s index\\
+Serial No. & Dunn's index  & Davies Bouldin's index\\
 \hline
 1 & 0.03368041 & 2.989561 \\
 2 & 0.04296991 & 3.026842 \\
@@ -583,7 +583,7 @@ Serial No. & Dunn’s index  & Davies Bouldin’s index\\
 \centering
 \begin{tabular}{|l|c|c|c|c|}
 \hline
-Description & \multicolumn{2}{|c|}{Dunn’s index}  & \multicolumn{2}{|c|}{Davies Bouldin’s index}\\
+Description & \multicolumn{2}{|c|}{Dunn's index}  & \multicolumn{2}{|c|}{Davies Bouldin's index}\\
 \hline
  & Mean & St. Dev & Mean & St. Dev\\
 \hline
@@ -591,7 +591,7 @@ Stress only  & 0.0400 & 0.0087 & 3.1840 & 0.0341 \\
 Cell cycle only & 0.0316 & 0.0113 & 3.0136 & 0.0693 \\
 \hline 
 \end{tabular}
-\caption{Summary of mean and variance of individual datasets. This shows that our results are not random and small perturbations in data doesn’t change the results.}
+\caption{Summary of mean and variance of individual datasets. This shows that our results are not random and small perturbations in data doesn't change the results.}
 \label{tab:stress_ccycle_perturb}
 \end{table}
 
@@ -601,14 +601,14 @@ data and the resulting cluster qualities are not widely varying. We can see that
 Next we do a similar analysis of our proposed semi-supervised spectral clustering algorithm and demonstrate that it too does not produce results randomly and are consistent across sub-sampled datasets. In semi-supervised clustering, we are applying constraints in order to improve the quality 
 of clustering. In order to justify that our results are not by accident, we need to sub-sample the data-sets as well as the constraints and then apply the sampled constraints. After this we need to compute the 
 variance of cluster stability. We create ten constraints data-sets from each constraints dataset by sub-sampling (drawing 90\% of the genes randomly). Then we combine pairs of perturbed micro-array and constraints data-sets, 
-cluster and then report its Dunn’s and Davies Bouldin's clustering quality indices. We repeat this for all pairs. To reiterate, this is to demonstrate that our results are not 
+cluster and then report its Dunn's and Davies Bouldin's clustering quality indices. We repeat this for all pairs. To reiterate, this is to demonstrate that our results are not 
 random and that they are statistically valid.
 
 \begin{table}[p]
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
-Serial No. & Dunn’s index  & Davies Bouldin’s index\\
+Serial No. & Dunn's index  & Davies Bouldin's index\\
 \hline
 1 & 0.03089432 & 3.556163 \\
 2 & 0.03321191 & 4.226998 \\
@@ -623,7 +623,7 @@ Serial No. & Dunn’s index  & Davies Bouldin’s index\\
 11 & 0.0312116 & 3.477314 \\
 \hline 
 \end{tabular}
-\caption{Dunn's and Davies Bouldin's index values after combination of sub-sampled Stress and Chip-Chip datasets}
+\caption{Dunn's and Davies Bouldin's index values after combination of sub-sampled Stress and ChIP-chip datasets}
 \label{tab:stress_chip_perturbed}
 \end{table}
 
@@ -632,7 +632,7 @@ Serial No. & Dunn’s index  & Davies Bouldin’s index\\
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
-Serial No. & Dunn’s index  & Davies Bouldin’s index\\
+Serial No. & Dunn's index  & Davies Bouldin's index\\
 \hline
 1 & 0.04904669 & 3.563832 \\
 2 & 0.05276492 & 3.552624 \\
@@ -655,7 +655,7 @@ Serial No. & Dunn’s index  & Davies Bouldin’s index\\
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
-Serial No. & Dunn’s index  & Davies Bouldin’s index\\
+Serial No. & Dunn's index  & Davies Bouldin's index\\
 \hline
 1 &  0.02777897 & 3.523816 \\
 2 & 0.01287181 & 3.365275 \\
@@ -670,7 +670,7 @@ Serial No. & Dunn’s index  & Davies Bouldin’s index\\
 11 &  0.03534912 &  3.297843 \\
 \hline 
 \end{tabular}
-\caption{Dunn's and Davies Bouldin's index values after combination of sub-sampled Cell-cycle and Chip-Chip datasets}
+\caption{Dunn's and Davies Bouldin's index values after combination of sub-sampled Cell-cycle and ChIP-chip datasets}
 \label{tab:ccycle_chip_perturbed}
 \end{table}
 
@@ -678,7 +678,7 @@ Serial No. & Dunn’s index  & Davies Bouldin’s index\\
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
-Serial No. & Dunn’s index  & Davies Bouldin’s index\\
+Serial No. & Dunn's index  & Davies Bouldin's index\\
 \hline
 1 & 0.01359537 & 3.289819 \\
 2 & 0.04214127 & 3.544937 \\
@@ -701,7 +701,7 @@ Serial No. & Dunn’s index  & Davies Bouldin’s index\\
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
-Serial No. & Dunn’s index  & Davies Bouldin’s index\\
+Serial No. & Dunn's index  & Davies Bouldin's index\\
 \hline
 1 & 0.02746167 & 4.34282 \\
 2 & 0.03222197 & 4.390683 \\
@@ -724,7 +724,7 @@ Serial No. & Dunn’s index  & Davies Bouldin’s index\\
 \centering
 \begin{tabular}{|l|c|c|c|c|}
 \hline
-Description & \multicolumn{2}{|c|}{Dunn’s index}  & \multicolumn{2}{|c|}{Davies Bouldin’s index}\\
+Description & \multicolumn{2}{|c|}{Dunn's index}  & \multicolumn{2}{|c|}{Davies Bouldin's index}\\
 \hline
  & Mean & St. Dev & Mean & St. Dev\\
 \hline
@@ -738,7 +738,7 @@ Cell-cycle-PPI & 0.0322 & 0.0076 & 3.5236 & 0.1406 \\
 Cell-cycle-YT & 0.0282 & 0.0015 & 4.2709 & 0.1820 \\
 \hline 
 \end{tabular}
-\caption{Mean and variance of all combined datasets. This shows that the results of semi-supervised clustering are not random and small perturbations in data doesn’t change the results wildly.}
+\caption{Mean and variance of all combined datasets. This shows that the results of semi-supervised clustering are not random and small perturbations in data doesn't change the results wildly.}
 \label{tab:mean_stdev_combined_perturbed}
 \end{table}
 
@@ -809,7 +809,7 @@ possible $MI(C,X)$ for some variable $X$ of unknown entropy $H(X)$, because $0 \
 
 \citet{gatviks03scoring} devised a method that is based on projecting vectors of biological attributes of the clustered elements onto the real line, such that the ratio 
 of between-groups and within-group variance estimators is maximized. The projected data are then scored using a non-parametric analysis of variance test, and the 
-score’s conﬁdence is evaluated.
+score's conﬁdence is evaluated.
 
 [TODO: why we chose the former]
 
@@ -821,11 +821,11 @@ score’s conﬁdence is evaluated.
 \hline
 Description & Before integration & After integration & \% Gain\\
 \hline
-Stress with Chip-Chip dataset & 89.2 & 86.7 & -2.8\\
+Stress with ChIP-chip dataset & 89.2 & 86.7 & -2.8\\
 Stress with PPI dataset & 89.2 & 95.2 & 6.72\\
 Stress with Yeastract dataset & 89.2 & 93.2 & 4.48\\
 \hline
-Cell-cycle with Chip-Chip dataset & 52.2 & 44.8 & -14.17\\
+Cell-cycle with ChIP-chip dataset & 52.2 & 44.8 & -14.17\\
 Cell-cycle with PPI dataset & 52.2 & 55.2 & 5.74\\
 Cell-cycle with Yeastract dataset & 52.2 & 64.8 & 24.13\\
 \hline 
@@ -835,7 +835,7 @@ Cell-cycle with Yeastract dataset & 52.2 & 64.8 & 24.13\\
 \end{table}
 
 We started with the full set of stress and cell-cycle datasets as discussed earlier. The reason we had chosen stress and cell-cycle datasets is because they represent two ends of the spectrum \citep{amos05integrative}. 
-For the Chip-Chip, PPI and Yeastract datasets, we took all the interactions that were between the common set of genes between the microarray and the interactions datasets. 
+For the ChIP-chip, PPI and Yeastract datasets, we took all the interactions that were between the common set of genes between the microarray and the interactions datasets. 
 The biological significance index values before and after semi-supervised clustering are in Table-\ref{tab:biol_significance}. 
 
 The different initial biological significance values for stress and cell-cycle datasets (89.2 and 52.2 respectively) are because of the nature of the data. Stress on the organism leads to extremely high level of activity 
@@ -847,7 +847,7 @@ slightly worse biological significance (-2.8\%) after the combination. On the ot
 the cell-cycle dataset too, combination with ChIP-chip dataset leads to reduced biological significance (-14.17\%). When combined with both PPI and Yeastract constraints the biological significance 
 has gone up. Based on the results we could say that the ChIP-chip dataset is probably the noisiest and does not bring much new information leading to reduced significance for the original datasets. 
 One of the reasons for this is that integration could be meaningful if each of the datasets complement the other. If there are 
-a lot of conflicting information in each of the datasets then the resulting matrix will have a lot of noise and this will be reflected in the final clusters. We know that Chip-Chip and PPI are uncurated datasets i.e. the information there is derived from experiments which always has the possibility of inducing noise. On the other hand Yeastract 
+a lot of conflicting information in each of the datasets then the resulting matrix will have a lot of noise and this will be reflected in the final clusters. We know that ChIP-chip and PPI are uncurated datasets i.e. the information there is derived from experiments which always has the possibility of inducing noise. On the other hand Yeastract 
 dataset is a manually curated dataset. That is the reason we see a high improvement when combined with it for both stress and cell-cycle datasets. 
   
 The goal of integration is to have more biologically relevant clusters from which hypotheses could be derived to be carried out and validated in wet labs. All our result data is available upon request. 
@@ -916,7 +916,7 @@ The images in Figures-\ref{fig:stress_only_enrich} to \ref{fig:stress_ppi_enrich
 \label{fig:stress_chip_enrich_2}
 }
 \label{fig:stress_chip_enrich}
-\caption{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from Chip-Chip dataset. }
+\caption{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from ChIP-chip dataset. }
 \end{figure}
 
 \begin{figure}[p]
@@ -955,10 +955,10 @@ transcription from RNA polymerase II promoter, transcription, regulation of tran
 mitotic cell cycle, biological regulation, regulation of cellular process and chromosome organization and biogenesis when compared to Stress dataset alone. These genes associated to these
 biological processes could be studied further to find relationships among them.
 
-\subsubsection{Stress vs Stress and Chip-Chip}
+\subsubsection{Stress vs Stress and ChIP-chip}
 
 Apart from processes like RNA processing, RNA metabolic process, ribosome biogenesis, macromolecule biosynthetic process and translation which are common enrichment observed 
-in the two data sets, Stress dataset when combined with Chip-Chip dataset also shows significant enrichment for processes like biosynthetic process, cellular localization, 
+in the two data sets, Stress dataset when combined with ChIP-chip dataset also shows significant enrichment for processes like biosynthetic process, cellular localization, 
 hydrolase activity, amine metabolic process, amine biosynthetic process, chromosome organization and biogenesis and regulation of cellular process.
 
 \subsubsection{Stress vs Stress and Yeastract}
@@ -1007,7 +1007,7 @@ in Stress Yeastract as compared to Stress dataset.
 \label{fig:ccycle_chip_enrich_2}
 }
 \label{fig:ccycle_chip_enrich}
-\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with knowledge from Chip-Chip dataset. }
+\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with knowledge from ChIP-chip dataset. }
 \end{figure}
 
 
@@ -1021,10 +1021,10 @@ in Stress Yeastract as compared to Stress dataset.
 \caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with Yeastract dataset. }
 \end{figure}
 
-\subsubsection{Cell-Cycle vs Cell-Cycle and Chip-Chip}
+\subsubsection{Cell-Cycle vs Cell-Cycle and ChIP-chip}
 
 DNA metabolic process, translation, macromolecule biosynthetic process and biosynthetic process are found to be common to the Cell-Cycle dataset before and after combination with the 
-Chip-Chip dataset. After combination we see significant enrichment for response to stress, response to stimulus and regulation of transcription from polymerase II when compared 
+ChIP-chip dataset. After combination we see significant enrichment for response to stress, response to stimulus and regulation of transcription from polymerase II when compared 
 to Cell-Cycle data set alone.
 
 \subsubsection{Cell-Cycle Vs Cell-Cycle and PPI}

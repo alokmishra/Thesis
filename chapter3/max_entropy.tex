@@ -26,7 +26,7 @@ towards the final matrix. The \textit{shrinkage} method is named so because depe
 contribution of the original evidence. For example, if we are combining microarray data with \ac{PPI} data to improve the predictions based just on 
 microarray data, then the contribution of microarray data is being shrunk from its original contribution (which is 1). Optimum $\mu$ values can be chosen after 
 running these various weight combinations of datasets through the Spectral clustering algorithm and then optimizing for the best cluster quality using the Dunn's 
-or Davies-Bouldin's index values. While this is reasonable from a practical viewpoint, its not very principled. That motivates us towards our next step which is to use 
+or Davies-Bouldin's index values. While this is reasonable from a practical viewpoint, it's not very principled. That motivates us towards our next step which is to use 
 the principle of maximum entropy (Section-\ref{kern_integration}) in order to merge the similarity matrices. As we will see in following sections, this allows 
 us to merge two datasets when there is no evidence available regarding their individual importance. For example, when we have two noisy data sources e.g. 
 microarray and \ac{PPI}, and no other evidence regarding their individual importance, we can combine them to get better inference using the principle 
@@ -293,7 +293,7 @@ the biological significance of our results using the Gene Ontology annotations l
 
 \subsection{Parameter optimisation results}\label{param_optimisation}
 
-\subsubsection{Chip-Chip, PPI and Yeastract datasets}
+\subsubsection{ChIP-chip, PPI and Yeastract datasets}
 As seen in Figure-\ref{fig:chip_withinss}, for the ChIP-chip dataset, the optimum value (smallest withinss value implies tightest clustering) is at $\beta=10$ where the total 
 withinss falls significantly. It also has one of the smallest standard deviation at that point. For the PPI dataset, as seen in Figure-\ref{fig:ppi_withinss}, the optimum 
 value again is at $\beta=10$ where it has the smallest withinss value. Even though the standard deviation is not the lowest, yet we choose is because of the smallest value.
@@ -360,18 +360,18 @@ We follow the same procedure that was followed in the previous chapter (refer Se
 mutual information by \citet{Gibons2002Judging}. The results of the integration of the stress microarray dataset with ChIP-chip, PPI and Yeastract are in 
 Table-\ref{tab:stress:maxent_biol_index}. We have reported percentage gains in index values before and after integration for each pair of dataset being integrated. In order to compare our 
 results with the semi-supervised technique, we also reran the semi-supervised experiments on the filtered (common) gene sets. For each pair of dataset, the first one is referred 
-to as A and the second as B. For example, in the first full row of Table-\ref{tab:stress:maxent_biol_index}, stress dataset is referred to as A, while Chip-Chip dataset is called B. 
+to as A and the second as B. For example, in the first full row of Table-\ref{tab:stress:maxent_biol_index}, stress dataset is referred to as A, while ChIP-chip dataset is called B. 
 
 The results in Table-\ref{tab:stress:maxent_biol_index} clearly indicate that both our data integration techniques helps improve the quality of resulting clustering biologically. 
-Both datasets A and B have improved biological significance after integration except in one scenario where Chip-Chip is integrated with Stress dataset. MaxEnt 
-integration has resulted in improvements for the stress datasets with every other dataset except the Chip-Chip dataset. We also observe that the MaxEnt technique has outperformed 
-the semi-supervised one except the Chip-Chip dataset combination where the semi-supervised technique shows a small improvement than the MaxEnt. 
-Also, more than the stress datasets, the improvement in B datasets i.e. the Chip-Chip, PPI and Yeastract datasets, when combined, is better. 
+Both datasets A and B have improved biological significance after integration except in one scenario where ChIP-chip is integrated with Stress dataset. MaxEnt 
+integration has resulted in improvements for the stress datasets with every other dataset except the ChIP-chip dataset. We also observe that the MaxEnt technique has outperformed 
+the semi-supervised one except the ChIP-chip dataset combination where the semi-supervised technique shows a small improvement than the MaxEnt. 
+Also, more than the stress datasets, the improvement in B datasets i.e. the ChIP-chip, PPI and Yeastract datasets, when combined, is better. 
 
 For the cell-cycle dataset, as shown in Table-\ref{tab:ccycle:maxent_biol_index}, the results are somewhat different. Here, too both the datasets, A and B, have improved biological 
 significance after integration. MaxEnt technique has resulted in improved biological significance
-after combination in all the cases. However, the results for MaxEnt are not better than the semi-supervised one. While for stress dataset, the Chip-Chip dataset had performed 
-better than the MaxEnt one, for the cell-cycle dataset, it's the opposite. MaxEnt is better than the semi-supervised one for the Chip-Chip dataset combination. 
+after combination in all the cases. However, the results for MaxEnt are not better than the semi-supervised one. While for stress dataset, the ChIP-chip dataset had performed 
+better than the MaxEnt one, for the cell-cycle dataset, it's the opposite. MaxEnt is better than the semi-supervised one for the ChIP-chip dataset combination. 
 For PPI and Yeastract combinations, the semi-supervised is better.
  
 As we discussed earlier that this technique merges two datasets by taking their dominant eigenvectors. In the case of stress dataset, both the datasets gained biological significance whereas now cell-cycle is always the loser. The PPI, Yeastract 
@@ -395,7 +395,7 @@ previous chapter.
 \label{fig:maxent_stress_chip_enrich_2}
 }
 \label{fig:maxent_stress_chip_enrich}
-\caption{Sections of the image showing significant enrichment in Stress dataset combined with Chip-Chip dataset.}
+\caption{Sections of the image showing significant enrichment in Stress dataset combined with ChIP-chip dataset.}
 \end{figure}
 
 \begin{figure}[p]
@@ -426,28 +426,29 @@ previous chapter.
 \caption{Sections of the image showing significant enrichment in Stress dataset combined with Yeastract dataset.}
 \end{figure}
 
-\subsubsection{Stress vs Stress and Chip-Chip}
-Nucleic acid binding, ribosome biogenesis  and assembly, macromolecule biosynthetic process, translation and biosynthetic process are the 
-few common significant enrichment observed in both the datasets. Processes like mitotic cell cycle, regulation of cell cycle, nucleotide biosynthetic process, 
+\subsubsection{Stress vs Stress and ChIP-chip}
+We observe that nucleic acid binding, ribosome biogenesis and assembly, macromolecule biosynthetic process, translation and biosynthetic process are 
+few common significant enrichments observed in both datasets. Processes like mitotic cell cycle, regulation of cell cycle, nucleotide biosynthetic process, 
 ribonucleotide metabolic process, oxidoreductase activity, response to pheromone, conjugation, cell division, reproduction, organic metabolic process, 
-amine metabolic process, and amine biosynthetic process were the significant enrichment sites observed in Stress Chip Chip dataset as compared to Stress.
+amine metabolic process, and amine biosynthetic process are significantly enrichmed in combined Stress and ChIP-chip dataset as compared to Stress only.
 
 \subsubsection{Stress vs Stress and PPI}
 Protein RNA complex assembly, macromolecule complex assembly, nucleic acid binding, DNA metabolic process, rRNA processing, RNA processing, 
-ribosome biogenesis and assembly and RNA metabolic process are the common enrichment. Whereas, oxidoreductase activity, carbohydrate metabolic process, 
+ribosome biogenesis and assembly and RNA metabolic process are the common enrichment observed before and after combination of datasets. 
+After combination of Stress and PPI datasets, the significantly enriched processes are oxidoreductase activity, carbohydrate metabolic process, 
 transcription from RNA polymerase II promoter, transcription regulator activity, response to stimulus, response to stress, protein binding, mitotic cell 
 cycle, cell cycle, M phase, cell cycle phase, developmental process, cell development, chromosome organization and biogenesis, biological regulation, 
-regulation of cellular process and transcription are processes which were observed as highly significant enrichment in the Stress PPI dataset.
+regulation of cellular process and transcription.
 
 \subsubsection{Stress vs Stress and Yeastract}
-Macromolecule biosynthetic process, translation. R RNA processing, RNA processing, RNA metabolic process, ribosome biogenesis and assembly, 
+Macromolecule biosynthetic process, translation, rRNA processing, RNA processing, RNA metabolic process, ribosome biogenesis and assembly, 
 protein RNA complex assembly, ribosome  assembly, 35S primary transcript processing, nucleic acid binding, RNA binding, processing of 20S pre-rRNA and 
-DNA metabolic process are the common enriched zones in both the sets. Processes like cellular localization, transcription, cell development, macromolecule complex 
+DNA metabolic process are the common enriched processes both before and after combination. Processes like cellular localization, transcription, 
+cell development, macromolecule complex 
 assembly, ribosomal large subunit biogenesis and assembly, ribosomal large subunit assembly and maintenance, sno RNA binding, carbohydrate 
 metabolic process, chromosome organization and biogenesis, DNA packaging, regulation of cellular process, biological regulation, response to stimulus, 
 response to stress, developmental process, amine metabolic process, generation of precursor metabolites and energy, telomere maintenance, 
-oxidoreductase activity and organic acid metabolic process  are the many significant enrichment observed only in the Stress YT dataset when 
-compared to Stress dataset.
+oxidoreductase activity and organic acid metabolic process  are the significantly enriched only after the Stress and Yeastract datasets are combined.
 
 \begin{figure}[p]
 \centering
@@ -456,7 +457,7 @@ compared to Stress dataset.
 \label{fig:maxent_ccycle_chip_enrich_1}
 }
 \label{fig:maxent_ccycle_chip_enrich}
-\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with Chip-Chip dataset.}
+\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with ChIP-chip dataset.}
 \end{figure}
 
 \begin{figure}[p]
@@ -487,12 +488,11 @@ compared to Stress dataset.
 \caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with Yeastract dataset.}
 \end{figure}
 
-\subsubsection{Cell-Cycle vs Cell-Cycle and Chip-Chip}
-Translation, macromolecule biosynthetic process and biosynthetic process are the only three common significant enrichment observed 
-in both the datasets. Whereas, ribosome biogenesis and assembly, cell cycle, cell cycle phase, mitotic cell cycle, regulation of 
+\subsubsection{Cell-Cycle vs Cell-Cycle and ChIP-chip}
+Translation, macromolecule biosynthetic process and biosynthetic process are the only three common significant enrichments observed 
+both before and after combination of datasets. When Cell-Cycle and ChIP-chip datasets are combined we observe that Ribosome biogenesis and assembly, cell cycle, cell cycle phase, mitotic cell cycle, regulation of 
 cell cycle, cell wall organization and biogenesis, cell wall division, reproduction, conjugation, response to pheromone, organic 
-acid metabolic process, amine metabolic process and response to stimulus are the other significant enrichment 
-sites observed in the Cell Cycle Chip Chip dataset.
+acid metabolic process, amine metabolic process and response to stimulus processes have significant enrichments. 
 
 \subsubsection{Cell-Cycle vs Cell-Cycle and PPI}
 DNA metabolic process, macromolecule biosynthetic process, biosynthetic process, translation, RNA metabolic process, rRNA processing, 
@@ -502,11 +502,12 @@ regulation of metabolic process, transcription, cellular localization, cell deve
 stress and ribosome biogenesis assembly are processes which showed significant enrichment in the Cell Cycle PPI dataset.
 
 \subsubsection{Cell-Cycle vs Cell-Cycle and Yeastract}
-Macromolecule biosynthetic process, translation, biosynthetic process, RNA metabolic process and DNA metabolic process are common, 
-whereas, response to stimulus, cell cycle, ribosome biogenesis and assembly and generation of precursor metabolites and energy are the other 
-significantly enriched processes observed only in the Cell Cycle Yeastract dataset.
+Macromolecule biosynthetic process, translation, biosynthetic process, RNA metabolic process and DNA metabolic process are common enriched processes 
+both before and after combination of datasets. After Cell-cycle and Yeastract datasets are combined, we observe that processes related to response to stimulus, 
+cell cycle, ribosome biogenesis and assembly and generation of precursor metabolites and energy are significantly enriched.
 
-The goal of integration is to have more biologically relevant clusters from which hypotheses could be derived to be carried out and validated in wet labs. All our result data is available upon request. 
+The goal of integration is to have more biologically relevant clusters from which hypotheses could be derived to be carried out and validated in wet labs. 
+All our result data is available upon request. 
 
 \section{Related Work and Discussion}
 

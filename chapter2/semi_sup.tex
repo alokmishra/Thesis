@@ -20,11 +20,25 @@ d_{i} = \sum_{j=1}^{n}w_{ij}
 which intuitively is the row-wise sum for the respective row of the adjacency matrix. In the graph, this can also be understood in terms of sum of edge weights for that particular vertex. The \textit{degree matrix} $D$ is defined as the \textit{diagonal} matrix with the individual vertex degrees $d_{1}$, \dots, $d_{n}$ along the diagonal, everything else being $0$.
 
 \subsection{Similarity matrices and graph Laplacians}
-There are various ways of converting similarities between a given set of data points into a graph - both in choosing the similarity function to compute similarities among the data points as well as deciding about how to turn the similarity values into a graph.
+There are various ways of converting similarities between a given set of data points into a graph - both in choosing the similarity function to compute similarities 
+among the data points as well as deciding about how to turn the similarity values into a graph.
 
-A \textit{$\varepsilon$-neighbourhood} graph is obtained by joining edges between points whose similarity values are larger than  $\varepsilon$. Figure-\ref{fig:constraints_with_pval} shows two examples of such a graph using two different values of $\varepsilon$. A \ac{KNN} graph has edges between a point and $k$ other points that are most similar to it. This leads to a directed graph because the neighbourhood relation is not symmetric, i.e., $v_{a}$ might have $v_{b}$ as one of its k-nearest neighbours but the vice-versa might not be true. To convert this into an undirected one, we can either totally ignore the direction or take a more restrictive approach where two nodes are connected \textit{only} if both of them are \aclp{KNN} of each other. The latter type is also referred to as a \textit{mutual \acl{KNN} graph}.
+A \textit{$\varepsilon$-neighbourhood} graph is obtained by joining edges between points whose similarity values are larger than  $\varepsilon$. 
+Figure-\ref{fig:constraints_with_pval} shows two examples of such a graph using two different values of $\varepsilon$. A \ac{KNN} graph has edges between a 
+point and $k$ other points that are most similar to it. This leads to a directed graph because the neighbourhood relation is not 
+symmetric, i.e., $v_{a}$ might have $v_{b}$ as one of its k-nearest neighbours but the vice-versa might not be true. To convert this into an 
+undirected one, we can either totally ignore the direction or take a more restrictive approach where two nodes are connected \textit{only} if 
+both of them are \aclp{KNN} of each other. The latter type is also referred to as a \textit{mutual \acl{KNN} graph}.
 
-A \textit{fully connected} graph is one where all pairs of points have positive similarity values and are connected. This leads to a denser graph in comparison to previous ones. While in the earlier ones, the local neighbourhood relationship was enforced with either a threshold ($\varepsilon$) or a maximum of $k$-neighbours, in a fully connected graph we have to choose a similarity function that should do this. For all our work, we have used the Gaussian similarity function which encodes this neighbourhood relation automatically. In this function, $exp \left( -\frac{{\parallel \textbf{x}-\textbf{x}^{'} \parallel}^{2}}{2\sigma^{2}}\right)$, $\sigma$ controls the width of the neighbourhood. The Gaussian similarity function is an exponential function, therefore depending on $\sigma$, the similarity falls non-linearly (exponentially) with increasing distance. This property makes it desirable to use where neighbourhood relations are important. Various other similarity functions for vector data are discussed in Chapter-\ref{chap_maxent}.
+A \textit{fully connected} graph is one where all pairs of points have positive similarity values and are connected. This leads to a denser 
+graph in comparison to previous ones. While in the earlier ones, the local neighbourhood relationship was enforced with either a 
+threshold ($\varepsilon$) or a maximum of $k$-neighbours, in a fully connected graph we have to choose a similarity function that should 
+do this. For all our work, we have used the Gaussian similarity function which encodes this neighbourhood relation automatically. 
+In this function, $exp \left( -\frac{{\parallel \textbf{x}-\textbf{x}^{'} \parallel}^{2}}{2\sigma^{2}}\right)$, $\sigma$ controls the width of 
+the neighbourhood and $\textbf{x}$,$\textbf{x}^{'}$ represent the two variables between which similarity is being computed. The Gaussian similarity 
+function is an exponential function, therefore depending on $\sigma$, the similarity falls non-linearly 
+(exponentially) with increasing distance. This property makes it desirable to use where neighbourhood relations are important. Various 
+other similarity functions for vector data are discussed in Chapter-\ref{chap_maxent}.
 
 Spectral clustering is based on the \textit{Laplacian} matrix which has its origins in spectral graph theory \citep{chung1997spectralgraph}. There are various types of Laplacians. All of these assume that we have an undirected graph $G$ with positive weight matrix $W$ ($w_{ij} \geq 0$) and a corresponding degree matrix $D$. An \textit{unnormalized} Laplacian is defined as 
 
@@ -52,23 +66,32 @@ where $D^{-1/2}$ is the inverse square root of matrix $D$. Since $D$ is a diagon
 				 0 & 0 & \dots & \frac{1}{\sqrt{d_{nn}}}\\
                  \end{bmatrix}
 \end{displaymath}
-Like the unnormalized Laplacian, the normalized ones are also always symmetric and positive semi-definite. They too have non-negative, real-valued eigenvalues $\lambda_{1}(=0) \leq \lambda_{2}\leq \dots \leq \lambda_{n}$ and the multiplicity of the smallest eigenvalue is the number of connected components in the graph. Laplacians could be interpreted as \textit{gradients} on graphs and it has connections to differential geometry. 
+Like the unnormalized Laplacian, the normalized ones are also always symmetric and positive semi-definite. They too have non-negative, real-valued 
+eigenvalues $\lambda_{1}(=0) \leq \lambda_{2}\leq \dots \leq \lambda_{n}$ and the multiplicity of the smallest eigenvalue is the number of 
+connected components in the graph. Laplacians could be interpreted as \textit{gradients} on graphs and it is related to differential geometry. 
 \subsection{Graph clustering}
 As seen earlier, given a set of data points, a similarity function can be used to calculate the pairwise similarities among them, resulting in a similarity matrix. Given its graph representation, the clustering can be defined as a \textit{graph partitioning} problem where the edges between the points of the \textit{same} cluster have high weights while the edges between points belonging to \textit{different} clusters have low weights. Before we discuss the algorithm in detail, we discuss the general problem of graph clustering and its relation to spectral clustering. 
 
-We know that the key objective of clustering is to find sets of points that are \textit{maximally similar to each other within a set} and \textit{maximally dissimilar to points in other sets}. If we have a similarity graph, as discussed earlier, the problem can be restated to find a partition of the given graph such that the edges between points within a partition have higher weights as compared to edges between points in different partitions. Graph clustering or partitioning is an old problem and has been exhaustively studied \footnote{For a good review, see \cite{schaeffer1997graphclustering}}. The spectral clustering can be derived as an approximation to the graph partitioning objectives \citep{luxberg2006tutorial_spectral}. Before we start, we need some definitions.
+We know that the key objective of clustering is to find sets of points that are \textit{maximally similar to each other within a set} 
+and \textit{maximally dissimilar to points in other sets}. If we have a similarity graph, as discussed earlier, the problem can be restated to 
+find a partition of the given graph such that the edges between points within a partition have higher weights as compared to edges 
+between points in different partitions. Graph clustering or partitioning is an old problem 
+and has been exhaustively studied \footnote{For a good review, see \cite{schaeffer1997graphclustering}}. Spectral clustering can be derived as an approximation to the graph partitioning objectives \citep{luxberg2006tutorial_spectral}. Before we start, we need some definitions.
 
 If we have two disjoint partitions A, B then 
 \[
 	Cut(A,B) = \sum_{i \in A,j \in B}w_{ij}
 \] 
 	
-So, if we have a graph G with adjacency matrix $W$, then we can construct a partition by solving the \textit{min-cut} problem, which can be understood as choosing the partitions $A_{1},\dots,A_{k}$ such that we minimize the following cut.
+So, if we have a graph G with adjacency matrix $W$, then we can construct a partition by solving the \textit{min-cut} problem, which can be understood 
+as choosing the partitions $A_{1},\dots,A_{k}$ such that we minimize the following cut.
 
 \[
 	Cut(A_{1},\dots,A_{k}) = \sum_{i=1}^{k}Cut(A_{i},\bar{A}_{i})
 \] 
-where \={A} is the complement of $A$. While theoretically it can be solved, yet in practice it may yield clusters of size 1 (trivial clusters), which is not usually the goal of clustering. We want clusters that are \textit{reasonably} big. This is specified in terms of two popular \textit{objective functions} namely \textit{RatioCut} and normalized cut or \textit{NCut}.
+where \={A} is the complement of $A$. While theoretically it can be solved, yet in practice it may yield clusters of 
+size 1 (trivial clusters), which is not usually the goal of clustering. We want clusters that are \textit{reasonably} big. This is 
+specified in terms of two popular \textit{objective functions} namely \textit{RatioCut} and normalized cut or \textit{NCut}.
 
 \begin{eqnarray}
     RatioCut(A_{1},\dots,A_{k}) &=& \sum_{i=1}^{k}\frac{Cut(A_{i},\bar{A}_{i})}{|A_{i}|} \\
@@ -84,16 +107,28 @@ Another way to understand this is that in both RatioCut and NCut, the numerator 
                         &=& vol(A) - Cut(A,\bar{A})	 
 \end{eqnarray}
 
-We can see that NCut satisfies this by maximizing the $vol(A)$ and minimizing $Cut(A,\bar{A})$. RatioCut doesn't lead to this objective. As shown in \citet{luxberg2006tutorial_spectral}, relaxing NCut leads to using the \textit{normalized} Laplacian in spectral clustering while relaxing RatioCut leads to the use of \textit{unnormalized} Laplacian. Therefore, normalized spectral clustering satisfies both the key clustering criteria while unnormalized spectral clustering only implements the first criteria. One key point to note is that there is no guarantee on the quality of the clustering solution of the relaxed problem compared to the exact solution. 
+We can see that NCut satisfies this by maximizing $vol(A)$ and minimizing $Cut(A,\bar{A})$. RatioCut doesn't lead to this objective. As shown in \citet{luxberg2006tutorial_spectral}, relaxing NCut leads to using the \textit{normalized} Laplacian in spectral clustering while relaxing RatioCut leads to the use of \textit{unnormalized} Laplacian. Therefore, normalized spectral clustering satisfies both the key clustering criteria while unnormalized spectral clustering only implements the first criteria. One key point to note is that there is no guarantee on the quality of the clustering solution of the relaxed problem compared to the exact solution. 
 
 \subsection{Algorithm explanation}
-Spectral clustering is a technique in which the eigenvectors of the Laplacian matrix (which is derived from the \textit{similarity} matrix) corresponding to the smallest eigenvalues are used to derive a clustering of the given data points. The methods are called spectral, because they make use of the \textit{spectrum}\footnote{The set of eigenvectors of the normalized Laplacian matrix is usually called the \textit{spectrum} of the Laplacian (or the spectrum of the associated graph)} of the graph. It has been applied to diverse domains, e.g. image segmentation \citep{shi00normalized, weiss1999segmentation} and bioinformatics \citep{speer05spectral}. Most spectral clustering algorithms can be considered to have three stages:
+Spectral clustering is a technique in which the eigenvectors of the Laplacian matrix (which is derived from the \textit{similarity} matrix) corresponding to 
+the smallest eigenvalues are used to derive a clustering of the given data points. The methods are called spectral, because 
+they make use of the \textit{spectrum}\footnote{The set of eigenvectors of the normalized Laplacian matrix is usually called 
+the \textit{spectrum} of the Laplacian (or the spectrum of the associated graph)} of the graph. It has been applied to diverse 
+domains, e.g. image segmentation \citep{shi00normalized, weiss1999segmentation} and bioinformatics \citep{speer05spectral}. Most spectral clustering algorithms 
+can be considered to have three stages:
 \begin{description}
     \item[Normalization] This consists of computing the similarity matrix from the raw data using a suitable similarity function. We call this the \textit{normalization} step because different types of data (vector, graph or string) get converted to a common format (similarity matrix).
     \item[Eigen Decomposition] This consists of computing the eigenvalues and the corresponding eigenvectors of the similarity matrix. This step could be considered as the mapping of original data to the spectral domain.
     \item[Clustering] This step consists of using a traditional clustering algorithm (usually k-means) to cluster the vectors in the spectral domain.	
 \end{description}
-Different spectral clustering algorithms differ in the number of eigenvectors used (single or many) as well as the type of Laplacian used (unnormalized or normalized). \citet{verma2003comparison} did a systematic comparison of different popular spectral \citep{shi00normalized, ng2001onspectral, meila2000learning} and traditional clustering algorithms on artificial as well as real-world datasets. They report that spectral methods are more stable to noise than other tested algorithms. Both \citet{shi00normalized} and \citet{meila2000learning} have used the $L_{random walk}$ normalized Laplacian while \citet{ng2001onspectral} have used the $L_{symmetric}$ normalized Laplacian. Apart from this, there is no major difference between the techniques of all these algorithms. Since \citet{verma2003comparison} did not find significant differences among the two normalized Laplacians, we have used the algorithm by \citet{ng2001onspectral} which is the most recent one. This algorithm is described in Algorithm-\ref{alg:spectral_clustering}.
+Different spectral clustering algorithms differ in the number of eigenvectors used (single or many) as well as the type of Laplacian 
+used (unnormalized or normalized). \citet{verma2003comparison} did a systematic comparison of different popular 
+spectral \citep{shi00normalized, ng2001onspectral, meila2000learning} and traditional clustering algorithms on artificial as well as 
+real-world datasets. They report that spectral methods are more stable to noise than other tested algorithms. 
+Both \citet{shi00normalized} and \citet{meila2000learning} have used the $L_{random walk}$ normalized Laplacian while \citet{ng2001onspectral} 
+have used the $L_{symmetric}$ normalized Laplacian. Apart from this, there is no major difference between the techniques of all these algorithms. 
+Since \citet{verma2003comparison} did not find significant differences among the two normalized Laplacians, we have used the 
+algorithm by \citet{ng2001onspectral} which is the most recent one. This algorithm is described in Algorithm-\ref{alg:spectral_clustering}.
 \begin{algorithm}
 \caption{Spectral clustering}
 \label{alg:spectral_clustering}
@@ -236,10 +271,6 @@ We calculate the normalized Laplacian and then find its eigenvalues. If we belie
 0 & 0 & 0 & 1\\
 1 & 0 & 1 & 1\\
 0 & 0 & 0 & 0\\
-0 & 0 & 1 & 0\\
-0 & 0 & 1 & 1\\
-1 & 0 & 1 & 1\\
-1 & 0 & 0 & 0\\
 \end{pmatrix}
 $}}
 \rput(5.1,9.5){\MyBox*[linecolor=lightgray]{4}{2}{Constraints Matrix derived from supervision sources}}
@@ -258,10 +289,6 @@ $}}
 0.3 & 0.3 & 0.3 & 0.3\\
 0.2 & 0.4 & 0.6 & 0.2\\
 0.7 & 0.4 & 0.3 & 0.6\\
-0.2 & 0.4 & 0.1 & 0.5\\
-0.2 & 0.4 & 0.1 & 0.2\\
-0.5 & 0.6 & 0.6 & 0.5\\
-0.1 & 0.3 & 0.7 & 0.2\\
 \end{pmatrix}
 $}}
 \rput(5.5,1.2){Affinity Matrix}
@@ -272,10 +299,6 @@ $}}
 0.3 & 0.3 & 0.3 & 1\\
 1 & 0.4 & 1 & 1\\
 0.7 & 0.4 & 0.3 & 0.6\\
-0.2 & 0.4 & 1 & 0.5\\
-0.2 & 0.4 & 1 & 1\\
-1 & 0.6 & 1 & 1\\
-1 & 0.3 & 0.7 & 0.2\\
 \end{pmatrix}
 $}}
 \rput(12,1.2){Final Matrix}
@@ -302,8 +325,11 @@ We have used five-fold validation to study the effectiveness of our algorithm. S
 while remaining 20\% is test data. The exact steps are detailed below 
 
 \begin{enumerate}
- \item Take the spirals dataset which has two classes visually represented as red and black points as seen in Figure-\ref{fig:spirals_original}. We compute the optimal $\sigma$ with which to compute pairwise similarities by finding the least cumulative sum across all the clusters of sum of squared 
-distance of all points in a cluster from its cluster centre as shown in Equation:\ref{maxent:eqn:withinss}. With this optimal $\sigma$ we compute the similarity matrix. We also generate a noisy version of it by changing the $\sigma$ to a random non-optimal value with which pairwise similarities are computed. The results of clustering with optimal and non-optimal $\sigma$ values are shown in Figures-\ref{fig:spirals_original} and \ref{fig:spirals_no_constraints} respectively.
+ \item Take the spirals dataset which has two classes visually represented as red and black points as seen in Figure-\ref{fig:spirals_original}. 
+We compute the optimal $\sigma$ with which to compute pairwise similarities by finding the least cumulative sum across all the clusters of sum of squared 
+distance of all points in a cluster from its cluster centre as shown in Equation:\ref{maxent:eqn:withinss}. With this optimal $\sigma$ we compute the similarity matrix. 
+We also generate a noisy version of it by changing the $\sigma$ to a random non-optimal value with which pairwise similarities are computed. 
+The results of clustering with optimal and non-optimal $\sigma$ values are shown in Figures-\ref{fig:spirals_original} and \ref{fig:spirals_no_constraints} respectively.
  \item From the original dataset, we generate all possible pairs between all the points in each of the two classes respectively. Out of all these pairs, according to 5-fold cross validation procedure, take 4 parts as the training set and the remaining one as the testing set.
  \item Draw \textit{5} pairs of constraints from the training set randomly.
  \item Apply these pairwise constraints to the non-optimal similarity matrix, i.e., set the pairwise similarity of these data points to 1. Cluster it using spectral clustering.
@@ -379,9 +405,13 @@ distance of all points in a cluster from its cluster centre as shown in Equation
 \caption{Various runs showing clustering quality improvement with increasing number of known constraints}
 \end{figure}
 
-In Figure-\ref{fig:spirals_visual} we observe the results of one of the runs where increasing number of constraints are being applied. We see that the quality of clustering improves as the number of known constraints increase. We also observe that with a relatively small number of constraints ($50$), we are able to retrieve the original clustering.  
+In Figure-\ref{fig:spirals_visual} we observe the results of one of the runs where increasing number of constraints are being applied. 
+We see that the quality of clustering improves as the number of known constraints increase. We also observe that with a relatively small number of 
+constraints ($50$), we are able to retrieve the original clustering.  
 
-In Figure-\ref{fig:spirals_cv}, we see that in all the runs, clustering quality improves quickly as the number of known constraints are applied. The cluster similarity (to the original cluster) improves quickly with reducing standard deviation as the number of constraints increases. Goal of semi-supervised clustering is to use external knowledge in the form of known pairwise relations between variables in order to improve the quality of clustering. We have shown that applying more constraints indeed lead to better clustering.
+In Figure-\ref{fig:spirals_cv}, we see that in all the runs, clustering quality improves quickly as the number of known constraints are applied. 
+The cluster similarity (to the original cluster) improves quickly with reducing standard deviation as the number of constraints increases. The goal of 
+semi-supervised clustering is to use external knowledge in the form of known pairwise relations between variables in order to improve the quality of clustering. We have shown that applying more constraints indeed lead to better clustering.
 
 \subsection{Parameter optimization} \label{chap2:sec:param_opt}
 For any clustering algorithm, the most important decisions are the choice of the number of clusters and the free parameters. In our case, the similarity among gene pairs is calculated using a Gaussian similarity function and the only free parameter is the width of the Gaussian, $\sigma$. For any unsupervised task of an exploratory nature, the \textit{correct} number of clusters is data dependent. We chose to use 50 clusters in our experiments, based on earlier justifications by \citet{ihmels02revealing} and \citet{segal03module} which showed that the Saccharomyces Cerevisiae genome contains approximately 50 sets of functionally related genes. Both the authors have shown statistically that this number provides a better fit to the underlying data distribution, compared to a higher or lower numbers of modules.
@@ -401,14 +431,14 @@ Internal measures take a clustering and the underlying dataset as the input, and
 \]
 where $diam(C_{k})$ is the maximum (complete) distance between two points within a cluster and $dist(C_{i},C_{j})$ is the minimum (single) distance between any two points in clusters $C_{i}$ and $C_{j}$. We can observe that the value of this index is high if the inter-cluster separation is high compared to the largest cluster diameter. This corresponds to a fundamental objective of good clustering, namely to maximize the inter-cluster separation and minimize the intra-cluster distances. Hence \textit{better} clustering will have \textit{higher} values of this index. This index, though very easy to comprehend, can be quite unstable especially in the presence of outliers. 
 
-Another popular internal cluster quality validation index - \textit{Davies-Bouldin's} index that aims to identify sets of clusters that are compact and well separated is defined as
+Another popular internal cluster quality validation index - \textit{Davies-Bouldin's} index that aims to identify sets of clusters that are compact and well separated, is defined as
 \[
 \text{Davies Bouldin's index}=\frac{1}{M} \sum_{i=1}^{M}\max_{\begin{subarray}{c}j=1\dots M \\ j\neq i \end{subarray}} \left( \frac{\sigma_{C_{i}}+\sigma_{C_{j}}}{\delta(C_{i},C_{j})} \right)
 \]
 
 where M is the total number of clusters, $\sigma_{C_{i}}$ is the average distance of all points in the $i_{th}$ cluster from the cluster centre and $\delta(C_{i},C_{j})$ is the distance between the cluster centres of the $i_{th}$ cluster and $j_{th}$ cluster. The value of this index decreases if clusters $i$ and $j$ are compact and their centres are far away from each other. Hence \textit{smaller} values of this index indicate better clustering.
 
-Silhouette index is another well known cluster validity index.
+The Silhouette index is another well known cluster validity index.
 \[
 s(i)=\frac{b(i)-a(i)}{max(a(i),b(i))} 
 \]
@@ -522,7 +552,7 @@ Therefore, we have perturbed the datasets and report the mean and variance of re
 
 \begin{enumerate}
   
-\item We got the full stress and cell-cycle data-sets. The stress dataset had 6361 genes while cell-cycle dataset had 6353 genes including NORFs. Since not much is known about the function of non-annotated open reading frames NORFs, so we removed all the NORFs from the data-sets. 
+\item We got the full stress and cell-cycle data-sets. The stress dataset had 6361 genes while cell-cycle dataset had 6353 genes including non-annotated open reading frames (NORFs). Since not much is known about the function of NORFs, we removed all the NORFs from the data-sets. 
 That left us with 6251 genes in the stress data-set and 6257 genes in the cell-cycle data-sets. They had 156 and 60 experiment counts respectively.
  
 \item We created ten perturbed data-sets from each of stress and cell-cycle datasets after sub-sampling (drawing 90\% of the genes randomly).
@@ -552,7 +582,7 @@ Serial No. & Dunn's index  & Davies Bouldin's index\\
 11 & 	0.03952356 & 3.168467 \\
 \hline 
 \end{tabular}
-\caption{Dunn's and Davies Bouldin's values for perturbed Stress dataset. Indicates that algorithm itself results in consistent cluster quality.}
+\caption{Dunn's and Davies Bouldin's index values for perturbed Stress dataset. The data indicates that the algorithm results in consistent cluster quality.}
 \label{tab:stress_only_perturb}
 \end{table}
 
@@ -575,7 +605,7 @@ Serial No. & Dunn's index  & Davies Bouldin's index\\
 11 & 0.02926203 & 3.00763 \\
 \hline 
 \end{tabular}
-\caption{Dunn's and Davies Bouldin's values for perturbed Cell-Cycle dataset. Indicates that algorithm itself results in consistent cluster quality.}
+\caption{Dunn's and Davies Bouldin's index values for perturbed Cell-Cycle dataset. The data indicates that the algorithm results in consistent cluster quality.}
 \label{tab:cellcycle_only_perturb}
 \end{table}
 
@@ -591,18 +621,20 @@ Stress only  & 0.0400 & 0.0087 & 3.1840 & 0.0341 \\
 Cell cycle only & 0.0316 & 0.0113 & 3.0136 & 0.0693 \\
 \hline 
 \end{tabular}
-\caption{Summary of mean and variance of individual datasets. This shows that our results are not random and small perturbations in data doesn't change the results.}
+\caption{Summary of mean and variance of individual datasets. This shows that our results are not random and a small perturbation in data doesn't change the results.}
 \label{tab:stress_ccycle_perturb}
 \end{table}
 
-As we can see in the mean and standard deviation values in Table-\ref{tab:stress_ccycle_perturb}, that the spectral clustering algorithm itself is quite stable with perturbations of 
-data and the resulting cluster qualities are not widely varying. We can see that the results of cell cycle dataset are having more variance in comparison to the stress dataset. This is seen in results of both Dunn's and Davies Bouldin's indices.
+As we can see in the mean and standard deviation values in Table-\ref{tab:stress_ccycle_perturb}, the spectral clustering algorithm itself is quite stable with perturbations of 
+data and resulting cluster qualities are not widely varying. We can see that the results of the cell cycle dataset have more variance in comparison to the stress dataset. 
+This is seen in the results of both Dunn's and Davies Bouldin's indices.
 
-Next we do a similar analysis of our proposed semi-supervised spectral clustering algorithm and demonstrate that it too does not produce results randomly and are consistent across sub-sampled datasets. In semi-supervised clustering, we are applying constraints in order to improve the quality 
+Next we did a similar analysis of our proposed semi-supervised spectral clustering algorithm to demonstrate that it too does not produce results randomly and is consistent across 
+sub-sampled datasets. In semi-supervised clustering, we are applying constraints in order to improve the quality 
 of clustering. In order to justify that our results are not by accident, we need to sub-sample the data-sets as well as the constraints and then apply the sampled constraints. After this we need to compute the 
-variance of cluster stability. We create ten constraints data-sets from each constraints dataset by sub-sampling (drawing 90\% of the genes randomly). Then we combine pairs of perturbed micro-array and constraints data-sets, 
-cluster and then report its Dunn's and Davies Bouldin's clustering quality indices. We repeat this for all pairs. To reiterate, this is to demonstrate that our results are not 
-random and that they are statistically valid.
+variance of cluster stability. We created ten constraints data-sets from each constraints dataset by sub-sampling (drawing 90\% of the genes randomly). Then we combined pairs of 
+perturbed micro-array and constraints data-sets, cluster and then report the Dunn's and Davies Bouldin's clustering quality indices. We repeat this for all pairs. 
+To reiterate, this was to demonstrate that our results are not random and that they are statistically valid.
 
 \begin{table}[p]
 \centering
@@ -738,7 +770,7 @@ Cell-cycle-PPI & 0.0322 & 0.0076 & 3.5236 & 0.1406 \\
 Cell-cycle-YT & 0.0282 & 0.0015 & 4.2709 & 0.1820 \\
 \hline 
 \end{tabular}
-\caption{Mean and variance of all combined datasets. This shows that the results of semi-supervised clustering are not random and small perturbations in data doesn't change the results wildly.}
+\caption{Mean and variance of all combined datasets. This shows that the results of semi-supervised clustering are not random and small perturbations in data do not change the results wildly.}
 \label{tab:mean_stdev_combined_perturbed}
 \end{table}
 
@@ -749,7 +781,7 @@ We observe that the results of semi-supervised clustering are stable with pertur
  observed for the stress only dataset according to Dunn's index. But the Davies Bouldin's index displays higher variability. For the cell-cycle dataset, the variability according to Dunn's
  index has fallen in all the instances of integration as compared to the cell-cycle only dataset. However, again Davies Bouldin's index is displaying higher variability.
   
-Now that we are confident of clustering quality as well as semi-supervised clustering results that they are not behaving erratically and produce consistent results, 
+Now that we are confident of clustering quality as well as the semi-supervised clustering results, 
 we analyse the biological significance of combinations. For this, we need to observe the results of combinations of original datasets 
 and not the perturbed versions. 
 
@@ -766,20 +798,26 @@ what functions, it doesn't allow us to functionally compare different clustering
 such a numerical index using mutual information and related concepts by \citet{Gibons2002Judging} and \citet{gatviks03scoring} using Gene Ontology annotations. 
 
 In order to compare two sets of clusters, e.g. before and after data integration, we have used the technique suggested by \citet{Gibons2002Judging}. We briefly discuss 
-the works of these two papers and then justify our rationale behind our choice.
+the ideas of these two papers and then justify our rationale behind our choice.
 
 \subsection{Numerical Biological Significance comparison (using mutual information)} \label{semisup:num_biosig_mi}
 \citet{Gibons2002Judging} devised a figure of merit, z-score, based on mutual information between a clustering result and gene annotation data. The z-score indicates relationships between 
 clustering and annotation, relative to a clustering method that randomly assigns genes to clusters. A higher z-score indicates a clustering result that is further 
 from random. 
 
-GO defines three distinct ontologies (called biological process, molecular function, and cellular component) and represents each as a directed acyclic graph (DAG), 
-consisting of directed edges and vertices, such that each vertex may be descended from several others. Annotation of a gene with a descendant attribute implies that the 
+The GO  project is a collaborative effort to address the need for consistent descriptions of gene products in different databases. The GO collaborators are developing three structured, controlled vocabularies (ontologies) that describe gene products in terms of their associated biological processes (BP), 
+cellular components (CC) and molecular functions (MF) in a species-independent manner. The project not only writes 
+and maintains the ontologies themselves but more importantly also makes cross-links between the ontologies and the genes and gene products in the collaborating databases. 
+It is organized as three separate tree structured sets (directed acyclic graph (DAG)), consisting of directed edges and vertices, such that each vertex may be 
+descended from several others. Annotation of a gene with a descendant attribute implies that the 
 gene holds all ancestor attributes. They have parsed annotation from SGD of S. cerevisiae genes with GO attributes in such a way that attributes are inherited 
-through the hierarchy, producing a table of ~6300 genes and ~2000 attributes in which a 1 in position (i,j) indicates that the gene i is known to possess attribute 
+through the hierarchy, producing a table of \string~6300 genes and \string~2000 attributes in which a 1 in position (i,j) indicates that the gene i is known to possess attribute 
 j, and a 0 indicates our lack of knowledge about whether gene i possesses attribute j. In other words, absence of annotation is not the same as absence of function.
 
-With this gene-attribute table, they construct a contingency table for each cluster–attribute pair, from which they compute the entropies for each cluster–attribute pair ($H_{A_{i}C}$), 
+We have not used the graphical structure and inter-relationships among the terms in the ontology graph. We have used only the relationship maintained between the 
+ontology and genes and gene products across the BP category of it as we were interested in ascertaining whether the cluster were enriched in certain biological processes.
+
+With this gene-attribute table, they construct a contingency table for each cluster-attribute pair, from which they compute the entropies for each cluster-attribute pair ($H_{A_{i}C}$), 
 for the clustering result independent of attributes ($H_{C}$), and also for each of the $N_{A}$ attributes in the table independent of clusters ($H_{A_{i}}$). 
 Using the definition of mutual information between two variables X and Y, $MI(X,Y) \equiv H(X)+H(Y)−H(X,Y)$, and assuming both absolute and conditional independence of attributes, 
 they expand the total mutual information as a sum of mutual information between clusters and each individual attribute. 
@@ -839,7 +877,8 @@ We started with the full set of stress and cell-cycle datasets as discussed earl
 For the ChIP-chip, PPI and Yeastract datasets, we took all the interactions that were between the common set of genes between the microarray and the interactions datasets. 
 The biological significance index values before and after semi-supervised clustering are in Table-\ref{tab:biol_significance}. 
 
-The different initial biological significance values for stress and cell-cycle datasets (89.2 and 52.2 respectively) are because of the nature of the data. Stress on the organism leads to extremely high level of activity 
+The different initial biological significance values for stress and cell-cycle datasets (89.2 and 52.2 respectively) are because of the nature of the data. Stress on the organism 
+leads to extremely high levels of activity 
 in the expression levels and many more genes are coordinating together which leads to higher significance values. Cell-cycle on the other hand is a routine activity and the 
 expression patterns of genes do not change so extremely leading to smaller significance values.
 
@@ -856,17 +895,10 @@ The goal of integration is to have more biologically relevant clusters from whic
 \subsection{Qualitative Biological Significance (using Gene Ontology annotations)} \label{semisup_biosig_go}
 Now that we have results of quantitative biological significance before and after applying our algorithm, we would also like to qualitatively analyze the resulting clusters after 
 applying our algorithm. We would like to identify the biological processes represented by the genes in each cluster. For this, we use Genomica's gene set enrichment module available online (\url{http://genie.weizmann.ac.il/genomica_web/enrichment/gene_sets.jsp}). It allows us to compute 
-p-value of a \textit{HyperGeometric} distribution to find the enrichment of individual genes in cluster as detailed below.
+p-value of a \textit{HyperGeometric} distribution to find the enrichment of individual genes in a cluster as detailed below.
 
-The result of a clustering algorithm is a set of gene clusters. In order to find out how biologically significant the cluster set is, we have used 
-Gene Ontology \citep{GO} annotations. The GO  project is a collaborative effort to address the need for consistent descriptions of gene products in different databases. 
-The GO collaborators are developing three structured, controlled vocabularies (ontologies) that describe gene products in terms of their associated biological processes (BP), 
-cellular components (CC) and molecular functions (MF) in a species-independent manner. It is organized as three separate tree structured sets. The project not only writes 
-and maintains the ontologies themselves but more importantly also makes cross-links between the ontologies and the genes and gene products in the collaborating databases. 
-We have not used the graphical structure and inter-relationships among the terms in the ontology graph. We have used only the relationship maintained between the 
-ontology and genes and gene products across the BP category of it as we were interested in ascertaining whether the cluster were enriched in certain biological processes.
-
-So from this database, we extract annotations for each gene in a cluster. Then, we would like to know if any GO term is  overrepresented in the cluster 
+The result of a clustering algorithm is a set of gene clusters. In order to find out how biologically significant the cluster set is, we have again used 
+Gene Ontology \citep{GO} annotations. So, from this database, we extract annotations for each gene in a cluster. Then, we would like to know if any GO term is  overrepresented in the cluster 
 compared to that happening by chance. This can be answered by \textit{p-value} from statistical hypothesis testing. 
 The p-value is the probability of obtaining a result at least as extreme as the one that was actually observed, given that the null hypothesis is true. 
 So, under our null hypothesis that the set of genes is randomly picked from the whole gene population we compute this p-value using a \textit{HyperGeometric} distribution 
@@ -1105,7 +1137,11 @@ The concept of applying prior knowledge in the form of constraints to clustering
 \subsection{Semi-supervised clustering}
 While constrained clustering algorithms work towards satisfying known constraints, other distance based clustering algorithms were developed in which the metric that a clustering algorithm uses in order to calculate distance between a pair of data-points was modified by incorporating constraints from other sources of data. These were the first \textit{semi-supervised} clustering algorithms. They did not enforce the constraints, but used the constraints to provide guidance in the cluster formation process. This is the crucial difference between a \textit{supervised} and a \textit{semi-supervised} clustering algorithm. In the former, the constraints are derived from known ground truth and have to be satisfied, whereas in the latter, the constraints are additional sources of information but are considered noisy and hence not necessarily exactly correct. This is a characteristic of the DNA-binding, PPI and TF-gene interactions data that we use for deriving our constraints, and also our justification for using the semi supervised algorithm. 
 
-\citet{klein2002frominstance} used the concept of ``must-link'' and ``can-not link'' constraints on the hierarchical agglomerative clustering \citep{jain1988algorithms}. They reported that it improved upon earlier constrained clustering algorithms and required a much smaller number of constraints for similar accuracy. According to them constraints suggest space-level generalizations beyond their instance-level assertions. In other words, if a point A is linked to another point B, then A should also probably be linked to points that are near B and \textit{vice-versa}. They used this idea to \textit{propagate} constraints. \citet{basu2004probabilistic} have proposed a probabilistic model for semi-supervised clustering based on \acp{HMRF} that provides a more principled framework for incorporating supervision. It combines the constraint based and distance based approached into a single unified model.
+\citet{klein2002frominstance} used the concept of ``must-link'' and ``can-not link'' constraints on hierarchical agglomerative clustering \citep{jain1988algorithms}. 
+They reported that it improved upon earlier constrained clustering algorithms and required a much smaller number of constraints for similar accuracy. 
+According to them constraints suggest space-level generalizations beyond their instance-level assertions. In other words, if a point A is linked to another point B, 
+then A should also probably be linked to points that are near B and \textit{vice-versa}. They used this idea to \textit{propagate} constraints. \citet{basu2004probabilistic} have 
+proposed a probabilistic model for semi-supervised clustering based on \acp{HMRF} that provides a more principled framework for incorporating supervision. It combines the constraint based and distance based approached into a single unified model.
  
 Our technique is likewise based on the concept of using the constraints obtained from one dataset in order to modify the similarity value that is obtained from another dataset. The key difference is that while all the previous work has used this principal to do clustering in some feature space, our technique uses the modified similarity values to cluster in spectral space (spectral clustering). 
 
@@ -1114,14 +1150,15 @@ The field of spectral clustering was started by \citet{donath1973lower} who came
 
 As we have discussed earlier, spectral clustering works on similarity matrices. In that respect, it is similar to \textit{multi-dimensional scaling} or in general, the broader class of \textit{metric multidimensional scaling} \citep{deleeuw2005mds} algorithms which also operate on a similarity matrix and are useful for visualization of high dimensional data by mapping it to lower dimensions. The key difference between these and spectral clustering is that while they operate in the feature space, spectral clustering works in the spectral space. Spectral clustering has close relations to the field of non-linear dimensionality reduction techniques like \textit{manifold learning} \citep{saul2006smd, haifang2006manifold} and semi-supervised learning \citep{grira2005unsupsurvey}. \citet{nadler06fundamental} have discussed the fundamental limitations of spectral clustering. \citet{dhillon05unified} have shown the equivalence between kernel k-means \citep{johnshaw2004kernelmethods} and spectral clustering. This result gains importance when the similarity matrix is too large for eigen-decomposition and iterative techniques need to be used. 
 
-Even before the recent interest in spectral clustering, a matrix formalism has been used to describe the functional states of transcriptional regulatory systems. \citet{gianchandani2006matrix} used such a model to characterise the properties of a TRS and facilitate the computation of the transcriptional state of the genome under any given environmental conditions. 
+Even before the recent interest in spectral clustering, a matrix formalism has been used to describe the functional states of transcriptional regulatory systems. \citet{gianchandani2006matrix} used such a model to characterise the properties of \acp{TRS} and facilitate the computation of the transcriptional state of the genome under any given environmental conditions. 
 
 One of the first applications of spectral clustering to bioinformatics was by \citet{kluger2003spectral} who used it to simultaneously clusters genes and conditions (biclustering) for various cancer datasets. In a cancer context, the clusters correspond to genes that are markedly up or down regulated in patients with particular types of tumors. They present a number of variants of the approach, depending on whether the normalization over genes and conditions is done independently or in a coupled fashion. They analysed publicly available cancer expression data sets, and examined the degree to which the approach is able to identify clusters. They have also compared the performance against a number of reasonable benchmarks (e.g., direct application of SVD or normalized cuts to raw data). \citet{speer05spectral} used spectral clustering to cluster Gene Ontology terms to find sets of genes that might be functionally related. They used an information theoretic measure borrowed from text mining, where it had been used to calculate semantic similarities between words, to calculate the similarity values between the terms of the Gene Ontology.
 
 \subsubsection{Semi-supervised spectral clustering}
-\citet{kamvar03spectral} propose an algorithm for classification called \textit{spectral classification} which modifies the similarity matrix to 1 if the known training data belong to the same class and 0 otherwise. The similarity matrix is subject to eigen-decomposition and then classification is done in the spectral space. The advantage of doing this is that they can use labelled data (provides class constraints) as well as unlabelled data (similarity computation). They report better performance than the \textit{naive Bayes} classifier in classifying newsgroups. They have also proposed a constrained spectral clustering with must-link and cannot-link constraints along with an additive normalized laplacian \citep{fiedler1975property} and used it for classification. The results and the comparison with other algorithms for this is not systematic and clearly presented which makes it difficult to judge its performance. 
+\citet{kamvar03spectral} propose an algorithm for classification called \textit{spectral classification} which modifies the similarity matrix to 1 if the known training data 
+belong to the same class and 0 otherwise. The similarity matrix is subject to eigen-decomposition and then classification is done in the spectral space. The advantage of doing this is that they can use labelled data (provides class constraints) as well as unlabelled data (similarity computation). They report better performance than the \textit{naive Bayes} classifier in classifying newsgroups. They have also proposed a constrained spectral clustering with must-link and cannot-link constraints along with an additive normalized laplacian \citep{fiedler1975property} and used it for classification. The results and the comparison with other algorithms for this is not systematic and clearly presented which makes it difficult to judge its performance. 
 
-\citet{brian_semisupgraph2005} proposed a semi-supervised version of the kernel k-means algorithm. The only difference between our formulation and theirs is that after modifying the similarity matrix we use spectral clustering while they have used kernel k-means algorithm. They argue that this might be better for larger datasets where eigenvalue computation might be computationally expensive whereas kernel k-means being a iterative algorithm, doesn't face this problem. This is true but the drawback with kernel k-means is that like k-means it can get stuck in local optima while spectral techniques always try to approximate the global optimum.
+\citet{brian_semisupgraph2005} proposed a semi-supervised version of the kernel k-means algorithm. The difference between our formulation and theirs is that after modifying the similarity matrix we use spectral clustering while they have used kernel k-means algorithm. They argue that this might be better for larger datasets where eigenvalue computation might be computationally expensive whereas kernel k-means being a iterative algorithm, doesn't face this problem. This is true but the drawback with kernel k-means is that like k-means it can get stuck in local optima while spectral techniques always try to approximate the global optimum.
 
 Most algorithms discussed till now rely critically on a good metric over their inputs. If a clustering algorithm fails to find clusters that are meaningful, then the recourse usually is to manually tweak the metric until sufficiently good clusters are found. \citet{xing2003metric} proposed an algorithm that, given examples of similar (and, if desired, dissimilar) pairs of points, \textit{learns} a distance metric that respects these relationships. They also demonstrate that the learned metrics can be used to significantly improve clustering performance. 
 
@@ -1136,7 +1173,7 @@ two methods for determining the best Gaussian kernel to obtain the affinity matr
 by reference to a third type of data (Gene Ontology). Our results indicate that semi-supervised spectral clustering leads to improved biological significance if the datasets from 
 which known facts are extracted is not widely varying from the datasets on which they are applied.  
 
-Since our technique is quite generic, in future, our work can be extended by using other sources as prior knowledge, for example the similarity between 
+Since our technique is quite generic, in future, our work can be extended by using other sources of prior knowledge, for example the similarity between 
 the promoter sequences of genes. In the next chapter, we propose a technique where instead of creating definite constraints, we extract similarities from graphs of interactions and 
 then integrate the datasets. It is based on the principle of maximizing the entropy of the resulting matrix. 
 

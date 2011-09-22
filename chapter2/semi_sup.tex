@@ -483,7 +483,8 @@ We also repeated the k-means algorithm twenty five times, each run being initial
 \end{figure}
 
 The results for the Dunn's index based sigma optimisation for the stress dataset is shown in Figure-\ref{fig:stress_sigma_opt_dunn} which shows the mean values along with standard deviation error bars. 
-The x-axis uses a log-scale because of the spread of the data.  For Dunn's index, where higher values are better, the plot has the optimal region between 0.003 and 0.005 where the values are high and the standard deviations are low.
+The x-axis uses a log-scale because of the spread of the data.  For Dunn's index, where higher values are better, the plot has the optimal region between 0.003 and 0.005 where the 
+standard deviations are low.
 The maximum value (best clustering) at $\sigma=0.005$. It is worthwhile to note that the best quality clustering also has a very low standard deviation.
 
 As seen in Figure-\ref{fig:stress_sigma_opt_dav}, the Davies-Bouldin's index, where lower values indicate better clustering, has its optimal region between 0.003 and 0.03. It has its minimum value (best clustering) at $\sigma=0.01$. However, the standard deviation is unacceptably high.
@@ -914,7 +915,7 @@ In all our computations, we have only used GO terms that were associated with at
 We excluded all clusters that were having less than 3 genes or more than 500 genes in them considering them trivial clusters. In order to correct for multiple hypothesis, we have used the False Discovery Rate with 0.05 threshold.  
 
 \input{chapter2/ccycle_sup_go}
-A sample of terms and their P-values obtained can be seen in \ref{tab:stress_chip_0.0001}. 
+A sample of terms and their P-values obtained can be seen in Table-\ref{tab:stress_chip_0.0001}.  
 
 Genomica also outputs a visual indication of the GO annotations that are significantly enriched using a colour code which is useful for analysis. The graphical view is a 
 matrix of the two collections - gene sets and GO annotations, where each colored entry indicates that the two collections have a statistically significant 
@@ -991,18 +992,18 @@ biological processes could be studied further to find relationships among them.
 \subsubsection{Stress vs Stress and ChIP-chip}
 
 Apart from processes like RNA processing, RNA metabolic process, ribosome biogenesis, macromolecule biosynthetic process and translation which are common enrichment observed 
-in the two data sets, Stress dataset when combined with ChIP-chip dataset also shows significant enrichment for processes like biosynthetic process, cellular localization, 
+in the two data sets, the Stress dataset when combined with ChIP-chip dataset also shows significant enrichment for processes like biosynthetic process, cellular localization, 
 hydrolase activity, amine metabolic process, amine biosynthetic process, chromosome organization and biogenesis and regulation of cellular process.
 
 \subsubsection{Stress vs Stress and Yeastract}
 
 Translation, macromolecule biosynthetic process, biosynthetic process, 35S primary transcript processing, ribosomal biogenesis and assembly, RNA binding, DNA metabolic process, 
-nucleic acid bing, rRNA processing, RNA processing and RNA metabolic process are few of the common enriched processes observed between Stress and Stress Yeastract. 
+nucleic acid bing, rRNA processing, RNA processing and RNA metabolic process are a few of the common enriched processes observed between Stress and Stress Yeastract. 
 However, processes like response to stress, transcription factor activity, positive regulation of transcription, positive regulation of biological process, 
 RNA polymerase II transcription factor activity, response to chemical stimulus, regulation of transcription from RNA polymerase II promoter, 
 DNA binding, response to stimulus, cellular localization, chromosome organization and biogenesis, mitotic cell cycle, cell cycle, cell cycle phase, 
-telomere maintenance, amine metabolic process, organic acid metabolic process, oxidoreductase activity, regulation of metabolic process, regulation of transcription. 
-Transcription, regulation of cellular process, transcription of regulator activity and biological regulation are the other significant enrichment observed only 
+telomere maintenance, amine metabolic process, organic acid metabolic process, oxidoreductase activity, regulation of metabolic process, regulation of transcription, transcription, 
+regulation of cellular process, transcription of regulator activity and biological regulation are other significant enrichment observed only 
 in Stress Yeastract as compared to Stress dataset.
 
 \begin{figure}[p]
@@ -1062,16 +1063,17 @@ to Cell-Cycle data set alone.
 
 \subsubsection{Cell-Cycle Vs Cell-Cycle and PPI}
 
-DNA metabolic process, RNA processing, rRNA processing, RNA metabolic process, macromolecule biosynthetic process, biosynthetic process and translation are 
-some of the common enriched processes observed in both the data sets. Besides these, Cell-Cycle when combined with PPI dataset also showed significant enrichment for 
-oxidoreuctase activity, response to stress, cell-cycle, chromosome organization and biogenesis and protein binding when compared to Cell Cycle data set alone. We observe that even though
-cell-cycle processes were not accentuated earlier, after combination with the PPI dataset, it shows up prominently. 
+The DNA metabolic process, RNA processing, rRNA processing, the RNA metabolic process, macromolecule biosynthetic process, biosynthetic process and translation are 
+some of the common enriched processes observed in both the data sets. Besides these, Cell-Cycle when combined with the PPI dataset also showed significant enrichment for 
+oxidoreuctase activity, response to stress, cell-cycle, chromosome organization and biogenesis and protein binding 
+when compared to the Cell Cycle data set alone. We observe that even though
+cell-cycle processes were not accentuated earlier, after combination with the PPI dataset, they shows up prominently. 
 
 \subsubsection{Cell-Cycle vs Cell-Cycle and Yeastract}
 
-RNA binding, 35S primary transcription process, RNA processing, rRNA processing, RNA metabolic process, macromolecule biosynthetic process, 
+The RNA binding, 35S primary transcription process, RNA processing, rRNA processing, RNA metabolic process, macromolecule biosynthetic process, 
 translation and biosynthetic process are the common significant enrichment sites observed in the Cell-Cycle dataset both before and after combination with the Yeastract dataset. 
-Cell-Cycle dataset when combined with the Yeastract dataset also showed enrichment significantly for RNA modification, response to stimulus, mitotic cell cycle 
+The Cell-Cycle dataset when combined with the Yeastract dataset also showed enrichment significantly for RNA modification, response to stimulus, mitotic cell cycle 
 and DNA metabolic process when compared to Cell Cycle data set alone. 
 
 \begin{comment}

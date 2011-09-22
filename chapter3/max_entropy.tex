@@ -15,7 +15,8 @@ In order to do the integration in a \textit{principled} manner, we needed a fram
 Various earlier researchers have used the Bayesian framework for merging data, but in our opinion it is unsuitable to cope with non-vectorial data (strings, graphs) 
 in a principled manner as it was primarily developed for vectorial data. 
 
-To summarise, the problem now is reduced to having two similarity matrices and we need some method to integrate them. A simpler approach to integrating matrices 
+To summarise, the problem now is reduced to having two similarity matrices and we need some method to integrate 
+them. A simple approach to integrating matrices 
 is the \textit{shrinkage} method. When there are two similarity matrices $K_{1} and K_{2}$, a final combination $K$ could be written as,
 \begin{eqnarray}
 K &=& \mu K_{1}+(1-\mu)K_{2}
@@ -33,8 +34,8 @@ microarray and \ac{PPI}, and no other evidence regarding their individual import
 of maximum entropy.
 
 As discussed in Section-\ref{kern_integration}, we need a more specialised version of the similarity matrix for maximum entropy integration. The extra requirement is that 
-our similarity matrices should be positive semi-definite. There is a separate but similar branch of machine learning that operates only on such matrices and are 
-known as \textit{kernel methods}. We describe them in Section-\ref{kern_methods}. Throughout this chapter, we have used similarity matrices, kernels and kernel 
+our similarity matrices should be positive semi-definite. There is a separate but similar branch of machine learning that operates only on such matrices and is 
+known as \textit{kernel methods}. We describe these in Section-\ref{kern_methods}. Throughout this chapter, we have used similarity matrices, kernels and kernel 
 matrices interchangeably to refer to \textit{positive semi-definite symmetric similarity matrices}.
 
 \subsection{Spectral or eigen-decomposition}
@@ -118,10 +119,17 @@ which when replaced in Equation-\ref{diffusion}
    K_{\beta}=\sum_{i=1}^{n}v_{i}e^{\beta \lambda_{i}}v_{i}^{T}
 \end{equation}
 
-This similarity function is also known as the \textit{diffusion} function because its differential equation form resembles the diffusion equation of heat through continuous media in classical physics \citep{Kondor02diffusion}. The function of $\beta$ is to control the extent of diffusion similar to the $\sigma$ of the Gaussian kernel. In fact, as shown in \citet{kernel_methodsvert2004}, there is straightforward correspondence between the diffusion kernel and the Gaussian kernel. The former can be considered a discretized version of the latter. In the next section we discuss our actual technique of similarity matrix integration. 
+This similarity function is also known as the \textit{diffusion} function because its differential equation form 
+resembles the diffusion equation of heat through continuous media in classical physics \citep{Kondor02diffusion}. 
+The function of $\beta$ is to control the extent of diffusion similar to the $\sigma$ of the Gaussian kernel. 
+In fact, as shown in \citet{kernel_methodsvert2004}, there is a straightforward correspondence between the diffusion kernel and 
+the Gaussian kernel. The former can be considered a discretized version of the latter. In the next section we discuss our actual technique of similarity matrix integration. 
 
 \subsection{From similarities to a valid kernel}
-Sometimes we have a well defined measure of similarity between a pair of objects, but the resulting matrix is not a valid kernel matrix according to the strict definition of positive semi-definiteness. In such cases, two methods have been proposed in the literature that may be used to convert the similarity matrix to a valid kernel. \citet{tsuda99supportasymmetric} have proposed a principled technique called \textit{empirical kernel map}. \citet{roth2002going} have proposed an ad-hoc technique of eigen-decomposition of the similarity matrix and then removal of negative eigenvalues. They have also showed that this preserves the cluster structure of the data. When we are not sure if the similarity matrix that we have obtained is a kernel matrix then one of these techniques could be used to make it a kernel matrix. 
+Sometimes we have a well defined measure of similarity between a pair of objects, but the resulting matrix is 
+not a valid kernel matrix according to the strict definition of positive semi-definiteness. In such cases, 
+two methods have been proposed in the literature that may be used to convert the similarity matrix to a 
+valid kernel. \citet{tsuda99supportasymmetric} has proposed a principled technique called \textit{empirical kernel map}. \citet{roth2002going} have proposed an ad-hoc technique of eigen-decomposition of the similarity matrix and then removal of negative eigenvalues. They have also showed that this preserves the cluster structure of the data. When we are not sure if the similarity matrix that we have obtained is a kernel matrix then one of these techniques could be used to make it a kernel matrix. 
 \subsection{Kernel normalization}
 In order to add kernels, we need to normalize them so that they are on the same scale. Given an unnormalized kernel matrix, K, the normalized version is
 \begin{equation}
@@ -156,7 +164,15 @@ Thermodynamics should be seen as an application of information theory and the th
 \end{quotation}
 He proposed correspondence between statistical mechanics and information theory and suggested that the entropy in statistical mechanics, and the information entropy in information theory, are essentially the same thing. Consequently, statistical mechanics should be seen just as a particular application of a general tool of logical inference and information theory.
 
-Suppose some testable information about a probability distribution is known. If we consider the set of all probability distributions which encode this information then the \textit{principle of maximum entropy (MaxEnt)} states that the probability distribution which maximizes the information entropy in view of the testable information is the true probability distribution. By choosing to use the distribution with the maximum entropy allowed by our information, we are choosing the most \textit{uninformative} distribution possible. If we choose any distribution with lower entropy then that would imply that we are assuming information which we do not have. On the other hand, if we choose a distribution with a higher entropy that would violate the constraints of the information we possess. Thus the maximum entropy distribution is the only reasonable distribution. Maximum entropy principles are used to choose the smoothest distributions out of all possible distributions. 
+Suppose some testable information about a probability distribution is known. If we consider the set of all 
+probability distributions which encode this information then the \textit{principle of maximum entropy (MaxEnt)} 
+states that the probability distribution which maximizes the information entropy in view of the testable 
+information is the true probability distribution. By choosing to use the distribution with the maximum entropy 
+allowed by our information, we are choosing the most \textit{uninformative} distribution possible. If we choose 
+any distribution with lower entropy then that would imply that we are assuming information which we do not have. 
+On the other hand, if we choose a distribution with a higher entropy that would violate the constraints of the 
+information we possess. Thus the maximum entropy distribution is the only reasonable distribution. The Maximum 
+entropy principle is used to choose the smoothest distributions out of all possible distributions. 
 
 In our context, intuitively, each similarity matrix represents a distribution and we need to merge them so that the final distribution doesn't make assumptions about the individual weights of the matrices because that information is unavailable. We allow maximum entropy for the resulting distribution implying no assumptions whatsoever. This is the only approach available to us for kernel integration in the unsupervised domain.
 
@@ -175,7 +191,7 @@ where $\lvert\Sigma\rvert$ is the determinant of the covariance matrix $\Sigma$,
 H(p(\mathbf{x})) &=& -\int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} \dots \int_{-\infty}^{+\infty}p(\mathbf{x})ln (p(\mathbf{x})) d\mathbf{x} \\
 &=& \frac{1}{2}(n+n ln(2\pi)+ln|\Sigma|) \label{diff_entropy_gauss}
 \end{eqnarray}
-In order to maximize $H(p(\mathbf{x}))$ we can ignore the first two terms ($n$ and $n ln(2\pi)$) in maximizing equation-\ref{diff_entropy_gauss} as they are constants. So, it becomes a problem of maximizing the $ln|\Sigma|$ term. 
+In order to maximize $H(p(\mathbf{x}))$ we can ignore the first two terms ($n$ and $n ln(2\pi)$) in equation-\ref{diff_entropy_gauss} as they are constants. So, it becomes a problem of maximizing the $ln|\Sigma|$ term. 
 We know that the determinant of a symmetric matrix is equal to the the product of its eigenvalues, i.e.,
 \[
 |\Sigma|=\prod_{i=1}^{k}\lambda_{i}
@@ -204,7 +220,7 @@ where U is orthonormal and $\Lambda=diag[\lambda_{1},\lambda_{2},\dots,\lambda_{
 %\lvert \Lambda \rvert &=& \prod_{i=1}^{n}{(\mu_{1}\lambda^{1}_{i}+\mu_{2}\lambda^{2}_{i})} \\
 %ln \lvert \Lambda \rvert &=& \sum_{i=1}^{n}ln{(\mu_{1}\lambda^{1}_{i}+\mu_{2}\lambda^{2}_{i})}
 \end{eqnarray}
-where $\mu_{1}\lambda^{1}_{1},\mu_{1}\lambda^{1}_{2},\dots,\mu_{1}\lambda^{1}_{n}$ are the variance of $K_{1}$ spanned by the U eigenvector matrix and $\mu_{2}\lambda^{2}_{1},\mu_{2}\lambda^{2}_{2},\dots,\mu_{2}\lambda^{2}_{n}$ are the variance of $K_{2}$. In order to maximize the Eqn-\eqref{max_det}, we need to maximize the individual eigenvalues of the combined covariance matrix. So, effectively it implies that we need to maximize each of the $(\mu_{1}\lambda^{1}_{i}+\mu_{2}\lambda^{2}_{i})$ terms. As stated previously, the eigenvalues of positive semi-definite matrices are non-negative. We have used kernel functions to compute similarities, which resulted in our similarity matrices being positive semi-definite. Since this is a convex combination of two terms, and all the eigenvalues are non-negative, therefore, in order to maximize it, we just need to take the maximum out of both the terms because,
+where $\mu_{1}\lambda^{1}_{1},\mu_{1}\lambda^{1}_{2},\dots,\mu_{1}\lambda^{1}_{n}$ are the variance of $K_{1}$ spanned by the U eigenvector matrix and $\mu_{2}\lambda^{2}_{1},\mu_{2}\lambda^{2}_{2},\dots,\mu_{2}\lambda^{2}_{n}$ are the variance of $K_{2}$. In order to maximize Eqn-\eqref{max_det}, we need to maximize the individual eigenvalues of the combined covariance matrix. So, effectively it implies that we need to maximize each of the $(\mu_{1}\lambda^{1}_{i}+\mu_{2}\lambda^{2}_{i})$ terms. As stated previously, the eigenvalues of positive semi-definite matrices are non-negative. We have used kernel functions to compute similarities, which resulted in our similarity matrices being positive semi-definite. Since this is a convex combination of two terms, and all the eigenvalues are non-negative, therefore, in order to maximize it, we just need to take the maximum out of both the terms because,
 \begin{eqnarray}
 (\mu_{1}\lambda^{1}_{i}+\mu_{2}\lambda^{2}_{i}) \leq \max (\lambda^{1}_{i},\lambda^{2}_{i})
 \end{eqnarray} 
@@ -240,14 +256,15 @@ From the discussion of the preceding section it is clear that in order to calcul
 \end{algorithmic}
 \end{algorithm}  
 
-The principal idea here is that we keep the dominant eigenvalues, while getting rid of the smaller, and hence unreliable ones, and replacing it with better ones from the other dataset. 
+The principal idea here is that we keep the dominant eigenvalues, while getting rid of the smaller, and hence 
+unreliable ones, and replacing them with better ones from the other dataset. 
 \section{Datasets and Methodology} \label{chap3:sec:materials}
 
-We have used the same datasets that was used in the previous chapter as discussed in Section-\ref{chap2:sec:materials}. They are the yeast microarray 
+We have used the same datasets that were used in the previous chapter as discussed in Section-\ref{chap2:sec:materials}. They are the yeast microarray 
 datasets \citep{gasch00genomicexpn,spellman98comprehensive}, DNA-binding dataset \citep{harbison04transcriptional}, 
 PPI dataset (from MIPS Comprehensive Yeast Genome Database (CYGD)) \citep{Gueldener2006MPact} and the TF-gene interactions (YEASTRACT) \citep{Teixeira06yeastract}. 
 
-While in the previous chapter, we used full set of genes from the microarray datasets and applied available constraints on them, in this chapter we are unable to use 
+While in the previous chapter, we used a full set of genes from the microarray datasets and applied available constraints on them, in this chapter we are unable to use 
 the full set of genes. This is because now we are combining two matrices which must be similar in size. Therefore, We first pre-process and find common genes between 
 pairs of datasets that are being combined. In the previous chapter, after removing the NORFs, the stress dataset had 6251 genes and cell-cycle dataset had 6257 genes. 
 They had 156 and 60 experiment counts respectively. The counts get changed after finding common sets of genes among dataset pairs. The final number of common genes when pairing 
@@ -275,7 +292,7 @@ Cell-cycle and Yeastract  & 5654\\
 After pre-processing, for the microarray datasets, we compute the similarity matrices from both of them using parameters obtained by 
 the optimization procedure in the previous chapter. For the PPI, Yeastract and ChIP-chip datasets that are in the form 
 of pairwise interactions, we have used the total within-cluster sum of square distances as we did not have access to original data vectors but only 
-the similarity (or adjacency graph). For these datasets, we need to do the optimization of the parameter for computing the diffusion matrix. 
+the similarity (or adjacency) graph. For these datasets, we need to do the optimization of the parameter for computing the diffusion matrix. 
 As shown in Equation-\ref{diffusion} we need to find the optimum value for $\beta$. To do this, we first compute diffused matrices for a range of $\beta$ values 
 and then we do spectral clustering on each of these diffused matrices to find the best parameter, which is the one that yields the best cluster quality. This 
 optimization is different from the microarray dataset ones because here we don't have the original data vectors because of the nature of graphical data where only 
@@ -295,8 +312,9 @@ the biological significance of our results using the Gene Ontology annotations l
 
 \subsubsection{ChIP-chip, PPI and Yeastract datasets}
 As seen in Figure-\ref{fig:chip_withinss}, for the ChIP-chip dataset, the optimum value (smallest withinss value implies tightest clustering) is at $\beta=10$ where the total 
-withinss falls significantly. It also has one of the smallest standard deviation at that point. For the PPI dataset, as seen in Figure-\ref{fig:ppi_withinss}, the optimum 
-value again is at $\beta=10$ where it has the smallest withinss value. Even though the standard deviation is not the lowest, yet we choose is because of the smallest value.
+withinss falls significantly. It also has one of the smallest standard deviations at that point. For the PPI dataset, as seen in Figure-\ref{fig:ppi_withinss}, the optimum 
+value again is at $\beta=10$ where it has the smallest withinss value. Even though the standard deviation is not 
+the lowest, yet we chose it because the value is significantly lower than its neighbours.
 Figure-\ref{fig:yt_withinss} for the Yeastract dataset, has a optimum range between $\beta=5$ and $\beta=10$, where the optimum value is at $\beta=5$ while the combination of small value and small standard deviation 
 is at $\beta=10$. We chose $\beta=5$ because of the smallest withinss value.    
 
@@ -358,26 +376,31 @@ Cell-cycle \& Yeastract &  39.1   & 38.0  & 59.3  &   51.66\%    &  35.94\%  & 4
 
 We follow the same procedure that was followed in the previous chapter (refer Section-\ref{semisup:num_biosig_mi}) for biological validation of the resulting clusters using the technique based on 
 mutual information by \citet{Gibons2002Judging}. The results of the integration of the stress microarray dataset with ChIP-chip, PPI and Yeastract are in 
-Table-\ref{tab:stress:maxent_biol_index}. We have reported percentage gains in index values before and after integration for each pair of dataset being integrated. In order to compare our 
+Table-\ref{tab:stress:maxent_biol_index}. We have reported percentage gains in index values before and after 
+integration for each pair of datasets being integrated. In order to compare our 
 results with the semi-supervised technique, we also reran the semi-supervised experiments on the filtered (common) gene sets. For each pair of dataset, the first one is referred 
-to as A and the second as B. For example, in the first full row of Table-\ref{tab:stress:maxent_biol_index}, stress dataset is referred to as A, while ChIP-chip dataset is called B. 
+to as A and the second as B. For example, in the first full row of Table-\ref{tab:stress:maxent_biol_index}, 
+stress dataset is referred to as A, while the ChIP-chip dataset is called B. 
 
-The results in Table-\ref{tab:stress:maxent_biol_index} clearly indicate that both our data integration techniques helps improve the quality of resulting clustering biologically. 
-Both datasets A and B have improved biological significance after integration except in one scenario where ChIP-chip is integrated with Stress dataset. MaxEnt 
-integration has resulted in improvements for the stress datasets with every other dataset except the ChIP-chip dataset. We also observe that the MaxEnt technique has outperformed 
-the semi-supervised one except the ChIP-chip dataset combination where the semi-supervised technique shows a small improvement than the MaxEnt. 
-Also, more than the stress datasets, the improvement in B datasets i.e. the ChIP-chip, PPI and Yeastract datasets, when combined, is better. 
+The results in Table-\ref{tab:stress:maxent_biol_index} clearly indicate that both our data integration techniques 
+help improve the quality of the resulting clustering biologically. Both datasets A and B have improved the 
+biological significance after integration except in one scenario where the ChIP-chip is integrated with the Stress dataset. MaxEnt 
+integration has resulted in improvements for the stress datasets with every other dataset except for the 
+ChIP-chip dataset. We also observe that the MaxEnt technique has outperformed 
+the semi-supervised one except the ChIP-chip dataset combination where the semi-supervised technique shows a 
+small improvement. Also, more than the stress datasets, the improvement in the B datasets i.e. the ChIP-chip, PPI and Yeastract datasets, when combined, is better. 
 
 For the cell-cycle dataset, as shown in Table-\ref{tab:ccycle:maxent_biol_index}, the results are somewhat different. Here, too both the datasets, A and B, have improved biological 
-significance after integration. MaxEnt technique has resulted in improved biological significance
-after combination in all the cases. However, the results for MaxEnt are not better than the semi-supervised one. While for stress dataset, the ChIP-chip dataset had performed 
-better than the MaxEnt one, for the cell-cycle dataset, it's the opposite. MaxEnt is better than the semi-supervised one for the ChIP-chip dataset combination. 
+significance after integration. The MaxEnt technique has resulted in improved biological significance
+after combination in all the cases. However, the results for MaxEnt are not better than the semi-supervised one. 
+While for the Stress dataset, the ChIP-chip dataset had performed 
+better than the MaxEnt one, for the Cell-cycle dataset, it's the opposite. MaxEnt is better than the semi-supervised one for the ChIP-chip dataset combination. 
 For PPI and Yeastract combinations, the semi-supervised is better.
  
-As we discussed earlier that this technique merges two datasets by taking their dominant eigenvectors. The PPI and Yeastract 
+As we discussed earlier this technique merges two datasets by taking their dominant eigenvectors. The PPI and Yeastract 
 are both curated datasets. Most of the curated datasets are taken from experiments that are conducted in non-stress environments to study the regular activities of genes. 
 Therefore, they are more similar to the cell-cycle dataset. Because of this similarity, the cell-cycle dataset has not gained much from the others. 
-In case of stress, they were very dissimilar and hence both gained information from each other which led to improvement in their scores.    
+In the case of Stress, they were very dissimilar and hence both gained information from each other which led to improvement in their scores.    
 
 \subsection{Qualitative Biological Significance (using Gene Ontology annotations)} \label{maxent_biosig_go}
 
@@ -428,13 +451,13 @@ previous chapter.
 
 \subsubsection{Stress vs Stress and ChIP-chip}
 We observe that nucleic acid binding, ribosome biogenesis and assembly, macromolecule biosynthetic process, translation and biosynthetic process are 
-few common significant enrichments observed in both datasets. Processes like mitotic cell cycle, regulation of cell cycle, nucleotide biosynthetic process, 
+common significant enrichments observed in both datasets. Processes like mitotic cell cycle, regulation of cell cycle, nucleotide biosynthetic process, 
 ribonucleotide metabolic process, oxidoreductase activity, response to pheromone, conjugation, cell division, reproduction, organic metabolic process, 
-amine metabolic process, and amine biosynthetic process are significantly enrichmed in combined Stress and ChIP-chip dataset as compared to Stress only.
+amine metabolic process, and amine biosynthetic process are significantly enriched in combined Stress and ChIP-chip dataset as compared to Stress only.
 
 \subsubsection{Stress vs Stress and PPI}
 Protein RNA complex assembly, macromolecule complex assembly, nucleic acid binding, DNA metabolic process, rRNA processing, RNA processing, 
-ribosome biogenesis and assembly and RNA metabolic process are the common enrichment observed before and after combination of datasets. 
+ribosome biogenesis and assembly and RNA metabolic process are the common enrichments observed before and after combination of datasets. 
 After combination of Stress and PPI datasets, the significantly enriched processes are oxidoreductase activity, carbohydrate metabolic process, 
 transcription from RNA polymerase II promoter, transcription regulator activity, response to stimulus, response to stress, protein binding, mitotic cell 
 cycle, cell cycle, M phase, cell cycle phase, developmental process, cell development, chromosome organization and biogenesis, biological regulation, 
@@ -448,7 +471,7 @@ cell development, macromolecule complex
 assembly, ribosomal large subunit biogenesis and assembly, ribosomal large subunit assembly and maintenance, sno RNA binding, carbohydrate 
 metabolic process, chromosome organization and biogenesis, DNA packaging, regulation of cellular process, biological regulation, response to stimulus, 
 response to stress, developmental process, amine metabolic process, generation of precursor metabolites and energy, telomere maintenance, 
-oxidoreductase activity and organic acid metabolic process  are the significantly enriched only after the Stress and Yeastract datasets are combined.
+oxidoreductase activity and organic acid metabolic process  are significantly enriched after the Stress and Yeastract datasets are combined.
 
 \begin{figure}[p]
 \centering
@@ -496,13 +519,13 @@ acid metabolic process, amine metabolic process and response to stimulus process
 
 \subsubsection{Cell-Cycle vs Cell-Cycle and PPI}
 DNA metabolic process, macromolecule biosynthetic process, biosynthetic process, translation, RNA metabolic process, rRNA processing, 
-RNA processing are few common enrichment in both the datasets. However, response to DNA damage stimulus, cell cycle, mitotic cell cycle, 
+RNA processing are a few of the common enrichments in both the datasets. However, the response to DNA damage stimulus, cell cycle, mitotic cell cycle, 
 cell cycle phase, M phase, biological regulation, regulation of cellular process, developmental process, regulation of transcription, 
 regulation of metabolic process, transcription, cellular localization, cell development, response to stimulus, response to 
-stress and ribosome biogenesis assembly are processes which showed significant enrichment in the Cell Cycle PPI dataset.
+stress and ribosome biogenesis assembly are processes which showed significant enrichment in the Cell-Cycle and PPI dataset.
 
 \subsubsection{Cell-Cycle vs Cell-Cycle and Yeastract}
-Macromolecule biosynthetic process, translation, biosynthetic process, RNA metabolic process and DNA metabolic process are common enriched processes 
+The macromolecule biosynthetic process, translation, biosynthetic process, RNA metabolic process and DNA metabolic process are common enriched processes 
 both before and after combination of datasets. After Cell-cycle and Yeastract datasets are combined, we observe that processes related to response to stimulus, 
 cell cycle, ribosome biogenesis and assembly and generation of precursor metabolites and energy are significantly enriched.
 
@@ -522,7 +545,7 @@ equal weights to both the sources and then used the resulting distance for hiera
 able to find biologically meaningful clusters. \citet{huang2006incorporating} developed a similar algorithm in which 
 instead of combining the two information sources with equal weights, they used a \textit{shrinkage} approach with the 
 genes belonging to the same functional classes assigned zero distance (maximal similarity) and the rest of the genes using the distance 
-calculated from the microarray data. This is then used for K-medoids clustering on simulated data as well as real one for gene function 
+calculated from the microarray data. This is then used for K-medoids clustering on simulated as well as real data for gene function 
 prediction. \citet{bramier2007coclustering} proposed co-clustering based on a combined distance metric from microarray 
 gene expression data and Gene Ontology terms for \ac{SOM}. Apart from distance based clustering, various researchers have combined datasets 
 using model based clustering as well \citep{pan06incorporating}.
@@ -530,7 +553,7 @@ using model based clustering as well \citep{pan06incorporating}.
 Kernel integration has been used in the field of supervised learning in order to combine kernels from different datasets. 
 \citet{Holloway2006MachineLearning} used it for predicting the TF binding locations on DNA. They have used 18 different 
 datasets - both sequence and non-sequence (expression, GO) and calculated kernels from them. The goal was to combine the kernels and then 
-use the final combination in \ac{SVM} for classification. They have used each kernel individually and calculated the \textit{F statistic} 
+use the final combination for classification using \acp{SVM} . They have used each kernel individually and calculated the \textit{F statistic} 
 (a widely used measure for performance of a classifier). In order to combine the kernels, these F values were used as weights 
 for each of the kernel. One of the drawbacks is that the F-statistic does not take into account the relationship of the variables but 
 only a macro view of the performance of the whole kernel encoding. They reported that combining all datasets resulted in 73\% coverage 
@@ -545,7 +568,7 @@ dataset do not take into account the correlation between different variables acr
 whole dataset. Our technique tries to solve it by picking only the highest eigenvectors.
 
 \citet{lewis06svm} did an investigation of weighted and unweighted kernel combination in classifying GO terms associated with protein 
-sequences using SVM. They came to the interesting conclusion that for this particular task, unweighted combination of kernels 
+sequences using SVM. They came to the interesting conclusion that for this particular task, an unweighted combination of kernels 
 is better than weighted ones. In order to compute the weights they too have used the SDP technique. \citet{Liang2008Adaptive} 
 developed a technique to learn an optimal diffusion kernel as a convex combination of many kernels constructed from biological networks 
 and then used the optimal kernel for protein function prediction. They report superior performance for the combined kernel 
@@ -567,8 +590,9 @@ to others in classification performance.
 In practise, the principle of maximum entropy is useful when applied to verifiable information. A piece of information is verifiable if it can 
 be determined whether a given distribution is consistent with it. Given this information, the maximum entropy procedure consists 
 of seeking the probability distribution which maximizes information entropy, subject to the constraints of the information. This constrained 
-optimization problem is typically solved using the method of Lagrange multipliers. Both these approaches to kernel approximation 
-\citep{Tsuda2004Learning, fujibuchi2007classification} using maximum entropy is based on maximising the entropy subject to certain 
+optimization problem is typically solved using the method of Lagrange multipliers. Both these approaches to kernel 
+approximation 
+\citep{Tsuda2004Learning, fujibuchi2007classification} using maximum entropy are based on maximising the entropy subject to certain 
 constraints. However, this is very different from our approach where we do not treat it as a entropy maximisation subject to certain constraints. 
 We try to assume a distribution with maximum entropy as the ideal distribution when no other information is available in order to combine the 
 similarity matrices. So, when we have multiple sets of evidence, e.g. PPI and microarray data, we try to combine them through their similarity 

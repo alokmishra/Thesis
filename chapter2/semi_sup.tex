@@ -411,7 +411,8 @@ constraints ($50$), we are able to retrieve the original clustering.
 
 In Figure-\ref{fig:spirals_cv}, we see that in all the runs, clustering quality improves quickly as the number of known constraints are applied. 
 The cluster similarity (to the original cluster) improves quickly with reducing standard deviation as the number of constraints increases. The goal of 
-semi-supervised clustering is to use external knowledge in the form of known pairwise relations between variables in order to improve the quality of clustering. We have shown that applying more constraints indeed lead to better clustering.
+semi-supervised clustering is to use external knowledge in the form of known pairwise relations between variables 
+in order to improve the quality of clustering. We have shown that applying more constraints does indeed lead to better clustering.
 
 \subsection{Parameter optimization} \label{chap2:sec:param_opt}
 For any clustering algorithm, the most important decisions are the choice of the number of clusters and the free parameters. In our case, the similarity among gene pairs is calculated using a Gaussian similarity function and the only free parameter is the width of the Gaussian, $\sigma$. For any unsupervised task of an exploratory nature, the \textit{correct} number of clusters is data dependent. We chose to use 50 clusters in our experiments, based on earlier justifications by \citet{ihmels02revealing} and \citet{segal03module} which showed that the Saccharomyces Cerevisiae genome contains approximately 50 sets of functionally related genes. Both the authors have shown statistically that this number provides a better fit to the underlying data distribution, compared to a higher or lower numbers of modules.
@@ -485,7 +486,8 @@ We also repeated the k-means algorithm twenty five times, each run being initial
 The results for the Dunn's index based sigma optimisation for the stress dataset is shown in Figure-\ref{fig:stress_sigma_opt_dunn} which shows the mean values along with standard deviation error bars. 
 The x-axis uses a log-scale because of the spread of the data.  For Dunn's index, where higher values are better, the plot has the optimal region between 0.003 and 0.005 where the 
 standard deviations are low.
-The maximum value (best clustering) at $\sigma=0.005$. It is worthwhile to note that the best quality clustering also has a very low standard deviation.
+The maximum value (best clustering) within this region is at $\sigma=0.005$. It is worthwhile to note that the best quality 
+clustering also has a very low standard deviation.
 
 As seen in Figure-\ref{fig:stress_sigma_opt_dav}, the Davies-Bouldin's index, where lower values indicate better clustering, has its optimal region between 0.003 and 0.03. It has its minimum value (best clustering) at $\sigma=0.01$. However, the standard deviation is unacceptably high.
 Considering that the next best value is $\sigma=0.005$ and it also has low standard deviation as well as it is in agreement with the Dunn's index values we choose this as the optimal sigma value for this dataset for further computations.  
@@ -548,15 +550,20 @@ Now that we have seen that the algorithm really works and has been validated usi
 \end{comment}
 
 \section{Statistical validation of results}
-The datasets that we have, represent experiments done under particular conditions. If we base our results just on those datasets, the results that we obtain could be purely by chance because of the characteristics of those particular data-sets and it would be dangerous to draw conclusions based on those data-sets alone. 
-Therefore, we have perturbed the datasets and report the mean and variance of results in order to justify that the results are not random. We begin by showing that spectral clustering results are immune to minor perturbations of data and the resulting clusters are not widely different from each other. The exact procedure is outlined as follows
+The datasets that we have, represent experiments done under particular conditions. If we base our results just on 
+those datasets, the results that we obtain could be purely by chance because of the characteristics of those 
+particular data-sets and it would be dangerous to draw conclusions based from them. 
+Therefore, we have perturbed the datasets and report the mean and variance of results in order to justify that 
+the results are not random. We begin by showing that spectral clustering results are immune to minor 
+perturbations of data and the resulting clusters are not widely different from each other. The exact procedure 
+is outlined as follows:
 
 \begin{enumerate}
   
-\item We got the full stress and cell-cycle data-sets. The stress dataset had 6361 genes while cell-cycle dataset had 6353 genes including non-annotated open reading frames (NORFs). Since not much is known about the function of NORFs, we removed all the NORFs from the data-sets. 
+\item We used the full stress and cell-cycle data-sets. The stress dataset had 6361 genes while cell-cycle dataset had 6353 genes including non-annotated open reading frames (NORFs). Since not much is known about the function of NORFs, we removed all the NORFs from the data-sets. 
 That left us with 6251 genes in the stress data-set and 6257 genes in the cell-cycle data-sets. They had 156 and 60 experiment counts respectively.
  
-\item We created ten perturbed data-sets from each of stress and cell-cycle datasets after sub-sampling (drawing 90\% of the genes randomly).
+\item We created ten perturbed data-sets from both the stress and cell-cycle datasets after sub-sampling (drawing 90\% of the genes randomly).
 
 \item In order to compute the similarity matrix from the stress and cell-cycle datasets, we need to find the most optimum sigma. In order to do this we compute the Dunn's index and Davies Bouldin's index for each of the datasets. The same sigma is used for all the perturbed datasets because sigma should not change significantly for a data-set because of perturbation.
 
@@ -632,7 +639,7 @@ This is seen in the results of both Dunn's and Davies Bouldin's indices.
 
 Next we did a similar analysis of our proposed semi-supervised spectral clustering algorithm to demonstrate that it too does not produce results randomly and is consistent across 
 sub-sampled datasets. In semi-supervised clustering, we are applying constraints in order to improve the quality 
-of clustering. In order to justify that our results are not by accident, we need to sub-sample the data-sets as well as the constraints and then apply the sampled constraints. After this we need to compute the 
+of clustering. In order to justify that our results are not accidental, we need to sub-sample the data-sets as well as the constraints and then apply the sampled constraints. After this we need to compute the 
 variance of cluster stability. We created ten constraints data-sets from each constraints dataset by sub-sampling (drawing 90\% of the genes randomly). Then we combined pairs of 
 perturbed micro-array and constraints data-sets, cluster and then report the Dunn's and Davies Bouldin's clustering quality indices. We repeat this for all pairs. 
 To reiterate, this was to demonstrate that our results are not random and that they are statistically valid.
@@ -779,7 +786,7 @@ Tables-\ref{tab:stress_chip_perturbed} to \ref{tab:ccycle_yt_perturbed} show the
 and standard deviation values of these individual results in Table-\ref{tab:mean_stdev_combined_perturbed}. 
 
 We observe that the results of semi-supervised clustering are stable with perturbations in both the datasets. For the stress dataset the variability in results is even lower than
- observed for the stress only dataset according to Dunn's index. But the Davies Bouldin's index displays higher variability. For the cell-cycle dataset, the variability according to Dunn's
+ observed for the stress only dataset according to Dunn's index, but the Davies Bouldin's index displays higher variability. For the cell-cycle dataset, the variability according to Dunn's
  index has fallen in all the instances of integration as compared to the cell-cycle only dataset. However, again Davies Bouldin's index is displaying higher variability.
   
 Now that we are confident of clustering quality as well as the semi-supervised clustering results, 
@@ -915,7 +922,9 @@ In all our computations, we have only used GO terms that were associated with at
 We excluded all clusters that were having less than 3 genes or more than 500 genes in them considering them trivial clusters. In order to correct for multiple hypothesis, we have used the False Discovery Rate with 0.05 threshold.  
 
 \input{chapter2/ccycle_sup_go}
-A sample of terms and their P-values obtained can be seen in Table-\ref{tab:stress_chip_0.0001}.  
+A sample of terms and their p-values obtained for the combined Stress and ChIP-chip datasets can be seen in 
+Table-\ref{tab:stress_chip_0.0001} where we see the clusters to which a particular 
+enriched GO term belongs and its corresponding p-value.   
 
 Genomica also outputs a visual indication of the GO annotations that are significantly enriched using a colour code which is useful for analysis. The graphical view is a 
 matrix of the two collections - gene sets and GO annotations, where each colored entry indicates that the two collections have a statistically significant 

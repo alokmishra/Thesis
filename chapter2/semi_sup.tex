@@ -405,11 +405,11 @@ The results of clustering with optimal and non-optimal $\sigma$ values are shown
 \caption{Various runs showing clustering quality improvement with increasing number of known constraints}
 \end{figure}
 
-In Figure-\ref{fig:spirals_visual} we observe the results of one of the runs where increasing number of constraints are being applied. 
+In Figures-\ref{fig:spirals_no_constraints}-\ref{fig:spirals_50_constraints} we observe the results of one of the runs where increasing number of constraints are being applied. 
 We see that the quality of clustering improves as the number of known constraints increase. We also observe that with a relatively small number of 
 constraints ($50$), we are able to retrieve the original clustering.  
 
-In Figure-\ref{fig:spirals_cv}, we see that in all the runs, clustering quality improves quickly as the number of known constraints are applied. 
+In Figures-\ref{fig:spirals_cv_fold1}-\ref{fig:spirals_cv_fold5}, we see that in all the runs, clustering quality improves quickly as the number of known constraints are applied. 
 The cluster similarity (to the original cluster) improves quickly with reducing standard deviation as the number of constraints increases. The goal of 
 semi-supervised clustering is to use external knowledge in the form of known pairwise relations between variables 
 in order to improve the quality of clustering. We have shown that applying more constraints does indeed lead to better clustering.
@@ -931,10 +931,9 @@ matrix of the two collections - gene sets and GO annotations, where each colored
 overlap, and the intensity of each colored spot represents the fraction of genes in the overlap. 
 
 We used Genomica to output images that represent the GO term enrichment before and after the semi-supervised clustering. 
-The images in Figures-\ref{fig:stress_only_enrich} to \ref{fig:stress_ppi_enrich} are stress related while Figures-\ref{fig:ccycle_only_enrich} to \ref{fig:ccycle_yt_enrich} are cell-cycle
- related.
+The images in Figures-\ref{fig:stress_only_enrich} to \ref{fig:stress_yt_enrich} are stress related while Figures-\ref{fig:ccycle_only_enrich} to \ref{fig:ccycle_yt_enrich} are cell-cycle related.
 
-\begin{figure}[ph]
+\begin{figure}[p]
 \centering
 \subfigure[Section of the image showing significant enrichment]{
 \includegraphics[bb=0 0 674 79, scale=0.5]{images_only/semisup/results/analysis/img_stress_only/1.eps}
@@ -944,8 +943,8 @@ The images in Figures-\ref{fig:stress_only_enrich} to \ref{fig:stress_ppi_enrich
 \includegraphics[bb=0 0 775 967, scale=0.4]{images_only/semisup/results/analysis/img_stress_only/2.eps}
 \label{fig:stress_only_enrich_2}
 }
-\label{fig:stress_only_enrich}
 \caption{Sections of the image showing significant enrichment in Stress only dataset. }
+\label{fig:stress_only_enrich}
 \end{figure}
 
 \begin{figure}[p]
@@ -958,8 +957,8 @@ The images in Figures-\ref{fig:stress_only_enrich} to \ref{fig:stress_ppi_enrich
 \includegraphics[scale=0.4]{images_only/semisup/results/analysis/img_stress_chip/2.eps}
 \label{fig:stress_chip_enrich_2}
 }
-\label{fig:stress_chip_enrich}
 \caption{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from ChIP-chip dataset. }
+\label{fig:stress_chip_enrich}
 \end{figure}
 
 \begin{figure}[p]
@@ -972,8 +971,8 @@ The images in Figures-\ref{fig:stress_only_enrich} to \ref{fig:stress_ppi_enrich
 \includegraphics[scale=0.4]{images_only/semisup/results/analysis/img_stress_ppi/2.eps}
 \label{fig:stress_ppi_enrich_2}
 }
-\label{fig:stress_ppi_enrich}
 \caption{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from PPI dataset. }
+\label{fig:stress_ppi_enrich}
 \end{figure}
 
 \begin{figure}[p]
@@ -986,8 +985,8 @@ The images in Figures-\ref{fig:stress_only_enrich} to \ref{fig:stress_ppi_enrich
 \includegraphics[scale=0.4]{images_only/semisup/results/analysis/img_stress_yt/2.eps}
 \label{fig:stress_yt_enrich_2}
 }
-\label{fig:stress_yt_enrich}
 \caption{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from Yeastract dataset. }
+\label{fig:stress_yt_enrich}
 \end{figure}
 
 \subsubsection{Stress vs Stress and PPI}
@@ -1021,8 +1020,8 @@ in Stress Yeastract as compared to Stress dataset.
 \includegraphics[scale=0.5]{images_only/ec2machine/semisup/results/analysis/ccycle_only/1.eps}
 \label{fig:ccycle_only_enrich_1}
 }
-\label{fig:ccycle_only_enrich}
 \caption{Sections of the image showing significant enrichment in Cell-cycle dataset. }
+\label{fig:ccycle_only_enrich}
 \end{figure}
 
 \begin{figure}[p]
@@ -1035,8 +1034,8 @@ in Stress Yeastract as compared to Stress dataset.
 \includegraphics[scale=0.5]{images_only/ec2machine/semisup/results/analysis/ccycle_ppi/2.eps}
 \label{fig:ccycle_ppi_enrich_2}
 }
-\label{fig:ccycle_ppi_enrich}
 \caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with knowledge from PPI dataset. }
+\label{fig:ccycle_ppi_enrich}
 \end{figure}
 
 \begin{figure}[p]
@@ -1049,8 +1048,8 @@ in Stress Yeastract as compared to Stress dataset.
 \includegraphics[scale=0.5]{images_only/ec2machine/semisup/results/analysis/ccycle_chip/2.eps}
 \label{fig:ccycle_chip_enrich_2}
 }
-\label{fig:ccycle_chip_enrich}
 \caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with knowledge from ChIP-chip dataset. }
+\label{fig:ccycle_chip_enrich}
 \end{figure}
 
 
@@ -1060,8 +1059,9 @@ in Stress Yeastract as compared to Stress dataset.
 \includegraphics[scale=0.5]{images_only/ec2machine/semisup/results/analysis/ccycle_only/1.eps}
 \label{fig:ccycle_yt_enrich_1}
 }
-\label{fig:ccycle_yt_enrich}
+
 \caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with Yeastract dataset. }
+\label{fig:ccycle_yt_enrich}
 \end{figure}
 
 \subsubsection{Cell-Cycle vs Cell-Cycle and ChIP-chip}
@@ -1179,7 +1179,7 @@ This is a related and overlapping technique where two or more sources of data ar
 \section{Conclusion}
 
 We have proposed a technique to integrate diverse datasets where one is acting as a source of supervision on the clustering of the other. 
-As part of this, we have investigated whether constraints are useful at all in order to retrive the original clustering from a noisy version of the original dataset. We also investigated 
+As part of this, we have investigated whether constraints are useful at all in order to retrieve the original clustering from a noisy version of the original dataset. We also investigated 
 two methods for determining the best Gaussian kernel to obtain the affinity matrix from the data. Further, we have used a validation method which scores the resulting gene clusters 
 by reference to a third type of data (Gene Ontology). Our results indicate that semi-supervised spectral clustering leads to improved biological significance if the datasets from 
 which known facts are extracted is not widely varying from the datasets on which they are applied.  

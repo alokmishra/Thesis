@@ -112,11 +112,12 @@ DS-STRESS3 \& DS-CCYCLE & 0.946 & 0.100 \\
 DS-STRESS3 \& DS-STRESS3 (different runs) & 0.957 & 0.453 \\
 \hline 
 \end{tabular}
-\caption{Comparison of Rand's Index and \textit{adjusted} Rand's Index}
+\caption[Comparison of Rand's Index and \textit{adjusted} Rand's Index]{Comparison of Rand's Index and \textit{adjusted} Rand's Index. Spread of values by Rand's index is skewed while the \textit{adjusted} Rand's index shows a very wide spread of values.}
 \label{tab:rand_vs_adjustedrands}
 \end{table}
 
-Its maximum value is 1 and its expected value in the case of random clusters is 0. Based on an extensive empirical comparison of several such measures, \citet{milligan85exam} recommended this index as the best measure of agreement even when comparing partitions having different numbers of clusters. We did a comparison of Rand's and \textit{adjusted} Rand's index on our clustering results. Table-\ref{tab:rand_vs_adjustedrands} shows that the spread of values by Rand's index is skewed (all the values seem to be above 0.94). On the other hand, the \textit{adjusted} Rand's index shows a very wide spread of values. Based on this justification, we chose to use it for all our cluster comparisons. Our whole methodology is summarised in Algorithm-\ref{alg:cluster_comparison}.
+Its maximum value is 1 and its expected value in the case of random clusters is 0. Based on an extensive empirical comparison of several such measures, \citet{milligan85exam} recommended this index as the best measure of agreement even when comparing partitions having different numbers of clusters. 
+We did a comparison of Rand's and \textit{adjusted} Rand's index on our clustering results. Table-\ref{tab:rand_vs_adjustedrands} shows that the spread of values by Rand's index is skewed (all the values seem to be above 0.94). On the other hand, the \textit{adjusted} Rand's index shows a very wide spread of values. Based on this justification, we chose to use it for all our cluster comparisons. Our whole methodology is summarised in Algorithm-\ref{alg:cluster_comparison}.
 
 \begin{algorithm}
 \caption{Summary of methodology}
@@ -183,9 +184,10 @@ DS-STRESS1 & -0.726	& -0.834  & -0.812 \\ \hline
 DS-STRESS2 & -0.731	& -0.807  & -0.433 \\ \hline
 DS-STRESS3 & -0.776     & -0.932  & -0.576 \\ \hline
 DS-STRESS  & -0.967     & -0.952  & -0.978 \\ \hline
-DS-CCYCLE & -0.925  & -0.994  & -0.660 \\ \hline
+DS-CCYCLE  & -0.925     & -0.994  & -0.660 \\ \hline
 \end{tabular}
-\caption{Pearson's Correlation betwen KL divergence and Cluster similarity}
+\caption[Pearson's Correlation betwen KL divergence and Cluster similarity]{Pearson's Correlation betwen KL divergence and Cluster similarity. There is a very strong correlation
+between the results of KL divergence among the datasets and the cluster similarities.}
 \label{results:correlation_clustering_kldivergence}
 \end {table}
 

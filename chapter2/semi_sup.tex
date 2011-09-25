@@ -188,7 +188,7 @@ graph density is very high at p=0.001 compared to at p=0.0001.
 Our constraints are transformed into a $m \times n $ matrix where $m$ is the number of genes and $n$ is the number of TFs. This constraints matrix is used to modify 
 the similarity matrix that we obtain from the microarray data as discussed in Section-\ref{sec:sssc}.
 
-\begin{figure}[htp]
+\begin{figure}[p]
   \begin{center}
    \subfigure[Constraints at p=0.0001]{\label{fig:graph_constraints_0.0001}\includegraphics[scale=0.2]{chapter2/graph_0.0001.eps}}
    \subfigure[Constraints at p=0.001]{\label{fig:graph_constraints_0.001}\includegraphics[scale=0.2]{chapter2/graph_0.001.eps}}
@@ -214,7 +214,8 @@ p-value & \multicolumn{3}{|c|}{Number of Constraints} \\ \cline{2-4}
 0.1    & 63531 & 12579 & 17055\\
 \hline 
 \end{tabular}
-\caption{Number of constraints from DNA-binding dataset at various p-value thresholds}
+\caption[Number of constraints from DNA-binding dataset at various p-value thresholds]{Number of constraints from DNA-binding dataset at various p-value thresholds. As the p-value 
+cutoff is increased, the number of constraints increases.}
 \label{tab:no_constraints}
 \end{table}
 
@@ -260,7 +261,7 @@ We calculate the normalized Laplacian and then find its eigenvalues. If we belie
 \end{algorithmic}
 \end{algorithm}
 
-\begin{figure*}[htp]
+\begin{figure*}[tp]
 \centering
 \scalebox{1.0}{
 \begin{pspicture}(0,0)(16,12)
@@ -571,7 +572,7 @@ That left us with 6251 genes in the stress data-set and 6257 genes in the cell-c
 Then we report the mean and standard deviation of the indices. 
 \end{enumerate}
 
-\begin{table}
+\begin{table}[p]
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
@@ -590,11 +591,11 @@ Serial No. & Dunn's index  & Davies Bouldin's index\\
 11 & 	0.03952356 & 3.168467 \\
 \hline 
 \end{tabular}
-\caption{Dunn's and Davies Bouldin's index values for perturbed Stress dataset. The data indicates that the algorithm results in consistent cluster quality.}
+\caption[Dunn's and Davies Bouldin's index values for perturbed Stress dataset.]{Dunn's and Davies Bouldin's index values for perturbed Stress dataset. Results indicate that Spectral clustering results in consistent cluster quality.}
 \label{tab:stress_only_perturb}
 \end{table}
 
-\begin{table}
+\begin{table}[p]
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
@@ -613,11 +614,11 @@ Serial No. & Dunn's index  & Davies Bouldin's index\\
 11 & 0.02926203 & 3.00763 \\
 \hline 
 \end{tabular}
-\caption{Dunn's and Davies Bouldin's index values for perturbed Cell-Cycle dataset. The data indicates that the algorithm results in consistent cluster quality.}
+\caption[Dunn's and Davies Bouldin's index values for perturbed Cell-Cycle dataset.]{Dunn's and Davies Bouldin's index values for perturbed Cell-Cycle dataset. Results indicate that Spectral clustering results in consistent cluster quality.}
 \label{tab:cellcycle_only_perturb}
 \end{table}
 
-\begin{table}
+\begin{table}[p]
 \centering
 \begin{tabular}{|l|c|c|c|c|}
 \hline
@@ -629,7 +630,8 @@ Stress only  & 0.0400 & 0.0087 & 3.1840 & 0.0341 \\
 Cell cycle only & 0.0316 & 0.0113 & 3.0136 & 0.0693 \\
 \hline 
 \end{tabular}
-\caption{Summary of mean and variance of individual datasets. This shows that our results are not random and a small perturbation in data doesn't change the results.}
+\caption[Summary of mean and standard deviation values of individual microarray datasets.]{Summary of mean and standard deviation values of individual microarray datasets. 
+This indicates that our results are not random and a small perturbation in data doesn't change the results.}
 \label{tab:stress_ccycle_perturb}
 \end{table}
 
@@ -778,7 +780,8 @@ Cell-cycle-PPI & 0.0322 & 0.0076 & 3.5236 & 0.1406 \\
 Cell-cycle-YT & 0.0282 & 0.0015 & 4.2709 & 0.1820 \\
 \hline 
 \end{tabular}
-\caption{Mean and variance of all combined datasets. This shows that the results of semi-supervised clustering are not random and small perturbations in data do not change the results wildly.}
+\caption[Mean and standard deviation of Dunn's and Davies Bouldin's index values for all combined datasets.]{Mean and standard deviation of Dunn's and Davies Bouldin's index values for all combined datasets. This shows that the results of 
+semi-supervised clustering are not random and small perturbations in data do not change the results significantly.}
 \label{tab:mean_stdev_combined_perturbed}
 \end{table}
 
@@ -877,7 +880,9 @@ Cell-cycle with PPI dataset & 52.2 & 55.2 & 5.74\\
 Cell-cycle with Yeastract dataset & 52.2 & 64.8 & 24.13\\
 \hline 
 \end{tabular}
-\caption{Biological Significance before and after semi-supervised integration}
+\caption[Comparison of Biological significance index values before and after semi-supervised integration.]{Comparison of Biological significance 
+index values before and after semi-supervised integration. For both microarray datasets, combination with PPI and Yeastract datasets lead to better significance values while
+when combined with ChIP-chip dataset, it leads to diminished Biological significance.}
 \label{tab:biol_significance}
 \end{table}
 
@@ -890,8 +895,8 @@ leads to extremely high levels of activity
 in the expression levels and many more genes are coordinating together which leads to higher significance values. Cell-cycle on the other hand is a routine activity and the 
 expression patterns of genes do not change so extremely leading to smaller significance values.
 
-We observe that the stress dataset when combined with ChIP-chip constraints leads to 
-slightly worse biological significance (-2.8\%) after the combination. On the other hand, combination with PPI and Yeastract constraints lead to better significance values (6.72\% and 4.48\% respectively). For 
+We observe that the stress dataset when combined with ChIP-chip constraints leads to slightly worse biological significance (-2.8\%) after the combination. 
+On the other hand, combination with PPI and Yeastract constraints lead to better significance values (6.72\% and 4.48\% respectively). For 
 the cell-cycle dataset too, combination with ChIP-chip dataset leads to reduced biological significance (-14.17\%). When combined with both PPI and Yeastract constraints the biological significance 
 has gone up. Based on the results we could say that the ChIP-chip dataset is probably the noisiest and does not bring much new information leading to reduced significance for the original datasets. 
 One of the reasons for this is that integration could be meaningful if each of the datasets complement the other. If there are 

@@ -310,7 +310,7 @@ $}}
 \end{pspicture} 
 }
 
-\caption{Semi-supervised spectral clustering}
+\caption{Visual representation of Semi-supervised spectral clustering}
 \label{fig:semi_sup_spectral_clustering}
 \end{figure*}
 
@@ -376,7 +376,8 @@ The results of clustering with optimal and non-optimal $\sigma$ values are shown
 \label{fig:spirals_50_constraints}
 }
 \label{fig:spirals_visual}
-\caption{Visual indication of Spirals dataset clustering quality improvement with increasing number of known constraints}
+\caption[Visual indication of Spirals dataset clustering quality improvement with increasing number of constraints.]{Visual indication of Spirals dataset clustering quality improvement with increasing number of constraints. With a relatively small number of 
+constraints ($50$), we are able to retrieve the original clustering.}
 \end{figure}
 
 
@@ -403,15 +404,17 @@ The results of clustering with optimal and non-optimal $\sigma$ values are shown
 \label{fig:spirals_cv_fold5}
 }
 \label{fig:spirals_cv}
-\caption{Various runs showing clustering quality improvement with increasing number of known constraints}
+\caption[Various runs showing clustering quality improvement with increasing number of known constraints.]{Various runs showing 
+clustering quality improvement with increasing number of known constraints. The cluster similarity (to the original cluster) improves quickly with 
+reducing standard deviation as the number of constraints increase.}
 \end{figure}
 
 In Figures-\ref{fig:spirals_no_constraints}-\ref{fig:spirals_50_constraints} we observe the results of one of the runs where increasing number of constraints are being applied. 
 We see that the quality of clustering improves as the number of known constraints increase. We also observe that with a relatively small number of 
 constraints ($50$), we are able to retrieve the original clustering.  
 
-In Figures-\ref{fig:spirals_cv_fold1}-\ref{fig:spirals_cv_fold5}, we see that in all the runs, clustering quality improves quickly as the number of known constraints are applied. 
-The cluster similarity (to the original cluster) improves quickly with reducing standard deviation as the number of constraints increases. The goal of 
+In Figures-\ref{fig:spirals_cv_fold1} to \ref{fig:spirals_cv_fold5}, we see that in all the runs, clustering quality improves quickly as the number of known constraints are applied. 
+The cluster similarity (to the original cluster) improves quickly with reducing standard deviation as the number of constraints increase. The goal of 
 semi-supervised clustering is to use external knowledge in the form of known pairwise relations between variables 
 in order to improve the quality of clustering. We have shown that applying more constraints does indeed lead to better clustering.
 
@@ -948,7 +951,7 @@ The images in Figures-\ref{fig:stress_only_enrich} to \ref{fig:stress_yt_enrich}
 \includegraphics[bb=0 0 775 967, scale=0.4]{images_only/semisup/results/analysis/img_stress_only/2.eps}
 \label{fig:stress_only_enrich_2}
 }
-\caption{Sections of the image showing significant enrichment in Stress only dataset. }
+\caption{Sections of the image showing significant GO term enrichment in Stress only dataset. }
 \label{fig:stress_only_enrich}
 \end{figure}
 
@@ -962,21 +965,21 @@ The images in Figures-\ref{fig:stress_only_enrich} to \ref{fig:stress_yt_enrich}
 \includegraphics[scale=0.4]{images_only/semisup/results/analysis/img_stress_chip/2.eps}
 \label{fig:stress_chip_enrich_2}
 }
-\caption{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from ChIP-chip dataset. }
+\caption{Sections of the image showing significant GO term enrichment in Stress dataset combined with knowledge (constraints) from ChIP-chip dataset. }
 \label{fig:stress_chip_enrich}
 \end{figure}
 
 \begin{figure}[p]
 \centering
-\subfigure[Section of the image showing significant enrichment]{
+\subfigure[Section of the image showing significant enrichments]{
 \includegraphics[scale=0.5]{images_only/semisup/results/analysis/img_stress_ppi/1.eps}
 \label{fig:stress_ppi_enrich_1}
 }
-\subfigure[Section of the image showing significant enrichment]{
+\subfigure[Section of the image showing significant enrichments]{
 \includegraphics[scale=0.4]{images_only/semisup/results/analysis/img_stress_ppi/2.eps}
 \label{fig:stress_ppi_enrich_2}
 }
-\caption{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from PPI dataset. }
+\caption{Sections of the image showing significant GO term enrichments in Stress dataset combined with knowledge (constraints) from PPI dataset. }
 \label{fig:stress_ppi_enrich}
 \end{figure}
 
@@ -990,7 +993,7 @@ The images in Figures-\ref{fig:stress_only_enrich} to \ref{fig:stress_yt_enrich}
 \includegraphics[scale=0.4]{images_only/semisup/results/analysis/img_stress_yt/2.eps}
 \label{fig:stress_yt_enrich_2}
 }
-\caption{Sections of the image showing significant enrichment in Stress dataset combined with knowledge from Yeastract dataset. }
+\caption{Sections of the image showing significant GO term enrichment in Stress dataset combined with knowledge (constraints) from Yeastract dataset. }
 \label{fig:stress_yt_enrich}
 \end{figure}
 
@@ -1025,22 +1028,8 @@ in Stress Yeastract as compared to Stress dataset.
 \includegraphics[scale=0.5]{images_only/ec2machine/semisup/results/analysis/ccycle_only/1.eps}
 \label{fig:ccycle_only_enrich_1}
 }
-\caption{Sections of the image showing significant enrichment in Cell-cycle dataset. }
+\caption{Sections of the image showing significant GO term enrichment in Cell-cycle only dataset. }
 \label{fig:ccycle_only_enrich}
-\end{figure}
-
-\begin{figure}[p]
-\centering
-\subfigure[Section of the image showing significant enrichment]{
-\includegraphics[scale=0.5]{images_only/ec2machine/semisup/results/analysis/ccycle_ppi/1.eps}
-\label{fig:ccycle_ppi_enrich_1}
-}
-\subfigure[Section of the image showing significant enrichment]{
-\includegraphics[scale=0.5]{images_only/ec2machine/semisup/results/analysis/ccycle_ppi/2.eps}
-\label{fig:ccycle_ppi_enrich_2}
-}
-\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with knowledge from PPI dataset. }
-\label{fig:ccycle_ppi_enrich}
 \end{figure}
 
 \begin{figure}[p]
@@ -1053,10 +1042,23 @@ in Stress Yeastract as compared to Stress dataset.
 \includegraphics[scale=0.5]{images_only/ec2machine/semisup/results/analysis/ccycle_chip/2.eps}
 \label{fig:ccycle_chip_enrich_2}
 }
-\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with knowledge from ChIP-chip dataset. }
+\caption{Sections of the image showing significant GO term enrichment in Cell-cycle dataset combined with knowledge (constraints) from ChIP-chip dataset. }
 \label{fig:ccycle_chip_enrich}
 \end{figure}
 
+\begin{figure}[p]
+\centering
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[scale=0.5]{images_only/ec2machine/semisup/results/analysis/ccycle_ppi/1.eps}
+\label{fig:ccycle_ppi_enrich_1}
+}
+\subfigure[Section of the image showing significant enrichment]{
+\includegraphics[scale=0.5]{images_only/ec2machine/semisup/results/analysis/ccycle_ppi/2.eps}
+\label{fig:ccycle_ppi_enrich_2}
+}
+\caption{Sections of the image showing significant GO term enrichment in Cell-cycle dataset combined with knowledge (constraints) from PPI dataset. }
+\label{fig:ccycle_ppi_enrich}
+\end{figure}
 
 \begin{figure}[p]
 \centering
@@ -1065,7 +1067,7 @@ in Stress Yeastract as compared to Stress dataset.
 \label{fig:ccycle_yt_enrich_1}
 }
 
-\caption{Sections of the image showing significant enrichment in Cell-cycle dataset combined with Yeastract dataset. }
+\caption{Sections of the image showing significant GO term enrichment in Cell-cycle dataset combined with knowledge (constraints) from Yeastract dataset. }
 \label{fig:ccycle_yt_enrich}
 \end{figure}
 

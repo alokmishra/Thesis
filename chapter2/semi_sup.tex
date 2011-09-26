@@ -310,7 +310,7 @@ $}}
 \end{pspicture} 
 }
 
-\caption{Visual representation of Semi-supervised spectral clustering}
+\caption{Visual representation of semi-supervised spectral clustering}
 \label{fig:semi_sup_spectral_clustering}
 \end{figure*}
 
@@ -319,7 +319,7 @@ The semi-supervised problem can be stated as - there is a real distribution of d
 We want to recover a clustering as close to the ideal one based on observing some noisy datasets and some facts (acting as constraints in our setup) that are known to us. Before we start work on real datasets 
 we are going to show that semi-supervised clustering indeed is able to leverage external information in the form of pairwise constraints in order to better the clustering results. 
 
-In order to do this, we take a toy dataset with non-linear patterns (points belonging to two classes are present in the form of two spirals) as seen in Figure-\ref{fig:spirals_original}. This data-set consists of two concentric clusters (300 points belonging to two classes) and was chosen because this is a specially 
+In order to do this, we take a toy dataset with non-linear patterns (points belonging to two classes are present in the form of two spirals) as seen in Figure-\ref{fig:spirals_original}. This dataset consists of two concentric clusters (300 points belonging to two classes) and was chosen because this is a specially 
 hard problem on which many most traditional clustering algorithms fail. It also shows the effectiveness of spectral clustering in finding non-linear clusters which is not possible with 
 traditional clustering algorithms. To represent the known facts or constraints, we extract some random constraints from it. Then to represent a noisy dataset, we skew the $\sigma$ with which pairwise similarities are computed from its optimum value to some random non-optimum value. After this, we study if the addition of progressively increasing quantities of the known relationships (constraints) improves the cluster quality of the noisy dataset.
 We have used five-fold validation to study the effectiveness of our algorithm. So, in every run of the experiment 80\% of the data acts as training data 
@@ -516,7 +516,7 @@ The result for Dunn's index based optimisation for the Cell-cycle dataset is sho
 The x-axis uses a log-scale because of the spread of the data.  Dunn's index has its maximum value (best clustering) at $\sigma=0.03$ and has a very low standard deviation there. 
 
 As seen in Figure-\ref{fig:ccycle_sigma_opt_dav}, the Davies-Bouldin's index has its minimum value (best clustering) at $\sigma=0.05$ and the optimal region between 0.01 to 0.7. However, the standard deviation there is higher in comparison to at $\sigma=0.03$. 
-Based on the consensus of both, we have used $\sigma=0.03$ value for all our further analysis for this dataset (cell-cycle). 
+Based on the consensus of both, we have used $\sigma=0.03$ value for all our further analysis for this dataset (Cell-cycle). 
 
 \begin{comment}
 \section{Algorithm Validation}
@@ -556,7 +556,7 @@ Now that we have seen that the algorithm really works and has been validated usi
 \section{Statistical validation of results}
 The datasets that we have, represent experiments done under particular conditions. If we base our results just on 
 those datasets, the results that we obtain could be purely by chance because of the characteristics of those 
-particular data-sets and it would be dangerous to draw conclusions based from them. 
+particular datasets and it would be dangerous to draw conclusions based from them. 
 Therefore, we have perturbed the datasets and report the mean and variance of results in order to justify that 
 the results are not random. We begin by showing that spectral clustering results are immune to minor 
 perturbations of data and the resulting clusters are not widely different from each other. The exact procedure 
@@ -564,12 +564,12 @@ is outlined as follows:
 
 \begin{enumerate}
   
-\item We used the full stress and cell-cycle data-sets. The Stress dataset had 6361 genes while Cell-cycle dataset had 6353 genes including non-annotated open reading frames (NORFs). Since not much is known about the function of NORFs, we removed all the NORFs from the data-sets. 
-That left us with 6251 genes in the stress data-set and 6257 genes in the cell-cycle data-sets. They had 156 and 60 experiment counts respectively.
+\item We used the full Stress and Cell-cycle datasets. The Stress dataset had 6361 genes while Cell-cycle dataset had 6353 genes including non-annotated open reading frames (NORFs). Since not much is known about the function of NORFs, we removed all the NORFs from the datasets. 
+That left us with 6251 genes in the Stress dataset and 6257 genes in the Cell-cycle dataset. They had 156 and 60 experiment counts respectively.
  
-\item We created ten perturbed data-sets from both the stress and Cell-cycle datasets after sub-sampling (drawing 90\% of the genes randomly).
+\item We created ten perturbed datasets from both the Stress and Cell-cycle datasets after sub-sampling (drawing 90\% of the genes randomly).
 
-\item In order to compute the similarity matrix from the stress and Cell-cycle datasets, we need to find the most optimum sigma. In order to do this we compute the Dunn's index and Davies Bouldin's index for each of the datasets. The same sigma is used for all the perturbed datasets because sigma should not change significantly for a data-set because of perturbation.
+\item In order to compute the similarity matrix from the Stress and Cell-cycle datasets, we need to find the most optimum sigma. In order to do this we compute the Dunn's index and Davies Bouldin's index for each of the datasets. The same sigma is used for all the perturbed datasets because sigma should not change significantly for a dataset because of perturbation.
 
 \item Once we have the sigma values, we cluster all the original and perturbed datasets and compute the Dunn's and Davies Bouldin's index for the resulting clusters. 
 Then we report the mean and standard deviation of the indices. 
@@ -644,9 +644,9 @@ This is seen in the results of both Dunn's and Davies Bouldin's indices.
 
 Next we did a similar analysis of our proposed semi-supervised spectral clustering algorithm to demonstrate that it too does not produce results randomly and is consistent across 
 sub-sampled datasets. In semi-supervised clustering, we are applying constraints in order to improve the quality 
-of clustering. In order to justify that our results are not accidental, we need to sub-sample the data-sets as well as the constraints and then apply the sampled constraints. After this we need to compute the 
-variance of cluster stability. We created ten constraints data-sets from each constraints dataset by sub-sampling (drawing 90\% of the genes randomly). Then we combined pairs of 
-perturbed micro-array and constraints data-sets, cluster and then report the Dunn's and Davies Bouldin's clustering quality indices. We repeat this for all pairs. 
+of clustering. In order to justify that our results are not accidental, we need to sub-sample the datasets as well as the constraints and then apply the sampled constraints. After this we need to compute the 
+variance of cluster stability. We created ten constraints datasets from each constraints dataset by sub-sampling (drawing 90\% of the genes randomly). Then we combined pairs of 
+perturbed micro-array and constraints datasets, cluster and then report the Dunn's and Davies Bouldin's clustering quality indices. We repeat this for all pairs. 
 To reiterate, this was to demonstrate that our results are not random and that they are statistically valid.
 
 \begin{table}[p]
@@ -889,11 +889,11 @@ when combined with ChIP-chip dataset, it leads to diminished Biological signific
 \label{tab:biol_significance}
 \end{table}
 
-We started with the full set of stress and Cell-cycle datasets as discussed earlier. The reason we had chosen stress and Cell-cycle datasets is because they represent two ends of the spectrum \citep{amos05integrative}. 
+We started with the full set of Stress and Cell-cycle datasets as discussed earlier. The reason we had chosen Stress and Cell-cycle datasets is because they represent two ends of the spectrum \citep{amos05integrative}. 
 For the ChIP-chip, PPI and Yeastract datasets, we took all the interactions that were between the common set of genes between the microarray and the interactions datasets. 
 The biological significance index values before and after semi-supervised clustering are in Table-\ref{tab:biol_significance}. 
 
-The different initial biological significance values for stress and Cell-cycle datasets (89.2 and 52.2 respectively) are because of the nature of the data. Stress on the organism 
+The different initial biological significance values for Stress and Cell-cycle datasets (89.2 and 52.2 respectively) are because of the nature of the data. Stress on the organism 
 leads to extremely high levels of activity 
 in the expression levels and many more genes are coordinating together which leads to higher significance values. Cell-cycle on the other hand is a routine activity and the 
 expression patterns of genes do not change so extremely leading to smaller significance values.
@@ -903,7 +903,7 @@ the Cell-cycle dataset too, combination with ChIP-chip dataset leads to reduced 
 has gone up. Based on the results we could say that the ChIP-chip dataset is probably the noisiest and does not bring much new information leading to reduced significance for the original datasets. 
 One of the reasons for this is that integration could be meaningful if each of the datasets complement the other. If there are 
 a lot of conflicting information in each of the datasets then the resulting matrix will have a lot of noise and this will be reflected in the final clusters. We know that ChIP-chip and PPI are uncurated datasets i.e. the information there is derived from experiments which always has the possibility of inducing noise. On the other hand Yeastract 
-dataset is a manually curated dataset. That is the reason we see a high improvement when combined with it for both stress and Cell-cycle datasets. 
+dataset is a manually curated dataset. That is the reason we see a high improvement when combined with it for both Stress and Cell-cycle datasets. 
   
 The goal of integration is to have more biologically relevant clusters from which hypotheses could be derived to be carried out and validated in wet labs. All our result data is available upon request. 
 
@@ -996,30 +996,30 @@ The images in Figures-\ref{fig:stress_only_enrich} to \ref{fig:stress_yt_enrich}
 \label{fig:stress_yt_enrich}
 \end{figure}
 
-\subsubsection{Stress vs Stress and PPI}
+\subsubsection{Stress vs Stress and ChIP-chip} 
+While Figure-\ref{fig:stress_only_enrich} shows the GO term enrishments in the Stress dataset alone, Figure-\ref{fig:stress_chip_enrich} shows the enrichments when Stress dataset is
+combined with the ChIP-chip dataset. Apart from processes like RNA processing, RNA metabolic process, ribosome biogenesis, macromolecule biosynthetic process and translation which 
+are common enrichment observed in the results both before and after the integration, the Stress dataset when combined with the ChIP-chip dataset also shows significant enrichment 
+for processes like biosynthetic process, cellular localization, hydrolase activity, amine metabolic process, amine biosynthetic process, chromosome organization 
+and biogenesis and regulation of cellular process. The genes associated to these biological processes should be studied further to find relationships among them.
 
-Biological processes like RNA metabolism, RNA binding, rRNA processing, RNA processing, 35S primary transcription, nucleic acid binding, DNA metabolic process are common 
-significant enrichments observed in the both the datasets. When combined with PPI dataset, it also shows significant enrichment for processes like oxidoreductase activity, 
+\subsubsection{Stress vs Stress and PPI} 
+Figure-\ref{fig:stress_ppi_enrich} shows the GO term enrichments when Stress dataset is combined with the PPI dataset. Biological processes like RNA metabolism, 
+RNA binding, rRNA processing, RNA processing, 35S primary transcription, nucleic acid binding, DNA metabolic process are common 
+significant enrichments observed in the results both before and after integration. When combined with the PPI dataset, the Stress dataset also shows significant enrichments 
+for processes like oxidoreductase activity, 
 transcription from RNA polymerase II promoter, transcription, regulation of transcription, regulation of metabolic process, developmental process, cell cycle phase, 
-mitotic cell cycle, biological regulation, regulation of cellular process and chromosome organization and biogenesis when compared to Stress dataset alone. These genes associated to these
-biological processes could be studied further to find relationships among them.
+mitotic cell cycle, biological regulation, regulation of cellular process and chromosome organization and biogenesis as compared to the Stress dataset alone.
 
-\subsubsection{Stress vs Stress and ChIP-chip}
-
-Apart from processes like RNA processing, RNA metabolic process, ribosome biogenesis, macromolecule biosynthetic process and translation which are common enrichment observed 
-in the two data sets, the Stress dataset when combined with ChIP-chip dataset also shows significant enrichment for processes like biosynthetic process, cellular localization, 
-hydrolase activity, amine metabolic process, amine biosynthetic process, chromosome organization and biogenesis and regulation of cellular process.
-
-\subsubsection{Stress vs Stress and Yeastract}
-
-Translation, macromolecule biosynthetic process, biosynthetic process, 35S primary transcript processing, ribosomal biogenesis and assembly, RNA binding, DNA metabolic process, 
-nucleic acid bing, rRNA processing, RNA processing and RNA metabolic process are a few of the common enriched processes observed between Stress and Stress Yeastract. 
+\subsubsection{Stress vs Stress and Yeastract} 
+Figure-\ref{fig:stress_yt_enrich} shows the GO term enrichments when Stress dataset is combined with the Yeastract dataset. Translation, macromolecule biosynthetic process, biosynthetic process, 35S primary transcript processing, ribosomal biogenesis and assembly, RNA binding, DNA metabolic process, 
+nucleic acid bing, rRNA processing, RNA processing and RNA metabolic process are some of the common enriched processes observed before and after integration. 
 However, processes like response to stress, transcription factor activity, positive regulation of transcription, positive regulation of biological process, 
 RNA polymerase II transcription factor activity, response to chemical stimulus, regulation of transcription from RNA polymerase II promoter, 
 DNA binding, response to stimulus, cellular localization, chromosome organization and biogenesis, mitotic cell cycle, cell cycle, cell cycle phase, 
 telomere maintenance, amine metabolic process, organic acid metabolic process, oxidoreductase activity, regulation of metabolic process, regulation of transcription, transcription, 
 regulation of cellular process, transcription of regulator activity and biological regulation are other significant enrichment observed only 
-in Stress Yeastract as compared to Stress dataset.
+in the Stress combined with Yeastract dataset as compared to the Stress dataset alone.
 
 \begin{figure}[p]
 \centering
@@ -1070,26 +1070,26 @@ in Stress Yeastract as compared to Stress dataset.
 \label{fig:ccycle_yt_enrich}
 \end{figure}
 
-\subsubsection{Cell-Cycle vs Cell-Cycle and ChIP-chip}
-
-DNA metabolic process, translation, macromolecule biosynthetic process and biosynthetic process are found to be common to the Cell-Cycle dataset before and after combination with the 
-ChIP-chip dataset. After combination we see significant enrichment for response to stress, response to stimulus and regulation of transcription from polymerase II when compared 
+\subsubsection{Cell-Cycle vs Cell-Cycle and ChIP-chip} 
+While Figure-\ref{fig:ccycle_only_enrich} shows the GO term enrishments in the Cell-cycle dataset alone, Figure-\ref{fig:ccycle_chip_enrich} shows the enrichments 
+when the Cell-cycle dataset is combined with the ChIP-chip dataset. DNA metabolic process, translation, macromolecule biosynthetic process and biosynthetic process 
+are found to be common to the Cell-Cycle dataset before and after combination with the 
+ChIP-chip dataset. After combination, we see significant enrichment for response to stress, response to stimulus and regulation of transcription from polymerase II when compared 
 to Cell-Cycle data set alone.
 
-\subsubsection{Cell-Cycle Vs Cell-Cycle and PPI}
-
-The DNA metabolic process, RNA processing, rRNA processing, the RNA metabolic process, macromolecule biosynthetic process, biosynthetic process and translation are 
+\subsubsection{Cell-Cycle Vs Cell-Cycle and PPI} 
+Figure-\ref{fig:ccycle_ppi_enrich} shows the GO term enrichments when Cell-cycle dataset is combined with the PPI dataset. The DNA metabolic process, RNA processing, rRNA processing, the RNA metabolic process, macromolecule biosynthetic process, biosynthetic process and translation are 
 some of the common enriched processes observed in both the data sets. Besides these, Cell-Cycle when combined with the PPI dataset also showed significant enrichment for 
 oxidoreuctase activity, response to stress, cell-cycle, chromosome organization and biogenesis and protein binding 
-when compared to the Cell Cycle data set alone. We observe that even though
-cell-cycle processes were not accentuated earlier, after combination with the PPI dataset, they shows up prominently. 
+when compared to the Cell-cycle dataset alone. We observe that even though cell-cycle processes were not accentuated earlier, after combination with the PPI dataset, 
+they shows up prominently. 
 
-\subsubsection{Cell-Cycle vs Cell-Cycle and Yeastract}
-
-The RNA binding, 35S primary transcription process, RNA processing, rRNA processing, RNA metabolic process, macromolecule biosynthetic process, 
-translation and biosynthetic process are the common significant enrichment sites observed in the Cell-Cycle dataset both before and after combination with the Yeastract dataset. 
-The Cell-Cycle dataset when combined with the Yeastract dataset also showed enrichment significantly for RNA modification, response to stimulus, mitotic cell cycle 
-and DNA metabolic process when compared to Cell Cycle data set alone. 
+\subsubsection{Cell-Cycle vs Cell-Cycle and Yeastract} 
+Figure-\ref{fig:ccycle_yt_enrich} shows the GO term enrichments when Cell-cycle dataset is combined with the Yeastract dataset. The RNA binding, 
+35S primary transcription process, RNA processing, rRNA processing, RNA metabolic process, macromolecule biosynthetic process, 
+translation and biosynthetic process are the common significant enrichment sites observed in the Cell-cycle dataset both before and after combination with the Yeastract dataset. 
+The Cell-cycle dataset when combined with the Yeastract dataset also showed enrichment significantly for RNA modification, response to stimulus, mitotic cell cycle 
+and DNA metabolic process when compared to the Cell-cycle dataset alone. 
 
 \begin{comment}
 \section{Results}

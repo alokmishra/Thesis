@@ -320,21 +320,21 @@ We want to recover a clustering as close to the ideal one based on observing som
 we are going to show that semi-supervised clustering indeed is able to leverage external information in the form of pairwise constraints in order to better the clustering results. 
 
 In order to do this, we take a toy dataset with non-linear patterns (points belonging to two classes are present in the form of two spirals) as seen in Figure-\ref{fig:spirals_original}. This dataset consists of two concentric clusters (300 points belonging to two classes) and was chosen because this is a specially 
-hard problem on which many most traditional clustering algorithms fail. It also shows the effectiveness of spectral clustering in finding non-linear clusters which is not possible with 
+hard problem on which most traditional clustering algorithms fail. It also shows the effectiveness of spectral clustering in finding non-linear clusters which is not possible with 
 traditional clustering algorithms. To represent the known facts or constraints, we extract some random constraints from it. Then to represent a noisy dataset, we skew the $\sigma$ with which pairwise similarities are computed from its optimum value to some random non-optimum value. After this, we study if the addition of progressively increasing quantities of the known relationships (constraints) improves the cluster quality of the noisy dataset.
 We have used five-fold validation to study the effectiveness of our algorithm. So, in every run of the experiment 80\% of the data acts as training data 
 while remaining 20\% is test data. The exact steps are detailed below 
 
 \begin{enumerate}
  \item Take the spirals dataset which has two classes visually represented as red and black points as seen in Figure-\ref{fig:spirals_original}. 
-We compute the optimal $\sigma$ with which to compute pairwise similarities by finding the least cumulative sum across all the clusters of sum of squared 
-distance of all points in a cluster from its cluster centre as shown in Equation:\ref{maxent:eqn:withinss}. With this optimal $\sigma$ we compute the similarity matrix. 
+We compute the optimal $\sigma$ with which to compute pairwise similarities by finding the least cumulative sum, across all the clusters, of sum of squared 
+distance of all points in a cluster from its cluster centre as shown in Equation-\ref{maxent:eqn:withinss}. With this optimal $\sigma$ we compute the similarity matrix. 
 We also generate a noisy version of it by changing the $\sigma$ to a random non-optimal value with which pairwise similarities are computed. 
 The results of clustering with optimal and non-optimal $\sigma$ values are shown in Figures-\ref{fig:spirals_original} and \ref{fig:spirals_no_constraints} respectively.
  \item From the original dataset, we generate all possible pairs between all the points in each of the two classes respectively. Out of all these pairs, according to 5-fold cross validation procedure, take 4 parts as the training set and the remaining one as the testing set.
  \item Draw \textit{5} pairs of constraints from the training set randomly.
  \item Apply these pairwise constraints to the non-optimal similarity matrix, i.e., set the pairwise similarity of these data points to 1. Cluster it using spectral clustering.
- \item Compute the similarity between the resulting cluster and the original clustering using modified Rand's index (discussed in Chapter-3).
+ \item Compute the similarity between the resulting clusters and the original clustering using modified Rand's index (discussed in Chapter-3).
  \item Repeat this process 10 times by randomly drawing constraints from the training set.
  \item Increase the number of constraints used in Step-3 by 5 and repeat the whole process till perfect clustering is obtained all the time.
  \item Repeat this process 5 times for 5-fold cross validation.
@@ -414,7 +414,7 @@ We see that the quality of clustering improves as the number of known constraint
 constraints ($50$), we are able to retrieve the original clustering.  
 
 In Figures-\ref{fig:spirals_cv_fold1} to \ref{fig:spirals_cv_fold5}, we see that in all the runs, clustering quality improves quickly as the number of known constraints are applied. 
-The cluster similarity (to the original cluster) improves quickly with reducing standard deviation as the number of constraints increase. The goal of 
+The cluster similarity (to the original clustering) improves quickly with reducing standard deviation as the number of constraints increase. The goal of 
 semi-supervised clustering is to use external knowledge in the form of known pairwise relations between variables 
 in order to improve the quality of clustering. We have shown that applying more constraints does indeed lead to better clustering.
 
@@ -494,7 +494,8 @@ The maximum value (best clustering) within this region is at $\sigma=0.005$. It 
 clustering also has a very low standard deviation.
 
 As seen in Figure-\ref{fig:stress_sigma_opt_dav}, the Davies-Bouldin's index, where lower values indicate better clustering, has its optimal region between 0.003 and 0.03. It has its minimum value (best clustering) at $\sigma=0.01$. However, the standard deviation is unacceptably high.
-Considering that the next best value is $\sigma=0.005$ and it also has low standard deviation as well as it is in agreement with the Dunn's index values we choose this as the optimal sigma value for this dataset for further computations.  
+Considering that the next best value is $\sigma=0.005$ and it also has low standard deviation as well as it is in agreement with the Dunn's index values we 
+choose this as the optimal sigma value for this dataset (Stress) for further computations.  
 
 \subsubsection{Cell-cycle dataset}
 
@@ -567,12 +568,14 @@ is outlined as follows:
 \item We used the full Stress and Cell-cycle datasets. The Stress dataset had 6361 genes while Cell-cycle dataset had 6353 genes including non-annotated open reading frames (NORFs). Since not much is known about the function of NORFs, we removed all the NORFs from the datasets. 
 That left us with 6251 genes in the Stress dataset and 6257 genes in the Cell-cycle dataset. They had 156 and 60 experiment counts respectively.
  
-\item We created ten perturbed datasets from both the Stress and Cell-cycle datasets after sub-sampling (drawing 90\% of the genes randomly).
+\item We created ten perturbed datasets from both the Stress and Cell-cycle datasets after sub-sampling (drawing 90\% of the genes randomly without replacement).
 
-\item In order to compute the similarity matrix from the Stress and Cell-cycle datasets, we need to find the most optimum sigma. In order to do this we compute the Dunn's index and Davies Bouldin's index for each of the datasets. The same sigma is used for all the perturbed datasets because sigma should not change significantly for a dataset because of perturbation.
+\item In order to compute the similarity matrix from the Stress and Cell-cycle datasets, we need to find the most optimum sigma. 
+In order to do this we compute the Dunn's index and Davies Bouldin's index for each of the datasets. The same sigma is used for all the perturbed datasets 
+because sigma should not change significantly for a dataset because of small perturbation.
 
-\item Once we have the sigma values, we cluster all the original and perturbed datasets and compute the Dunn's and Davies Bouldin's index for the resulting clusters. 
-Then we report the mean and standard deviation of the indices. 
+\item Once we have the optimum sigma values, we compute the similarity matrices for all the original and perturbed datasets and then cluster them using Spectral clustering. 
+Then we compute the Dunn's and Davies Bouldin's index for the resulting clusters. Finally, we report the mean and standard deviation of the indices. 
 \end{enumerate}
 
 \begin{table}[p]
@@ -638,16 +641,16 @@ This indicates that our results are not random and a small perturbation in data 
 \label{tab:stress_ccycle_perturb}
 \end{table}
 
-As we can see in the mean and standard deviation values in Table-\ref{tab:stress_ccycle_perturb}, the spectral clustering algorithm itself is quite stable with perturbations of 
+As we can see in the mean and standard deviation values in Table-\ref{tab:stress_ccycle_perturb}, the Spectral clustering algorithm itself is quite stable with perturbations of 
 data and resulting cluster qualities are not widely varying. We can see that the results of the Cell-cycle dataset have more variance in comparison to the Stress dataset. 
 This is seen in the results of both Dunn's and Davies Bouldin's indices.
 
 Next we did a similar analysis of our proposed semi-supervised spectral clustering algorithm to demonstrate that it too does not produce results randomly and is consistent across 
 sub-sampled datasets. In semi-supervised clustering, we are applying constraints in order to improve the quality 
-of clustering. In order to justify that our results are not accidental, we need to sub-sample the datasets as well as the constraints and then apply the sampled constraints. After this we need to compute the 
-variance of cluster stability. We created ten constraints datasets from each constraints dataset by sub-sampling (drawing 90\% of the genes randomly). Then we combined pairs of 
-perturbed micro-array and constraints datasets, cluster and then report the Dunn's and Davies Bouldin's clustering quality indices. We repeat this for all pairs. 
-To reiterate, this was to demonstrate that our results are not random and that they are statistically valid.
+of clustering. In order to justify that our results are not accidental, we need to sub-sample the microarray datasets as well as the constraints and then apply the 
+sub-sampled constraints. We created ten constraints datasets from each constraints dataset by sub-sampling (drawing 90\% of the genes randomly). Then we combined pairs of 
+perturbed micro-array and constraints datasets, clustered them using Spectral clustering and then reported the Dunn's and Davies Bouldin's clustering quality indices. 
+We repeat this for all pairs. To reiterate, this was to demonstrate that our results are not random and that they are statistically valid.
 
 \begin{table}[p]
 \centering
@@ -793,7 +796,7 @@ and standard deviation values of these individual results in Table-\ref{tab:mean
 
 We observe that the results of semi-supervised clustering are stable with perturbations in both the datasets. For the Stress dataset the variability in results is even lower than
  observed for the stress only dataset according to Dunn's index, but the Davies Bouldin's index displays higher variability. For the Cell-cycle dataset, the variability according to Dunn's
- index has fallen in all the instances of integration as compared to the cell-cycle only dataset. However, again Davies Bouldin's index is displaying higher variability.
+ index has fallen in all the instances of integration as compared to the Cell-cycle only dataset. However, again Davies Bouldin's index is displaying higher variability.
   
 Now that we are confident of clustering quality as well as the semi-supervised clustering results, 
 we analyse the biological significance of combinations. For this, we need to observe the results of combinations of original datasets 

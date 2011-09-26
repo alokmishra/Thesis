@@ -6,48 +6,42 @@
 \contentsline {subtable}{\numberline {(b)}{\ignorespaces {Comparison of clustering of individual stress datasets versus progressively mixed datasets}}}{32}
 \contentsline {subtable}{\numberline {(c)}{\ignorespaces {Comparison of cell-cycle and stress to mixed data clustering}}}{32}
 \contentsline {table}{\numberline {3.2}{\ignorespaces Cluster similarity among full (non scale-normalized) datasets}}{32}
-\contentsline {subtable}{\numberline {(a)}{\ignorespaces {Cluster variation among stress datasets}}}{33}
-\contentsline {subtable}{\numberline {(b)}{\ignorespaces {Comparison of clustering of individual stress datasets versus progressively mixed datasets}}}{33}
-\contentsline {subtable}{\numberline {(c)}{\ignorespaces {Comparison of cell-cycle and stress to mixed data clustering}}}{33}
-\contentsline {table}{\numberline {3.3}{\ignorespaces Cluster similarity among filtered (non scale-normalized) datasets}}{33}
-\contentsline {subtable}{\numberline {(a)}{\ignorespaces {Cluster variation among stress datasets}}}{34}
-\contentsline {subtable}{\numberline {(b)}{\ignorespaces {Comparison of clustering of individual stress datasets versus progressively mixed datasets}}}{34}
-\contentsline {subtable}{\numberline {(c)}{\ignorespaces {Comparison of cell-cycle and stress to mixed data clustering}}}{34}
-\contentsline {table}{\numberline {3.4}{\ignorespaces Cluster similarity among full (scale-normalized) datasets}}{34}
-\contentsline {subtable}{\numberline {(a)}{\ignorespaces {KL Divergence among stress datasets}}}{37}
-\contentsline {subtable}{\numberline {(b)}{\ignorespaces {KL Divergence among individual stress datasets versus progressively mixed datasets}}}{37}
-\contentsline {subtable}{\numberline {(c)}{\ignorespaces {KL Divergence among cell-cycle, stress and mixed datasets}}}{37}
-\contentsline {table}{\numberline {3.5}{\ignorespaces KL Divergence among full (non scale-normalized) datasets}}{37}
-\contentsline {subtable}{\numberline {(a)}{\ignorespaces {KL Divergence among stress datasets}}}{38}
-\contentsline {subtable}{\numberline {(b)}{\ignorespaces {KL Divergence among individual stress datasets versus progressively mixed datasets}}}{38}
-\contentsline {subtable}{\numberline {(c)}{\ignorespaces {KL Divergence among cell-cycle, stress and mixed datasets}}}{38}
-\contentsline {table}{\numberline {3.6}{\ignorespaces KL Divergence among filtered (non scale-normalized) datasets}}{38}
-\contentsline {subtable}{\numberline {(a)}{\ignorespaces {KL Divergence among stress datasets}}}{39}
-\contentsline {subtable}{\numberline {(b)}{\ignorespaces {KL Divergence among individual stress datasets versus progressively mixed datasets}}}{39}
-\contentsline {subtable}{\numberline {(c)}{\ignorespaces {KL Divergence among cell-cycle, stress and mixed datasets}}}{39}
-\contentsline {table}{\numberline {3.7}{\ignorespaces KL Divergence among full (scale-normalized) datasets}}{39}
-\contentsline {table}{\numberline {3.8}{\ignorespaces Pearson's Correlation betwen KL divergence and Cluster similarity}}{41}
+\contentsline {subtable}{\numberline {(a)}{\ignorespaces {Cluster variation among stress datasets}}}{32}
+\contentsline {subtable}{\numberline {(b)}{\ignorespaces {Comparison of clustering of individual stress datasets versus progressively mixed datasets}}}{32}
+\contentsline {subtable}{\numberline {(c)}{\ignorespaces {Comparison of cell-cycle and stress to mixed data clustering}}}{32}
+\contentsline {table}{\numberline {3.3}{\ignorespaces Cluster similarity among filtered (non scale-normalized) datasets}}{32}
+\contentsline {subtable}{\numberline {(a)}{\ignorespaces {Cluster variation among stress datasets}}}{32}
+\contentsline {subtable}{\numberline {(b)}{\ignorespaces {Comparison of clustering of individual stress datasets versus progressively mixed datasets}}}{32}
+\contentsline {subtable}{\numberline {(c)}{\ignorespaces {Comparison of cell-cycle and stress to mixed data clustering}}}{32}
+\contentsline {table}{\numberline {3.4}{\ignorespaces Cluster similarity among full (scale-normalized) datasets}}{32}
+\contentsline {subtable}{\numberline {(a)}{\ignorespaces {KL Divergence among stress datasets}}}{35}
+\contentsline {subtable}{\numberline {(b)}{\ignorespaces {KL Divergence among individual stress datasets versus progressively mixed datasets}}}{35}
+\contentsline {subtable}{\numberline {(c)}{\ignorespaces {KL Divergence among cell-cycle, stress and mixed datasets}}}{35}
+\contentsline {table}{\numberline {3.5}{\ignorespaces KL Divergence among full (non scale-normalized) datasets}}{35}
+\contentsline {subtable}{\numberline {(a)}{\ignorespaces {KL Divergence among stress datasets}}}{35}
+\contentsline {subtable}{\numberline {(b)}{\ignorespaces {KL Divergence among individual stress datasets versus progressively mixed datasets}}}{35}
+\contentsline {subtable}{\numberline {(c)}{\ignorespaces {KL Divergence among cell-cycle, stress and mixed datasets}}}{35}
+\contentsline {table}{\numberline {3.6}{\ignorespaces KL Divergence among filtered (non scale-normalized) datasets}}{35}
+\contentsline {subtable}{\numberline {(a)}{\ignorespaces {KL Divergence among stress datasets}}}{35}
+\contentsline {subtable}{\numberline {(b)}{\ignorespaces {KL Divergence among individual stress datasets versus progressively mixed datasets}}}{35}
+\contentsline {subtable}{\numberline {(c)}{\ignorespaces {KL Divergence among cell-cycle, stress and mixed datasets}}}{35}
+\contentsline {table}{\numberline {3.7}{\ignorespaces KL Divergence among full (scale-normalized) datasets}}{35}
+\contentsline {table}{\numberline {3.8}{\ignorespaces Pearson's Correlation betwen KL divergence and Cluster similarity}}{37}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Number of constraints from DNA-binding dataset at various p-value thresholds}}{58}
-\contentsline {table}{\numberline {4.2}{\ignorespaces Number of constraints derived from PPI and Yeastract datasets}}{60}
-\contentsline {table}{\numberline {4.3}{\ignorespaces Dunn's and Davies Bouldin's values for pertubed Stress dataset. Indicates that algorithm itself results in consistent cluster quality.}}{73}
-\contentsline {table}{\numberline {4.4}{\ignorespaces Dunn's and Davies Bouldin's values for pertubed Cell-Cycle dataset. Indicates that algorithm itself results in consistent cluster quality.}}{74}
-\contentsline {table}{\numberline {4.5}{\ignorespaces Summary of mean and variance of individual datasets. This shows that our results are not random and small pertubations in data doesn’t change the results.}}{74}
-\contentsline {table}{\numberline {4.6}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Stress and Chip-Chip datasets}}{76}
-\contentsline {table}{\numberline {4.7}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Stress and PPI datasets}}{76}
-\contentsline {table}{\numberline {4.8}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Cell-cycle and Chip-Chip datasets}}{77}
-\contentsline {table}{\numberline {4.9}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Cell-cycle and PPI datasets}}{77}
-\contentsline {table}{\numberline {4.10}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Cell-cycle and Yeastract datasets}}{78}
-\contentsline {table}{\numberline {4.11}{\ignorespaces Mean and variance of all combined datasets. This shows that the results of semi-supervised clustering are not random and small pertubations in data doesn’t change the results wildly.}}{78}
-\contentsline {table}{\numberline {4.12}{\ignorespaces Biological Significance before and after semi-supervised integration}}{78}
-\contentsline {table}{\numberline {4.13}{\ignorespaces A subset of GO term enrichment values for the stress microarray dataset}}{86}
-\contentsline {table}{\numberline {4.14}{\ignorespaces Stress microarray dataset: Comparison of mean p-values of enriched GO terms before and after supervision}}{91}
-\contentsline {table}{\numberline {4.15}{\ignorespaces Cell-cycle microarray dataset: Comparison of mean p-values of enriched GO terms before and after supervision}}{92}
+\contentsline {table}{\numberline {4.1}{\ignorespaces Number of constraints from DNA-binding dataset at various p-value thresholds}}{53}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Dunn's and Davies Bouldin's index values for perturbed Stress dataset. The data indicates that the algorithm results in consistent cluster quality.}}{68}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Dunn's and Davies Bouldin's index values for perturbed Cell-Cycle dataset. The data indicates that the algorithm results in consistent cluster quality.}}{69}
+\contentsline {table}{\numberline {4.4}{\ignorespaces Summary of mean and variance of individual datasets. This shows that our results are not random and a small perturbation in data doesn't change the results.}}{69}
+\contentsline {table}{\numberline {4.5}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Stress and ChIP-chip datasets}}{71}
+\contentsline {table}{\numberline {4.6}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Stress and PPI datasets}}{71}
+\contentsline {table}{\numberline {4.7}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Cell-cycle and ChIP-chip datasets}}{72}
+\contentsline {table}{\numberline {4.8}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Cell-cycle and PPI datasets}}{72}
+\contentsline {table}{\numberline {4.9}{\ignorespaces Dunn's and Davies Bouldin's index values after combination of sub-sampled Cell-cycle and Yeastract datasets}}{73}
+\contentsline {table}{\numberline {4.10}{\ignorespaces Mean and variance of all combined datasets. This shows that the results of semi-supervised clustering are not random and small perturbations in data do not change the results wildly.}}{73}
+\contentsline {table}{\numberline {4.11}{\ignorespaces Biological Significance before and after semi-supervised integration}}{77}
+\contentsline {table}{\numberline {4.12}{\ignorespaces A subset of GO term enrichment values for the stress microarray dataset}}{79}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Parameter values among pairs of datasets after optimization}}{115}
-\contentsline {table}{\numberline {5.2}{\ignorespaces Stress microarray dataset: Comparison of mean p-values of enriched GO terms before and after maximum entropy data integration}}{118}
-\contentsline {table}{\numberline {5.3}{\ignorespaces Cell-cycle microarray dataset: Comparison of mean p-values of enriched GO terms before and after maximum entropy data integration}}{119}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Number of genes considered for individual dataset pairs}}{109}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Stress microarray dataset: Comparison of Biological significance index before and after maximum entropy data integration}}{113}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Cell-cycle microarray dataset: Comparison of Biological significance index before and after maximum entropy data integration}}{113}
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{Stress microarray dataset: P-Values of enriched GO terms after supervision from ChIP-chip data}}{153}
-\contentsline {table}{\numberline {A.2}{P-Values of enriched GO terms after maximum entropy integration of stress microarray dataset and PPI dataset}}{157}

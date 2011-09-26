@@ -6,60 +6,75 @@
 \contentsline {figure}{\numberline {1.5}{\ignorespaces Protein-protein interactions in yeast}}{8}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Full (non scale-normalized) data: Variation of cluster similarity with data homogeneity}}{43}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Filtered (non scale-normalized) data: Variation of cluster similarity with data homogeneity}}{44}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Full (scale normalized data): Variation of cluster similarity with data homogeneity}}{45}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Full (non scale-normalized) data: Variation of cluster similarity with data homogeneity}}{39}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Filtered (non scale-normalized) data: Variation of cluster similarity with data homogeneity}}{39}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Full (scale normalized data): Variation of cluster similarity with data homogeneity}}{39}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Constraints derived from DNA-binding dataset at various p-value cutoffs}}{59}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Constraints at p=0.0001}}}{59}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Constraints at p=0.001}}}{59}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Semi-supervised spectral clustering}}{63}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Visual indication of Spirals dataset clustering quality improvement with increasing number of known constraints}}{65}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Original dataset clustering}}}{65}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Noisy dataset clustering without any constraints}}}{65}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Noisy dataset clustering with 5 constraints}}}{65}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Noisy dataset clustering with 10 constraints}}}{65}
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Noisy dataset clustering with 15 constraints}}}{65}
-\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {Noisy dataset clustering with 20 constraints}}}{65}
-\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {Noisy dataset clustering with 25 constraints}}}{65}
-\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {Noisy dataset clustering with 50 constraints}}}{65}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Spirals dataset clustering quality improvement with increasing number of known constraints}}{66}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Cross Validation Run-1}}}{66}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Cross Validation Run-2}}}{66}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Cross Validation Run-3}}}{66}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Cross Validation Run-4}}}{66}
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Cross Validation Run-5}}}{66}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Stress dataset: Sigma optimization using Dunn's Index}}{70}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Stress dataset: Sigma optimization using Davies Bouldin's Index}}{70}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Cell-cycle dataset: Sigma optimization using Dunn's Index}}{71}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Cell-cycle dataset: Sigma optimization using Davies Bouldin's Index}}{72}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces }}{79}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{79}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{79}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces }}{80}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{80}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{80}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces }}{81}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Constraints derived from DNA-binding dataset at various p-value cutoffs}}{54}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Constraints at p=0.0001}}}{54}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Constraints at p=0.001}}}{54}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Semi-supervised spectral clustering}}{57}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Visual indication of Spirals dataset clustering quality improvement with increasing number of known constraints}}{60}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Original dataset clustering}}}{60}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Noisy dataset clustering without any constraints}}}{60}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Noisy dataset clustering with 5 constraints}}}{60}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Noisy dataset clustering with 10 constraints}}}{60}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Noisy dataset clustering with 15 constraints}}}{60}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {Noisy dataset clustering with 20 constraints}}}{60}
+\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {Noisy dataset clustering with 25 constraints}}}{60}
+\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {Noisy dataset clustering with 50 constraints}}}{60}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Various runs showing clustering quality improvement with increasing number of known constraints}}{61}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Run-1}}}{61}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Run-2}}}{61}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Run-3}}}{61}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Run-4}}}{61}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Run-5}}}{61}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Stress dataset: Sigma optimization using Dunn's Index}}{65}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Stress dataset: Sigma optimization using Davies Bouldin's Index}}{65}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Cell-cycle dataset: Sigma optimization using Dunn's Index}}{67}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Cell-cycle dataset: Sigma optimization using Davies Bouldin's Index}}{67}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Sections of the image showing significant enrichment in Stress only dataset. }}{81}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{81}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{81}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces }}{82}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Sections of the image showing significant enrichment in Stress dataset combined with knowledge from ChIP-chip dataset. }}{82}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{82}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces }}{83}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{82}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Sections of the image showing significant enrichment in Stress dataset combined with knowledge from PPI dataset. }}{83}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{83}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{83}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces }}{84}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Sections of the image showing significant enrichment in Stress dataset combined with knowledge from Yeastract dataset. }}{84}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{84}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{84}
-\contentsline {figure}{\numberline {4.15}{\ignorespaces }}{85}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{85}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Sections of the image showing significant enrichment in Cell-cycle dataset. }}{86}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{86}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Sections of the image showing significant enrichment in Cell-cycle dataset combined with knowledge from PPI dataset. }}{87}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{87}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{87}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Sections of the image showing significant enrichment in Cell-cycle dataset combined with knowledge from ChIP-chip dataset. }}{88}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{88}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{88}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Sections of the image showing significant enrichment in Cell-cycle dataset combined with Yeastract dataset. }}{89}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{89}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces PPI, Chip-chip and Yeastract datasets: Beta optimization}}{116}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Microarray $\beta $ optimization using total within-cluster sum of square distances}}}{116}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Microarray $\beta $ optimization using total within-cluster sum of square distances}}}{116}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {PPI $\beta $ optimization using total within-cluster sum of square distances}}}{116}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces }}{117}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces ChIP-chip, PPI and Yeastract datasets: Beta optimization}}{111}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {ChIP-chip $\beta $ optimization using total within-cluster sum of square distances}}}{111}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {PPI $\beta $ optimization using total within-cluster sum of square distances}}}{111}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Yeastract $\beta $ optimization using total within-cluster sum of square distances}}}{111}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Sections of the image showing significant enrichment in Stress dataset combined with ChIP-chip dataset.}}{115}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{115}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{115}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Sections of the image showing significant enrichment in Stress dataset combined with PPI dataset.}}{116}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{116}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{116}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Sections of the image showing significant enrichment in Stress dataset combined with Yeastract dataset.}}{117}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{117}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{117}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Comparison of biological significance before and after maximum entropy integration of stress microarray and PPI datasets}}{120}
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Sections of the image showing significant enrichment in Cell-cycle dataset combined with ChIP-chip dataset.}}{119}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{119}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Sections of the image showing significant enrichment in Cell-cycle dataset combined with PPI dataset.}}{120}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{120}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{120}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Sections of the image showing significant enrichment in Cell-cycle dataset combined with Yeastract dataset.}}{121}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Section of the image showing significant enrichment}}}{121}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Section of the image showing significant enrichment}}}{121}
 \addvspace {10\p@ }

@@ -266,7 +266,7 @@ PPI dataset (from MIPS Comprehensive Yeast Genome Database (CYGD)) \citep{Guelde
 
 While in the previous chapter, we used a full set of genes from the microarray datasets and applied available constraints on them, in this chapter we are unable to use 
 the full set of genes. This is because now we are combining two matrices which must be similar in size. Therefore, We first pre-process and find common genes between 
-pairs of datasets that are being combined. In the previous chapter, after removing the NORFs, the stress dataset had 6251 genes and cell-cycle dataset had 6257 genes. 
+pairs of datasets that are being combined. In the previous chapter, after removing the NORFs, the Stress dataset had 6251 genes and Cell-cycle dataset had 6257 genes. 
 They had 156 and 60 experiment counts respectively. The counts get changed after finding common sets of genes among dataset pairs. The final number of common genes when pairing 
 microarray datasets with ChIP-chip, PPI and Yeastract datasets are shown in Table-\ref{tab:datasetpair_commongenes}.  
  
@@ -385,26 +385,26 @@ Table-\ref{tab:stress:maxent_biol_index}. We have reported percentage gains in i
 integration for each pair of datasets being integrated. In order to compare our 
 results with the semi-supervised technique, we also reran the semi-supervised experiments on the filtered (common) gene sets. For each pair of dataset, the first one is referred 
 to as A and the second as B. For example, in the first full row of Table-\ref{tab:stress:maxent_biol_index}, 
-stress dataset is referred to as A, while the ChIP-chip dataset is called B. 
+Stress dataset is referred to as A, while the ChIP-chip dataset is called B. 
 
 The results in Table-\ref{tab:stress:maxent_biol_index} clearly indicate that both our data integration techniques 
 help improve the quality of the resulting clustering biologically. Both datasets A and B have improved the 
 biological significance after integration except in one scenario where the ChIP-chip is integrated with the Stress dataset. MaxEnt 
-integration has resulted in improvements for the stress datasets with every other dataset except for the 
+integration has resulted in improvements for the Stress datasets with every other dataset except for the 
 ChIP-chip dataset. We also observe that the MaxEnt technique has outperformed 
 the semi-supervised one except the ChIP-chip dataset combination where the semi-supervised technique shows a 
-small improvement. Also, more than the stress datasets, the improvement in the B datasets i.e. the ChIP-chip, PPI and Yeastract datasets, when combined, is better. 
+small improvement. Also, more than the Stress datasets, the improvement in the B datasets i.e. the ChIP-chip, PPI and Yeastract datasets, when combined, is better. 
 
-For the cell-cycle dataset, as shown in Table-\ref{tab:ccycle:maxent_biol_index}, the results are somewhat different. Here, too both the datasets, A and B, have improved biological 
+For the Cell-cycle dataset, as shown in Table-\ref{tab:ccycle:maxent_biol_index}, the results are somewhat different. Here, too both the datasets, A and B, have improved biological 
 significance after integration. The MaxEnt technique has resulted in improved biological significance
-after combination in all the cases. However, the results for MaxEnt are not better than the semi-supervised one. 
-While for the Stress dataset, the ChIP-chip dataset had performed 
-better than the MaxEnt one, for the Cell-cycle dataset, it's the opposite. MaxEnt is better than the semi-supervised one for the ChIP-chip dataset combination. 
+after combination in all the cases. However, the results for MaxEnt are not always better than the semi-supervised one. 
+While for the Stress dataset,  the Semi-supervised integration with ChIP-chip dataset had performed 
+better than the MaxEnt one, for the Cell-cycle dataset, it's the opposite. MaxEnt is better than the Semi-supervised one for the ChIP-chip dataset combination. 
 For PPI and Yeastract combinations, the semi-supervised is better.
  
 As we discussed earlier this technique merges two datasets by taking their dominant eigenvectors. The PPI and Yeastract 
 are both curated datasets. Most of the curated datasets are taken from experiments that are conducted in non-stress environments to study the regular activities of genes. 
-Therefore, they are more similar to the cell-cycle dataset. Because of this similarity, the cell-cycle dataset has not gained much from the others. 
+Therefore, they are more similar to the Cell-cycle dataset. Because of this similarity, the Cell-cycle dataset has not gained much from the others. 
 In the case of Stress, they were very dissimilar and hence both gained information from each other which led to improvement in their scores.    
 
 \subsection{Qualitative Biological Significance (using Gene Ontology annotations)} \label{maxent_biosig_go}

@@ -487,7 +487,7 @@ We also repeated the k-means algorithm twenty five times, each run being initial
  \label{fig:stress_sigma_opt_dav}
 \end{figure}
 
-The results for the Dunn's index based sigma optimisation for the stress dataset is shown in Figure-\ref{fig:stress_sigma_opt_dunn} which shows the mean values along with standard deviation error bars. 
+The results for the Dunn's index based sigma optimisation for the Stress dataset is shown in Figure-\ref{fig:stress_sigma_opt_dunn} which shows the mean values along with standard deviation error bars. 
 The x-axis uses a log-scale because of the spread of the data.  For Dunn's index, where higher values are better, the plot has the optimal region between 0.003 and 0.005 where the 
 standard deviations are low.
 The maximum value (best clustering) within this region is at $\sigma=0.005$. It is worthwhile to note that the best quality 
@@ -512,7 +512,7 @@ Considering that the next best value is $\sigma=0.005$ and it also has low stand
  \label{fig:ccycle_sigma_opt_dav}
 \end{figure}
 
-The result for Dunn's index based optimisation for the cell-cycle dataset is shown in Figure-\ref{fig:ccycle_sigma_opt_dunn} which shows the mean values along with standard deviation error bars. 
+The result for Dunn's index based optimisation for the Cell-cycle dataset is shown in Figure-\ref{fig:ccycle_sigma_opt_dunn} which shows the mean values along with standard deviation error bars. 
 The x-axis uses a log-scale because of the spread of the data.  Dunn's index has its maximum value (best clustering) at $\sigma=0.03$ and has a very low standard deviation there. 
 
 As seen in Figure-\ref{fig:ccycle_sigma_opt_dav}, the Davies-Bouldin's index has its minimum value (best clustering) at $\sigma=0.05$ and the optimal region between 0.01 to 0.7. However, the standard deviation there is higher in comparison to at $\sigma=0.03$. 
@@ -548,7 +548,7 @@ PTF(\textbf{g}) &=& \mbox{set of TFs that are known to bind to gene \textbf{g}}
 
 Using this (BSS) score, we were able to show that the algorithm can \textit{successfully use the information present in the DNA-binding data}. The original authors of the DNA-binding dataset \citep{harbison04transcriptional} have reported that they found the p-value of 0.001 to be the one which best represented known TF-DNA interactions. It maximizes inclusion of legitimate TFs and minimizes false positives. Lower values were too strict and higher values found many false positives. We were able to show a similar trend with our score (BSS) when different p-value cut-offs were used for selecting the constraints from the DNA-binding data. As discussed earlier in Section-\ref{chap2:sec:materials}, p-values are used as cutoffs in order to get our constraints. As a baseline, we also calculated the value when no constraints are applied (p-value=$10^{-6}$). 
 
-From our results in Figure-\ref{fig:bss_constraints} for the stress dataset, we can see that with the addition of more constraints the cluster quality score improves till the p-value matches 0.0005 (which is very near the optimal p-value cut-off of 0.001 suggested by the original authors for best quality results for known TF-DNA interactions) and then gradually falls with increasing p-value after the peak. This signifies that when the number is larger than the optimum then the constraints represent noise and not-meaningful TF-gene interaction, and hence the clustering of microarray data is confused and the results get worse. From this result, we can conclude that the algorithm can meaningfully utilise the constraints. 
+From our results in Figure-\ref{fig:bss_constraints} for the Stress dataset, we can see that with the addition of more constraints the cluster quality score improves till the p-value matches 0.0005 (which is very near the optimal p-value cut-off of 0.001 suggested by the original authors for best quality results for known TF-DNA interactions) and then gradually falls with increasing p-value after the peak. This signifies that when the number is larger than the optimum then the constraints represent noise and not-meaningful TF-gene interaction, and hence the clustering of microarray data is confused and the results get worse. From this result, we can conclude that the algorithm can meaningfully utilise the constraints. 
 
 Now that we have seen that the algorithm really works and has been validated using an external index, we move on to study the biological significance of data integration. We would like to study if the resulting clusters are biologically any better or not when DNA-binding dataset constraints are used to guide the microarray data.
 \end{comment}
@@ -564,12 +564,12 @@ is outlined as follows:
 
 \begin{enumerate}
   
-\item We used the full stress and cell-cycle data-sets. The stress dataset had 6361 genes while cell-cycle dataset had 6353 genes including non-annotated open reading frames (NORFs). Since not much is known about the function of NORFs, we removed all the NORFs from the data-sets. 
+\item We used the full stress and cell-cycle data-sets. The Stress dataset had 6361 genes while Cell-cycle dataset had 6353 genes including non-annotated open reading frames (NORFs). Since not much is known about the function of NORFs, we removed all the NORFs from the data-sets. 
 That left us with 6251 genes in the stress data-set and 6257 genes in the cell-cycle data-sets. They had 156 and 60 experiment counts respectively.
  
-\item We created ten perturbed data-sets from both the stress and cell-cycle datasets after sub-sampling (drawing 90\% of the genes randomly).
+\item We created ten perturbed data-sets from both the stress and Cell-cycle datasets after sub-sampling (drawing 90\% of the genes randomly).
 
-\item In order to compute the similarity matrix from the stress and cell-cycle datasets, we need to find the most optimum sigma. In order to do this we compute the Dunn's index and Davies Bouldin's index for each of the datasets. The same sigma is used for all the perturbed datasets because sigma should not change significantly for a data-set because of perturbation.
+\item In order to compute the similarity matrix from the stress and Cell-cycle datasets, we need to find the most optimum sigma. In order to do this we compute the Dunn's index and Davies Bouldin's index for each of the datasets. The same sigma is used for all the perturbed datasets because sigma should not change significantly for a data-set because of perturbation.
 
 \item Once we have the sigma values, we cluster all the original and perturbed datasets and compute the Dunn's and Davies Bouldin's index for the resulting clusters. 
 Then we report the mean and standard deviation of the indices. 
@@ -639,7 +639,7 @@ This indicates that our results are not random and a small perturbation in data 
 \end{table}
 
 As we can see in the mean and standard deviation values in Table-\ref{tab:stress_ccycle_perturb}, the spectral clustering algorithm itself is quite stable with perturbations of 
-data and resulting cluster qualities are not widely varying. We can see that the results of the cell cycle dataset have more variance in comparison to the stress dataset. 
+data and resulting cluster qualities are not widely varying. We can see that the results of the Cell-cycle dataset have more variance in comparison to the Stress dataset. 
 This is seen in the results of both Dunn's and Davies Bouldin's indices.
 
 Next we did a similar analysis of our proposed semi-supervised spectral clustering algorithm to demonstrate that it too does not produce results randomly and is consistent across 
@@ -791,8 +791,8 @@ semi-supervised clustering are not random and small perturbations in data do not
 Tables-\ref{tab:stress_chip_perturbed} to \ref{tab:ccycle_yt_perturbed} show the cluster quality results of individual combinations of datasets. We have compiled the mean 
 and standard deviation values of these individual results in Table-\ref{tab:mean_stdev_combined_perturbed}. 
 
-We observe that the results of semi-supervised clustering are stable with perturbations in both the datasets. For the stress dataset the variability in results is even lower than
- observed for the stress only dataset according to Dunn's index, but the Davies Bouldin's index displays higher variability. For the cell-cycle dataset, the variability according to Dunn's
+We observe that the results of semi-supervised clustering are stable with perturbations in both the datasets. For the Stress dataset the variability in results is even lower than
+ observed for the stress only dataset according to Dunn's index, but the Davies Bouldin's index displays higher variability. For the Cell-cycle dataset, the variability according to Dunn's
  index has fallen in all the instances of integration as compared to the cell-cycle only dataset. However, again Davies Bouldin's index is displaying higher variability.
   
 Now that we are confident of clustering quality as well as the semi-supervised clustering results, 
@@ -889,22 +889,21 @@ when combined with ChIP-chip dataset, it leads to diminished Biological signific
 \label{tab:biol_significance}
 \end{table}
 
-We started with the full set of stress and cell-cycle datasets as discussed earlier. The reason we had chosen stress and cell-cycle datasets is because they represent two ends of the spectrum \citep{amos05integrative}. 
+We started with the full set of stress and Cell-cycle datasets as discussed earlier. The reason we had chosen stress and Cell-cycle datasets is because they represent two ends of the spectrum \citep{amos05integrative}. 
 For the ChIP-chip, PPI and Yeastract datasets, we took all the interactions that were between the common set of genes between the microarray and the interactions datasets. 
 The biological significance index values before and after semi-supervised clustering are in Table-\ref{tab:biol_significance}. 
 
-The different initial biological significance values for stress and cell-cycle datasets (89.2 and 52.2 respectively) are because of the nature of the data. Stress on the organism 
+The different initial biological significance values for stress and Cell-cycle datasets (89.2 and 52.2 respectively) are because of the nature of the data. Stress on the organism 
 leads to extremely high levels of activity 
 in the expression levels and many more genes are coordinating together which leads to higher significance values. Cell-cycle on the other hand is a routine activity and the 
 expression patterns of genes do not change so extremely leading to smaller significance values.
 
-We observe that the stress dataset when combined with ChIP-chip constraints leads to slightly worse biological significance (-2.8\%) after the combination. 
-On the other hand, combination with PPI and Yeastract constraints lead to better significance values (6.72\% and 4.48\% respectively). For 
-the cell-cycle dataset too, combination with ChIP-chip dataset leads to reduced biological significance (-14.17\%). When combined with both PPI and Yeastract constraints the biological significance 
+We observe that the Stress dataset when combined with ChIP-chip constraints leads to slightly worse biological significance (-2.8\%) after the combination. On the other hand, combination with PPI and Yeastract constraints lead to better significance values (6.72\% and 4.48\% respectively). For 
+the Cell-cycle dataset too, combination with ChIP-chip dataset leads to reduced biological significance (-14.17\%). When combined with both PPI and Yeastract constraints the biological significance 
 has gone up. Based on the results we could say that the ChIP-chip dataset is probably the noisiest and does not bring much new information leading to reduced significance for the original datasets. 
 One of the reasons for this is that integration could be meaningful if each of the datasets complement the other. If there are 
 a lot of conflicting information in each of the datasets then the resulting matrix will have a lot of noise and this will be reflected in the final clusters. We know that ChIP-chip and PPI are uncurated datasets i.e. the information there is derived from experiments which always has the possibility of inducing noise. On the other hand Yeastract 
-dataset is a manually curated dataset. That is the reason we see a high improvement when combined with it for both stress and cell-cycle datasets. 
+dataset is a manually curated dataset. That is the reason we see a high improvement when combined with it for both stress and Cell-cycle datasets. 
   
 The goal of integration is to have more biologically relevant clusters from which hypotheses could be derived to be carried out and validated in wet labs. All our result data is available upon request. 
 

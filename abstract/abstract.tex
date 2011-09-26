@@ -8,9 +8,13 @@ Genomic data relating to the functioning of individual genes and their products 
 
 Since microarray data is not available in quantities that are required for valid inference, many researchers have taken the blind integrative approach where data from diverse microarray experiments are merged. In order to understand the validity of this approach, we start this thesis with studying the heterogeneity of microarray datasets. We have used KL divergence between individual dataset distributions as well as an empirical technique proposed by us to calculate functional similarity between the datasets. Our results indicate that we should not use a blind integration of datasets and much care should be taken to ensure that we mix only similar types of data. We should also be careful about the choice of normalization method. 
 
-Next, we propose a semi-supervised spectral clustering method which integrates two diverse types of data for the task of gene regulatory module discovery. The technique uses constraints derived from DNA-binding, PPI and TF-gene interactions datasets to guide the clustering (spectral) of microarray experiments. Our results on yeast stress and cell-cycle microarray data indicate that the integration is biologically meaningful. 
+Next, we propose a semi-supervised spectral clustering method which integrates two diverse types of data for the task of gene regulatory module discovery. 
+The technique uses constraints derived from DNA-binding, PPI and TF-gene interactions datasets to guide the clustering (spectral) of microarray experiments. Our results on yeast 
+stress and cell-cycle microarray data indicate that the integration leads to more biologically significant results. 
 
-Finally, we propose a technique that integrates datasets under the principle of maximum entropy. We argue that this is the most valid approach in an unsupervised setting where we have no other evidence regarding the weights to be assigned to individual datasets. Our experiments with yeast microarray, PPI, DNA-binding and TF-gene interactions datasets show improved biological significance of results.
+Finally, we propose a technique that integrates datasets under the principle of maximum entropy. We argue that this is the most valid approach in an unsupervised 
+setting where we have no other evidence regarding the weights to be assigned to individual datasets. Our experiments with yeast microarray, PPI, DNA-binding 
+and TF-gene interactions datasets show improved biological significance of results.
 
 \end{abstract}
 

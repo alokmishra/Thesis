@@ -29,9 +29,9 @@
 %\usepackage{epstopdf}
 
 %% following 3 loaded in thesis.preamble
-%\usepackage{verbatim}
-%\usepackage{graphicx}
-%\usepackage{setspace}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{setspace}
 
 \makeatletter
 \def\MyBox{\pst@object{MyBox}}
@@ -97,8 +97,8 @@
 \chapter{Summary and Future Work}
 \input{conclusion/conclusion}
 
-\appendix
-\addappheadtotoc
+%\appendix
+%\addappheadtotoc
 %\addtocontents{toc}{\protect\contentsline{chapter}{Appendix:}{}}
 
 %\chapter{GO Term Enrichment after Integration} \label{appendix:go_enrichment_results}
@@ -109,8 +109,9 @@
 
 \aloklinespacing
 \addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{/home/alok/phd/post_viva/thesis/bioinfo} 
+%\bibliography{/homes/am2203/phd/bioinfo/bioinforeports/bioinfo}
 \addcontentsline{toc}{chapter}{Acronyms}
-\bibliography{/Users/alokm/Thesis/bioinfo} 
 \aloklinespacing
 \input{acronyms/acronyms}
 
